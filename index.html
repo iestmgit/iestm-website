@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | کمپانی ایستم</title>
+  <meta name="description" content="وب‌سایت رسمی کمپانی ایستم - توسعه نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی و پروژه‌های خلاقانه" />
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg2:#0d1b2a;
+      --card:rgba(255,255,255,0.08);
+      --line:rgba(255,255,255,0.14);
+      --text:#eef6ff;
+      --muted:#b8c7d9;
+      --gold:#f7c948;
+      --blue:#49b6ff;
+      --cyan:#4ce0d2;
+      --pink:#ff4fa3;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Tahoma","Vazirmatn","Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(73,182,255,.16), transparent 25%),
+        radial-gradient(circle at left center, rgba(255,79,163,.12), transparent 20%),
+        radial-gradient(circle at bottom, rgba(76,224,210,.12), transparent 25%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+      line-height:1.9;
+      overflow-x:hidden;
+    }
+
+    .noise::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.05;
+      background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+      z-index:0;
+    }
+
+    .container{
+      width:min(1180px, calc(100% - 32px));
+      margin:auto;
+      position:relative;
+      z-index:1;
+    }
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(7,17,31,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-inner{
+      width:min(1180px, calc(100% - 32px));
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      font-size:1.15rem;
+      letter-spacing:.5px;
+    }
+
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:linear-gradient(135deg,var(--gold),#fff0a8);
+      box-shadow:0 10px 30px rgba(247,201,72,.28);
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:.25s;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:70px 0 40px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .glass{
+      background:var(--card);
+      border:1px solid var(--line);
+      backdrop-filter:blur(18px);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{
+      padding:34px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:auto -80px -80px auto;
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(247,201,72,.18), transparent 65%);
+      border-radius:50%;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(247,201,72,.12);
+      color:#ffe07a;
+      border:1px solid rgba(247,201,72,.25);
+      font-size:.9rem;
+      margin-bottom:16px;
+    }
+
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(2rem,4vw,4.2rem);
+      line-height:1.2;
+    }
+
+    .gradient{
+      background:linear-gradient(90deg,#fff,var(--gold),var(--blue),var(--cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .lead{
+      color:var(--muted);
+      font-size:1.08rem;
+      margin-bottom:22px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .btn{
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+      padding:14px 20px;
+      border-radius:16px;
+      font-weight:800;
+      transition:.25s;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .btn-primary{
+      color:#07111f;
+      background:linear-gradient(135deg,var(--gold),#ffe48f);
+      box-shadow:0 10px 30px rgba(247,201,72,.25);
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{
+      color:var(--text);
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+    }
+
+    .hero-side{
+      padding:22px;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .stat{
+      padding:20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.09);
+    }
+
+    .stat h3{
+      margin:0;
+      font-size:2rem;
+      color:var(--gold);
+    }
+
+    .stat p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    section{
+      padding:36px 0 80px;
+    }
+
+    .section-title{
+      margin-bottom:24px;
+    }
+
+    .section-title h2{
+      margin:0 0 8px;
+      font-size:clamp(1.6rem,3vw,2.6rem);
+    }
+
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .panel{
+      padding:28px;
+    }
+
+    .panel h3{
+      margin-top:0;
+      color:var(--gold);
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .feature{
+      padding:24px;
+      border-radius:22px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      transition:.25s;
+    }
+
+    .feature:hover{
+      transform:translateY(-6px);
+      border-color:rgba(247,201,72,.4);
+    }
+
+    .icon{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      margin-bottom:14px;
+      background:linear-gradient(135deg, rgba(73,182,255,.25), rgba(247,201,72,.15));
+      border:1px solid rgba(255,255,255,.12);
+      font-size:1.4rem;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .product{
+      position:relative;
+      overflow:hidden;
+      padding:26px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.1);
+      box-shadow:var(--shadow);
+    }
+
+    .product::before{
+      content:"";
+      position:absolute;
+      top:-80px;
+      left:-80px;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(73,182,255,.18), transparent 70%);
+    }
+
+    .product h3{
+      margin-top:0;
+      margin-bottom:10px;
+      font-size:1.35rem;
+      color:#fff3c4;
+    }
+
+    .tag{
+      display:inline-block;
+      margin:6px 8px 0 0;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.09);
+      color:#dce9f7;
+      font-size:.88rem;
+    }
+
+    .timeline{
+      position:relative;
+      padding-right:24px;
+      border-right:2px dashed rgba(255,255,255,.16);
+      display:grid;
+      gap:18px;
+    }
+
+    .timeline-item{
+      position:relative;
+      padding:20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .timeline-item::before{
+      content:"";
+      position:absolute;
+      right:-34px;
+      top:24px;
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 0 6px rgba(247,201,72,.14);
+    }
+
+    .quote{
+      padding:32px;
+      text-align:center;
+      font-size:1.15rem;
+      color:#fff5cf;
+    }
+
+    footer{
+      padding:28px 0 50px;
+      color:var(--muted);
+    }
+
+    .footer-box{
+      padding:26px;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:20px;
+    }
+
+    ul.clean{
+      margin:0;
+      padding-right:18px;
+    }
+
+    .small{
+      font-size:.94rem;
+      color:var(--muted);
+    }
+
+    .highlight{
+      color:var(--gold);
+      font-weight:800;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.about,.footer-box,.features,.products{
+        grid-template-columns:1fr;
+      }
+      .hero{
+        min-height:auto;
+        padding-top:40px;
+      }
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .stat-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      h1{font-size:2rem}
+      .hero-card,.hero-side,.panel,.quote,.product,.feature,.timeline-item{padding:20px}
+      .stat-grid{grid-template-columns:1fr}
+      .nav-links{gap:6px}
+      .nav-links a{font-size:.86rem;padding:8px 10px}
+    }
+  </style>
+</head>
+<body class="noise">
+
+  <nav>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Logo_of_iestm_company.jpg?_=20260601080736" alt="IESTM Logo">
+        </div>
+        <div>
+          <div>کمپانی ایستم</div>
+          <div style="font-size:.8rem;color:var(--muted)">IESTM Official Website</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#home">خانه</a>
+        <a href="#founder">درباره من</a>
+        <a href="#company">درباره شرکت</a>
+        <a href="#products">محصولات</a>
+        <a href="#vision">چشم‌انداز</a>
+        <a href="#contact">ارتباط</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container" id="home">
+    <div class="hero-grid">
+      <div class="glass hero-card">
+        <div class="eyebrow">🚀 پلتفرم رسمی معرفی IESTM</div>
+        <h1>
+          من <span class="gradient">رادمهر اصغری</span> هستم،
+          سازنده و توسعه‌دهنده
+          <span class="gradient">کمپانی ایستم</span>
+        </h1>
+        <p class="lead">
+          ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی،
+          پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛
+          هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.
+        </p>
+        <p class="lead">
+          این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛
+          جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#products">مشاهده محصولات</a>
+          <a class="btn btn-secondary" href="#company">آشنایی با شرکت</a>
+        </div>
+      </div>
+
+      <div class="glass hero-side">
+        <div class="stat-grid">
+          <div class="stat">
+            <h3>HTML</h3>
+            <p>پایه اصلی رابط‌های وب و ساختار پروژه‌ها</p>
+          </div>
+          <div class="stat">
+            <h3>CSS</h3>
+            <p>طراحی حرفه‌ای، رابط کاربری و هویت بصری محصولات</p>
+          </div>
+          <div class="stat">
+            <h3>JS</h3>
+            <p>منطق برنامه‌ها، تعامل‌پذیری و قابلیت‌های پویا</p>
+          </div>
+          <div class="stat">
+            <h3>Python</h3>
+            <p>توسعه نرم‌افزارهای دسکتاپ ویندوزی و محیط‌های گرافیکی</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="container" id="founder">
+    <div class="section-title">
+      <h2>درباره من</h2>
+      <p>معرفی بنیان‌گذار، توسعه‌دهنده و مسیر فکری پشت IESTM</p>
+    </div>
+
+    <div class="about">
+      <div class="glass panel">
+        <h3>رادمهر اصغری کیست؟</h3>
+        <p>
+          من <span class="highlight">رادمهر اصغری</span>، برنامه‌نویس و بنیان‌گذار کمپانی ایستم هستم.
+          فعالیت من بر پایه طراحی و توسعه نرم‌افزارهای تحت وب، ابزارهای سبک و کاربردی،
+          نرم‌افزارهای دسکتاپ ویندوزی، بازی‌های مرورگرمحور و ایده‌های خلاقانه است.
+        </p>
+        <p>
+          چیزی که برای من اهمیت دارد فقط کدنویسی نیست؛ بلکه ساخت محصولی است که
+          هم از نظر فنی معنا داشته باشد و هم از نظر تجربه کاربری، حس متفاوتی ایجاد کند.
+          من به پروژه‌هایی علاقه دارم که ساده شروع می‌شوند اما ظرفیت رشد بالا دارند.
+        </p>
+        <p>
+          ایستم برای من فقط یک نام نیست؛
+          بلکه نماینده‌ی تلاش، یادگیری، ساختن، آزمایش‌کردن و تبدیل ایده به واقعیت است.
+        </p>
+      </div>
+
+      <div class="glass panel">
+        <h3>مسیر کاری و رویکرد من</h3>
+        <ul class="clean">
+          <li>تمرکز بر توسعه پروژه‌های تحت وب با HTML، CSS و JavaScript</li>
+          <li>ساخت ابزارهای سبک، سریع و قابل استفاده در مرورگر</li>
+          <li>توسعه نرم‌افزارهای دسکتاپ ویندوزی با Python و رابط گرافیکی</li>
+          <li>طراحی بازی‌های دوبعدی و سه‌بعدی مبتنی بر وب</li>
+          <li>آزمایش ایده‌های نو در حوزه محیط‌های دسکتاپ، ابزارهای هوشمند و تجربه‌های تعاملی</li>
+          <li>ایجاد بستر معرفی محصول، جذب استعداد و تعامل با کاربران</li>
+        </ul>
+        <p class="small">
+          من باور دارم که حتی با ابزارهای ساده و خلاقیت بالا، می‌توان محصولات متمایز و قابل‌توجه ساخت.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="company">
+    <div class="section-title">
+      <h2>درباره کمپانی ایستم</h2>
+      <p>هویت، هدف، زمینه فعالیت و فلسفه ساخت IESTM</p>
+    </div>
+
+    <div class="glass panel">
+      <p>
+        <span class="highlight">IESTM</span> یک مجموعه توسعه نرم‌افزار و ایده‌پردازی دیجیتال است
+        که با محوریت طراحی پروژه‌های وب‌محور، نرم‌افزارهای دسکتاپ، ابزارهای کاربردی، بازی‌ها و تجربه‌های تعاملی شکل گرفته است.
+        این مجموعه با رویکردی خلاق، مستقل و نوآورانه فعالیت می‌کند و تلاش دارد از طریق فناوری‌های وب و Python،
+        محصولاتی سریع، کاربردی، سبک و قابل توسعه ارائه دهد.
+      </p>
+      <p>
+        فعالیت ایستم تنها به ساخت یک برنامه یا یک بازی محدود نیست. این مجموعه در مسیر تبدیل‌شدن به یک برند دیجیتال
+        چندوجهی حرکت می‌کند؛ برندی که هم محصول می‌سازد، هم ایده تولید می‌کند، هم امکان همکاری و رشد استعدادها را فراهم می‌کند
+        و هم به صورت مستمر در حال توسعه دامنه پروژه‌های خود است.
+      </p>
+      <p>
+        ایستم در حال حاضر بر توسعه محصولاتی مانند دفترچه یادداشت، صلوات‌شمار، بازی‌های سه‌بعدی،
+        محیط دسکتاپ ویندوزی، ابزارهای گرافیکی، محتوای تبلیغاتی، استیکر، گیف و حتی مسیرهای آینده‌محور در حوزه هوش مصنوعی متمرکز است.
+      </p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="section-title">
+      <h2>ارزش‌ها و ویژگی‌های ایستم</h2>
+      <p>چرا IESTM فقط یک نام نیست و می‌تواند به یک هویت نرم‌افزاری واقعی تبدیل شود</p>
+    </div>
+
+    <div class="features">
+      <div class="feature glass">
+        <div class="icon">💡</div>
+        <h3>خلاقیت در ایده</h3>
+        <p>هر پروژه در ایستم از یک ایده ساده شروع می‌شود اما با نگاه خلاقانه به یک محصول متمایز تبدیل می‌شود.</p>
+      </div>
+      <div class="feature glass">
+        <div class="icon">⚙️</div>
+        <h3>توسعه نرم‌افزارمحور</h3>
+        <p>تمرکز اصلی بر ساخت نرم‌افزارهای کاربردی، سریع و قابل توسعه در بستر وب و دسکتاپ است.</p>
+      </div>
+      <div class="feature glass">
+        <div class="icon">🎮</div>
+        <h3>ترکیب کاربرد و سرگرمی</h3>
+        <p>ایستم هم ابزار کاربردی می‌سازد و هم پروژه‌های سرگرم‌کننده، تا مرز بین نرم‌افزار و تجربه را کم‌رنگ کند.</p>
+      </div>
+      <div class="feature glass">
+        <div class="icon">🚀</div>
+        <h3>نگاه رو به آینده</h3>
+        <p>از محیط دسکتاپ ویندوزی تا بازی‌های سه‌بعدی و ابزارهای هوشمند، مسیر ایستم آینده‌محور طراحی شده است.</p>
+      </div>
+      <div class="feature glass">
+        <div class="icon">🧠</div>
+        <h3>یادگیری و رشد مداوم</h3>
+        <p>هر محصول نه فقط یک خروجی، بلکه بخشی از فرایند یادگیری، توسعه مهارت و افزایش توان ساخت است.</p>
+      </div>
+      <div class="feature glass">
+        <div class="icon">🤝</div>
+        <h3>جذب استعداد و همکاری</h3>
+        <p>ایستم بستری برای دیده‌شدن افراد مستعد، همکاری در پروژه‌ها و ساختن خروجی‌های مشترک نیز هست.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="products">
+    <div class="section-title">
+      <h2>محصولات و پروژه‌های IESTM</h2>
+      <p>مهم‌ترین پروژه‌ها و محصولاتی که تاکنون معرفی یا توسعه داده شده‌اند</p>
+    </div>
+
+    <div class="products">
+
+      <article class="product">
+        <h3>IESTM OS؛ محیط دسکتاپ ویندوزی</h3>
+        <p>
+          این پروژه یکی از مهم‌ترین و خاص‌ترین ایده‌های معرفی‌شده توسط ایستم است؛
+          یک محیط دسکتاپ ویندوزی با الهام از تجربه‌های آشنا در لینوکس، ویندوز و اندروید.
+          هدف از این پروژه، ساخت محیطی یکپارچه، متفاوت و چندمنظوره است که بتواند تجربه‌ای خاص روی سیستم‌عامل ویندوز ایجاد کند.
+        </p>
+        <p>
+          این پروژه با زبان Python و با استفاده از فریم‌ورک‌های رابط گرافیکی مانند PyQt یا PySide توسعه داده می‌شود.
+          طبق معرفی منتشرشده، این محیط با طراحی متفاوت آیکون‌ها، قابلیت‌های گسترده و نگاه توسعه‌پذیر ساخته شده
+          و به‌عنوان یکی از پروژه‌های مهم آینده‌دار ایستم شناخته می‌شود.
+        </p>
+        <span class="tag">Python</span>
+        <span class="tag">PyQt / PySide</span>
+        <span class="tag">Windows Desktop</span>
+        <span class="tag">پروژه شاخص</span>
+      </article>
+
+      <article class="product">
+        <h3>IESTM Notebook 1.0</h3>
+        <p>
+          دفترچه یادداشت ایستم یک ابزار سبک، سریع و کاربردی برای ثبت ایده‌ها، یادداشت‌ها و کارهای روزانه است.
+          این محصول با هدف سادگی در استفاده طراحی شده و امکان ایجاد، ذخیره، مشاهده و ویرایش یادداشت‌ها را برای کاربر فراهم می‌کند.
+        </p>
+        <p>
+          این برنامه با استفاده از HTML، CSS و JavaScript توسعه یافته و داده‌ها را از طریق LocalStorage مرورگر نگهداری می‌کند.
+          طراحی ساده و عملکرد روان، آن را به یکی از نمونه‌های کاربردی پروژه‌های ایستم تبدیل کرده است.
+        </p>
+        <span class="tag">Notebook</span>
+        <span class="tag">LocalStorage</span>
+        <span class="tag">ابزار کاربردی</span>
+      </article>
+
+      <article class="product">
+        <h3>بازی سه‌بعدی IESTM Tik Tak To</h3>
+        <p>
+          این بازی نسخه‌ای سه‌بعدی از بازی کلاسیک دوز است که با استفاده از فناوری‌های وب و کتابخانه Three.js توسعه داده شده است.
+          پروژه با هدف ترکیب سرگرمی و تمرین برنامه‌نویسی ساخته شده و یکی از نمونه‌های جالب توجه ایستم در حوزه بازی‌های مرورگرمحور است.
+        </p>
+        <p>
+          این محصول نه‌تنها یک بازی ساده، بلکه نمایشی از توانایی ساخت محیط‌های سه‌بعدی، تعامل کاربر و اجرای تجربه‌های گرافیکی در مرورگر است.
+        </p>
+        <span class="tag">Three.js</span>
+        <span class="tag">3D Game</span>
+        <span class="tag">Browser Based</span>
+      </article>
+
+      <article class="product">
+        <h3>IESTM Salavat Shomar</h3>
+        <p>
+          صلوات‌شمار دیجیتال ایستم برای ثبت و مدیریت تعداد صلوات‌ها طراحی شده و بر سادگی، دقت و تجربه کاربری روان تمرکز دارد.
+          این برنامه نمونه‌ای از رویکرد ایستم در ساخت ابزارهای سبک و کاربردی است که بتوانند نیاز مشخصی را با طراحی تمیز برطرف کنند.
+        </p>
+        <span class="tag">Utility App</span>
+        <span class="tag">Simple UI</span>
+        <span class="tag">نسخه 1.0</span>
+      </article>
+
+      <article class="product">
+        <h3>بازی فوتبال سه‌بعدی</h3>
+        <p>
+          از دیگر پروژه‌های مهم ایستم، ساخت بازی فوتبال سه‌بعدی است که با HTML، CSS و JavaScript توسعه داده شده است.
+          این پروژه با بیش از هزار خط کد معرفی شده و به‌عنوان یک تجربه سرگرم‌کننده برای رایانه ارائه شده است.
+        </p>
+        <p>
+          این بازی نشان می‌دهد که ایستم صرفاً به ساخت ابزارهای ساده محدود نیست و توان ورود به توسعه بازی‌های تعاملی پیچیده‌تر را نیز دارد.
+        </p>
+        <span class="tag">Football</span>
+        <span class="tag">3D</span>
+        <span class="tag">Game Project</span>
+      </article>
+
+      <article class="product">
+        <h3>کانال طراحی استیکر و گیف اختصاصی</h3>
+        <p>
+          ایستم در کنار توسعه نرم‌افزار، در زمینه طراحی و ارائه گیف و استیکر اختصاصی نیز فعالیت داشته است.
+          این بخش نشان‌دهنده گستردگی نگاه برند ایستم است؛ نگاهی که فقط محدود به کدنویسی نیست،
+          بلکه تولید محتوای بصری و دیجیتال را نیز بخشی از هویت خود می‌داند.
+        </p>
+        <span class="tag">GIF</span>
+        <span class="tag">Sticker</span>
+        <span class="tag">Digital Content</span>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="container" id="vision">
+    <div class="section-title">
+      <h2>چشم‌انداز و مسیر آینده</h2>
+      <p>ایستم به کجا می‌رود و چه افقی را دنبال می‌کند</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item glass">
+        <h3>مرحله اول: ساخت هویت</h3>
+        <p>
+          ایجاد مجموعه‌ای از محصولات اولیه برای نشان‌دادن توان فنی، خلاقیت و سبک توسعه مستقل.
+        </p>
+      </div>
+      <div class="timeline-item glass">
+        <h3>مرحله دوم: توسعه محصول</h3>
+        <p>
+          گسترش پروژه‌ها از ابزارهای ساده به سامانه‌های پیچیده‌تر مانند محیط دسکتاپ ویندوزی، ابزارهای هوشمند و بازی‌های پیشرفته‌تر.
+        </p>
+      </div>
+      <div class="timeline-item glass">
+        <h3>مرحله سوم: جذب همکاری و جامعه‌سازی</h3>
+        <p>
+          ساخت فضای تعامل با کاربران، جذب استعدادهای برنامه‌نویسی و توسعه جمعی ایده‌ها در مقیاس گسترده‌تر.
+        </p>
+      </div>
+      <div class="timeline-item glass">
+        <h3>مرحله چهارم: تثبیت برند</h3>
+        <p>
+          تبدیل IESTM به یک برند شناخته‌شده در حوزه توسعه وب، نرم‌افزارهای کاربردی، بازی و پروژه‌های دیجیتال خلاقانه.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="glass quote">
+      «ایستم فقط یک پروژه نیست؛
+      یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»
+    </div>
+  </section>
+
+  <section class="container" id="contact">
+    <div class="section-title">
+      <h2>ارتباط و اطلاعات رسمی</h2>
+      <p>اطلاعات پایه برای معرفی، همکاری و پیگیری پروژه‌ها</p>
+    </div>
+
+    <div class="glass footer-box">
+      <div>
+        <h3 style="margin-top:0;color:var(--gold)">IESTM</h3>
+        <p>
+          کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو،
+          در مسیر تبدیل‌شدن به یک هویت نرم‌افزاری مستقل و خلاق حرکت می‌کند.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="margin-top:0">بنیان‌گذار</h3>
+        <p class="small">رادمهر اصغری</p>
+        <p class="small">توسعه‌دهنده و مدیر IESTM</p>
+      </div>
+
+      <div>
+        <h3 style="margin-top:0">راه‌های ارتباطی</h3>
+        <p class="small">ایمیل: asly3325@gmail.com</p>
+        <p class="small">تلفن: 09398212260</p>
+        <p class="small">کانال: @iestmcompany</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container">
+    <p class="small">
+      © IESTM Official — تمامی حقوق این وب‌سایت و محتوای آن برای کمپانی ایستم محفوظ است.
+    </p>
+  </footer>
+
+</body>
+</html>
