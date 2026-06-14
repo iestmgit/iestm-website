@@ -236,12 +236,314 @@
     .section-title h2{margin:0 0 8px;font-size:clamp(1.6rem,3vw,2.6rem)}
     .section-title p{margin:0;color:var(--muted)}
 
+    .news-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+      gap:24px;
+    }
+    .news-card{
+      padding:24px;
+      border-radius:22px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      transition:all 0.3s ease;
+      position:relative;
+    }
+    .news-card:hover{
+      transform:translateY(-5px);
+      border-color:var(--gold);
+      background:rgba(255,255,255,.08);
+    }
+    .news-date{
+      font-size:.8rem;
+      color:var(--gold);
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .news-title{
+      font-size:1.25rem;
+      margin:0 0 12px 0;
+      color:#fff3c4;
+    }
+    .news-summary{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.7;
+    }
+    .news-badge{
+      display:inline-block;
+      margin-top:16px;
+      padding:6px 12px;
+      border-radius:20px;
+      background:rgba(247,201,72,.15);
+      color:var(--gold);
+      font-size:.75rem;
+    }
+    .delete-news-btn{
+      position:absolute;
+      top:12px;
+      left:12px;
+      background:rgba(255,79,163,.2);
+      border:1px solid var(--pink);
+      color:var(--pink);
+      border-radius:20px;
+      padding:4px 10px;
+      font-size:.7rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .delete-news-btn:hover{
+      background:rgba(255,79,163,.4);
+    }
+
+    .login-section{
+      background:linear-gradient(135deg, rgba(7,17,31,.9), rgba(13,27,42,.95));
+      border:1px solid var(--gold);
+    }
+    .login-form{
+      max-width:500px;
+      margin:0 auto;
+      padding:20px;
+    }
+    .login-input, .admin-input, .admin-textarea{
+      width:100%;
+      padding:14px 18px;
+      margin:12px 0;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:14px;
+      color:var(--text);
+      font-size:1rem;
+      transition:all 0.3s ease;
+      font-family:inherit;
+    }
+    .admin-textarea{
+      min-height:100px;
+      resize:vertical;
+    }
+    .login-input:focus, .admin-input:focus, .admin-textarea:focus{
+      outline:none;
+      border-color:var(--gold);
+      background:rgba(255,255,255,.12);
+    }
+    .login-btn, .admin-btn{
+      width:100%;
+      padding:14px;
+      margin-top:16px;
+      background:linear-gradient(135deg,var(--gold),#ffe48f);
+      color:#07111f;
+      border:none;
+      border-radius:14px;
+      font-weight:800;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .login-btn:hover, .admin-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(247,201,72,.3);
+    }
+    .login-status{
+      text-align:center;
+      margin-top:16px;
+      padding:10px;
+      border-radius:12px;
+      font-size:.9rem;
+    }
+    .login-status.success{
+      background:rgba(76,224,210,.15);
+      color:var(--cyan);
+    }
+    .login-status.error{
+      background:rgba(255,79,163,.15);
+      color:var(--pink);
+    }
+    .employee-panel{
+      padding:30px;
+    }
+    .admin-tabs{
+      display:flex;
+      gap:12px;
+      margin-bottom:30px;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      padding-bottom:15px;
+      flex-wrap:wrap;
+    }
+    .admin-tab{
+      padding:10px 24px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:30px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .admin-tab.active{
+      background:var(--gold);
+      color:#07111f;
+      border-color:var(--gold);
+    }
+    .admin-tab:hover:not(.active){
+      background:rgba(255,255,255,.1);
+    }
+    .admin-panel{
+      display:none;
+    }
+    .admin-panel.active-panel{
+      display:block;
+    }
+    .news-list-item{
+      background:rgba(255,255,255,.05);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .news-list-item-info{
+      flex:1;
+    }
+    .news-list-item-title{
+      font-weight:bold;
+      color:var(--gold);
+    }
+    .small-btn{
+      padding:8px 16px;
+      background:rgba(255,79,163,.2);
+      border:1px solid var(--pink);
+      color:var(--pink);
+      border-radius:20px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .small-btn:hover{
+      background:rgba(255,79,163,.4);
+    }
+    .logout-btn{
+      background:rgba(255,79,163,.2);
+      color:var(--pink);
+      border:1px solid var(--pink);
+      padding:10px 24px;
+      border-radius:12px;
+      cursor:pointer;
+      margin-top:30px;
+      transition:0.3s;
+    }
+    .logout-btn:hover{
+      background:rgba(255,79,163,.3);
+    }
+    .editable-text{
+      cursor:pointer;
+      transition:0.3s;
+      padding:8px;
+      border-radius:12px;
+    }
+    .editable-text:hover{
+      background:rgba(247,201,72,.1);
+    }
+    .edit-mode{
+      width:100%;
+    }
+    .github-token-input{
+      background:rgba(0,0,0,.3);
+      border-color:var(--cyan);
+    }
+    .token-status{
+      font-size:.8rem;
+      margin-top:5px;
+    }
+
+    .music-player{
+      padding:28px;
+      background:linear-gradient(135deg, rgba(247,201,72,.08), rgba(73,182,255,.08));
+    }
+    .player-controls{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:20px;
+      margin:20px 0;
+      flex-wrap:wrap;
+    }
+    .control-btn{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.2);
+      color:var(--text);
+      font-size:1.3rem;
+      cursor:pointer;
+      transition:0.3s;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .control-btn:hover{
+      background:var(--gold);
+      color:#07111f;
+      transform:scale(1.05);
+    }
+    .progress-container{
+      background:rgba(255,255,255,.15);
+      border-radius:10px;
+      cursor:pointer;
+      height:6px;
+      flex:1;
+      position:relative;
+    }
+    .progress-bar{
+      background:linear-gradient(90deg,var(--gold),var(--cyan));
+      border-radius:10px;
+      height:100%;
+      width:0%;
+      position:relative;
+    }
+    .time-info{
+      display:flex;
+      justify-content:space-between;
+      margin-top:10px;
+      font-size:.8rem;
+      color:var(--muted);
+    }
+    .song-title{
+      text-align:center;
+      font-size:1.2rem;
+      margin-bottom:20px;
+      color:var(--gold);
+    }
+    .volume-control{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:15px;
+      justify-content:center;
+    }
+    .volume-slider{
+      width:100px;
+      height:4px;
+      -webkit-appearance:none;
+      background:rgba(255,255,255,.2);
+      border-radius:5px;
+      outline:none;
+    }
+    .volume-slider::-webkit-slider-thumb{
+      -webkit-appearance:none;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--gold);
+      cursor:pointer;
+    }
+
     .about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .panel{padding:28px}
     .panel h3{margin-top:0;color:var(--gold)}
-
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-
     .feature{
       padding:24px;
       border-radius:22px;
@@ -249,17 +551,13 @@
       border:1px solid rgba(255,255,255,.1);
       transition:.25s;
     }
-
     .feature:hover{transform:translateY(-6px);border-color:rgba(247,201,72,.4)}
-
     .icon{
       width:54px;height:54px;display:grid;place-items:center;border-radius:16px;margin-bottom:14px;
       background:linear-gradient(135deg, rgba(73,182,255,.25), rgba(247,201,72,.15));
       border:1px solid rgba(255,255,255,.12);font-size:1.4rem;
     }
-
     .products{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-
     .product{
       position:relative;
       overflow:hidden;
@@ -269,7 +567,6 @@
       border:1px solid rgba(255,255,255,.1);
       box-shadow:var(--shadow);
     }
-
     .product::before{
       content:"";
       position:absolute;
@@ -280,9 +577,7 @@
       border-radius:50%;
       background:radial-gradient(circle, rgba(73,182,255,.18), transparent 70%);
     }
-
     .product h3{margin-top:0;margin-bottom:10px;font-size:1.35rem;color:#fff3c4}
-
     .tag{
       display:inline-block;
       margin:6px 8px 0 0;
@@ -293,7 +588,6 @@
       color:#dce9f7;
       font-size:.88rem;
     }
-
     .timeline{
       position:relative;
       padding-right:24px;
@@ -301,14 +595,12 @@
       display:grid;
       gap:18px;
     }
-
     html[lang="en"] .timeline{
       padding-right:0;
       padding-left:24px;
       border-right:none;
       border-left:2px dashed rgba(255,255,255,.16);
     }
-
     .timeline-item{
       position:relative;
       padding:20px;
@@ -316,7 +608,6 @@
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.08);
     }
-
     .timeline-item::before{
       content:"";
       position:absolute;
@@ -328,25 +619,20 @@
       background:var(--gold);
       box-shadow:0 0 0 6px rgba(247,201,72,.14);
     }
-
     html[lang="en"] .timeline-item::before{
       right:auto;
       left:-34px;
     }
-
     .quote{padding:32px;text-align:center;font-size:1.15rem;color:#fff5cf}
     footer{padding:28px 0 50px;color:var(--muted)}
-
     .footer-box{
       padding:26px;
       display:grid;
       grid-template-columns:2fr 1fr 1fr;
       gap:20px;
     }
-
     ul.clean{margin:0;padding-right:18px}
     html[lang="en"] ul.clean{padding-right:0;padding-left:18px}
-
     .small{font-size:.94rem;color:var(--muted)}
     .highlight{color:var(--gold);font-weight:800}
 
@@ -355,8 +641,8 @@
       .hero{min-height:auto;padding-top:40px}
       .nav-inner{flex-direction:column;align-items:flex-start}
       .stat-grid{grid-template-columns:1fr 1fr}
+      .news-grid{grid-template-columns:1fr}
     }
-
     @media (max-width:640px){
       h1{font-size:2rem}
       .hero-card,.hero-side,.panel,.quote,.product,.feature,.timeline-item{padding:20px}
@@ -380,9 +666,11 @@
           <div style="font-size:.8rem;color:var(--muted)">IESTM Official Website</div>
         </div>
       </div>
-
       <div class="nav-links">
         <a href="#home" data-i18n="navHome">خانه</a>
+        <a href="#news" data-i18n="navNews">اخبار</a>
+        <a href="#employee" data-i18n="navEmployee">مدیریت</a>
+        <a href="#music" data-i18n="navMusic">آهنگ رسمی</a>
         <a href="#founder" data-i18n="navFounder">درباره من</a>
         <a href="#company" data-i18n="navCompany">درباره شرکت</a>
         <a href="#products" data-i18n="navProducts">محصولات</a>
@@ -397,30 +685,14 @@
     <div class="hero-grid">
       <div class="glass hero-card">
         <div class="eyebrow" data-i18n="eyebrow">🚀 پلتفرم رسمی معرفی IESTM</div>
-
-        <h1 data-i18n-html="heroTitle">
-          من <span class="gradient">رادمهر اصغری</span> هستم،
-          سازنده و توسعه‌دهنده
-          <span class="gradient">کمپانی ایستم</span>
-        </h1>
-
-        <p class="lead" data-i18n="heroP1">
-          ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی،
-          پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛
-          هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.
-        </p>
-
-        <p class="lead" data-i18n="heroP2">
-          این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛
-          جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.
-        </p>
-
+        <h1 id="heroTitleEditable">من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span></h1>
+        <p id="heroP1Editable" class="lead">ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛ هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.</p>
+        <p id="heroP2Editable" class="lead">این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛ جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#products" data-i18n="btnProducts">مشاهده محصولات</a>
           <a class="btn btn-secondary" href="#company" data-i18n="btnCompany">آشنایی با شرکت</a>
         </div>
       </div>
-
       <div class="glass hero-side">
         <div class="stat-grid">
           <div class="stat"><h3>HTML</h3><p data-i18n="htmlDesc">پایه اصلی رابط‌های وب و ساختار پروژه‌ها</p></div>
@@ -432,28 +704,63 @@
     </div>
   </header>
 
+  <section class="container" id="news">
+    <div class="section-title">
+      <h2 data-i18n="newsTitle">📰 آخرین اخبار و اطلاعیه‌ها</h2>
+      <p data-i18n="newsSub">جدیدترین رویدادها، بروزرسانی‌ها و اطلاعیه‌های کمپانی ایستم</p>
+    </div>
+    <div class="news-grid" id="newsContainer"></div>
+  </section>
+
+  <section class="container" id="employee">
+    <div class="section-title">
+      <h2 data-i18n="employeeTitle">👥 پنل مدیریت</h2>
+      <p data-i18n="employeeSub">ورود به بخش مدیریت کمپانی ایستم (فقط برای مدیران)</p>
+    </div>
+    <div class="glass login-section" id="loginSection">
+      <div id="loginFormContainer"></div>
+    </div>
+  </section>
+
+  <section class="container" id="music">
+    <div class="section-title">
+      <h2 data-i18n="musicTitle">🎵 آهنگ رسمی کمپانی ایستم</h2>
+      <p data-i18n="musicSub">آهنگ رسمی و نمادین شرکت ایستم - با قابلیت پخش و کنترل کامل</p>
+    </div>
+    <div class="glass music-player">
+      <div class="song-title" data-i18n="songName">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
+      <audio id="officialAudio" src="https://s3.thr1.sotoon.ir/media-fast-1/server_files/0cd802bd-a39c-4ff9-a48f-4c414e306add.mp3" preload="metadata"></audio>
+      <div class="player-controls">
+        <button class="control-btn" id="playPauseBtn">▶</button>
+        <button class="control-btn" id="prevBtn">⏮</button>
+        <button class="control-btn" id="nextBtn">⏭</button>
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="time-info">
+        <span id="currentTime">00:00</span>
+        <span id="duration">00:00</span>
+      </div>
+      <div class="volume-control">
+        <span>🔊</span>
+        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+      </div>
+    </div>
+  </section>
+
   <section class="container" id="founder">
     <div class="section-title">
       <h2 data-i18n="founderTitle">درباره من</h2>
       <p data-i18n="founderSub">معرفی بنیان‌گذار، توسعه‌دهنده و مسیر فکری پشت IESTM</p>
     </div>
-
     <div class="about">
       <div class="glass panel">
         <h3 data-i18n="whoTitle">رادمهر اصغری کیست؟</h3>
-        <p data-i18n-html="whoP1">
-          من <span class="highlight">رادمهر اصغری</span>، برنامه‌نویس و بنیان‌گذار کمپانی ایستم هستم.
-          فعالیت من بر پایه طراحی و توسعه نرم‌افزارهای تحت وب، ابزارهای سبک و کاربردی،
-          نرم‌افزارهای دسکتاپ ویندوزی، بازی‌های مرورگرمحور و ایده‌های خلاقانه است.
-        </p>
-        <p data-i18n="whoP2">
-          چیزی که برای من اهمیت دارد فقط کدنویسی نیست؛ بلکه ساخت محصولی است که هم از نظر فنی معنا داشته باشد و هم از نظر تجربه کاربری، حس متفاوتی ایجاد کند.
-        </p>
-        <p data-i18n="whoP3">
-          ایستم برای من فقط یک نام نیست؛ بلکه نماینده‌ی تلاش، یادگیری، ساختن، آزمایش‌کردن و تبدیل ایده به واقعیت است.
-        </p>
+        <p id="whoP1Editable">من <span class="highlight">رادمهر اصغری</span>، برنامه‌نویس و بنیان‌گذار کمپانی ایستم هستم. فعالیت من بر پایه طراحی و توسعه نرم‌افزارهای تحت وب، ابزارهای سبک و کاربردی، نرم‌افزارهای دسکتاپ ویندوزی، بازی‌های مرورگرمحور و ایده‌های خلاقانه است.</p>
+        <p id="whoP2Editable">چیزی که برای من اهمیت دارد فقط کدنویسی نیست؛ بلکه ساخت محصولی است که هم از نظر فنی معنا داشته باشد و هم از نظر تجربه کاربری، حس متفاوتی ایجاد کند.</p>
+        <p id="whoP3Editable">ایستم برای من فقط یک نام نیست؛ بلکه نماینده‌ی تلاش، یادگیری، ساختن، آزمایش‌کردن و تبدیل ایده به واقعیت است.</p>
       </div>
-
       <div class="glass panel">
         <h3 data-i18n="approachTitle">مسیر کاری و رویکرد من</h3>
         <ul class="clean">
@@ -474,18 +781,10 @@
       <h2 data-i18n="companyTitle">درباره کمپانی ایستم</h2>
       <p data-i18n="companySub">هویت، هدف، زمینه فعالیت و فلسفه ساخت IESTM</p>
     </div>
-
     <div class="glass panel">
-      <p data-i18n-html="companyP1">
-        <span class="highlight">IESTM</span> یک مجموعه توسعه نرم‌افزار و ایده‌پردازی دیجیتال است
-        که با محوریت طراحی پروژه‌های وب‌محور، نرم‌افزارهای دسکتاپ، ابزارهای کاربردی، بازی‌ها و تجربه‌های تعاملی شکل گرفته است.
-      </p>
-      <p data-i18n="companyP2">
-        فعالیت ایستم تنها به ساخت یک برنامه یا یک بازی محدود نیست. این مجموعه در مسیر تبدیل‌شدن به یک برند دیجیتال چندوجهی حرکت می‌کند.
-      </p>
-      <p data-i18n="companyP3">
-        ایستم در حال حاضر بر توسعه محصولاتی مانند دفترچه یادداشت، صلوات‌شمار، بازی‌های سه‌بعدی، محیط دسکتاپ ویندوزی، ابزارهای گرافیکی، محتوای تبلیغاتی، استیکر، گیف و مسیرهای آینده‌محور هوش مصنوعی متمرکز است.
-      </p>
+      <p id="companyP1Editable"><span class="highlight">IESTM</span> یک مجموعه توسعه نرم‌افزار و ایده‌پردازی دیجیتال است که با محوریت طراحی پروژه‌های وب‌محور، نرم‌افزارهای دسکتاپ، ابزارهای کاربردی، بازی‌ها و تجربه‌های تعاملی شکل گرفته است.</p>
+      <p id="companyP2Editable">فعالیت ایستم تنها به ساخت یک برنامه یا یک بازی محدود نیست. این مجموعه در مسیر تبدیل‌شدن به یک برند دیجیتال چندوجهی حرکت می‌کند.</p>
+      <p id="companyP3Editable">ایستم در حال حاضر بر توسعه محصولاتی مانند دفترچه یادداشت، صلوات‌شمار، بازی‌های سه‌بعدی، محیط دسکتاپ ویندوزی، ابزارهای گرافیکی، محتوای تبلیغاتی، استیکر، گیف و مسیرهای آینده‌محور هوش مصنوعی متمرکز است.</p>
     </div>
   </section>
 
@@ -494,7 +793,6 @@
       <h2 data-i18n="valuesTitle">ارزش‌ها و ویژگی‌های ایستم</h2>
       <p data-i18n="valuesSub">چرا IESTM فقط یک نام نیست و می‌تواند به یک هویت نرم‌افزاری واقعی تبدیل شود</p>
     </div>
-
     <div class="features">
       <div class="feature glass"><div class="icon">💡</div><h3 data-i18n="f1Title">خلاقیت در ایده</h3><p data-i18n="f1Text">هر پروژه در ایستم از یک ایده ساده شروع می‌شود اما با نگاه خلاقانه به یک محصول متمایز تبدیل می‌شود.</p></div>
       <div class="feature glass"><div class="icon">⚙️</div><h3 data-i18n="f2Title">توسعه نرم‌افزارمحور</h3><p data-i18n="f2Text">تمرکز اصلی بر ساخت نرم‌افزارهای کاربردی، سریع و قابل توسعه در بستر وب و دسکتاپ است.</p></div>
@@ -510,43 +808,13 @@
       <h2 data-i18n="productsTitle">محصولات و پروژه‌های IESTM</h2>
       <p data-i18n="productsSub">مهم‌ترین پروژه‌ها و محصولاتی که تاکنون معرفی یا توسعه داده شده‌اند</p>
     </div>
-
     <div class="products">
-      <article class="product">
-        <h3 data-i18n="p1Title">IESTM OS؛ محیط دسکتاپ ویندوزی</h3>
-        <p data-i18n="p1Text">یکی از مهم‌ترین ایده‌های ایستم؛ یک محیط دسکتاپ ویندوزی با الهام از لینوکس، ویندوز و اندروید که با Python و PyQt/PySide توسعه داده می‌شود.</p>
-        <span class="tag">Python</span><span class="tag">PyQt / PySide</span><span class="tag">Windows Desktop</span>
-      </article>
-
-      <article class="product">
-        <h3 data-i18n="p2Title">IESTM Notebook 1.0</h3>
-        <p data-i18n="p2Text">دفترچه یادداشت ایستم ابزاری سبک، سریع و کاربردی برای ثبت ایده‌ها و یادداشت‌های روزانه با HTML، CSS، JavaScript و LocalStorage است.</p>
-        <span class="tag">Notebook</span><span class="tag">LocalStorage</span><span class="tag" data-i18n="tagUtility">ابزار کاربردی</span>
-      </article>
-
-      <article class="product">
-        <h3 data-i18n="p3Title">بازی سه‌بعدی IESTM Tik Tak To</h3>
-        <p data-i18n="p3Text">نسخه‌ای سه‌بعدی از بازی کلاسیک دوز که با Three.js توسعه داده شده و توانایی ایستم در ساخت تجربه‌های گرافیکی مرورگرمحور را نشان می‌دهد.</p>
-        <span class="tag">Three.js</span><span class="tag">3D Game</span><span class="tag">Browser Based</span>
-      </article>
-
-      <article class="product">
-        <h3 data-i18n="p4Title">IESTM Salavat Shomar</h3>
-        <p data-i18n="p4Text">صلوات‌شمار دیجیتال ایستم برای ثبت و مدیریت تعداد صلوات‌ها با تمرکز بر سادگی، دقت و تجربه کاربری روان طراحی شده است.</p>
-        <span class="tag">Utility App</span><span class="tag">Simple UI</span><span class="tag">Version 1.0</span>
-      </article>
-
-      <article class="product">
-        <h3 data-i18n="p5Title">بازی فوتبال سه‌بعدی</h3>
-        <p data-i18n="p5Text">یک پروژه بازی فوتبال سه‌بعدی با HTML، CSS و JavaScript که نشان می‌دهد ایستم توان ورود به توسعه بازی‌های تعاملی پیچیده‌تر را نیز دارد.</p>
-        <span class="tag">Football</span><span class="tag">3D</span><span class="tag">Game Project</span>
-      </article>
-
-      <article class="product">
-        <h3 data-i18n="p6Title">کانال طراحی استیکر و گیف اختصاصی</h3>
-        <p data-i18n="p6Text">ایستم در کنار توسعه نرم‌افزار، در طراحی گیف، استیکر و محتوای دیجیتال اختصاصی نیز فعالیت دارد.</p>
-        <span class="tag">GIF</span><span class="tag">Sticker</span><span class="tag">Digital Content</span>
-      </article>
+      <article class="product"><h3 data-i18n="p1Title">IESTM OS؛ محیط دسکتاپ ویندوزی</h3><p data-i18n="p1Text">یکی از مهم‌ترین ایده‌های ایستم؛ یک محیط دسکتاپ ویندوزی با الهام از لینوکس، ویندوز و اندروید که با Python و PyQt/PySide توسعه داده می‌شود.</p><span class="tag">Python</span><span class="tag">PyQt / PySide</span><span class="tag">Windows Desktop</span></article>
+      <article class="product"><h3 data-i18n="p2Title">IESTM Notebook 1.0</h3><p data-i18n="p2Text">دفترچه یادداشت ایستم ابزاری سبک، سریع و کاربردی برای ثبت ایده‌ها و یادداشت‌های روزانه با HTML، CSS، JavaScript و LocalStorage است.</p><span class="tag">Notebook</span><span class="tag">LocalStorage</span><span class="tag" data-i18n="tagUtility">ابزار کاربردی</span></article>
+      <article class="product"><h3 data-i18n="p3Title">بازی سه‌بعدی IESTM Tik Tak To</h3><p data-i18n="p3Text">نسخه‌ای سه‌بعدی از بازی کلاسیک دوز که با Three.js توسعه داده شده و توانایی ایستم در ساخت تجربه‌های گرافیکی مرورگرمحور را نشان می‌دهد.</p><span class="tag">Three.js</span><span class="tag">3D Game</span><span class="tag">Browser Based</span></article>
+      <article class="product"><h3 data-i18n="p4Title">IESTM Salavat Shomar</h3><p data-i18n="p4Text">صلوات‌شمار دیجیتال ایستم برای ثبت و مدیریت تعداد صلوات‌ها با تمرکز بر سادگی، دقت و تجربه کاربری روان طراحی شده است.</p><span class="tag">Utility App</span><span class="tag">Simple UI</span><span class="tag">Version 1.0</span></article>
+      <article class="product"><h3 data-i18n="p5Title">بازی فوتبال سه‌بعدی</h3><p data-i18n="p5Text">یک پروژه بازی فوتبال سه‌بعدی با HTML، CSS و JavaScript که نشان می‌دهد ایستم توان ورود به توسعه بازی‌های تعاملی پیچیده‌تر را نیز دارد.</p><span class="tag">Football</span><span class="tag">3D</span><span class="tag">Game Project</span></article>
+      <article class="product"><h3 data-i18n="p6Title">کانال طراحی استیکر و گیف اختصاصی</h3><p data-i18n="p6Text">ایستم در کنار توسعه نرم‌افزار، در طراحی گیف، استیکر و محتوای دیجیتال اختصاصی نیز فعالیت دارد.</p><span class="tag">GIF</span><span class="tag">Sticker</span><span class="tag">Digital Content</span></article>
     </div>
   </section>
 
@@ -555,7 +823,6 @@
       <h2 data-i18n="visionTitle">چشم‌انداز و مسیر آینده</h2>
       <p data-i18n="visionSub">ایستم به کجا می‌رود و چه افقی را دنبال می‌کند</p>
     </div>
-
     <div class="timeline">
       <div class="timeline-item glass"><h3 data-i18n="v1Title">مرحله اول: ساخت هویت</h3><p data-i18n="v1Text">ایجاد مجموعه‌ای از محصولات اولیه برای نشان‌دادن توان فنی، خلاقیت و سبک توسعه مستقل.</p></div>
       <div class="timeline-item glass"><h3 data-i18n="v2Title">مرحله دوم: توسعه محصول</h3><p data-i18n="v2Text">گسترش پروژه‌ها از ابزارهای ساده به سامانه‌های پیچیده‌تر مانند محیط دسکتاپ، ابزارهای هوشمند و بازی‌های پیشرفته‌تر.</p></div>
@@ -565,9 +832,7 @@
   </section>
 
   <section class="container">
-    <div class="glass quote" data-i18n="quote">
-      «ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»
-    </div>
+    <div class="glass quote" data-i18n="quote">«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»</div>
   </section>
 
   <section class="container" id="contact">
@@ -575,187 +840,381 @@
       <h2 data-i18n="contactTitle">ارتباط و اطلاعات رسمی</h2>
       <p data-i18n="contactSub">اطلاعات پایه برای معرفی، همکاری و پیگیری پروژه‌ها</p>
     </div>
-
     <div class="glass footer-box">
-      <div>
-        <h3 style="margin-top:0;color:var(--gold)">IESTM</h3>
-        <p data-i18n="footerAbout">کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو، در مسیر تبدیل‌شدن به یک هویت نرم‌افزاری مستقل و خلاق حرکت می‌کند.</p>
-      </div>
-
-      <div>
-        <h3 style="margin-top:0" data-i18n="founderLabel">بنیان‌گذار</h3>
-        <p class="small" data-i18n="founderName">رادمهر اصغری</p>
-        <p class="small" data-i18n="founderRole">توسعه‌دهنده و مدیر IESTM</p>
-      </div>
-
-      <div>
-        <h3 style="margin-top:0" data-i18n="contactWays">راه‌های ارتباطی</h3>
-        <p class="small">Email: asly3325@gmail.com</p>
-        <p class="small" data-i18n="phone">تلفن: 09398212260</p>
-        <p class="small" data-i18n="channel">کانال: @iestmcompany</p>
-      </div>
+      <div><h3 style="margin-top:0;color:var(--gold)">IESTM</h3><p data-i18n="footerAbout">کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو، در مسیر تبدیل‌شدن به یک هویت نرم‌افزاری مستقل و خلاق حرکت می‌کند.</p></div>
+      <div><h3 style="margin-top:0" data-i18n="founderLabel">بنیان‌گذار</h3><p class="small" data-i18n="founderName">رادمهر اصغری</p><p class="small" data-i18n="founderRole">توسعه‌دهنده و مدیر IESTM</p></div>
+      <div><h3 style="margin-top:0" data-i18n="contactWays">راه‌های ارتباطی</h3><p class="small">Email: asly3325@gmail.com</p><p class="small" data-i18n="phone">تلفن: 09398212260</p><p class="small" data-i18n="channel">کانال: @iestmcompany</p></div>
     </div>
   </section>
 
   <footer class="container">
-    <p class="small" data-i18n="copyright">
-      © IESTM Official — تمامی حقوق این وب‌سایت و محتوای آن برای کمپانی ایستم محفوظ است.
-    </p>
+    <p class="small" data-i18n="copyright">© IESTM Official — تمامی حقوق این وب‌سایت و محتوای آن برای کمپانی ایستم محفوظ است.</p>
   </footer>
 
   <script>
-    const translations = {
-      fa:{
-        title:"IESTM | کمپانی ایستم",
-        desc:"وب‌سایت رسمی کمپانی ایستم - توسعه نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی و پروژه‌های خلاقانه",
-        brandName:"کمپانی ایستم",
-        navHome:"خانه", navFounder:"درباره من", navCompany:"درباره شرکت", navProducts:"محصولات", navVision:"چشم‌انداز", navContact:"ارتباط",
-        eyebrow:"🚀 پلتفرم رسمی معرفی IESTM",
-        heroTitle:'من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span>',
-        heroP1:"ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.",
-        heroP2:"این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛ جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌انداز آینده.",
-        btnProducts:"مشاهده محصولات", btnCompany:"آشنایی با شرکت",
-        htmlDesc:"پایه اصلی رابط‌های وب و ساختار پروژه‌ها",
-        cssDesc:"طراحی حرفه‌ای، رابط کاربری و هویت بصری محصولات",
-        jsDesc:"منطق برنامه‌ها، تعامل‌پذیری و قابلیت‌های پویا",
-        pyDesc:"توسعه نرم‌افزارهای دسکتاپ ویندوزی و محیط‌های گرافیکی",
-        founderTitle:"درباره من", founderSub:"معرفی بنیان‌گذار، توسعه‌دهنده و مسیر فکری پشت IESTM",
-        whoTitle:"رادمهر اصغری کیست؟",
-        whoP1:'من <span class="highlight">رادمهر اصغری</span>، برنامه‌نویس و بنیان‌گذار کمپانی ایستم هستم. فعالیت من بر پایه طراحی و توسعه نرم‌افزارهای تحت وب، ابزارهای سبک، نرم‌افزارهای دسکتاپ ویندوزی، بازی‌های مرورگرمحور و ایده‌های خلاقانه است.',
-        whoP2:"چیزی که برای من اهمیت دارد فقط کدنویسی نیست؛ بلکه ساخت محصولی است که هم از نظر فنی معنا داشته باشد و هم از نظر تجربه کاربری، حس متفاوتی ایجاد کند.",
-        whoP3:"ایستم برای من فقط یک نام نیست؛ بلکه نماینده‌ی تلاش، یادگیری، ساختن، آزمایش‌کردن و تبدیل ایده به واقعیت است.",
-        approachTitle:"مسیر کاری و رویکرد من",
-        approach1:"تمرکز بر توسعه پروژه‌های تحت وب با HTML، CSS و JavaScript",
-        approach2:"ساخت ابزارهای سبک، سریع و قابل استفاده در مرورگر",
-        approach3:"توسعه نرم‌افزارهای دسکتاپ ویندوزی با Python و رابط گرافیکی",
-        approach4:"طراحی بازی‌های دوبعدی و سه‌بعدی مبتنی بر وب",
-        approach5:"آزمایش ایده‌های نو در حوزه محیط‌های دسکتاپ، ابزارهای هوشمند و تجربه‌های تعاملی",
-        approach6:"ایجاد بستر معرفی محصول، جذب استعداد و تعامل با کاربران",
-        approachSmall:"من باور دارم که حتی با ابزارهای ساده و خلاقیت بالا، می‌توان محصولات متمایز و قابل‌توجه ساخت.",
-        companyTitle:"درباره کمپانی ایستم", companySub:"هویت، هدف، زمینه فعالیت و فلسفه ساخت IESTM",
-        companyP1:'<span class="highlight">IESTM</span> یک مجموعه توسعه نرم‌افزار و ایده‌پردازی دیجیتال است که با محوریت طراحی پروژه‌های وب‌محور، نرم‌افزارهای دسکتاپ، ابزارهای کاربردی، بازی‌ها و تجربه‌های تعاملی شکل گرفته است.',
-        companyP2:"فعالیت ایستم تنها به ساخت یک برنامه یا یک بازی محدود نیست. این مجموعه در مسیر تبدیل‌شدن به یک برند دیجیتال چندوجهی حرکت می‌کند.",
-        companyP3:"ایستم در حال حاضر بر توسعه محصولاتی مانند دفترچه یادداشت، صلوات‌شمار، بازی‌های سه‌بعدی، محیط دسکتاپ ویندوزی، ابزارهای گرافیکی، محتوای تبلیغاتی، استیکر، گیف و مسیرهای آینده‌محور هوش مصنوعی متمرکز است.",
-        valuesTitle:"ارزش‌ها و ویژگی‌های ایستم", valuesSub:"چرا IESTM فقط یک نام نیست و می‌تواند به یک هویت نرم‌افزاری واقعی تبدیل شود",
-        f1Title:"خلاقیت در ایده", f1Text:"هر پروژه در ایستم از یک ایده ساده شروع می‌شود اما با نگاه خلاقانه به یک محصول متمایز تبدیل می‌شود.",
-        f2Title:"توسعه نرم‌افزارمحور", f2Text:"تمرکز اصلی بر ساخت نرم‌افزارهای کاربردی، سریع و قابل توسعه در بستر وب و دسکتاپ است.",
-        f3Title:"ترکیب کاربرد و سرگرمی", f3Text:"ایستم هم ابزار کاربردی می‌سازد و هم پروژه‌های سرگرم‌کننده، تا مرز بین نرم‌افزار و تجربه را کم‌رنگ کند.",
-        f4Title:"نگاه رو به آینده", f4Text:"از محیط دسکتاپ ویندوزی تا بازی‌های سه‌بعدی و ابزارهای هوشمند، مسیر ایستم آینده‌محور طراحی شده است.",
-        f5Title:"یادگیری و رشد مداوم", f5Text:"هر محصول نه فقط یک خروجی، بلکه بخشی از فرایند یادگیری، توسعه مهارت و افزایش توان ساخت است.",
-        f6Title:"جذب استعداد و همکاری", f6Text:"ایستم بستری برای دیده‌شدن افراد مستعد، همکاری در پروژه‌ها و ساختن خروجی‌های مشترک نیز هست.",
-        productsTitle:"محصولات و پروژه‌های IESTM", productsSub:"مهم‌ترین پروژه‌ها و محصولاتی که تاکنون معرفی یا توسعه داده شده‌اند",
-        p1Title:"IESTM OS؛ محیط دسکتاپ ویندوزی", p1Text:"یکی از مهم‌ترین ایده‌های ایستم؛ یک محیط دسکتاپ ویندوزی با الهام از لینوکس، ویندوز و اندروید که با Python و PyQt/PySide توسعه داده می‌شود.",
-        p2Title:"IESTM Notebook 1.0", p2Text:"دفترچه یادداشت ایستم ابزاری سبک، سریع و کاربردی برای ثبت ایده‌ها و یادداشت‌های روزانه با HTML، CSS، JavaScript و LocalStorage است.",
-        p3Title:"بازی سه‌بعدی IESTM Tik Tak To", p3Text:"نسخه‌ای سه‌بعدی از بازی کلاسیک دوز که با Three.js توسعه داده شده و توانایی ایستم در ساخت تجربه‌های گرافیکی مرورگرمحور را نشان می‌دهد.",
-        p4Title:"IESTM Salavat Shomar", p4Text:"صلوات‌شمار دیجیتال ایستم برای ثبت و مدیریت تعداد صلوات‌ها با تمرکز بر سادگی، دقت و تجربه کاربری روان طراحی شده است.",
-        p5Title:"بازی فوتبال سه‌بعدی", p5Text:"یک پروژه بازی فوتبال سه‌بعدی با HTML، CSS و JavaScript که نشان می‌دهد ایستم توان ورود به توسعه بازی‌های تعاملی پیچیده‌تر را نیز دارد.",
-        p6Title:"کانال طراحی استیکر و گیف اختصاصی", p6Text:"ایستم در کنار توسعه نرم‌افزار، در طراحی گیف، استیکر و محتوای دیجیتال اختصاصی نیز فعالیت دارد.",
-        tagUtility:"ابزار کاربردی",
-        visionTitle:"چشم‌انداز و مسیر آینده", visionSub:"ایستم به کجا می‌رود و چه افقی را دنبال می‌کند",
-        v1Title:"مرحله اول: ساخت هویت", v1Text:"ایجاد مجموعه‌ای از محصولات اولیه برای نشان‌دادن توان فنی، خلاقیت و سبک توسعه مستقل.",
-        v2Title:"مرحله دوم: توسعه محصول", v2Text:"گسترش پروژه‌ها از ابزارهای ساده به سامانه‌های پیچیده‌تر مانند محیط دسکتاپ، ابزارهای هوشمند و بازی‌های پیشرفته‌تر.",
-        v3Title:"مرحله سوم: جذب همکاری و جامعه‌سازی", v3Text:"ساخت فضای تعامل با کاربران، جذب استعدادهای برنامه‌نویسی و توسعه جمعی ایده‌ها.",
-        v4Title:"مرحله چهارم: تثبیت برند", v4Text:"تبدیل IESTM به یک برند شناخته‌شده در حوزه توسعه وب، نرم‌افزار، بازی و پروژه‌های دیجیتال خلاقانه.",
-        quote:"«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»",
-        contactTitle:"ارتباط و اطلاعات رسمی", contactSub:"اطلاعات پایه برای معرفی، همکاری و پیگیری پروژه‌ها",
-        footerAbout:"کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو، در مسیر تبدیل‌شدن به یک هویت نرم‌افزاری مستقل و خلاق حرکت می‌کند.",
-        founderLabel:"بنیان‌گذار", founderName:"رادمهر اصغری", founderRole:"توسعه‌دهنده و مدیر IESTM",
-        contactWays:"راه‌های ارتباطی", phone:"تلفن: 09398212260", channel:"کانال: @iestmcompany",
-        copyright:"© IESTM Official — تمامی حقوق این وب‌سایت و محتوای آن برای کمپانی ایستم محفوظ است."
-      },
-
-      en:{
-        title:"IESTM | Official Company Website",
-        desc:"Official website of IESTM Company - software development, web games, practical tools and creative digital projects",
-        brandName:"IESTM Company",
-        navHome:"Home", navFounder:"Founder", navCompany:"Company", navProducts:"Products", navVision:"Vision", navContact:"Contact",
-        eyebrow:"🚀 Official IESTM Introduction Platform",
-        heroTitle:'I am <span class="gradient">Radmehr Asghari</span>, creator and developer of <span class="gradient">IESTM Company</span>',
-        heroP1:"IESTM is a personal and creative path for building software, web-based games, practical tools, innovative projects and unique digital experiences. The goal is to create an independent software identity and turn ideas into real products using web technologies and Python.",
-        heroP2:"This website is the official showcase for IESTM projects, products, ideas and growth path; a place to present capabilities, introduced products and the future vision of the brand.",
-        btnProducts:"View Products", btnCompany:"About Company",
-        htmlDesc:"Core structure for web interfaces and projects",
-        cssDesc:"Professional design, user interface and visual identity",
-        jsDesc:"Application logic, interactivity and dynamic features",
-        pyDesc:"Windows desktop software and graphical interface development",
-        founderTitle:"About Me", founderSub:"Founder, developer and the mindset behind IESTM",
-        whoTitle:"Who is Radmehr Asghari?",
-        whoP1:'I am <span class="highlight">Radmehr Asghari</span>, programmer and founder of IESTM Company. My work is based on web software development, lightweight tools, Windows desktop applications, browser-based games and creative ideas.',
-        whoP2:"For me, coding alone is not the main point; the real goal is to build products that are technically meaningful and create a distinct user experience.",
-        whoP3:"IESTM is not just a name; it represents effort, learning, building, experimenting and turning ideas into reality.",
-        approachTitle:"My Work Path and Approach",
-        approach1:"Developing web projects with HTML, CSS and JavaScript",
-        approach2:"Building lightweight, fast and browser-based tools",
-        approach3:"Developing Windows desktop software with Python and GUI frameworks",
-        approach4:"Designing 2D and 3D web-based games",
-        approach5:"Testing new ideas in desktop environments, smart tools and interactive experiences",
-        approach6:"Creating a platform for product introduction, talent attraction and user interaction",
-        approachSmall:"I believe that even with simple tools and strong creativity, distinctive and valuable products can be built.",
-        companyTitle:"About IESTM Company", companySub:"Identity, purpose, activity field and philosophy of IESTM",
-        companyP1:'<span class="highlight">IESTM</span> is a software development and digital ideation company focused on web-based projects, desktop software, practical tools, games and interactive experiences.',
-        companyP2:"IESTM is not limited to building a single app or game. It is moving toward becoming a multi-dimensional digital brand.",
-        companyP3:"IESTM currently focuses on products such as notebook tools, digital salavat counter, 3D games, Windows desktop environments, graphical tools, promotional content, stickers, GIFs and future-oriented AI paths.",
-        valuesTitle:"IESTM Values and Features", valuesSub:"Why IESTM is more than a name and can become a real software identity",
-        f1Title:"Creative Ideas", f1Text:"Each IESTM project starts from a simple idea and becomes a distinctive product through creative thinking.",
-        f2Title:"Software-Focused Development", f2Text:"The main focus is building useful, fast and scalable software for web and desktop platforms.",
-        f3Title:"Utility and Entertainment", f3Text:"IESTM builds both practical tools and entertaining projects, reducing the gap between software and experience.",
-        f4Title:"Future-Oriented Vision", f4Text:"From Windows desktop environments to 3D games and smart tools, IESTM is designed with a future-focused path.",
-        f5Title:"Continuous Learning and Growth", f5Text:"Every product is not only an output, but also part of learning, skill development and stronger building capability.",
-        f6Title:"Talent and Collaboration", f6Text:"IESTM is also a platform for discovering talented people, collaborating on projects and building shared results.",
-        productsTitle:"IESTM Products and Projects", productsSub:"Key projects and products introduced or developed by IESTM",
-        p1Title:"IESTM OS; Windows Desktop Environment", p1Text:"One of IESTM’s most important ideas: a Windows desktop environment inspired by Linux, Windows and Android, developed with Python and PyQt/PySide.",
-        p2Title:"IESTM Notebook 1.0", p2Text:"IESTM Notebook is a lightweight, fast and practical tool for saving ideas and daily notes using HTML, CSS, JavaScript and LocalStorage.",
-        p3Title:"IESTM Tik Tak To 3D Game", p3Text:"A 3D version of the classic tic-tac-toe game developed with Three.js, showing IESTM’s capability in browser-based graphical experiences.",
-        p4Title:"IESTM Salavat Counter", p4Text:"IESTM digital salavat counter is designed to record and manage salavat counts with simplicity, accuracy and smooth user experience.",
-        p5Title:"3D Football Game", p5Text:"A 3D football game project built with HTML, CSS and JavaScript, showing IESTM’s ability to move toward more interactive game development.",
-        p6Title:"Custom Sticker and GIF Design Channel", p6Text:"Alongside software development, IESTM also works on custom GIFs, stickers and digital visual content.",
-        tagUtility:"Utility Tool",
-        visionTitle:"Vision and Future Path", visionSub:"Where IESTM is going and what future it follows",
-        v1Title:"Stage One: Building Identity", v1Text:"Creating initial products to demonstrate technical ability, creativity and independent development style.",
-        v2Title:"Stage Two: Product Development", v2Text:"Expanding from simple tools to more complex systems such as desktop environments, smart tools and advanced games.",
-        v3Title:"Stage Three: Collaboration and Community", v3Text:"Creating user interaction space, attracting programming talents and developing ideas collectively.",
-        v4Title:"Stage Four: Brand Stabilization", v4Text:"Turning IESTM into a recognized brand in web development, software, games and creative digital projects.",
-        quote:"“IESTM is not just a project; it is a path for building, learning, growing and turning raw ideas into real products.”",
-        contactTitle:"Contact and Official Information", contactSub:"Basic information for introduction, cooperation and project follow-up",
-        footerAbout:"IESTM Company focuses on web projects, practical tools, digital games and new ideas, moving toward becoming an independent and creative software identity.",
-        founderLabel:"Founder", founderName:"Radmehr Asghari", founderRole:"Developer and Manager of IESTM",
-        contactWays:"Contact Ways", phone:"Phone: 09398212260", channel:"Channel: @iestmcompany",
-        copyright:"© IESTM Official — All rights of this website and its content are reserved for IESTM Company."
-      }
+    // ==================== GitHub Configuration ====================
+    const GITHUB_CONFIG = {
+      owner: "iestmgit",
+      repo: "iestm-website",
+      filePath: "website-data.json",
+      branch: "main"
     };
 
+    // ==================== GitHub API Functions ====================
+    async function getGitHubFile(token) {
+      const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`;
+      try {
+        const response = await fetch(url, {
+          headers: {
+            'Authorization': `token ${token}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+        if (response.status === 404) return null;
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        const content = atob(data.content);
+        return { content: JSON.parse(content), sha: data.sha };
+      } catch (error) {
+        console.error('Error reading from GitHub:', error);
+        return null;
+      }
+    }
+
+    async function saveToGitHub(token, data, sha = null) {
+      const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`;
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+      const body = { message: `Update website - ${new Date().toLocaleString('fa-IR')}`, content: content, branch: GITHUB_CONFIG.branch };
+      if (sha) body.sha = sha;
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (!response.ok) throw new Error('Save failed');
+      return await response.json();
+    }
+
+    // ==================== Default Data ====================
+    const defaultWebsiteData = {
+      texts: {
+        heroTitle: 'من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span>',
+        heroP1: 'ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛ هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.',
+        heroP2: 'این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛ جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.',
+        whoP1: 'من <span class="highlight">رادمهر اصغری</span>، برنامه‌نویس و بنیان‌گذار کمپانی ایستم هستم. فعالیت من بر پایه طراحی و توسعه نرم‌افزارهای تحت وب، ابزارهای سبک و کاربردی، نرم‌افزارهای دسکتاپ ویندوزی، بازی‌های مرورگرمحور و ایده‌های خلاقانه است.',
+        whoP2: 'چیزی که برای من اهمیت دارد فقط کدنویسی نیست؛ بلکه ساخت محصولی است که هم از نظر فنی معنا داشته باشد و هم از نظر تجربه کاربری، حس متفاوتی ایجاد کند.',
+        whoP3: 'ایستم برای من فقط یک نام نیست؛ بلکه نماینده‌ی تلاش، یادگیری، ساختن، آزمایش‌کردن و تبدیل ایده به واقعیت است.',
+        companyP1: '<span class="highlight">IESTM</span> یک مجموعه توسعه نرم‌افزار و ایده‌پردازی دیجیتال است که با محوریت طراحی پروژه‌های وب‌محور، نرم‌افزارهای دسکتاپ، ابزارهای کاربردی، بازی‌ها و تجربه‌های تعاملی شکل گرفته است.',
+        companyP2: 'فعالیت ایستم تنها به ساخت یک برنامه یا یک بازی محدود نیست. این مجموعه در مسیر تبدیل‌شدن به یک برند دیجیتال چندوجهی حرکت می‌کند.',
+        companyP3: 'ایستم در حال حاضر بر توسعه محصولاتی مانند دفترچه یادداشت، صلوات‌شمار، بازی‌های سه‌بعدی، محیط دسکتاپ ویندوزی، ابزارهای گرافیکی، محتوای تبلیغاتی، استیکر، گیف و مسیرهای آینده‌محور هوش مصنوعی متمرکز است.'
+      },
+      news: [
+        { id: 1, date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
+        { id: 2, date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
+        { id: 3, date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
+      ]
+    };
+
+    let websiteData = { ...defaultWebsiteData };
+    let currentFileSha = null;
+    let gitHubToken = localStorage.getItem('github_token') || '';
+    let isLoggedIn = localStorage.getItem('iestmEmployeeLoggedIn') === 'true';
+    let editingEnabled = false;
+    const validUsername = 'iestmkar';
+    const validPassword = 'rm123456rm';
+
+    // ==================== Load/Save Data ====================
+    async function loadDataFromGitHub() {
+      if (!gitHubToken) return false;
+      const result = await getGitHubFile(gitHubToken);
+      if (result && result.content) {
+        websiteData = result.content;
+        currentFileSha = result.sha;
+        applyTextsToPage();
+        renderNews();
+        return true;
+      } else if (result === null) {
+        await saveDataToGitHub(true);
+        return true;
+      }
+      return false;
+    }
+
+    async function saveDataToGitHub(showMsg = false) {
+      if (!gitHubToken) { if (showMsg) showMessage('لطفاً توکن گیت‌هاب را وارد کنید!', 'error'); return false; }
+      try {
+        const result = await saveToGitHub(gitHubToken, websiteData, currentFileSha);
+        currentFileSha = result.content.sha;
+        if (showMsg) showMessage('✅ تغییرات در گیت‌هاب ذخیره شد!', 'success');
+        return true;
+      } catch (error) {
+        if (showMsg) showMessage('❌ خطا در ذخیره‌سازی: ' + error.message, 'error');
+        return false;
+      }
+    }
+
+    async function saveText(elementId, newContent) {
+      websiteData.texts[elementId] = newContent;
+      const success = await saveDataToGitHub(true);
+      if (success) applyTextsToPage();
+      return success;
+    }
+
+    function applyTextsToPage() {
+      document.getElementById('heroTitleEditable').innerHTML = websiteData.texts.heroTitle || defaultWebsiteData.texts.heroTitle;
+      document.getElementById('heroP1Editable').innerHTML = websiteData.texts.heroP1 || defaultWebsiteData.texts.heroP1;
+      document.getElementById('heroP2Editable').innerHTML = websiteData.texts.heroP2 || defaultWebsiteData.texts.heroP2;
+      document.getElementById('whoP1Editable').innerHTML = websiteData.texts.whoP1 || defaultWebsiteData.texts.whoP1;
+      document.getElementById('whoP2Editable').innerHTML = websiteData.texts.whoP2 || defaultWebsiteData.texts.whoP2;
+      document.getElementById('whoP3Editable').innerHTML = websiteData.texts.whoP3 || defaultWebsiteData.texts.whoP3;
+      document.getElementById('companyP1Editable').innerHTML = websiteData.texts.companyP1 || defaultWebsiteData.texts.companyP1;
+      document.getElementById('companyP2Editable').innerHTML = websiteData.texts.companyP2 || defaultWebsiteData.texts.companyP2;
+      document.getElementById('companyP3Editable').innerHTML = websiteData.texts.companyP3 || defaultWebsiteData.texts.companyP3;
+    }
+
+    // ==================== News Functions ====================
+    function renderNews() {
+      const container = document.getElementById('newsContainer');
+      if (!container) return;
+      container.innerHTML = (websiteData.news || []).map(news => `
+        <div class="news-card">
+          ${isLoggedIn ? `<div class="delete-news-btn" onclick="deleteNews(${news.id})">🗑 حذف</div>` : ''}
+          <div class="news-date">📅 ${escapeHtml(news.date)}</div>
+          <h3 class="news-title">${escapeHtml(news.title)}</h3>
+          <p class="news-summary">${escapeHtml(news.summary)}</p>
+          <span class="news-badge">${escapeHtml(news.badge)}</span>
+        </div>
+      `).join('');
+    }
+
+    function escapeHtml(text) { const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
+
+    async function addNews(date, title, summary, badge) {
+      websiteData.news.push({ id: Date.now(), date, title, summary, badge });
+      await saveDataToGitHub(true);
+      renderNews();
+      if (isLoggedIn) renderAdminNewsList();
+    }
+
+    async function deleteNews(id) {
+      websiteData.news = websiteData.news.filter(n => n.id !== id);
+      await saveDataToGitHub(true);
+      renderNews();
+      if (isLoggedIn) renderAdminNewsList();
+    }
+
+    function renderAdminNewsList() {
+      const container = document.getElementById('adminNewsList');
+      if (!container) return;
+      if (!websiteData.news || websiteData.news.length === 0) {
+        container.innerHTML = '<p class="small">هیچ خبری وجود ندارد.</p>';
+        return;
+      }
+      container.innerHTML = websiteData.news.map(news => `
+        <div class="news-list-item">
+          <div class="news-list-item-info">
+            <div class="news-list-item-title">${escapeHtml(news.title)}</div>
+            <div class="small">${escapeHtml(news.date)} | ${escapeHtml(news.badge)}</div>
+          </div>
+          <button class="small-btn" onclick="deleteNews(${news.id})">🗑 حذف</button>
+        </div>
+      `).join('');
+    }
+
+    // ==================== Admin Panel ====================
+    function renderEmployeeSection() {
+      const container = document.getElementById('loginFormContainer');
+      if (!container) return;
+      if (!isLoggedIn) {
+        container.innerHTML = `
+          <div class="login-form">
+            <input type="text" id="loginUsername" class="login-input" placeholder="نام کاربری">
+            <input type="password" id="loginPassword" class="login-input" placeholder="رمز عبور">
+            <input type="password" id="githubTokenInput" class="login-input github-token-input" placeholder="توکن گیت‌هاب" value="${gitHubToken}">
+            <div class="token-status small">🔑 برای ذخیره خودکار روی گیت‌هاب نیاز به توکن دارید</div>
+            <button class="login-btn" onclick="attemptLogin()">ورود به پنل مدیریت</button>
+            <div id="loginStatus"></div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="employee-panel">
+            <div style="font-size:3rem;">👨‍💼</div>
+            <h3 style="color:var(--gold);">پنل مدیریت</h3>
+            <p>شما وارد پنل مدیریت شدید. تمام تغییرات روی گیت‌هاب ذخیره می‌شود.</p>
+            <div class="admin-tabs">
+              <div class="admin-tab active" onclick="switchTab('news')">📰 مدیریت اخبار</div>
+              <div class="admin-tab" onclick="switchTab('texts')">✏️ ویرایش متون</div>
+              <div class="admin-tab" onclick="switchTab('github')">🔧 تنظیمات</div>
+            </div>
+            <div id="newsPanel" class="admin-panel active-panel">
+              <h4>➕ افزودن خبر جدید</h4>
+              <input type="text" id="newsDate" class="admin-input" placeholder="تاریخ (۱۴۰۳/۱۰/۲۰)">
+              <input type="text" id="newsTitle" class="admin-input" placeholder="عنوان خبر">
+              <textarea id="newsSummary" class="admin-textarea" placeholder="متن خبر..."></textarea>
+              <input type="text" id="newsBadge" class="admin-input" placeholder="برچسب">
+              <button class="admin-btn" onclick="submitNews()">➕ افزودن خبر</button>
+              <h4 style="margin-top:30px;">📋 لیست اخبار</h4>
+              <div id="adminNewsList"></div>
+            </div>
+            <div id="textsPanel" class="admin-panel">
+              <h4>✏️ ویرایش متون سایت</h4>
+              <p class="small">🔹 روی هر متنی که می‌خواهید ویرایش کنید کلیک کنید.</p>
+              <p class="small">🔹 بعد از ویرایش، متن روی گیت‌هاب ذخیره می‌شود.</p>
+            </div>
+            <div id="githubPanel" class="admin-panel">
+              <h4>🔧 تنظیمات گیت‌هاب</h4>
+              <input type="password" id="githubTokenSetting" class="admin-input" placeholder="توکن گیت‌هاب" value="${gitHubToken}">
+              <button class="admin-btn" onclick="saveGitHubToken()">💾 ذخیره توکن</button>
+              <button class="admin-btn" onclick="syncFromGitHub()" style="margin-top:10px;">🔄 همگام‌سازی</button>
+              <div class="small" style="margin-top:20px; padding:15px; background:rgba(255,255,255,.05); border-radius:16px;">
+                <strong>📖 دریافت توکن:</strong><br>
+                1. به <a href="https://github.com/settings/tokens" target="_blank" style="color:var(--gold)">github.com/settings/tokens</a> بروید<br>
+                2. "Generate new token (classic)" را بزنید<br>
+                3. دسترسی "repo" را فعال کنید<br>
+                4. توکن را کپی کنید
+              </div>
+            </div>
+            <button class="logout-btn" onclick="logoutEmployee()">خروج از پنل</button>
+          </div>
+        `;
+        renderAdminNewsList();
+      }
+    }
+
+    async function attemptLogin() {
+      const username = document.getElementById('loginUsername')?.value || '';
+      const password = document.getElementById('loginPassword')?.value || '';
+      const token = document.getElementById('githubTokenInput')?.value || '';
+      if (username === validUsername && password === validPassword) {
+        if (token) { gitHubToken = token; localStorage.setItem('github_token', token); await loadDataFromGitHub(); }
+        isLoggedIn = true;
+        localStorage.setItem('iestmEmployeeLoggedIn', 'true');
+        renderEmployeeSection();
+        renderNews();
+        enableTextEditing();
+        showMessage('ورود موفقیت‌آمیز!', 'success');
+      } else {
+        const statusDiv = document.getElementById('loginStatus');
+        if (statusDiv) {
+          statusDiv.innerHTML = '<div class="login-status error">❌ نام کاربری یا رمز عبور اشتباه است!</div>';
+          setTimeout(() => { if (statusDiv) statusDiv.innerHTML = ''; }, 3000);
+        }
+      }
+    }
+
+    function saveGitHubToken() {
+      const token = document.getElementById('githubTokenSetting')?.value;
+      if (token) { gitHubToken = token; localStorage.setItem('github_token', token); showMessage('توکن ذخیره شد!', 'success'); loadDataFromGitHub(); }
+    }
+
+    async function syncFromGitHub() { showMessage('در حال همگام‌سازی...', 'info'); await loadDataFromGitHub(); applyTextsToPage(); renderNews(); showMessage('همگام‌سازی کامل شد!', 'success'); }
+
+    function logoutEmployee() { isLoggedIn = false; localStorage.removeItem('iestmEmployeeLoggedIn'); renderEmployeeSection(); renderNews(); disableTextEditing(); showMessage('از پنل خارج شدید.', 'info'); }
+
+    function submitNews() {
+      const date = document.getElementById('newsDate')?.value;
+      const title = document.getElementById('newsTitle')?.value;
+      const summary = document.getElementById('newsSummary')?.value;
+      const badge = document.getElementById('newsBadge')?.value;
+      if (!date || !title || !summary || !badge) { alert('لطفا تمام فیلدها را پر کنید!'); return; }
+      addNews(date, title, summary, badge);
+      document.getElementById('newsDate').value = '';
+      document.getElementById('newsTitle').value = '';
+      document.getElementById('newsSummary').value = '';
+      document.getElementById('newsBadge').value = '';
+    }
+
+    function switchTab(panel) {
+      document.querySelectorAll('.admin-tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('newsPanel').classList.remove('active-panel');
+      document.getElementById('textsPanel').classList.remove('active-panel');
+      document.getElementById('githubPanel').classList.remove('active-panel');
+      if (panel === 'news') document.getElementById('newsPanel').classList.add('active-panel');
+      else if (panel === 'texts') document.getElementById('textsPanel').classList.add('active-panel');
+      else if (panel === 'github') document.getElementById('githubPanel').classList.add('active-panel');
+      if (panel === 'news') renderAdminNewsList();
+    }
+
+    // ==================== Text Editing ====================
+    function enableTextEditing() {
+      editingEnabled = true;
+      const ids = ['heroTitleEditable', 'heroP1Editable', 'heroP2Editable', 'whoP1Editable', 'whoP2Editable', 'whoP3Editable', 'companyP1Editable', 'companyP2Editable', 'companyP3Editable'];
+      ids.forEach(id => { const el = document.getElementById(id); if (el) { el.classList.add('editable-text'); el.onclick = () => editText(el, id); } });
+    }
+
+    function disableTextEditing() {
+      editingEnabled = false;
+      const ids = ['heroTitleEditable', 'heroP1Editable', 'heroP2Editable', 'whoP1Editable', 'whoP2Editable', 'whoP3Editable', 'companyP1Editable', 'companyP2Editable', 'companyP3Editable'];
+      ids.forEach(id => { const el = document.getElementById(id); if (el) { el.classList.remove('editable-text'); el.onclick = null; } });
+    }
+
+    function editText(element, elementId) {
+      if (!editingEnabled) return;
+      const currentContent = element.innerHTML;
+      const textarea = document.createElement('textarea');
+      textarea.value = currentContent.replace(/<[^>]*>/g, '');
+      textarea.className = 'admin-textarea edit-mode';
+      const saveBtn = document.createElement('button'); saveBtn.textContent = '💾 ذخیره'; saveBtn.className = 'admin-btn';
+      const cancelBtn = document.createElement('button'); cancelBtn.textContent = '❌ انصراف'; cancelBtn.className = 'admin-btn'; cancelBtn.style.background = 'rgba(255,255,255,.1)'; cancelBtn.style.marginRight = '10px';
+      const originalHtml = element.innerHTML;
+      element.innerHTML = ''; element.appendChild(textarea); element.appendChild(saveBtn); element.appendChild(cancelBtn);
+      saveBtn.onclick = async () => {
+        showMessage('در حال ذخیره روی گیت‌هاب...', 'info');
+        const success = await saveText(elementId, textarea.value);
+        if (success) { element.innerHTML = textarea.value; showMessage('متن ذخیره شد! صفحه رفرش می‌شود...', 'success'); setTimeout(() => location.reload(), 1500); }
+        else { element.innerHTML = originalHtml; showMessage('خطا در ذخیره سازی!', 'error'); }
+      };
+      cancelBtn.onclick = () => { element.innerHTML = originalHtml; element.classList.add('editable-text'); element.onclick = () => editText(element, elementId); };
+    }
+
+    function showMessage(msg, type) {
+      const notif = document.createElement('div');
+      notif.style.position = 'fixed'; notif.style.bottom = '20px'; notif.style.right = '20px'; notif.style.padding = '12px 24px';
+      notif.style.borderRadius = '12px'; notif.style.backgroundColor = type === 'success' ? 'rgba(76,224,210,.9)' : type === 'error' ? 'rgba(255,79,163,.9)' : 'rgba(247,201,72,.9)';
+      notif.style.color = '#07111f'; notif.style.fontWeight = 'bold'; notif.style.zIndex = '10000'; notif.style.backdropFilter = 'blur(8px)';
+      notif.textContent = msg; document.body.appendChild(notif); setTimeout(() => notif.remove(), 4000);
+    }
+
+    // ==================== Music Player ====================
+    let audio = null, isPlaying = false;
+    function initMusicPlayer() {
+      audio = document.getElementById('officialAudio');
+      if (!audio) return;
+      const playPause = document.getElementById('playPauseBtn'), prev = document.getElementById('prevBtn'), next = document.getElementById('nextBtn');
+      const progressContainer = document.getElementById('progressContainer'), progressBar = document.getElementById('progressBar');
+      const currentSpan = document.getElementById('currentTime'), durationSpan = document.getElementById('duration'), volumeSlider = document.getElementById('volumeSlider');
+      audio.addEventListener('loadedmetadata', () => { durationSpan.textContent = formatTime(audio.duration); });
+      audio.addEventListener('timeupdate', () => { progressBar.style.width = (audio.currentTime / audio.duration * 100) + '%'; currentSpan.textContent = formatTime(audio.currentTime); });
+      playPause.onclick = () => { if (isPlaying) { audio.pause(); playPause.textContent = '▶'; } else { audio.play(); playPause.textContent = '⏸'; } isPlaying = !isPlaying; };
+      prev.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playPause.textContent = '⏸'; isPlaying = true; } };
+      next.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playPause.textContent = '⏸'; isPlaying = true; } };
+      progressContainer.onclick = (e) => { const rect = progressContainer.getBoundingClientRect(); audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration; };
+      volumeSlider.oninput = (e) => { audio.volume = parseFloat(e.target.value); }; audio.volume = 0.7;
+      audio.play().then(() => { isPlaying = true; playPause.textContent = '⏸'; }).catch(() => { isPlaying = false; playPause.textContent = '▶'; });
+    }
+    function formatTime(sec) { if (isNaN(sec)) return '00:00'; const m = Math.floor(sec / 60), s = Math.floor(sec % 60); return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`; }
+
+    // ==================== Translations ====================
+    const translations = {
+      fa: { brandName: "کمپانی ایستم", navHome: "خانه", navNews: "اخبار", navEmployee: "مدیریت", navMusic: "آهنگ رسمی", navFounder: "درباره من", navCompany: "درباره شرکت", navProducts: "محصولات", navVision: "چشم‌انداز", navContact: "ارتباط", btnProducts: "مشاهده محصولات", btnCompany: "آشنایی با شرکت", htmlDesc: "پایه اصلی رابط‌های وب", cssDesc: "طراحی حرفه‌ای", jsDesc: "منطق برنامه‌ها", pyDesc: "توسعه دسکتاپ ویندوزی", newsTitle: "📰 آخرین اخبار", newsSub: "جدیدترین رویدادها", employeeTitle: "👥 پنل مدیریت", employeeSub: "ورود به بخش مدیریت", musicTitle: "🎵 آهنگ رسمی", musicSub: "آهنگ رسمی شرکت ایستم", songName: "🎶 سرود رسمی IESTM 🎶", founderTitle: "درباره من", founderSub: "معرفی بنیان‌گذار", whoTitle: "رادمهر اصغری کیست؟", approachTitle: "مسیر کاری من", approach1: "توسعه پروژه‌های وب", approach2: "ابزارهای سبک مرورگر", approach3: "نرم‌افزار دسکتاپ با Python", approach4: "بازی‌های دوبعدی و سه‌بعدی", approach5: "محیط دسکتاپ و ابزار هوشمند", approach6: "جذب استعداد و همکاری", approachSmall: "خلاقیت بالا = محصولات ارزشمند", companyTitle: "درباره کمپانی ایستم", companySub: "هویت و فلسفه", valuesTitle: "ارزش‌ها", valuesSub: "چرا IESTM unique است", f1Title: "خلاقیت", f1Text: "هر پروژه با نگاه خلاقانه متمایز می‌شود", f2Title: "نرم‌افزارمحور", f2Text: "ساخت نرم‌افزار کاربردی و سریع", f3Title: "کاربرد و سرگرمی", f3Text: "هم ابزار مفید و هم پروژه سرگرم‌کننده", f4Title: "آینده‌محور", f4Text: "از دسکتاپ تا بازی سه‌بعدی و هوش مصنوعی", f5Title: "یادگیری مداوم", f5Text: "هر محصول بخشی از فرآیند یادگیری", f6Title: "همکاری", f6Text: "بستری برای استعدادها", productsTitle: "محصولات", productsSub: "پروژه‌های مهم", p1Title: "IESTM OS", p1Text: "محیط دسکتاپ ویندوزی با Python", p2Title: "IESTM Notebook", p2Text: "دفترچه یادداشت سبک", p3Title: "بازی سه‌بعدی دوز", p3Text: "نسخه سه‌بعدی بازی کلاسیک", p4Title: "صلوات‌شمار", p4Text: "صلوات‌شمار دیجیتال", p5Title: "بازی فوتبال", p5Text: "بازی فوتبال سه‌بعدی", p6Title: "استیکر و گیف", p6Text: "محتوای دیجیتال اختصاصی", tagUtility: "ابزار کاربردی", visionTitle: "چشم‌انداز", visionSub: "مسیر آینده", v1Title: "مرحله 1: هویت", v1Text: "محصولات اولیه", v2Title: "مرحله 2: توسعه", v2Text: "سیستم‌های پیچیده", v3Title: "مرحله 3: همکاری", v3Text: "جامعه‌سازی", v4Title: "مرحله 4: برند", v4Text: "برند شناخته شده", quote: "ایستم فقط یک پروژه نیست؛ مسیری برای ساختن و رشد", contactTitle: "ارتباط", contactSub: "اطلاعات رسمی", footerAbout: "ایستم: توسعه وب، ابزار و بازی", founderLabel: "بنیان‌گذار", founderName: "رادمهر اصغری", founderRole: "توسعه‌دهنده و مدیر", contactWays: "ارتباط", phone: "تلفن: 09398212260", channel: "کانال: @iestmcompany", copyright: "© IESTM Official", eyebrow: "🚀 پلتفرم رسمی IESTM" },
+      en: { brandName: "IESTM Company", navHome: "Home", navNews: "News", navEmployee: "Admin", navMusic: "Song", navFounder: "Founder", navCompany: "Company", navProducts: "Products", navVision: "Vision", navContact: "Contact", btnProducts: "Products", btnCompany: "About", htmlDesc: "Web structure", cssDesc: "Professional design", jsDesc: "App logic", pyDesc: "Desktop dev", newsTitle: "📰 News", newsSub: "Latest updates", employeeTitle: "👥 Admin Panel", employeeSub: "Admin login", musicTitle: "🎵 Official Song", musicSub: "Official anthem", songName: "🎶 IESTM Anthem 🎶", founderTitle: "About Me", founderSub: "Founder intro", whoTitle: "Who is Radmehr?", approachTitle: "My Approach", approach1: "Web development", approach2: "Browser tools", approach3: "Python desktop apps", approach4: "2D & 3D games", approach5: "Desktop & AI tools", approach6: "Talent collaboration", approachSmall: "Creativity = Value", companyTitle: "About IESTM", companySub: "Identity & philosophy", valuesTitle: "Values", valuesSub: "Why IESTM is unique", f1Title: "Creativity", f1Text: "Each project becomes unique", f2Title: "Software Focus", f2Text: "Fast & useful software", f3Title: "Utility & Fun", f3Text: "Tools & entertainment", f4Title: "Future Ready", f4Text: "Desktop to 3D games", f5Title: "Continuous Learning", f5Text: "Every product teaches", f6Title: "Collaboration", f6Text: "Platform for talents", productsTitle: "Products", productsSub: "Key projects", p1Title: "IESTM OS", p1Text: "Windows desktop env", p2Title: "IESTM Notebook", p2Text: "Lightweight notebook", p3Title: "3D Tic Tac Toe", p3Text: "3D classic game", p4Title: "Salavat Counter", p4Text: "Digital counter", p5Title: "Football Game", p5Text: "3D football game", p6Title: "Sticker & GIF", p6Text: "Digital content", tagUtility: "Utility", visionTitle: "Vision", visionSub: "Future path", v1Title: "Stage 1", v1Text: "Initial products", v2Title: "Stage 2", v2Text: "Complex systems", v3Title: "Stage 3", v3Text: "Community", v4Title: "Stage 4", v4Text: "Brand recognition", quote: "IESTM is a path for growth", contactTitle: "Contact", contactSub: "Official info", footerAbout: "IESTM: Web, tools & games", founderLabel: "Founder", founderName: "Radmehr Asghari", founderRole: "Dev & Manager", contactWays: "Contact", phone: "Phone: 09398212260", channel: "Channel: @iestmcompany", copyright: "© IESTM Official", eyebrow: "🚀 Official IESTM Platform" }
+    };
     let currentLang = localStorage.getItem("iestmLang") || "fa";
+    function setLang(lang) { currentLang = lang; localStorage.setItem("iestmLang", lang); document.documentElement.lang = lang; document.documentElement.dir = lang === "fa" ? "rtl" : "ltr"; document.title = translations[lang].title; document.querySelectorAll("[data-i18n]").forEach(el => { const key = el.getAttribute("data-i18n"); if (translations[lang][key]) el.textContent = translations[lang][key]; }); document.getElementById("langBtn").textContent = lang === "fa" ? "English" : "فارسی"; }
+    function toggleLang() { setLang(currentLang === "fa" ? "en" : "fa"); }
 
-    function setLang(lang){
-      currentLang = lang;
-      localStorage.setItem("iestmLang", lang);
-
-      const html = document.documentElement;
-      html.lang = lang;
-      html.dir = lang === "fa" ? "rtl" : "ltr";
-
-      document.title = translations[lang].title;
-      document.querySelector('meta[name="description"]').setAttribute("content", translations[lang].desc);
-
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        if(translations[lang][key]) el.textContent = translations[lang][key];
-      });
-
-      document.querySelectorAll("[data-i18n-html]").forEach(el=>{
-        const key = el.getAttribute("data-i18n-html");
-        if(translations[lang][key]) el.innerHTML = translations[lang][key];
-      });
-
-      document.getElementById("langBtn").textContent = lang === "fa" ? "English" : "فارسی";
-    }
-
-    function toggleLang(){
-      setLang(currentLang === "fa" ? "en" : "fa");
-    }
-
-    setLang(currentLang);
+    // ==================== Initialization ====================
+    (async function init() {
+      const savedToken = localStorage.getItem('github_token');
+      if (savedToken) { gitHubToken = savedToken; await loadDataFromGitHub(); }
+      applyTextsToPage();
+      renderNews();
+      renderEmployeeSection();
+      setLang(currentLang);
+      setTimeout(() => initMusicPlayer(), 100);
+    })();
   </script>
-
 </body>
 </html>
