@@ -7,6 +7,19 @@
   <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی مرورگر، اپلیکیشن دسکتاپ پایتون" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* تضمین اعمال فونت */
+    body { font-family: 'IranianSans', 'Vazirmatn', 'Tahoma', sans-serif !important; }
+    .products-preview, .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 24px; margin-bottom: 30px; }
+    .product-card, .news-card { padding: 24px; border-radius: 22px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); transition: 0.3s; }
+    .product-card:hover, .news-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .tag { display: inline-block; margin: 6px 8px 0 0; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.07); font-size: .88rem; }
+    .news-date { font-size: .8rem; color: var(--gold); margin-bottom: 12px; }
+    .news-badge { display: inline-block; margin-top: 16px; padding: 6px 12px; border-radius: 20px; background: rgba(247,201,72,.15); color: var(--gold); font-size: .75rem; }
+    .quote { padding: 32px; text-align: center; font-size: 1.15rem; color: #fff5cf; margin: 40px 0; }
+    .footer-box { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; padding: 26px; background: rgba(255,255,255,.03); border-radius: 24px; }
+    @media (max-width: 640px) { .products-preview, .news-grid { grid-template-columns: 1fr; } .footer-box { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body class="noise">
 
@@ -29,7 +42,7 @@
 </nav>
 
 <main>
-  <!-- هیرو سکشن -->
+  <!-- هیرو سکشن (دقیقاً مثل متن خودت) -->
   <header class="container hero">
     <div class="hero-grid">
       <div class="glass hero-card">
@@ -53,7 +66,7 @@
     </div>
   </header>
 
-  <!-- پیش‌نمایش محصولات -->
+  <!-- محصولات شاخص -->
   <section class="container">
     <div class="section-title">
       <h2>🔧 محصولات شاخص</h2>
@@ -68,7 +81,7 @@
     <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
   </section>
 
-  <!-- پیش‌نمایش آخرین اخبار -->
+  <!-- آخرین اخبار -->
   <section class="container">
     <div class="section-title">
       <h2>📰 آخرین اخبار</h2>
@@ -88,32 +101,29 @@
   <div class="container footer-box">
     <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
     <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
+    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
   </div>
   <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
 </footer>
 
 <script>
   const defaultNews = [
-    { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
-    { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
-    { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
+    { date:"۱۴۰۳/۱۰/۱۵", title:"رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary:"اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge:"جدید" },
+    { date:"۱۴۰۳/۱۰/۱۰", title:"بروزرسانی بزرگ IESTM Notebook 1.5", summary:"نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge:"بروزرسانی" },
+    { date:"۱۴۰۳/۱۰/۰۵", title:"جذب برنامه‌نویس برای تیم توسعه IESTM", summary:"کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge:"استخدام" }
   ];
   let news = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
-  function renderNewsPreview() {
-    const container = document.getElementById('newsPreview');
-    if(container) {
-      container.innerHTML = news.slice(0,3).map(n => `
-        <div class="news-card">
-          <div class="news-date">📅 ${n.date}</div>
-          <h3>${n.title}</h3>
-          <p>${n.summary}</p>
-          <span class="news-badge">${n.badge}</span>
-        </div>
-      `).join('');
-    }
+  const previewContainer = document.getElementById('newsPreview');
+  if(previewContainer) {
+    previewContainer.innerHTML = news.slice(0,3).map(n => `
+      <div class="news-card">
+        <div class="news-date">📅 ${n.date}</div>
+        <h3>${n.title}</h3>
+        <p>${n.summary}</p>
+        <span class="news-badge">${n.badge}</span>
+      </div>
+    `).join('');
   }
-  renderNewsPreview();
 </script>
 </body>
 </html>
