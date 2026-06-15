@@ -35,7 +35,6 @@
       margin-bottom: 5px;
       font-size: 1rem;
     }
-    /* استایل برای اسلایدر عقب و جلو */
     .progress-container {
       background: rgba(255,255,255,.15);
       border-radius: 10px;
@@ -52,7 +51,7 @@
       position: relative;
       pointer-events: none;
     }
-    /* دکمه گرد برای کشیدن */
+    /* دایره طلایی - برای راست‌چین (rtl) */
     .progress-handle {
       width: 16px;
       height: 16px;
@@ -60,8 +59,8 @@
       border-radius: 50%;
       position: absolute;
       top: 50%;
-      transform: translate(-50%, -50%);
-      left: 0%;
+      transform: translate(50%, -50%);
+      right: 0%;
       cursor: pointer;
       box-shadow: 0 0 8px var(--gold);
       pointer-events: auto;
@@ -186,7 +185,6 @@
       </div>
     </div>
 
-    <!-- متن آهنگ -->
     <div class="lyrics-box">
       <div class="verse-title">【 بند یک 】</div>
       <pre>
@@ -285,28 +283,25 @@
     const durationSpan = document.getElementById('duration');
     const volumeSlider = document.getElementById('volumeSlider');
 
-    // بارگذاری متادیتا
     audio.addEventListener('loadedmetadata', () => {
       durationSpan.textContent = formatTime(audio.duration);
     });
 
-    // بروزرسانی موقعیت آهنگ
     audio.addEventListener('timeupdate', () => {
       if (!isDragging && audio.duration) {
         const percent = (audio.currentTime / audio.duration) * 100;
         progressBar.style.width = percent + '%';
-        progressHandle.style.left = percent + '%';
+        // برای راست‌چین: راست = درصد
+        progressHandle.style.right = percent + '%';
       }
       currentSpan.textContent = formatTime(audio.currentTime);
     });
 
-    // پایان آهنگ
     audio.addEventListener('ended', () => {
       isPlaying = false;
       playPause.textContent = '▶';
     });
 
-    // پلی/پیوز
     playPause.onclick = () => {
       if (isPlaying) {
         audio.pause();
@@ -318,7 +313,6 @@
       isPlaying = !isPlaying;
     };
 
-    // دکمه قبلی (برگشت به ابتدا)
     prevBtn.onclick = () => {
       audio.currentTime = 0;
       if (!isPlaying) {
@@ -328,7 +322,6 @@
       }
     };
 
-    // دکمه بعدی (برگشت به ابتدا - چون فقط یک آهنگ داریم)
     nextBtn.onclick = () => {
       audio.currentTime = 0;
       if (!isPlaying) {
@@ -338,7 +331,7 @@
       }
     };
 
-    // کشیدن دستی اسلایدر (عقب و جلو کردن با موس)
+    // تبدیل مختصات موس به درصد برای راست‌چین
     function updateProgressFromMouse(e) {
       const rect = progressContainer.getBoundingClientRect();
       let x = e.clientX - rect.left;
@@ -347,15 +340,14 @@
       const newTime = (percent / 100) * audio.duration;
       audio.currentTime = newTime;
       progressBar.style.width = percent + '%';
-      progressHandle.style.left = percent + '%';
+      progressHandle.style.right = percent + '%';
     }
 
-    // کلیک روی نوار پیشرفت
     progressContainer.addEventListener('click', (e) => {
       updateProgressFromMouse(e);
     });
 
-    // شروع کشیدن هندل
+    // کشیدن هندل برای راست‌چین
     progressHandle.addEventListener('mousedown', (e) => {
       isDragging = true;
       e.stopPropagation();
@@ -372,7 +364,7 @@
       const newTime = (percent / 100) * audio.duration;
       audio.currentTime = newTime;
       progressBar.style.width = percent + '%';
-      progressHandle.style.left = percent + '%';
+      progressHandle.style.right = percent + '%';
     }
 
     function onMouseUp() {
@@ -381,14 +373,12 @@
       document.removeEventListener('mouseup', onMouseUp);
     }
 
-    // کنترل صدا
     volumeSlider.oninput = (e) => {
       audio.volume = parseFloat(e.target.value);
     };
     audio.volume = 0.7;
-
-    // ❌ حذف شد: آهنگ خودکار پخش نشود
-    // فقط وقتی کاربر دکمه پلی رو بزنه شروع میشه
+    
+    // ❌ آهنگ خودکار پخش نمی‌شه
   }
 
   function formatTime(sec) {
@@ -398,7 +388,6 @@
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   }
 
-  // اجرا بعد از لود صفحه
   window.addEventListener('DOMContentLoaded', initMusic);
 </script>
 </body>
