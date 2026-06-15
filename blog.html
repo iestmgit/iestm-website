@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IESTM | اخبار و اطلاعیه‌ها</title>
-  <meta name="description" content="آخرین اخبار و بروزرسانی‌های کمپانی ایستم - رونمایی از IESTM OS، بروزرسانی Notebook و فرصت‌های همکاری" />
+  <meta name="description" content="آخرین اخبار و بروزرسانی‌های کمپانی ایستم" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -34,17 +34,17 @@
       <h2>📰 آخرین اخبار و اطلاعیه‌ها</h2>
       <p>جدیدترین رویدادها، بروزرسانی‌ها و اطلاعیه‌های کمپانی ایستم</p>
     </div>
-    <div class="news-grid" id="newsContainer" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:24px;"></div>
+    <div class="news-grid" id="newsContainer"></div>
   </section>
 </main>
 
 <footer>
   <div class="container footer-box">
-    <div><h3 style="color:var(--gold)">IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
+    <div><h3>IESTM</h3><p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p></div>
+    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p></div>
+    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
   </div>
-  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
+  <p class="copyright">© IESTM Official</p>
 </footer>
 
 <script>
@@ -58,10 +58,10 @@
     const container = document.getElementById('newsContainer');
     if(container) {
       container.innerHTML = news.map(n => `
-        <div class="news-card glass" style="padding:24px; border-radius:22px;">
+        <div class="news-card glass">
           <div class="news-date">📅 ${n.date}</div>
-          <h3 class="news-title">${n.title}</h3>
-          <p class="news-summary">${n.summary}</p>
+          <h3>${n.title}</h3>
+          <p>${n.summary}</p>
           <span class="news-badge">${n.badge}</span>
         </div>
       `).join('');
