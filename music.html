@@ -7,6 +7,46 @@
   <meta name="description" content="پخش آنلاین آهنگ رسمی و سرود کمپانی ایستم - حماسه سازان فردا" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .lyrics-box {
+      background: rgba(0,0,0,0.4);
+      border-radius: 20px;
+      padding: 25px;
+      margin-top: 30px;
+      border-right: 4px solid var(--gold);
+      font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+      line-height: 2;
+      color: var(--muted);
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .lyrics-box pre {
+      font-family: inherit;
+      white-space: pre-wrap;
+      word-break: keep-all;
+      margin: 0;
+      font-size: 0.95rem;
+      color: #dce9f7;
+    }
+    .verse-title {
+      color: var(--gold);
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body class="noise">
 
@@ -32,15 +72,17 @@
   <section class="container">
     <div class="section-title">
       <h2>🎵 آهنگ رسمی کمپانی ایستم</h2>
-      <p>آهنگ رسمی و نمادین شرکت ایستم - با قابلیت پخش و کنترل کامل</p>
+      <p>سرود رسمی و نمادین شرکت ایستم - با قابلیت پخش و متن کامل</p>
     </div>
     <div class="glass music-player" style="padding:28px; background:linear-gradient(135deg, rgba(247,201,72,.08), rgba(73,182,255,.08)); border-radius:24px;">
-      <div class="song-title" style="text-align:center; font-size:1.2rem; margin-bottom:20px; color:var(--gold);">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
+      <div class="song-title" style="text-align:center; font-size:1.4rem; margin-bottom:20px; color:var(--gold); font-weight:bold;">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
+      
       <audio id="officialAudio" src="https://s3.thr1.sotoon.ir/media-fast-1/server_files/0cd802bd-a39c-4ff9-a48f-4c414e306add.mp3" preload="metadata"></audio>
+      
       <div class="player-controls" style="display:flex; align-items:center; justify-content:center; gap:20px; margin:20px 0; flex-wrap:wrap;">
-        <button class="control-btn" id="playPauseBtn" style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); cursor:pointer;">▶</button>
-        <button class="control-btn" id="prevBtn" style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.1); cursor:pointer;">⏮</button>
-        <button class="control-btn" id="nextBtn" style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.1); cursor:pointer;">⏭</button>
+        <button class="control-btn" id="playPauseBtn" style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); cursor:pointer; font-size:1.3rem;">▶</button>
+        <button class="control-btn" id="prevBtn" style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.1); cursor:pointer; font-size:1.3rem;">⏮</button>
+        <button class="control-btn" id="nextBtn" style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.1); cursor:pointer; font-size:1.3rem;">⏭</button>
         <div class="progress-container" id="progressContainer" style="background:rgba(255,255,255,.15); border-radius:10px; cursor:pointer; height:6px; flex:1; position:relative;">
           <div class="progress-bar" id="progressBar" style="background:linear-gradient(90deg,var(--gold),var(--cyan)); border-radius:10px; height:100%; width:0%;"></div>
         </div>
@@ -53,6 +95,75 @@
         <span>🔊</span>
         <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7" style="width:100px;">
       </div>
+    </div>
+
+    <!-- بخش متن آهنگ (کاملاً فارسی و پاکیزه) -->
+    <div class="lyrics-box">
+      <div class="verse-title">【 بند یک 】</div>
+      <pre>
+ایستِم زده باز، عجب شور و نوایی
+هر گوشه‌ش یه پروژه، هر روزش یه هوایی
+از وب و از ابزار و بازی و ماجراها
+همه می‌گن این شرکت، داره می‌ره بالاها
+
+دیش دارا دادام، ایستم اومد تو کار
+دیش دارا دادام، با ایده‌های بی‌شمار
+دیش دارا دادام، از دسکتاپ تا بازی
+دیش دارا دادام، چه شرکتی چه سازی
+      </pre>
+
+      <div class="verse-title">【 پیش‌خوان 】</div>
+      <pre>
+مدیرعاملش کیه؟ همه می‌پرسن هر بار
+رادمهر اصغری، با یه فکرِ پر از کار
+نه اهلِ سرسری، نه اهلِ وقت‌پرونی
+پروژه رو دونه‌دونه می‌چینه، مثل بارونی
+      </pre>
+
+      <div class="verse-title">【 همخوان 】</div>
+      <pre>
+دیش دارا دادام، دیش دارا دادام
+رادمهره توی فاز، دیش دارا دادام
+دیش دارا دادام، دیش دارا دادام
+پروژه‌هاش سرفراز، دیش دارا دادام
+      </pre>
+
+      <div class="verse-title">【 بند دو 】</div>
+      <pre>
+یه روز می‌ره سراغِ وب، یه روز پیاده‌سازی
+یه روزم وسطِ کد، یه روزم بازی‌سازی
+رادمهر آقا نشسته، پایِ سیستم و نمایشگر
+یه دستش رویِ کیبورد، اون یکی دنبالِ سرور
+
+نه خوابِ الکی داره، نه حرفِ کش‌دار
+می‌چینه کارو از اول، دقیق و بی‌غرور
+ایده‌های جورواجور، یکی پسِ یکی
+هر کدوم که میاد جلو، می‌گه اینم یکی
+      </pre>
+
+      <div class="verse-title">【 پیوند 】</div>
+      <pre>
+یه دفترِ سبک و تمیز، برای فکر و یادداشت
+یه ذهنِ پر از تصویر، یه مسیرِ روشن و راست
+از صفحه تا برنامه، از طرح تا اجرا
+همه چی رو می‌سازه، با حال و با صفا
+      </pre>
+
+      <div class="verse-title">【 همخوان 】</div>
+      <pre>
+دیش دارا دادام، دیش دارا دادام
+رادمهره توی فاز، دیش دارا دادام
+دیش دارا دادام، دیش دارا دادام
+پروژه‌هاش سرفراز، دیش دارا دادام
+      </pre>
+
+      <div class="verse-title">【 پایانی 】</div>
+      <pre>
+دیش دارا دادام، ایستم روشنه هنوز
+دیش دارا دادام، شهر پره از این سوز
+رادمهر اصغری، اسمِ رویِ پرچمه
+هر چی بسازه اینجاست، تهش یه فتحه
+      </pre>
     </div>
   </section>
 </main>
@@ -81,8 +192,15 @@
     const volumeSlider = document.getElementById('volumeSlider');
     
     audio.addEventListener('loadedmetadata', () => { durationSpan.textContent = formatTime(audio.duration); });
-    audio.addEventListener('timeupdate', () => { progressBar.style.width = (audio.currentTime / audio.duration * 100) + '%'; currentSpan.textContent = formatTime(audio.currentTime); });
-    playPause.onclick = () => { if(isPlaying) { audio.pause(); playPause.textContent = '▶'; } else { audio.play(); playPause.textContent = '⏸'; } isPlaying = !isPlaying; };
+    audio.addEventListener('timeupdate', () => { 
+      if(audio.duration) progressBar.style.width = (audio.currentTime / audio.duration * 100) + '%'; 
+      currentSpan.textContent = formatTime(audio.currentTime); 
+    });
+    playPause.onclick = () => { 
+      if(isPlaying) { audio.pause(); playPause.textContent = '▶'; } 
+      else { audio.play(); playPause.textContent = '⏸'; } 
+      isPlaying = !isPlaying; 
+    };
     prev.onclick = () => { audio.currentTime = 0; if(!isPlaying) { audio.play(); playPause.textContent = '⏸'; isPlaying = true; } };
     next.onclick = () => { audio.currentTime = 0; if(!isPlaying) { audio.play(); playPause.textContent = '⏸'; isPlaying = true; } };
     progressContainer.onclick = (e) => { const rect = progressContainer.getBoundingClientRect(); audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration; };
