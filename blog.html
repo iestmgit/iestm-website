@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | اخبار و اطلاعیه‌ها</title>
+  <meta name="description" content="آخرین اخبار و بروزرسانی‌های کمپانی ایستم - رونمایی از IESTM OS، بروزرسانی Notebook و فرصت‌های همکاری" />
+  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="noise">
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
+      <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">خانه</a>
+      <a href="about.html">درباره ما</a>
+      <a href="projects.html">پروژه‌ها</a>
+      <a href="blog.html" class="active">اخبار</a>
+      <a href="music.html">آهنگ رسمی</a>
+      <a href="contact.html">تماس</a>
+      <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="container">
+    <div class="section-title">
+      <h2>📰 آخرین اخبار و اطلاعیه‌ها</h2>
+      <p>جدیدترین رویدادها، بروزرسانی‌ها و اطلاعیه‌های کمپانی ایستم</p>
+    </div>
+    <div class="news-grid" id="newsContainer" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:24px;"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-box">
+    <div><h3 style="color:var(--gold)">IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
+    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
+    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
+  </div>
+  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
+</footer>
+
+<script>
+  const defaultNews = [
+    { id:1, date:"۱۴۰۳/۱۰/۱۵", title:"رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary:"اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge:"جدید" },
+    { id:2, date:"۱۴۰۳/۱۰/۱۰", title:"بروزرسانی بزرگ IESTM Notebook 1.5", summary:"نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge:"بروزرسانی" },
+    { id:3, date:"۱۴۰۳/۱۰/۰۵", title:"جذب برنامه‌نویس برای تیم توسعه IESTM", summary:"کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge:"استخدام" }
+  ];
+  let news = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
+  function renderNews() {
+    const container = document.getElementById('newsContainer');
+    if(container) {
+      container.innerHTML = news.map(n => `
+        <div class="news-card glass" style="padding:24px; border-radius:22px;">
+          <div class="news-date">📅 ${n.date}</div>
+          <h3 class="news-title">${n.title}</h3>
+          <p class="news-summary">${n.summary}</p>
+          <span class="news-badge">${n.badge}</span>
+        </div>
+      `).join('');
+    }
+  }
+  renderNews();
+</script>
+</body>
+</html>
