@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | تماس با ما - ارتباط با کمپانی ایستم</title>
+  <meta name="description" content="راه‌های ارتباطی با کمپانی ایستم - ایمیل، تلفن، کانال تلگرام و فرم تماس" />
+  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="noise">
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
+      <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">خانه</a>
+      <a href="about.html">درباره ما</a>
+      <a href="projects.html">پروژه‌ها</a>
+      <a href="blog.html">اخبار</a>
+      <a href="music.html">آهنگ رسمی</a>
+      <a href="contact.html" class="active">تماس</a>
+      <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="container">
+    <div class="section-title">
+      <h2>ارتباط و اطلاعات رسمی</h2>
+      <p>اطلاعات پایه برای معرفی، همکاری و پیگیری پروژه‌ها</p>
+    </div>
+    <div class="contact-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+      <div class="glass" style="padding:30px;">
+        <h3 style="color:var(--gold); margin-top:0;">اطلاعات تماس</h3>
+        <p><strong>📧 ایمیل:</strong> asly3325@gmail.com</p>
+        <p><strong>📞 تلفن:</strong> 09398212260</p>
+        <p><strong>📱 کانال تلگرام:</strong> @iestmcompany</p>
+        <p><strong>👤 بنیان‌گذار:</strong> رادمهر اصغری</p>
+        <p><strong>🏢 کمپانی:</strong> IESTM - توسعه نرم‌افزار وب، بازی و دسکتاپ</p>
+      </div>
+      <div class="glass" style="padding:30px;">
+        <h3 style="color:var(--gold); margin-top:0;">ارسال پیام</h3>
+        <form id="contactForm">
+          <input type="text" id="contactName" placeholder="نام و نام خانوادگی" style="width:100%; padding:12px; margin:8px 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; color:white;">
+          <input type="email" id="contactEmail" placeholder="ایمیل" style="width:100%; padding:12px; margin:8px 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; color:white;">
+          <textarea id="contactMsg" rows="4" placeholder="پیام شما..." style="width:100%; padding:12px; margin:8px 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; color:white;"></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;">ارسال پیام</button>
+        </form>
+        <p class="small" style="color:var(--muted); margin-top:16px;">🔹 پیام‌ها به ایمیل asly3325@gmail.com ارسال می‌شود</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-box">
+    <div><h3 style="color:var(--gold)">IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
+    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
+    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
+  </div>
+  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
+</footer>
+
+<script>
+  document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const msg = document.getElementById('contactMsg').value;
+    if(name && email && msg) {
+      alert(`✅ پیام شما دریافت شد.\n${name} عزیز، به زودی با شما تماس می‌گیریم.`);
+      this.reset();
+    } else {
+      alert('❌ لطفاً همه فیلدها را پر کنید!');
+    }
+  });
+</script>
+</body>
+</html>
