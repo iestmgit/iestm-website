@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | تماس با ما - ارتباط با کمپانی ایستم</title>
-  <meta name="description" content="راه‌های ارتباطی با کمپانی ایستم - ایمیل، تلفن، کانال تلگرام و فرم تماس" />
+  <title>IESTM | تماس با ما</title>
+  <meta name="description" content="راه‌های ارتباطی با کمپانی ایستم" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    input, textarea { width: 100%; padding: 12px; margin: 8px 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; color: white; font-family: "IranianSans", sans-serif; }
+    @media (max-width:980px){ .contact-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body class="noise">
 
@@ -31,27 +36,25 @@
 <main>
   <section class="container">
     <div class="section-title">
-      <h2>ارتباط و اطلاعات رسمی</h2>
-      <p>اطلاعات پایه برای معرفی، همکاری و پیگیری پروژه‌ها</p>
+      <h2>ارتباط با ما</h2>
+      <p>راه‌های ارتباطی برای همکاری، سوالات و پیشنهادات</p>
     </div>
-    <div class="contact-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+    <div class="contact-grid">
       <div class="glass" style="padding:30px;">
-        <h3 style="color:var(--gold); margin-top:0;">اطلاعات تماس</h3>
+        <h3 style="color:var(--gold);">اطلاعات تماس</h3>
         <p><strong>📧 ایمیل:</strong> asly3325@gmail.com</p>
         <p><strong>📞 تلفن:</strong> 09398212260</p>
         <p><strong>📱 کانال تلگرام:</strong> @iestmcompany</p>
         <p><strong>👤 بنیان‌گذار:</strong> رادمهر اصغری</p>
-        <p><strong>🏢 کمپانی:</strong> IESTM - توسعه نرم‌افزار وب، بازی و دسکتاپ</p>
       </div>
       <div class="glass" style="padding:30px;">
-        <h3 style="color:var(--gold); margin-top:0;">ارسال پیام</h3>
+        <h3 style="color:var(--gold);">ارسال پیام</h3>
         <form id="contactForm">
-          <input type="text" id="contactName" placeholder="نام و نام خانوادگی" style="width:100%; padding:12px; margin:8px 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; color:white;">
-          <input type="email" id="contactEmail" placeholder="ایمیل" style="width:100%; padding:12px; margin:8px 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; color:white;">
-          <textarea id="contactMsg" rows="4" placeholder="پیام شما..." style="width:100%; padding:12px; margin:8px 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; color:white;"></textarea>
+          <input type="text" id="name" placeholder="نام و نام خانوادگی">
+          <input type="email" id="email" placeholder="ایمیل">
+          <textarea id="message" rows="4" placeholder="پیام شما..."></textarea>
           <button type="submit" class="btn btn-primary" style="width:100%;">ارسال پیام</button>
         </form>
-        <p class="small" style="color:var(--muted); margin-top:16px;">🔹 پیام‌ها به ایمیل asly3325@gmail.com ارسال می‌شود</p>
       </div>
     </div>
   </section>
@@ -59,25 +62,20 @@
 
 <footer>
   <div class="container footer-box">
-    <div><h3 style="color:var(--gold)">IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
+    <div><h3>IESTM</h3><p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p></div>
+    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p></div>
+    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
   </div>
-  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
+  <p class="copyright">© IESTM Official</p>
 </footer>
 
 <script>
   document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = document.getElementById('contactName').value;
-    const email = document.getElementById('contactEmail').value;
-    const msg = document.getElementById('contactMsg').value;
-    if(name && email && msg) {
-      alert(`✅ پیام شما دریافت شد.\n${name} عزیز، به زودی با شما تماس می‌گیریم.`);
-      this.reset();
-    } else {
-      alert('❌ لطفاً همه فیلدها را پر کنید!');
-    }
+    const name = document.getElementById('name').value;
+    if(name) alert(`✅ پیام شما دریافت شد.\n${name} عزیز، به زودی پاسخ داده می‌شود.`);
+    else alert('❌ لطفاً نام خود را وارد کنید.');
+    this.reset();
   });
 </script>
 </body>
