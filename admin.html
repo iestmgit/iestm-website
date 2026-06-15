@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IESTM | پنل مدیریت</title>
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
   <style>
+    .admin-box { max-width: 500px; margin: 0 auto; padding: 30px; }
+    .admin-tabs { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
+    .admin-tab { padding: 10px 24px; background: rgba(255,255,255,.05); border-radius: 30px; cursor: pointer; }
+    .admin-tab.active { background: var(--gold); color: #07111f; }
     .admin-panel { display: none; }
     .admin-panel.active-panel { display: block; }
-    .admin-tabs { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
-    .admin-tab { padding: 10px 24px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 30px; cursor: pointer; }
-    .admin-tab.active { background: var(--gold); color: #07111f; }
-    .admin-input, .admin-textarea { width: 100%; padding: 14px; margin: 12px 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 14px; color: var(--text); }
-    .news-list-item { background: rgba(255,255,255,.05); border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    .small-btn { padding: 8px 16px; background: rgba(255,79,163,.2); border: 1px solid var(--pink); color: var(--pink); border-radius: 20px; cursor: pointer; }
+    .news-item { background: rgba(255,255,255,.05); border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .del-btn { padding: 8px 16px; background: rgba(255,79,163,.2); border: none; border-radius: 20px; color: var(--pink); cursor: pointer; }
   </style>
 </head>
 <body class="noise">
@@ -24,7 +24,7 @@
   <div class="nav-inner">
     <div class="brand">
       <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
-      <div>کمپانی ایستم<br><span style="font-size:.7rem;">پنل مدیریت</span></div>
+      <div>پنل مدیریت</div>
     </div>
     <div class="nav-links">
       <a href="index.html">خانه</a>
@@ -40,163 +40,57 @@
 <main>
   <section class="container">
     <div class="section-title">
-      <h2>👥 پنل مدیریت</h2>
-      <p>ورود به بخش مدیریت کمپانی ایستم (فقط برای مدیران)</p>
+      <h2>پنل مدیریت</h2>
+      <p>ورود به بخش مدیریت (فقط برای مدیران)</p>
     </div>
-    <div class="glass" id="adminApp" style="padding:30px;"></div>
+    <div id="adminApp"></div>
   </section>
 </main>
 
 <script>
   const validUsername = 'iestmkar';
   const validPassword = 'rm123456rm';
-  let isLoggedIn = localStorage.getItem('iestmAdminLoggedIn') === 'true';
-  
+  let isLoggedIn = localStorage.getItem('iestmAdmin') === 'true';
   const defaultNews = [
-    { id:1, date:"۱۴۰۳/۱۰/۱۵", title:"رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary:"اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge:"جدید" },
-    { id:2, date:"۱۴۰۳/۱۰/۱۰", title:"بروزرسانی بزرگ IESTM Notebook 1.5", summary:"نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge:"بروزرسانی" },
-    { id:3, date:"۱۴۰۳/۱۰/۰۵", title:"جذب برنامه‌نویس برای تیم توسعه IESTM", summary:"کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge:"استخدام" }
+    { id:1, date:"۱۴۰۳/۱۰/۱۵", title:"رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary:"اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم منتشر شد.", badge:"جدید" },
+    { id:2, date:"۱۴۰۳/۱۰/۱۰", title:"بروزرسانی بزرگ IESTM Notebook 1.5", summary:"نسخه جدید دفترچه یادداشت با تم تاریک منتشر شد.", badge:"بروزرسانی" },
+    { id:3, date:"۱۴۰۳/۱۰/۰۵", title:"جذب برنامه‌نویس برای تیم توسعه IESTM", summary:"کمپانی ایستم از علاقه‌مندان دعوت می‌کند.", badge:"استخدام" }
   ];
-  
   function getNews() { return JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews)); }
   function saveNews(news) { localStorage.setItem('iestm_news', JSON.stringify(news)); }
-  
-  function renderAdminPanel() {
+  function render() {
     const container = document.getElementById('adminApp');
     if(!container) return;
     if(!isLoggedIn) {
-      container.innerHTML = `
-        <div style="max-width:400px; margin:0 auto;">
-          <input type="text" id="adminUser" class="admin-input" placeholder="نام کاربری">
-          <input type="password" id="adminPass" class="admin-input" placeholder="رمز عبور">
-          <button class="btn btn-primary" onclick="login()" style="width:100%;">ورود به پنل</button>
-          <div id="loginMsg" class="small" style="margin-top:16px; text-align:center;"></div>
-        </div>
-      `;
+      container.innerHTML = `<div class="glass admin-box"><input type="text" id="user" class="admin-input" placeholder="نام کاربری"><input type="password" id="pass" class="admin-input" placeholder="رمز عبور"><button class="btn btn-primary" onclick="login()" style="width:100%">ورود</button><div id="msg" class="small" style="margin-top:16px;text-align:center"></div></div>`;
     } else {
       const news = getNews();
-      container.innerHTML = `
-        <div>
-          <div class="admin-tabs">
-            <div class="admin-tab active" onclick="switchTab('news')">📰 مدیریت اخبار</div>
-            <div class="admin-tab" onclick="switchTab('texts')">✏️ ویرایش متون</div>
-          </div>
-          <div id="newsPanel" class="admin-panel active-panel">
-            <h4>➕ افزودن خبر جدید</h4>
-            <input type="text" id="newsDate" class="admin-input" placeholder="تاریخ (مثال: ۱۴۰۳/۱۰/۲۰)">
-            <input type="text" id="newsTitle" class="admin-input" placeholder="عنوان خبر">
-            <textarea id="newsSummary" class="admin-textarea" placeholder="متن خبر..."></textarea>
-            <input type="text" id="newsBadge" class="admin-input" placeholder="برچسب (جدید / بروزرسانی / استخدام)">
-            <button class="btn btn-primary" onclick="addNews()">➕ افزودن خبر</button>
-            <h4 style="margin-top:30px;">📋 لیست اخبار موجود</h4>
-            <div id="adminNewsList"></div>
-          </div>
-          <div id="textsPanel" class="admin-panel">
-            <h4>✏️ ویرایش متون صفحه اصلی</h4>
-            <p class="small">برای ویرایش هر متن، روی آن کلیک کنید و بعد از تغییر، ذخیره کنید.</p>
-            <div id="textsEditor"></div>
-          </div>
-          <button class="logout-btn" onclick="logout()" style="margin-top:30px; padding:12px 24px; background:rgba(255,79,163,.2); border:1px solid var(--pink); border-radius:12px; cursor:pointer;">🚪 خروج از پنل</button>
-        </div>
-      `;
-      renderAdminNewsList();
-      renderTextsEditor();
+      container.innerHTML = `<div class="glass" style="padding:30px"><div class="admin-tabs"><div class="admin-tab active" onclick="switchTab('news')">مدیریت اخبار</div><div class="admin-tab" onclick="switchTab('add')">افزودن خبر</div></div><div id="newsPanel" class="admin-panel active-panel"><div id="newsList"></div></div><div id="addPanel" class="admin-panel"><input type="text" id="newsDate" class="admin-input" placeholder="تاریخ"><input type="text" id="newsTitle" class="admin-input" placeholder="عنوان"><textarea id="newsSummary" class="admin-textarea" placeholder="متن خبر"></textarea><input type="text" id="newsBadge" class="admin-input" placeholder="برچسب"><button class="btn btn-primary" onclick="addNews()">افزودن خبر</button></div><button class="logout-btn" onclick="logout()" style="margin-top:30px">خروج</button></div>`;
+      renderNewsList();
     }
   }
-  
-  function renderAdminNewsList() {
-    const container = document.getElementById('adminNewsList');
+  function renderNewsList() {
+    const container = document.getElementById('newsList');
     if(!container) return;
     const news = getNews();
-    if(news.length === 0) { container.innerHTML = '<p>هیچ خبری وجود ندارد.</p>'; return; }
-    container.innerHTML = news.map(n => `
-      <div class="news-list-item">
-        <div><strong>${n.title}</strong><br><small>${n.date} | ${n.badge}</small></div>
-        <button class="small-btn" onclick="deleteNews(${n.id})">🗑 حذف</button>
-      </div>
-    `).join('');
+    if(news.length===0) { container.innerHTML='<p>هیچ خبری نیست</p>'; return; }
+    container.innerHTML = news.map(n => `<div class="news-item"><div><strong>${n.title}</strong><br><small>${n.date} | ${n.badge}</small></div><button class="del-btn" onclick="deleteNews(${n.id})">حذف</button></div>`).join('');
   }
-  
-  function renderTextsEditor() {
-    const container = document.getElementById('textsEditor');
-    if(!container) return;
-    const texts = JSON.parse(localStorage.getItem('iestm_texts') || '{}');
-    container.innerHTML = `
-      <div class="glass" style="padding:20px;">
-        <label>متن هدر صفحه اصلی:</label>
-        <textarea id="editHeroTitle" class="admin-textarea" rows="3">${texts.heroTitle || 'من رادمهر اصغری هستم...'}</textarea>
-        <label>متن پاراگراف اول:</label>
-        <textarea id="editHeroP1" class="admin-textarea" rows="4">${texts.heroP1 || ''}</textarea>
-        <button class="btn btn-primary" onclick="saveTexts()" style="margin-top:16px;">💾 ذخیره همه متون</button>
-      </div>
-    `;
-  }
-  
-  function saveTexts() {
-    const texts = {
-      heroTitle: document.getElementById('editHeroTitle')?.value || '',
-      heroP1: document.getElementById('editHeroP1')?.value || ''
-    };
-    localStorage.setItem('iestm_texts', JSON.stringify(texts));
-    alert('✅ متون ذخیره شد!');
-  }
-  
   function addNews() {
-    const date = document.getElementById('newsDate')?.value;
-    const title = document.getElementById('newsTitle')?.value;
-    const summary = document.getElementById('newsSummary')?.value;
-    const badge = document.getElementById('newsBadge')?.value;
-    if(!date || !title || !summary || !badge) { alert('لطفاً همه فیلدها را پر کنید!'); return; }
+    const date = document.getElementById('newsDate')?.value, title = document.getElementById('newsTitle')?.value, summary = document.getElementById('newsSummary')?.value, badge = document.getElementById('newsBadge')?.value;
+    if(!date||!title||!summary||!badge) { alert('همه فیلدها پر شود'); return; }
     const news = getNews();
-    const newId = Date.now();
-    news.unshift({ id: newId, date, title, summary, badge });
+    news.unshift({ id:Date.now(), date, title, summary, badge });
     saveNews(news);
-    document.getElementById('newsDate').value = '';
-    document.getElementById('newsTitle').value = '';
-    document.getElementById('newsSummary').value = '';
-    document.getElementById('newsBadge').value = '';
-    renderAdminNewsList();
-    alert('✅ خبر اضافه شد!');
+    alert('خبر اضافه شد');
+    document.getElementById('newsDate').value=''; document.getElementById('newsTitle').value=''; document.getElementById('newsSummary').value=''; document.getElementById('newsBadge').value='';
+    renderNewsList();
   }
-  
-  function deleteNews(id) {
-    let news = getNews();
-    news = news.filter(n => n.id !== id);
-    saveNews(news);
-    renderAdminNewsList();
-    alert('🗑 خبر حذف شد');
-  }
-  
-  function switchTab(panel) {
-    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('newsPanel').classList.remove('active-panel');
-    document.getElementById('textsPanel').classList.remove('active-panel');
-    if(panel === 'news') document.getElementById('newsPanel').classList.add('active-panel');
-    else document.getElementById('textsPanel').classList.add('active-panel');
-    if(panel === 'news') renderAdminNewsList();
-  }
-  
-  function login() {
-    const user = document.getElementById('adminUser')?.value;
-    const pass = document.getElementById('adminPass')?.value;
-    if(user === validUsername && pass === validPassword) {
-      isLoggedIn = true;
-      localStorage.setItem('iestmAdminLoggedIn', 'true');
-      renderAdminPanel();
-    } else {
-      const msgDiv = document.getElementById('loginMsg');
-      if(msgDiv) msgDiv.innerHTML = '<span style="color:var(--pink);">❌ نام کاربری یا رمز عبور اشتباه است!</span>';
-    }
-  }
-  
-  function logout() {
-    isLoggedIn = false;
-    localStorage.removeItem('iestmAdminLoggedIn');
-    renderAdminPanel();
-  }
-  
-  renderAdminPanel();
+  function deleteNews(id) { let news = getNews(); news = news.filter(n=>n.id!==id); saveNews(news); renderNewsList(); }
+  function switchTab(tab) { document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active')); event.target.classList.add('active'); document.getElementById('newsPanel').classList.remove('active-panel'); document.getElementById('addPanel').classList.remove('active-panel'); if(tab==='news') document.getElementById('newsPanel').classList.add('active-panel'); else document.getElementById('addPanel').classList.add('active-panel'); }
+  function login() { const u=document.getElementById('user')?.value, p=document.getElementById('pass')?.value; if(u===validUsername && p===validPassword) { isLoggedIn=true; localStorage.setItem('iestmAdmin','true'); render(); } else { const m=document.getElementById('msg'); if(m) m.innerHTML='<span style="color:var(--pink)">نام کاربری یا رمز اشتباه</span>'; } }
+  function logout() { isLoggedIn=false; localStorage.removeItem('iestmAdmin'); render(); }
+  render();
 </script>
 </body>
 </html>
