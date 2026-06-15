@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | پروژه‌ها و محصولات - نرم‌افزار، بازی، اپلیکیشن دسکتاپ</title>
-  <meta name="description" content="مشاهده همه پروژه‌های کمپانی ایستم: IESTM OS، بازی سه‌بعدی دوز، بازی فوتبال سه‌بعدی، IESTM Notebook، صلوات‌شمار و استیکرهای اختصاصی" />
+  <title>IESTM | پروژه‌ها و محصولات</title>
+  <meta name="description" content="مشاهده همه پروژه‌های کمپانی ایستم: IESTM OS، بازی سه‌بعدی، Notebook، صلوات‌شمار و استیکرهای اختصاصی" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .timeline { padding-right: 24px; border-right: 2px dashed rgba(255,255,255,.16); }
+    .timeline-item { padding: 20px; margin-bottom: 20px; border-radius: 20px; background: rgba(255,255,255,.05); position: relative; }
+    .timeline-item::before { content: ""; position: absolute; right: -34px; top: 24px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); }
+    @media (max-width:980px){ .products-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body class="noise">
 
@@ -32,65 +39,11 @@
   <section class="container">
     <div class="section-title">
       <h2>محصولات و پروژه‌های IESTM</h2>
-      <p>مهم‌ترین پروژه‌ها و محصولاتی که تاکنون معرفی یا توسعه داده شده‌اند</p>
+      <p>مهم‌ترین پروژه‌ها و محصولاتی که تاکنون توسعه داده شده‌اند</p>
     </div>
-    <div class="products" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;">
-      <article class="product glass" style="padding:26px; border-radius:24px; background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));">
-        <h3>IESTM OS؛ محیط دسکتاپ ویندوزی</h3>
-        <p>یکی از مهم‌ترین ایده‌های ایستم؛ یک محیط دسکتاپ ویندوزی با الهام از لینوکس، ویندوز و اندروید که با Python و PyQt/PySide توسعه داده می‌شود.</p>
-        <span class="tag">Python</span><span class="tag">PyQt / PySide</span><span class="tag">Windows Desktop</span>
-      </article>
-      <article class="product glass" style="padding:26px; border-radius:24px;">
-        <h3>IESTM Notebook 1.0</h3>
-        <p>دفترچه یادداشت ایستم ابزاری سبک، سریع و کاربردی برای ثبت ایده‌ها و یادداشت‌های روزانه با HTML، CSS، JavaScript و LocalStorage است.</p>
-        <span class="tag">Notebook</span><span class="tag">LocalStorage</span><span class="tag">ابزار کاربردی</span>
-      </article>
-      <article class="product glass" style="padding:26px; border-radius:24px;">
-        <h3>بازی سه‌بعدی IESTM Tik Tak To</h3>
-        <p>نسخه‌ای سه‌بعدی از بازی کلاسیک دوز که با Three.js توسعه داده شده و توانایی ایستم در ساخت تجربه‌های گرافیکی مرورگرمحور را نشان می‌دهد.</p>
-        <span class="tag">Three.js</span><span class="tag">3D Game</span><span class="tag">Browser Based</span>
-      </article>
-      <article class="product glass" style="padding:26px; border-radius:24px;">
-        <h3>IESTM Salavat Shomar</h3>
-        <p>صلوات‌شمار دیجیتال ایستم برای ثبت و مدیریت تعداد صلوات‌ها با تمرکز بر سادگی، دقت و تجربه کاربری روان طراحی شده است.</p>
-        <span class="tag">Utility App</span><span class="tag">Simple UI</span><span class="tag">Version 1.0</span>
-      </article>
-      <article class="product glass" style="padding:26px; border-radius:24px;">
-        <h3>بازی فوتبال سه‌بعدی</h3>
-        <p>یک پروژه بازی فوتبال سه‌بعدی با HTML، CSS و JavaScript که نشان می‌دهد ایستم توان ورود به توسعه بازی‌های تعاملی پیچیده‌تر را نیز دارد.</p>
-        <span class="tag">Football</span><span class="tag">3D</span><span class="tag">Game Project</span>
-      </article>
-      <article class="product glass" style="padding:26px; border-radius:24px;">
-        <h3>کانال طراحی استیکر و گیف اختصاصی</h3>
-        <p>ایستم در کنار توسعه نرم‌افزار، در طراحی گیف، استیکر و محتوای دیجیتال اختصاصی نیز فعالیت دارد.</p>
-        <span class="tag">GIF</span><span class="tag">Sticker</span><span class="tag">Digital Content</span>
-      </article>
-    </div>
-  </section>
-
-  <!-- چشم‌انداز -->
-  <section class="container">
-    <div class="section-title">
-      <h2>چشم‌انداز و مسیر آینده</h2>
-      <p>ایستم به کجا می‌رود و چه افقی را دنبال می‌کند</p>
-    </div>
-    <div class="timeline" style="position:relative; padding-right:24px; border-right:2px dashed rgba(255,255,255,.16);">
-      <div class="timeline-item glass" style="padding:20px; margin-bottom:20px; border-radius:20px;"><h3>مرحله اول: ساخت هویت</h3><p>ایجاد مجموعه‌ای از محصولات اولیه برای نشان‌دادن توان فنی، خلاقیت و سبک توسعه مستقل.</p></div>
-      <div class="timeline-item glass" style="padding:20px; margin-bottom:20px; border-radius:20px;"><h3>مرحله دوم: توسعه محصول</h3><p>گسترش پروژه‌ها از ابزارهای ساده به سامانه‌های پیچیده‌تر مانند محیط دسکتاپ، ابزارهای هوشمند و بازی‌های پیشرفته‌تر.</p></div>
-      <div class="timeline-item glass" style="padding:20px; margin-bottom:20px; border-radius:20px;"><h3>مرحله سوم: جذب همکاری و جامعه‌سازی</h3><p>ساخت فضای تعامل با کاربران، جذب استعدادهای برنامه‌نویسی و توسعه جمعی ایده‌ها.</p></div>
-      <div class="timeline-item glass" style="padding:20px; margin-bottom:20px; border-radius:20px;"><h3>مرحله چهارم: تثبیت برند</h3><p>تبدیل IESTM به یک برند شناخته‌شده در حوزه توسعه وب، نرم‌افزار، بازی و پروژه‌های دیجیتال خلاقانه.</p></div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footer-box">
-    <div><h3 style="color:var(--gold)">IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
-  </div>
-  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
-</footer>
-
-</body>
-</html>
+    <div class="products-grid">
+      <div class="glass product-card"><h3>IESTM OS</h3><p>محیط دسکتاپ ویندوزی با Python و PyQt/PySide</p><span class="tag">Python</span><span class="tag">PyQt</span><span class="tag">Windows</span></div>
+      <div class="glass product-card"><h3>IESTM Notebook</h3><p>دفترچه یادداشت سبک با ذخیره‌سازی محلی</p><span class="tag">HTML/CSS/JS</span><span class="tag">LocalStorage</span></div>
+      <div class="glass product-card"><h3>بازی سه‌بعدی دوز</h3><p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p><span class="tag">Three.js</span><span class="tag">3D Game</span></div>
+      <div class="glass product-card"><h3>صلوات‌شمار دیجیتال</h3><p>ابزار ساده و کاربردی برای شمارش اذکار</p><span class="tag">Utility</span><span class="tag">Simple UI</span></div>
+      <div class="glass product-card"><h3>بازی فوتبال سه‌بعدی</h3><p>پروژه بازی فوتبال با گرافیک سه‌بعد
