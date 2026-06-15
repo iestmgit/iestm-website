@@ -4,133 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IESTM | آهنگ رسمی کمپانی</title>
-  <meta name="description" content="پخش آنلاین آهنگ رسمی و سرود کمپانی ایستم - حماسه سازان فردا" />
+  <meta name="description" content="پخش آنلاین آهنگ رسمی و سرود کمپانی ایستم" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
   <style>
-    .lyrics-box {
-      background: rgba(0,0,0,0.4);
-      border-radius: 20px;
-      padding: 25px;
-      margin-top: 30px;
-      border-right: 4px solid var(--gold);
-      font-family: 'Vazirmatn', 'Tahoma', sans-serif;
-      line-height: 2;
-      color: var(--muted);
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    .lyrics-box pre {
-      font-family: inherit;
-      white-space: pre-wrap;
-      word-break: keep-all;
-      margin: 0;
-      font-size: 0.95rem;
-      color: #dce9f7;
-    }
-    .verse-title {
-      color: var(--gold);
-      font-weight: bold;
-      margin-top: 15px;
-      margin-bottom: 5px;
-      font-size: 1rem;
-    }
-    .progress-container {
-      background: rgba(255,255,255,.15);
-      border-radius: 10px;
-      cursor: pointer;
-      height: 8px;
-      flex: 1;
-      position: relative;
-    }
-    .progress-bar {
-      background: linear-gradient(90deg, var(--gold), var(--cyan));
-      border-radius: 10px;
-      height: 100%;
-      width: 0%;
-      position: relative;
-      pointer-events: none;
-    }
-    /* دایره طلایی - برای راست‌چین (rtl) */
-    .progress-handle {
-      width: 16px;
-      height: 16px;
-      background: var(--gold);
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(50%, -50%);
-      right: 0%;
-      cursor: pointer;
-      box-shadow: 0 0 8px var(--gold);
-      pointer-events: auto;
-      z-index: 5;
-    }
-    .player-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px 0;
-      flex-wrap: wrap;
-    }
-    .control-btn {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.2);
-      color: var(--text);
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .control-btn:hover {
-      background: var(--gold);
-      color: #07111f;
-      transform: scale(1.05);
-    }
-    .time-info {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .volume-control {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      justify-content: center;
-    }
-    .volume-slider {
-      width: 120px;
-      height: 4px;
-      -webkit-appearance: none;
-      background: rgba(255,255,255,.2);
-      border-radius: 5px;
-      outline: none;
-    }
-    .volume-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--gold);
-      cursor: pointer;
-    }
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--gold);
-      border-radius: 10px;
-    }
+    .player-container { padding: 28px; background: linear-gradient(135deg, rgba(247,201,72,.08), rgba(73,182,255,.08)); border-radius: 24px; }
+    .controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+    .ctrl-btn { width: 55px; height: 55px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: var(--text); font-size: 1.3rem; cursor: pointer; }
+    .ctrl-btn:hover { background: var(--gold); color: #07111f; }
+    .progress-area { background: rgba(255,255,255,.15); border-radius: 10px; cursor: pointer; height: 8px; flex: 1; position: relative; }
+    .progress-fill { background: linear-gradient(90deg, var(--gold), var(--cyan)); border-radius: 10px; height: 100%; width: 0%; }
+    .progress-handle { width: 16px; height: 16px; background: var(--gold); border-radius: 50%; position: absolute; top: 50%; transform: translate(50%, -50%); right: 0%; cursor: pointer; box-shadow: 0 0 8px var(--gold); z-index: 5; }
+    .time-row { display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.85rem; }
+    .volume-row { display: flex; align-items: center; gap: 12px; margin-top: 20px; justify-content: center; }
+    .volume-slider { width: 120px; height: 4px; -webkit-appearance: none; background: rgba(255,255,255,.2); border-radius: 5px; }
+    .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); cursor: pointer; }
+    .lyrics { background: rgba(0,0,0,0.4); border-radius: 20px; padding: 25px; margin-top: 30px; border-right: 4px solid var(--gold); max-height: 400px; overflow-y: auto; }
+    .lyrics pre { font-family: "IranianSans", monospace; white-space: pre-wrap; margin: 0; font-size: 0.95rem; color: #dce9f7; }
+    .verse { color: var(--gold); font-weight: bold; margin-top: 15px; margin-bottom: 5px; }
   </style>
 </head>
 <body class="noise">
@@ -157,36 +48,26 @@
   <section class="container">
     <div class="section-title">
       <h2>🎵 آهنگ رسمی کمپانی ایستم</h2>
-      <p>سرود رسمی و نمادین شرکت ایستم - با قابلیت پخش و کنترل کامل</p>
+      <p>سرود رسمی و نمادین شرکت ایستم</p>
     </div>
-    <div class="glass music-player" style="padding:28px; background:linear-gradient(135deg, rgba(247,201,72,.08), rgba(73,182,255,.08)); border-radius:24px;">
-      <div class="song-title" style="text-align:center; font-size:1.4rem; margin-bottom:20px; color:var(--gold); font-weight:bold;">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
-      
-      <audio id="officialAudio" src="https://s3.thr1.sotoon.ir/media-fast-1/server_files/0cd802bd-a39c-4ff9-a48f-4c414e306add.mp3" preload="metadata"></audio>
-      
-      <div class="player-controls">
-        <button class="control-btn" id="playPauseBtn">▶</button>
-        <button class="control-btn" id="prevBtn">⏮</button>
-        <button class="control-btn" id="nextBtn">⏭</button>
-        <div class="progress-container" id="progressContainer">
-          <div class="progress-bar" id="progressBar"></div>
+    <div class="player-container">
+      <div class="song-title" style="text-align:center; font-size:1.4rem; margin-bottom:20px; color:var(--gold);">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
+      <audio id="audio" src="https://s3.thr1.sotoon.ir/media-fast-1/server_files/0cd802bd-a39c-4ff9-a48f-4c414e306add.mp3" preload="metadata"></audio>
+      <div class="controls">
+        <button class="ctrl-btn" id="playBtn">▶</button>
+        <button class="ctrl-btn" id="prevBtn">⏮</button>
+        <button class="ctrl-btn" id="nextBtn">⏭</button>
+        <div class="progress-area" id="progressArea">
+          <div class="progress-fill" id="progressFill"></div>
           <div class="progress-handle" id="progressHandle"></div>
         </div>
       </div>
-      
-      <div class="time-info">
-        <span id="currentTime">00:00</span>
-        <span id="duration">00:00</span>
-      </div>
-      
-      <div class="volume-control">
-        <span>🔊</span>
-        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
-      </div>
+      <div class="time-row"><span id="currentTime">00:00</span><span id="duration">00:00</span></div>
+      <div class="volume-row"><span>🔊</span><input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01" value="0.7"></div>
     </div>
 
-    <div class="lyrics-box">
-      <div class="verse-title">【 بند یک 】</div>
+    <div class="lyrics">
+      <div class="verse">【 بند یک 】</div>
       <pre>
 ایستِم زده باز، عجب شور و نوایی
 هر گوشه‌ش یه پروژه، هر روزش یه هوایی
@@ -198,24 +79,21 @@
 دیش دارا دادام، از دسکتاپ تا بازی
 دیش دارا دادام، چه شرکتی چه سازی
       </pre>
-
-      <div class="verse-title">【 پیش‌خوان 】</div>
+      <div class="verse">【 پیش‌خوان 】</div>
       <pre>
 مدیرعاملش کیه؟ همه می‌پرسن هر بار
 رادمهر اصغری، با یه فکرِ پر از کار
 نه اهلِ سرسری، نه اهلِ وقت‌پرونی
 پروژه رو دونه‌دونه می‌چینه، مثل بارونی
       </pre>
-
-      <div class="verse-title">【 همخوان 】</div>
+      <div class="verse">【 همخوان 】</div>
       <pre>
 دیش دارا دادام، دیش دارا دادام
 رادمهره توی فاز، دیش دارا دادام
 دیش دارا دادام، دیش دارا دادام
 پروژه‌هاش سرفراز، دیش دارا دادام
       </pre>
-
-      <div class="verse-title">【 بند دو 】</div>
+      <div class="verse">【 بند دو 】</div>
       <pre>
 یه روز می‌ره سراغِ وب، یه روز پیاده‌سازی
 یه روزم وسطِ کد، یه روزم بازی‌سازی
@@ -227,24 +105,21 @@
 ایده‌های جورواجور، یکی پسِ یکی
 هر کدوم که میاد جلو، می‌گه اینم یکی
       </pre>
-
-      <div class="verse-title">【 پیوند 】</div>
+      <div class="verse">【 پیوند 】</div>
       <pre>
 یه دفترِ سبک و تمیز، برای فکر و یادداشت
 یه ذهنِ پر از تصویر، یه مسیرِ روشن و راست
 از صفحه تا برنامه، از طرح تا اجرا
 همه چی رو می‌سازه، با حال و با صفا
       </pre>
-
-      <div class="verse-title">【 همخوان 】</div>
+      <div class="verse">【 همخوان 】</div>
       <pre>
 دیش دارا دادام، دیش دارا دادام
 رادمهره توی فاز، دیش دارا دادام
 دیش دارا دادام، دیش دارا دادام
 پروژه‌هاش سرفراز، دیش دارا دادام
       </pre>
-
-      <div class="verse-title">【 پایانی 】</div>
+      <div class="verse">【 پایانی 】</div>
       <pre>
 دیش دارا دادام، ایستم روشنه هنوز
 دیش دارا دادام، شهر پره از این سوز
@@ -257,138 +132,77 @@
 
 <footer>
   <div class="container footer-box">
-    <div><h3 style="color:var(--gold)">IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
+    <div><h3>IESTM</h3><p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p></div>
+    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p></div>
+    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
   </div>
-  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
+  <p class="copyright">© IESTM Official</p>
 </footer>
 
 <script>
-  let audio = null;
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('playBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const progressArea = document.getElementById('progressArea');
+  const progressFill = document.getElementById('progressFill');
+  const progressHandle = document.getElementById('progressHandle');
+  const currentSpan = document.getElementById('currentTime');
+  const durationSpan = document.getElementById('duration');
+  const volumeSlider = document.getElementById('volume');
+
   let isPlaying = false;
   let isDragging = false;
 
-  function initMusic() {
-    audio = document.getElementById('officialAudio');
-    if(!audio) return;
-    
-    const playPause = document.getElementById('playPauseBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const progressContainer = document.getElementById('progressContainer');
-    const progressBar = document.getElementById('progressBar');
-    const progressHandle = document.getElementById('progressHandle');
-    const currentSpan = document.getElementById('currentTime');
-    const durationSpan = document.getElementById('duration');
-    const volumeSlider = document.getElementById('volumeSlider');
-
-    audio.addEventListener('loadedmetadata', () => {
-      durationSpan.textContent = formatTime(audio.duration);
-    });
-
-    audio.addEventListener('timeupdate', () => {
-      if (!isDragging && audio.duration) {
-        const percent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = percent + '%';
-        // برای راست‌چین: راست = درصد
-        progressHandle.style.right = percent + '%';
-      }
-      currentSpan.textContent = formatTime(audio.currentTime);
-    });
-
-    audio.addEventListener('ended', () => {
-      isPlaying = false;
-      playPause.textContent = '▶';
-    });
-
-    playPause.onclick = () => {
-      if (isPlaying) {
-        audio.pause();
-        playPause.textContent = '▶';
-      } else {
-        audio.play();
-        playPause.textContent = '⏸';
-      }
-      isPlaying = !isPlaying;
-    };
-
-    prevBtn.onclick = () => {
-      audio.currentTime = 0;
-      if (!isPlaying) {
-        audio.play();
-        playPause.textContent = '⏸';
-        isPlaying = true;
-      }
-    };
-
-    nextBtn.onclick = () => {
-      audio.currentTime = 0;
-      if (!isPlaying) {
-        audio.play();
-        playPause.textContent = '⏸';
-        isPlaying = true;
-      }
-    };
-
-    // تبدیل مختصات موس به درصد برای راست‌چین
-    function updateProgressFromMouse(e) {
-      const rect = progressContainer.getBoundingClientRect();
-      let x = e.clientX - rect.left;
-      let percent = (x / rect.width) * 100;
-      percent = Math.min(100, Math.max(0, percent));
-      const newTime = (percent / 100) * audio.duration;
-      audio.currentTime = newTime;
-      progressBar.style.width = percent + '%';
+  audio.addEventListener('loadedmetadata', () => { durationSpan.textContent = formatTime(audio.duration); });
+  audio.addEventListener('timeupdate', () => {
+    if (!isDragging && audio.duration) {
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = percent + '%';
       progressHandle.style.right = percent + '%';
     }
+    currentSpan.textContent = formatTime(audio.currentTime);
+  });
+  audio.addEventListener('ended', () => { isPlaying = false; playBtn.textContent = '▶'; });
 
-    progressContainer.addEventListener('click', (e) => {
-      updateProgressFromMouse(e);
-    });
+  playBtn.onclick = () => {
+    if (isPlaying) { audio.pause(); playBtn.textContent = '▶'; }
+    else { audio.play(); playBtn.textContent = '⏸'; }
+    isPlaying = !isPlaying;
+  };
+  prevBtn.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playBtn.textContent = '⏸'; isPlaying = true; } };
+  nextBtn.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playBtn.textContent = '⏸'; isPlaying = true; } };
+  volumeSlider.oninput = () => { audio.volume = volumeSlider.value; };
+  audio.volume = 0.7;
 
-    // کشیدن هندل برای راست‌چین
-    progressHandle.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      e.stopPropagation();
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
-    });
-
-    function onMouseMove(e) {
-      if (!isDragging) return;
-      const rect = progressContainer.getBoundingClientRect();
-      let x = e.clientX - rect.left;
-      let percent = (x / rect.width) * 100;
-      percent = Math.min(100, Math.max(0, percent));
-      const newTime = (percent / 100) * audio.duration;
-      audio.currentTime = newTime;
-      progressBar.style.width = percent + '%';
-      progressHandle.style.right = percent + '%';
-    }
-
-    function onMouseUp() {
-      isDragging = false;
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    }
-
-    volumeSlider.oninput = (e) => {
-      audio.volume = parseFloat(e.target.value);
-    };
-    audio.volume = 0.7;
-    
-    // ❌ آهنگ خودکار پخش نمی‌شه
+  function updateProgress(e) {
+    const rect = progressArea.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let percent = (x / rect.width) * 100;
+    percent = Math.min(100, Math.max(0, percent));
+    audio.currentTime = (percent / 100) * audio.duration;
+    progressFill.style.width = percent + '%';
+    progressHandle.style.right = percent + '%';
   }
-
-  function formatTime(sec) {
-    if (isNaN(sec)) return '00:00';
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  progressArea.addEventListener('click', updateProgress);
+  progressHandle.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.stopPropagation();
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+  function onMove(e) {
+    if (!isDragging) return;
+    const rect = progressArea.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let percent = (x / rect.width) * 100;
+    percent = Math.min(100, Math.max(0, percent));
+    audio.currentTime = (percent / 100) * audio.duration;
+    progressFill.style.width = percent + '%';
+    progressHandle.style.right = percent + '%';
   }
-
-  window.addEventListener('DOMContentLoaded', initMusic);
+  function onUp() { isDragging = false; document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); }
+  function formatTime(sec) { if (isNaN(sec)) return '00:00'; const m = Math.floor(sec/60), s = Math.floor(sec%60); return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
 </script>
 </body>
 </html>
