@@ -29,7 +29,7 @@
 </nav>
 
 <main>
-  <!-- هیرو سکشن - عین خود سایتت -->
+  <!-- هیرو سکشن -->
   <header class="container hero">
     <div class="hero-grid">
       <div class="glass hero-card">
@@ -60,10 +60,10 @@
       <p>مهم‌ترین پروژه‌های IESTM</p>
     </div>
     <div class="products-preview">
-      <div class="product"><h3>IESTM OS</h3><p>محیط دسکتاپ ویندوزی با Python/PyQt</p><span class="tag">Python</span><span class="tag">PyQt</span></div>
-      <div class="product"><h3>بازی سه‌بعدی دوز</h3><p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p><span class="tag">Three.js</span><span class="tag">3D Game</span></div>
-      <div class="product"><h3>IESTM Notebook</h3><p>دفترچه یادداشت سبک با ذخیره خودکار</p><span class="tag">LocalStorage</span></div>
-      <div class="product"><h3>صلوات‌شمار</h3><p>صلوات‌شمار دیجیتال</p><span class="tag">Utility</span></div>
+      <div class="product-card"><h3>IESTM OS</h3><p>محیط دسکتاپ ویندوزی با Python/PyQt</p><span class="tag">Python</span><span class="tag">PyQt</span></div>
+      <div class="product-card"><h3>بازی سه‌بعدی دوز</h3><p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p><span class="tag">Three.js</span><span class="tag">3D Game</span></div>
+      <div class="product-card"><h3>IESTM Notebook</h3><p>دفترچه یادداشت سبک با ذخیره خودکار</p><span class="tag">LocalStorage</span></div>
+      <div class="product-card"><h3>صلوات‌شمار</h3><p>صلوات‌شمار دیجیتال</p><span class="tag">Utility</span></div>
     </div>
     <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
   </section>
@@ -74,7 +74,7 @@
       <h2>📰 آخرین اخبار</h2>
       <p>جدیدترین رویدادها و اطلاعیه‌ها</p>
     </div>
-    <div class="news-preview" id="newsPreview"></div>
+    <div class="news-grid" id="newsPreview"></div>
     <div class="text-center"><a href="blog.html" class="btn btn-secondary">مشاهده همه اخبار →</a></div>
   </section>
 
@@ -86,7 +86,7 @@
 
 <footer>
   <div class="container footer-box">
-    <div><h3 style="color:var(--gold)">IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
+    <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
     <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
     <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
   </div>
@@ -94,7 +94,6 @@
 </footer>
 
 <script>
-  // بارگذاری اخبار از localStorage یا دیتای پیش‌فرض (همون اخبار خودت)
   const defaultNews = [
     { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
     { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
@@ -107,8 +106,8 @@
       container.innerHTML = news.slice(0,3).map(n => `
         <div class="news-card">
           <div class="news-date">📅 ${n.date}</div>
-          <h3 class="news-title">${n.title}</h3>
-          <p class="news-summary">${n.summary}</p>
+          <h3>${n.title}</h3>
+          <p>${n.summary}</p>
           <span class="news-badge">${n.badge}</span>
         </div>
       `).join('');
