@@ -7,22 +7,6 @@
   <meta name="description" content="پخش آنلاین آهنگ رسمی و سرود کمپانی ایستم" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .player-container { padding: 28px; background: linear-gradient(135deg, rgba(247,201,72,.08), rgba(73,182,255,.08)); border-radius: 24px; }
-    .controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
-    .ctrl-btn { width: 55px; height: 55px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: var(--text); font-size: 1.3rem; cursor: pointer; }
-    .ctrl-btn:hover { background: var(--gold); color: #07111f; }
-    .progress-area { background: rgba(255,255,255,.15); border-radius: 10px; cursor: pointer; height: 8px; flex: 1; position: relative; }
-    .progress-fill { background: linear-gradient(90deg, var(--gold), var(--cyan)); border-radius: 10px; height: 100%; width: 0%; }
-    .progress-handle { width: 16px; height: 16px; background: var(--gold); border-radius: 50%; position: absolute; top: 50%; transform: translate(50%, -50%); right: 0%; cursor: pointer; box-shadow: 0 0 8px var(--gold); z-index: 5; }
-    .time-row { display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.85rem; }
-    .volume-row { display: flex; align-items: center; gap: 12px; margin-top: 20px; justify-content: center; }
-    .volume-slider { width: 120px; height: 4px; -webkit-appearance: none; background: rgba(255,255,255,.2); border-radius: 5px; }
-    .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); cursor: pointer; }
-    .lyrics { background: rgba(0,0,0,0.4); border-radius: 20px; padding: 25px; margin-top: 30px; border-right: 4px solid var(--gold); max-height: 400px; overflow-y: auto; }
-    .lyrics pre { font-family: "IranianSans", monospace; white-space: pre-wrap; margin: 0; font-size: 0.95rem; color: #dce9f7; }
-    .verse { color: var(--gold); font-weight: bold; margin-top: 15px; margin-bottom: 5px; }
-  </style>
 </head>
 <body class="noise">
 
@@ -50,24 +34,24 @@
       <h2>🎵 آهنگ رسمی کمپانی ایستم</h2>
       <p>سرود رسمی و نمادین شرکت ایستم</p>
     </div>
-    <div class="player-container">
-      <div class="song-title" style="text-align:center; font-size:1.4rem; margin-bottom:20px; color:var(--gold);">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
+    <div class="music-player">
+      <div class="song-title">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
       <audio id="audio" src="https://s3.thr1.sotoon.ir/media-fast-1/server_files/0cd802bd-a39c-4ff9-a48f-4c414e306add.mp3" preload="metadata"></audio>
-      <div class="controls">
-        <button class="ctrl-btn" id="playBtn">▶</button>
-        <button class="ctrl-btn" id="prevBtn">⏮</button>
-        <button class="ctrl-btn" id="nextBtn">⏭</button>
-        <div class="progress-area" id="progressArea">
-          <div class="progress-fill" id="progressFill"></div>
+      <div class="player-controls">
+        <button class="control-btn" id="playBtn">▶</button>
+        <button class="control-btn" id="prevBtn">⏮</button>
+        <button class="control-btn" id="nextBtn">⏭</button>
+        <div class="progress-container" id="progressArea">
+          <div class="progress-bar" id="progressFill"></div>
           <div class="progress-handle" id="progressHandle"></div>
         </div>
       </div>
-      <div class="time-row"><span id="currentTime">00:00</span><span id="duration">00:00</span></div>
-      <div class="volume-row"><span>🔊</span><input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01" value="0.7"></div>
+      <div class="time-info"><span id="currentTime">00:00</span><span id="duration">00:00</span></div>
+      <div class="volume-control"><span>🔊</span><input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01" value="0.7"></div>
     </div>
 
-    <div class="lyrics">
-      <div class="verse">【 بند یک 】</div>
+    <div class="lyrics-box">
+      <div class="verse-title">【 بند یک 】</div>
       <pre>
 ایستِم زده باز، عجب شور و نوایی
 هر گوشه‌ش یه پروژه، هر روزش یه هوایی
@@ -79,21 +63,21 @@
 دیش دارا دادام، از دسکتاپ تا بازی
 دیش دارا دادام، چه شرکتی چه سازی
       </pre>
-      <div class="verse">【 پیش‌خوان 】</div>
+      <div class="verse-title">【 پیش‌خوان 】</div>
       <pre>
 مدیرعاملش کیه؟ همه می‌پرسن هر بار
 رادمهر اصغری، با یه فکرِ پر از کار
 نه اهلِ سرسری، نه اهلِ وقت‌پرونی
 پروژه رو دونه‌دونه می‌چینه، مثل بارونی
       </pre>
-      <div class="verse">【 همخوان 】</div>
+      <div class="verse-title">【 همخوان 】</div>
       <pre>
 دیش دارا دادام، دیش دارا دادام
 رادمهره توی فاز، دیش دارا دادام
 دیش دارا دادام، دیش دارا دادام
 پروژه‌هاش سرفراز، دیش دارا دادام
       </pre>
-      <div class="verse">【 بند دو 】</div>
+      <div class="verse-title">【 بند دو 】</div>
       <pre>
 یه روز می‌ره سراغِ وب، یه روز پیاده‌سازی
 یه روزم وسطِ کد، یه روزم بازی‌سازی
@@ -105,21 +89,21 @@
 ایده‌های جورواجور، یکی پسِ یکی
 هر کدوم که میاد جلو، می‌گه اینم یکی
       </pre>
-      <div class="verse">【 پیوند 】</div>
+      <div class="verse-title">【 پیوند 】</div>
       <pre>
 یه دفترِ سبک و تمیز، برای فکر و یادداشت
 یه ذهنِ پر از تصویر، یه مسیرِ روشن و راست
 از صفحه تا برنامه، از طرح تا اجرا
 همه چی رو می‌سازه، با حال و با صفا
       </pre>
-      <div class="verse">【 همخوان 】</div>
+      <div class="verse-title">【 همخوان 】</div>
       <pre>
 دیش دارا دادام، دیش دارا دادام
 رادمهره توی فاز، دیش دارا دادام
 دیش دارا دادام، دیش دارا دادام
 پروژه‌هاش سرفراز، دیش دارا دادام
       </pre>
-      <div class="verse">【 پایانی 】</div>
+      <div class="verse-title">【 پایانی 】</div>
       <pre>
 دیش دارا دادام، ایستم روشنه هنوز
 دیش دارا دادام، شهر پره از این سوز
