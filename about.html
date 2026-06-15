@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | درباره ما - رادمهر اصغری و کمپانی ایستم</title>
-  <meta name="description" content="معرفی رادمهر اصغری، بنیان‌گذار کمپانی ایستم و آشنایی با فلسفه، ارزش‌ها و مسیر توسعه IESTM" />
+  <title>IESTM | خانه - توسعه نرم‌افزار وب، بازی و اپلیکیشن دسکتاپ</title>
+  <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی مرورگر، اپلیکیشن دسکتاپ پایتون" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
   <style>
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .feature { padding: 24px; border-radius: 22px; background: rgba(255,255,255,.05); }
-    .icon { font-size: 2rem; margin-bottom: 12px; }
-    @media (max-width:980px){ .about-grid, .features-grid { grid-template-columns: 1fr; } }
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
   </style>
 </head>
 <body class="noise">
@@ -24,8 +20,8 @@
       <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
     </div>
     <div class="nav-links">
-      <a href="index.html">خانه</a>
-      <a href="about.html" class="active">درباره ما</a>
+      <a href="index.html" class="active">خانه</a>
+      <a href="about.html">درباره ما</a>
       <a href="projects.html">پروژه‌ها</a>
       <a href="blog.html">اخبار</a>
       <a href="music.html">آهنگ رسمی</a>
@@ -36,67 +32,88 @@
 </nav>
 
 <main>
-  <section class="container">
-    <div class="section-title">
-      <h2>درباره من</h2>
-      <p>معرفی بنیان‌گذار، توسعه‌دهنده و مسیر فکری پشت IESTM</p>
-    </div>
-    <div class="about-grid">
-      <div class="glass panel">
-        <h3>رادمهر اصغری کیست؟</h3>
-        <p>من <span class="highlight">رادمهر اصغری</span>، برنامه‌نویس و بنیان‌گذار کمپانی ایستم هستم. فعالیت من بر پایه طراحی و توسعه نرم‌افزارهای تحت وب، ابزارهای سبک و کاربردی، نرم‌افزارهای دسکتاپ ویندوزی، بازی‌های مرورگرمحور و ایده‌های خلاقانه است.</p>
-        <p>چیزی که برای من اهمیت دارد فقط کدنویسی نیست؛ بلکه ساخت محصولی است که هم از نظر فنی معنا داشته باشد و هم از نظر تجربه کاربری، حس متفاوتی ایجاد کند.</p>
-        <p>ایستم برای من فقط یک نام نیست؛ بلکه نماینده‌ی تلاش، یادگیری، ساختن، آزمایش‌کردن و تبدیل ایده به واقعیت است.</p>
+  <!-- هیرو سکشن -->
+  <header class="container hero">
+    <div class="hero-grid">
+      <div class="glass hero-card">
+        <div class="eyebrow">🚀 پلتفرم رسمی IESTM</div>
+        <h1>من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span></h1>
+        <p class="lead">ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛ هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.</p>
+        <p class="lead">این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛ جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects.html">مشاهده محصولات</a>
+          <a class="btn btn-secondary" href="about.html">درباره ما</a>
+        </div>
       </div>
-      <div class="glass panel">
-        <h3>مسیر کاری و رویکرد من</h3>
-        <ul class="clean">
-          <li>تمرکز بر توسعه پروژه‌های تحت وب با HTML، CSS و JavaScript</li>
-          <li>ساخت ابزارهای سبک، سریع و قابل استفاده در مرورگر</li>
-          <li>توسعه نرم‌افزارهای دسکتاپ ویندوزی با Python</li>
-          <li>طراحی بازی‌های دوبعدی و سه‌بعدی مبتنی بر وب</li>
-          <li>آزمایش ایده‌های نو در حوزه محیط دسکتاپ و ابزارهای هوشمند</li>
-          <li>ایجاد بستر معرفی محصول، جذب استعداد و تعامل با کاربران</li>
-        </ul>
+      <div class="glass hero-side">
+        <div class="stat-grid">
+          <div class="stat"><h3>HTML</h3><p>پایه اصلی رابط‌های وب</p></div>
+          <div class="stat"><h3>CSS</h3><p>طراحی حرفه‌ای</p></div>
+          <div class="stat"><h3>JS</h3><p>منطق برنامه‌ها</p></div>
+          <div class="stat"><h3>Python</h3><p>توسعه دسکتاپ ویندوزی</p></div>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
+  <!-- محصولات شاخص -->
   <section class="container">
     <div class="section-title">
-      <h2>درباره کمپانی ایستم</h2>
-      <p>هویت، هدف، زمینه فعالیت و فلسفه ساخت IESTM</p>
+      <h2>🔧 محصولات شاخص</h2>
+      <p>مهم‌ترین پروژه‌های IESTM</p>
     </div>
-    <div class="glass panel">
-      <p><span class="highlight">IESTM</span> یک مجموعه توسعه نرم‌افزار و ایده‌پردازی دیجیتال است که با محوریت طراحی پروژه‌های وب‌محور، نرم‌افزارهای دسکتاپ، ابزارهای کاربردی، بازی‌ها و تجربه‌های تعاملی شکل گرفته است.</p>
-      <p>فعالیت ایستم تنها به ساخت یک برنامه یا یک بازی محدود نیست. این مجموعه در مسیر تبدیل‌شدن به یک برند دیجیتال چندوجهی حرکت می‌کند.</p>
-      <p>ایستم در حال حاضر بر توسعه محصولاتی مانند دفترچه یادداشت، صلوات‌شمار، بازی‌های سه‌بعدی، محیط دسکتاپ ویندوزی، ابزارهای گرافیکی، محتوای تبلیغاتی، استیکر، گیف و مسیرهای آینده‌محور هوش مصنوعی متمرکز است.</p>
+    <div class="products-preview">
+      <div class="product-card"><h3>IESTM OS</h3><p>محیط دسکتاپ ویندوزی با Python/PyQt</p><span class="tag">Python</span><span class="tag">PyQt</span></div>
+      <div class="product-card"><h3>بازی سه‌بعدی دوز</h3><p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p><span class="tag">Three.js</span><span class="tag">3D Game</span></div>
+      <div class="product-card"><h3>IESTM Notebook</h3><p>دفترچه یادداشت سبک با ذخیره خودکار</p><span class="tag">LocalStorage</span></div>
+      <div class="product-card"><h3>صلوات‌شمار</h3><p>صلوات‌شمار دیجیتال</p><span class="tag">Utility</span></div>
     </div>
+    <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
   </section>
 
+  <!-- آخرین اخبار -->
   <section class="container">
     <div class="section-title">
-      <h2>ارزش‌ها و ویژگی‌های ایستم</h2>
-      <p>چرا IESTM فقط یک نام نیست</p>
+      <h2>📰 آخرین اخبار</h2>
+      <p>جدیدترین رویدادها و اطلاعیه‌ها</p>
     </div>
-    <div class="features-grid">
-      <div class="feature"><div class="icon">💡</div><h3>خلاقیت در ایده</h3><p>هر پروژه با نگاه خلاقانه به یک محصول متمایز تبدیل می‌شود.</p></div>
-      <div class="feature"><div class="icon">⚙️</div><h3>توسعه نرم‌افزارمحور</h3><p>تمرکز بر ساخت نرم‌افزارهای کاربردی و سریع.</p></div>
-      <div class="feature"><div class="icon">🎮</div><h3>ترکیب کاربرد و سرگرمی</h3><p>هم ابزار مفید و هم پروژه سرگرم‌کننده.</p></div>
-      <div class="feature"><div class="icon">🚀</div><h3>نگاه رو به آینده</h3><p>از دسکتاپ تا بازی سه‌بعدی و هوش مصنوعی.</p></div>
-      <div class="feature"><div class="icon">🧠</div><h3>یادگیری و رشد مداوم</h3><p>هر محصول بخشی از فرایند یادگیری.</p></div>
-      <div class="feature"><div class="icon">🤝</div><h3>جذب استعداد و همکاری</h3><p>بستری برای دیده‌شدن افراد مستعد.</p></div>
-    </div>
+    <div class="news-grid" id="newsPreview"></div>
+    <div class="text-center"><a href="blog.html" class="btn btn-secondary">مشاهده همه اخبار →</a></div>
+  </section>
+
+  <!-- نقل قول -->
+  <section class="container">
+    <div class="glass quote">«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»</div>
   </section>
 </main>
 
 <footer>
   <div class="container footer-box">
-    <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال</p></div>
+    <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
     <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>Email: asly3325@gmail.com<br>تلفن: 09398212260<br>کانال: @iestmcompany</p></div>
+    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
   </div>
   <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
 </footer>
+
+<script>
+  const defaultNews = [
+    { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
+    { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
+    { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
+  ];
+  let news = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
+  const previewContainer = document.getElementById('newsPreview');
+  if(previewContainer) {
+    previewContainer.innerHTML = news.slice(0,3).map(n => `
+      <div class="news-card">
+        <div class="news-date">📅 ${n.date}</div>
+        <h3>${n.title}</h3>
+        <p>${n.summary}</p>
+        <span class="news-badge">${n.badge}</span>
+      </div>
+    `).join('');
+  }
+</script>
 </body>
 </html>
