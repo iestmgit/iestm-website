@@ -16,6 +16,7 @@
     .admin-panel.active-panel { display: block; }
     .news-item { background: rgba(255,255,255,.05); border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
     .del-btn { padding: 8px 16px; background: rgba(255,79,163,.2); border: none; border-radius: 20px; color: var(--pink); cursor: pointer; }
+    .logout-btn { margin-top: 30px; padding: 12px 24px; background: rgba(255,79,163,.2); border: 1px solid var(--pink); border-radius: 12px; cursor: pointer; color: var(--pink); }
   </style>
 </head>
 <body class="noise">
@@ -65,7 +66,7 @@
       container.innerHTML = `<div class="glass admin-box"><input type="text" id="user" class="admin-input" placeholder="نام کاربری"><input type="password" id="pass" class="admin-input" placeholder="رمز عبور"><button class="btn btn-primary" onclick="login()" style="width:100%">ورود</button><div id="msg" class="small" style="margin-top:16px;text-align:center"></div></div>`;
     } else {
       const news = getNews();
-      container.innerHTML = `<div class="glass" style="padding:30px"><div class="admin-tabs"><div class="admin-tab active" onclick="switchTab('news')">مدیریت اخبار</div><div class="admin-tab" onclick="switchTab('add')">افزودن خبر</div></div><div id="newsPanel" class="admin-panel active-panel"><div id="newsList"></div></div><div id="addPanel" class="admin-panel"><input type="text" id="newsDate" class="admin-input" placeholder="تاریخ"><input type="text" id="newsTitle" class="admin-input" placeholder="عنوان"><textarea id="newsSummary" class="admin-textarea" placeholder="متن خبر"></textarea><input type="text" id="newsBadge" class="admin-input" placeholder="برچسب"><button class="btn btn-primary" onclick="addNews()">افزودن خبر</button></div><button class="logout-btn" onclick="logout()" style="margin-top:30px">خروج</button></div>`;
+      container.innerHTML = `<div class="glass" style="padding:30px"><div class="admin-tabs"><div class="admin-tab active" onclick="switchTab('news')">مدیریت اخبار</div><div class="admin-tab" onclick="switchTab('add')">افزودن خبر</div></div><div id="newsPanel" class="admin-panel active-panel"><div id="newsList"></div></div><div id="addPanel" class="admin-panel"><input type="text" id="newsDate" class="admin-input" placeholder="تاریخ"><input type="text" id="newsTitle" class="admin-input" placeholder="عنوان"><textarea id="newsSummary" class="admin-textarea" placeholder="متن خبر"></textarea><input type="text" id="newsBadge" class="admin-input" placeholder="برچسب"><button class="btn btn-primary" onclick="addNews()">افزودن خبر</button></div><button class="logout-btn" onclick="logout()">خروج از پنل</button></div>`;
       renderNewsList();
     }
   }
