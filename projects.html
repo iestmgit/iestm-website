@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>IESTM | آهنگ رسمی کمپانی</title>
-  <meta name="description" content="پخش آنلاین آهنگ رسمی و سرود کمپانی ایستم">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | پروژه‌ها و محصولات</title>
+  <meta name="description" content="مشاهده همه پروژه‌های کمپانی ایستم: IESTM OS، بازی سه‌بعدی، Notebook، صلوات‌شمار و استیکرهای اختصاصی" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* فقط استایل‌های مربوط به پخش‌کننده */
-    .progress-handle {
-      width: 16px;
-      height: 16px;
-      background: #f7c948;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(50%, -50%);
-      right: 0%;
-      cursor: pointer;
-      box-shadow: 0 0 8px #f7c948;
-      pointer-events: auto;
-      z-index: 5;
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
-    .progress-container {
+    .timeline {
+      padding-right: 24px;
+      border-right: 2px dashed rgba(255,255,255,.16);
+    }
+    .timeline-item {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.05);
       position: relative;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      right: -34px;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    @media (max-width:980px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -38,9 +52,9 @@
     <div class="nav-links">
       <a href="index.html">خانه</a>
       <a href="about.html">درباره ما</a>
-      <a href="projects.html">پروژه‌ها</a>
+      <a href="projects.html" class="active">پروژه‌ها</a>
       <a href="blog.html">اخبار</a>
-      <a href="music.html" class="active">آهنگ رسمی</a>
+      <a href="music.html">آهنگ رسمی</a>
       <a href="contact.html">تماس</a>
       <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
     </div>
@@ -50,168 +64,86 @@
 <main>
   <section class="container">
     <div class="section-title">
-      <h2>🎵 آهنگ رسمی کمپانی ایستم</h2>
-      <p>سرود رسمی و نمادین شرکت ایستم</p>
+      <h2>محصولات و پروژه‌های IESTM</h2>
+      <p>مهم‌ترین پروژه‌ها و محصولاتی که تاکنون توسعه داده شده‌اند</p>
     </div>
-    <div class="glass music-player">
-      <div class="song-title" style="text-align:center; font-size:1.4rem; margin-bottom:20px; color:var(--gold);">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
-      <audio id="audio" src="https://s3.thr1.sotoon.ir/media-fast-1/server_files/0cd802bd-a39c-4ff9-a48f-4c414e306add.mp3" preload="metadata"></audio>
-      <div class="player-controls">
-        <button class="control-btn" id="playBtn">▶</button>
-        <button class="control-btn" id="prevBtn">⏮</button>
-        <button class="control-btn" id="nextBtn">⏭</button>
-        <div class="progress-container" id="progressArea" style="flex:1; height:8px; background:rgba(255,255,255,.15); border-radius:10px; cursor:pointer; position:relative;">
-          <div class="progress-bar" id="progressFill" style="background:linear-gradient(90deg, var(--gold), var(--cyan)); height:100%; width:0%; border-radius:10px;"></div>
-          <div class="progress-handle" id="progressHandle"></div>
-        </div>
+    <div class="products-grid">
+      <div class="glass product-card">
+        <h3>IESTM OS</h3>
+        <p>محیط دسکتاپ ویندوزی با Python و PyQt/PySide</p>
+        <span class="tag">Python</span><span class="tag">PyQt</span><span class="tag">Windows</span>
       </div>
-      <div class="time-info" style="display:flex; justify-content:space-between; margin-top:10px;">
-        <span id="currentTime">00:00</span>
-        <span id="duration">00:00</span>
+      <div class="glass product-card">
+        <h3>IESTM Notebook</h3>
+        <p>دفترچه یادداشت سبک با ذخیره‌سازی محلی</p>
+        <span class="tag">HTML/CSS/JS</span><span class="tag">LocalStorage</span>
       </div>
-      <div class="volume-control" style="display:flex; align-items:center; gap:12px; margin-top:20px; justify-content:center;">
-        <span>🔊</span>
-        <input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+      <div class="glass product-card">
+        <h3>بازی سه‌بعدی دوز</h3>
+        <p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p>
+        <span class="tag">Three.js</span><span class="tag">3D Game</span>
+      </div>
+      <div class="glass product-card">
+        <h3>صلوات‌شمار دیجیتال</h3>
+        <p>ابزار ساده و کاربردی برای شمارش اذکار</p>
+        <span class="tag">Utility</span><span class="tag">Simple UI</span>
+      </div>
+      <div class="glass product-card">
+        <h3>بازی فوتبال سه‌بعدی</h3>
+        <p>پروژه بازی فوتبال با گرافیک سه‌بعدی</p>
+        <span class="tag">JavaScript</span><span class="tag">3D</span>
+      </div>
+      <div class="glass product-card">
+        <h3>استیکر و گیف اختصاصی</h3>
+        <p>محتوای دیجیتال برای پیام‌رسان‌ها</p>
+        <span class="tag">Design</span><span class="tag">GIF</span><span class="tag">Sticker</span>
       </div>
     </div>
+  </section>
 
-    <div class="lyrics-box">
-      <div class="verse-title">【 بند یک 】</div>
-      <pre>
-ایستِم زده باز، عجب شور و نوایی
-هر گوشه‌ش یه پروژه، هر روزش یه هوایی
-از وب و از ابزار و بازی و ماجراها
-همه می‌گن این شرکت، داره می‌ره بالاها
-
-دیش دارا دادام، ایستم اومد تو کار
-دیش دارا دادام، با ایده‌های بی‌شمار
-دیش دارا دادام، از دسکتاپ تا بازی
-دیش دارا دادام، چه شرکتی چه سازی
-      </pre>
-      <div class="verse-title">【 پیش‌خوان 】</div>
-      <pre>
-مدیرعاملش کیه؟ همه می‌پرسن هر بار
-رادمهر اصغری، با یه فکرِ پر از کار
-نه اهلِ سرسری، نه اهلِ وقت‌پرونی
-پروژه رو دونه‌دونه می‌چینه، مثل بارونی
-      </pre>
-      <div class="verse-title">【 همخوان 】</div>
-      <pre>
-دیش دارا دادام، دیش دارا دادام
-رادمهره توی فاز، دیش دارا دادام
-دیش دارا دادام، دیش دارا دادام
-پروژه‌هاش سرفراز، دیش دارا دادام
-      </pre>
-      <div class="verse-title">【 بند دو 】</div>
-      <pre>
-یه روز می‌ره سراغِ وب، یه روز پیاده‌سازی
-یه روزم وسطِ کد، یه روزم بازی‌سازی
-رادمهر آقا نشسته، پایِ سیستم و نمایشگر
-یه دستش رویِ کیبورد، اون یکی دنبالِ سرور
-
-نه خوابِ الکی داره، نه حرفِ کش‌دار
-می‌چینه کارو از اول، دقیق و بی‌غرور
-ایده‌های جورواجور، یکی پسِ یکی
-هر کدوم که میاد جلو، می‌گه اینم یکی
-      </pre>
-      <div class="verse-title">【 پیوند 】</div>
-      <pre>
-یه دفترِ سبک و تمیز، برای فکر و یادداشت
-یه ذهنِ پر از تصویر، یه مسیرِ روشن و راست
-از صفحه تا برنامه، از طرح تا اجرا
-همه چی رو می‌سازه، با حال و با صفا
-      </pre>
-      <div class="verse-title">【 همخوان 】</div>
-      <pre>
-دیش دارا دادام، دیش دارا دادام
-رادمهره توی فاز، دیش دارا دادام
-دیش دارا دادام، دیش دارا دادام
-پروژه‌هاش سرفراز، دیش دارا دادام
-      </pre>
-      <div class="verse-title">【 پایانی 】</div>
-      <pre>
-دیش دارا دادام، ایستم روشنه هنوز
-دیش دارا دادام، شهر پره از این سوز
-رادمهر اصغری، اسمِ رویِ پرچمه
-هر چی بسازه اینجاست، تهش یه فتحه
-      </pre>
+  <section class="container">
+    <div class="section-title">
+      <h2>چشم‌انداز و مسیر آینده</h2>
+      <p>ایستم به کجا می‌رود و چه افقی را دنبال می‌کند</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>مرحله اول: ساخت هویت</h3>
+        <p>ایجاد مجموعه‌ای از محصولات اولیه برای نشان‌دادن توان فنی</p>
+      </div>
+      <div class="timeline-item">
+        <h3>مرحله دوم: توسعه محصول</h3>
+        <p>گسترش پروژه‌ها به سامانه‌های پیچیده‌تر</p>
+      </div>
+      <div class="timeline-item">
+        <h3>مرحله سوم: جذب همکاری</h3>
+        <p>ساخت فضای تعامل با کاربران و جذب استعدادها</p>
+      </div>
+      <div class="timeline-item">
+        <h3>مرحله چهارم: تثبیت برند</h3>
+        <p>تبدیل IESTM به یک برند شناخته‌شده</p>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="container footer-box">
-    <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
+    <div>
+      <h3>IESTM</h3>
+      <p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p>
+    </div>
+    <div>
+      <h3>بنیان‌گذار</h3>
+      <p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p>
+    </div>
+    <div>
+      <h3>ارتباط</h3>
+      <p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p>
+    </div>
   </div>
-  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
+  <p class="copyright">© IESTM Official</p>
 </footer>
 
-<script>
-  const audio = document.getElementById('audio');
-  const playBtn = document.getElementById('playBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const progressArea = document.getElementById('progressArea');
-  const progressFill = document.getElementById('progressFill');
-  const progressHandle = document.getElementById('progressHandle');
-  const currentSpan = document.getElementById('currentTime');
-  const durationSpan = document.getElementById('duration');
-  const volumeSlider = document.getElementById('volume');
-
-  let isPlaying = false;
-  let isDragging = false;
-
-  audio.addEventListener('loadedmetadata', () => { durationSpan.textContent = formatTime(audio.duration); });
-  audio.addEventListener('timeupdate', () => {
-    if (!isDragging && audio.duration) {
-      const percent = (audio.currentTime / audio.duration) * 100;
-      progressFill.style.width = percent + '%';
-      progressHandle.style.right = percent + '%';
-    }
-    currentSpan.textContent = formatTime(audio.currentTime);
-  });
-  audio.addEventListener('ended', () => { isPlaying = false; playBtn.textContent = '▶'; });
-
-  playBtn.onclick = () => {
-    if (isPlaying) { audio.pause(); playBtn.textContent = '▶'; }
-    else { audio.play(); playBtn.textContent = '⏸'; }
-    isPlaying = !isPlaying;
-  };
-  prevBtn.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playBtn.textContent = '⏸'; isPlaying = true; } };
-  nextBtn.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playBtn.textContent = '⏸'; isPlaying = true; } };
-  volumeSlider.oninput = () => { audio.volume = volumeSlider.value; };
-  audio.volume = 0.7;
-
-  function updateProgress(e) {
-    const rect = progressArea.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let percent = (x / rect.width) * 100;
-    percent = Math.min(100, Math.max(0, percent));
-    audio.currentTime = (percent / 100) * audio.duration;
-    progressFill.style.width = percent + '%';
-    progressHandle.style.right = percent + '%';
-  }
-  progressArea.addEventListener('click', updateProgress);
-  progressHandle.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    e.stopPropagation();
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
-  });
-  function onMove(e) {
-    if (!isDragging) return;
-    const rect = progressArea.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let percent = (x / rect.width) * 100;
-    percent = Math.min(100, Math.max(0, percent));
-    audio.currentTime = (percent / 100) * audio.duration;
-    progressFill.style.width = percent + '%';
-    progressHandle.style.right = percent + '%';
-  }
-  function onUp() { isDragging = false; document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); }
-  function formatTime(sec) { if (isNaN(sec)) return '00:00'; const m = Math.floor(sec/60), s = Math.floor(sec%60); return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
-</script>
 </body>
 </html>
