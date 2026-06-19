@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | پروژه‌ها و محصولات</title>
-  <meta name="description" content="مشاهده همه پروژه‌های کمپانی ایستم: IESTM OS، بازی سه‌بعدی، Notebook، صلوات‌شمار و استیکرهای اختصاصی" />
+  <title>IESTM | سایت‌های ساخته‌شده</title>
+  <meta name="description" content="مشاهده همه پروژه‌های وب کمپانی ایستم: منظومه شمسی، ابر مکعب، هولوگرام، تهران سیتی، زیبـانویس، جوک دینامیت، فوتبال سه‌بعدی و سایت رسمی" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -12,6 +12,22 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+    }
+    .product-card .site-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 16px;
+      background: var(--gold, #f5a623);
+      color: #0a0a0a;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .product-card .site-link:hover {
+      background: #ffc857;
+      transform: scale(1.02);
     }
     .timeline {
       padding-right: 24px;
@@ -32,7 +48,7 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: var(--gold);
+      background: var(--gold, #f5a623);
     }
     @media (max-width:980px) {
       .products-grid {
@@ -64,41 +80,72 @@
 <main>
   <section class="container">
     <div class="section-title">
-      <h2>محصولات و پروژه‌های IESTM</h2>
-      <p>مهم‌ترین پروژه‌ها و محصولاتی که تاکنون توسعه داده شده‌اند</p>
+      <h2>سایت‌های ساخته‌شده توسط IESTM</h2>
+      <p>همه پروژه‌های وب که تاکنون منتشر شده‌اند – حتماً دیدن کنید</p>
     </div>
     <div class="products-grid">
+
+      <!-- منظومه شمسی -->
       <div class="glass product-card">
-        <h3>IESTM OS</h3>
-        <p>محیط دسکتاپ ویندوزی با Python و PyQt/PySide</p>
-        <span class="tag">Python</span><span class="tag">PyQt</span><span class="tag">Windows</span>
+        <h3>🌌 منظومه شمسی</h3>
+        <p>شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر، با حرکات آرام برای تماشای دقیق</p>
+        <a href="https://iestmgit.github.io/manzoomeh/" target="_blank" class="site-link">مشاهده سایت</a>
       </div>
+
+      <!-- ابر مکعب -->
       <div class="glass product-card">
-        <h3>IESTM Notebook</h3>
-        <p>دفترچه یادداشت سبک با ذخیره‌سازی محلی</p>
-        <span class="tag">HTML/CSS/JS</span><span class="tag">LocalStorage</span>
+        <h3>🧊 ابر مکعب (Hypercube)</h3>
+        <p>نمایش برجسته‌ای از تسراکت (ابعاد چهارم) با خطوط نئونی و ذرات نور در فضایی سایبرپانکی</p>
+        <a href="https://iestmgit.github.io/abarmokaab/" target="_blank" class="site-link">مشاهده سایت</a>
       </div>
+
+      <!-- هولوگرام کیهانی -->
       <div class="glass product-card">
-        <h3>بازی سه‌بعدی دوز</h3>
-        <p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p>
-        <span class="tag">Three.js</span><span class="tag">3D Game</span>
+        <h3>🌀 هولوگرام کیهانی</h3>
+        <p>افکت سه‌بعدی روان‌گردان با ذرات نور و توروس نئونی، ساخته‌شده با Three.js</p>
+        <a href="https://iestmgit.github.io/hologeram/" target="_blank" class="site-link">مشاهده سایت</a>
       </div>
+
+      <!-- تهران سیتی -->
       <div class="glass product-card">
-        <h3>صلوات‌شمار دیجیتال</h3>
-        <p>ابزار ساده و کاربردی برای شمارش اذکار</p>
-        <span class="tag">Utility</span><span class="tag">Simple UI</span>
+        <h3>🚗 تهران سیتی</h3>
+        <p>بازی رانندگی در شهر تهران با امکان تاکسیرانی، باربری و مسابقه (بهترین تجربه در حالت دسکتاپ)</p>
+        <a href="https://iestmcompany-creator.github.io/TehranCity/" target="_blank" class="site-link">مشاهده سایت</a>
       </div>
+
+      <!-- زیبـانویس اسم -->
       <div class="glass product-card">
-        <h3>بازی فوتبال سه‌بعدی</h3>
-        <p>پروژه بازی فوتبال با گرافیک سه‌بعدی</p>
-        <span class="tag">JavaScript</span><span class="tag">3D</span>
+        <h3>✍️ زیبـانویس اسم</h3>
+        <p>ابزار شخصی‌سازی متن با فونت‌های متنوع و ایموجی‌های جذاب</p>
+        <a href="https://iestmgit.github.io/my-font-generator/" target="_blank" class="site-link">مشاهده سایت</a>
       </div>
+
+      <!-- ایستم جوک دینامیت -->
       <div class="glass product-card">
-        <h3>استیکر و گیف اختصاصی</h3>
-        <p>محتوای دیجیتال برای پیام‌رسان‌ها</p>
-        <span class="tag">Design</span><span class="tag">GIF</span><span class="tag">Sticker</span>
+        <h3>🧨 ایستم جوک دینامیت</h3>
+        <p>پروژه‌ای با محتوای طنز و سرگرمی (لینک ممکن است موقتاً در دسترس نباشد)</p>
+        <a href="https://iestmgit.github.io/IESTM_JOK_DEENAMEET/" target="_blank" class="site-link">مشاهده سایت</a>
       </div>
+
+      <!-- فوتبال سه‌بعدی -->
+      <div class="glass product-card">
+        <h3>⚽ فوتبال سه‌بعدی</h3>
+        <p>شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت‌زنی</p>
+        <a href="https://iestmgit.github.io/football/" target="_blank" class="site-link">مشاهده سایت</a>
+      </div>
+
+      <!-- سایت کمپانی -->
+      <div class="glass product-card">
+        <h3>🏢 سایت کمپانی IESTM</h3>
+        <p>وب‌سایت رسمی معرفی کمپانی، محصولات و رویدادهای IESTM</p>
+        <a href="https://iestmgit.github.io/iestm-website/" target="_blank" class="site-link">مشاهده سایت</a>
+      </div>
+
     </div>
+
+    <p style="text-align:center; margin-top: 30px; font-size:1.1rem;">
+      🔥 حتماً از سایت‌امون دیدن کنید — <strong>@iestmcompany</strong>
+    </p>
   </section>
 
   <section class="container">
