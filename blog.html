@@ -3,10 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | اخبار و اطلاعیه‌ها</title>
-  <meta name="description" content="آخرین اخبار و بروزرسانی‌های کمپانی ایستم" />
+  <title>اخبار IESTM | آخرین رویدادها و اطلاعیه‌ها</title>
+  <meta name="description" content="آخرین اخبار و رویدادهای کمپانی ایستم: رونمایی از سایت‌های جدید، بازی تهران سیتی و به‌روزرسانی‌ها" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .blog-card {
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.06);
+      border-right: 4px solid var(--gold, #f5a623);
+      transition: 0.2s;
+    }
+    .blog-card:hover {
+      background: rgba(255,255,255,.1);
+      transform: translateY(-4px);
+    }
+    .blog-card .date {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .blog-card h3 {
+      font-size: 1.5rem;
+      margin: 0 0 10px 0;
+      color: #fff;
+    }
+    .blog-card p {
+      color: #ccc;
+      line-height: 1.8;
+    }
+    .blog-card .badge {
+      display: inline-block;
+      background: var(--gold, #f5a623);
+      color: #0a0a0a;
+      padding: 2px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    @media (min-width:800px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .blog-card.featured {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
 </head>
 <body class="noise">
 
@@ -31,43 +82,76 @@
 <main>
   <section class="container">
     <div class="section-title">
-      <h2>📰 آخرین اخبار و اطلاعیه‌ها</h2>
-      <p>جدیدترین رویدادها، بروزرسانی‌ها و اطلاعیه‌های کمپانی ایستم</p>
+      <h2>📰 آخرین اخبار و رویدادهای IESTM</h2>
+      <p>همیشه از تازه‌ترین اتفاق‌های کمپانی ایستم باخبر باشید</p>
     </div>
-    <div class="news-grid" id="newsContainer"></div>
+
+    <div class="blog-grid">
+
+      <!-- خبر ویژه / برجسته -->
+      <div class="blog-card featured">
+        <span class="date">۱۹ خرداد ۱۴۰۵ – ۹ ژوئن ۲۰۲۶</span>
+        <h3>🚀 رونمایی از مجموعه کامل وب‌سایت‌های IESTM</h3>
+        <p>
+          کمپانی ایستم با افتخار از <strong>۸ وب‌سایت جدید</strong> رونمایی کرد. 
+          این مجموعه شامل شبیه‌سازی منظومه شمسی، ابر مکعب (تسراکت)، هولوگرام کیهانی، 
+          بازی تهران سیتی، ابزار زیبـانویس اسم، جوک دینامیت، بازی فوتبال سه‌بعدی 
+          و سایت رسمی کمپانی است. تمام این پروژه‌ها با استفاده از فناوری‌های روز وب 
+          مانند Three.js و JavaScript خالص توسعه داده شده‌اند.
+        </p>
+        <span class="badge">🔥 رویداد مهم</span>
+        <span class="badge" style="background:#555;color:#fff;">۸ پروژه</span>
+      </div>
+
+      <!-- خبر دوم -->
+      <div class="blog-card">
+        <span class="date">۱۵ خرداد ۱۴۰۵ – ۵ ژوئن ۲۰۲۶</span>
+        <h3>🚗 بازی «تهران سیتی» منتشر شد</h3>
+        <p>
+          بازی محبوب رانندگی در خیابان‌های تهران با سه حالت تاکسیرانی، باربری و مسابقه 
+          به‌صورت عمومی در دسترس قرار گرفت. این بازی با گرافیک سه‌بعدی و کنترل‌های روان 
+          طراحی شده و بهترین تجربه را در <strong>حالت دسکتاپ</strong> ارائه می‌دهد.
+        </p>
+        <span class="badge">🎮 بازی جدید</span>
+      </div>
+
+      <!-- خبر سوم -->
+      <div class="blog-card">
+        <span class="date">۱۰ خرداد ۱۴۰۵ – ۳۱ مه ۲۰۲۶</span>
+        <h3>🆕 به‌روزرسانی سایت کمپانی و افزودن بخش پروژه‌ها</h3>
+        <p>
+          وب‌سایت رسمی IESTM با طراحی جدید و بخش اختصاصی برای نمایش همه پروژه‌های وب 
+          به‌روزرسانی شد. کاربران اکنون می‌توانند به‌راحتی به تمام سایت‌های ساخته‌شده 
+          دسترسی داشته باشند و از آخرین دستاوردهای تیم ایستم مطلع شوند.
+        </p>
+        <span class="badge">🛠 به‌روزرسانی</span>
+      </div>
+
+    </div>
+
+    <p style="text-align:center; margin-top: 40px; font-size:1.2rem;">
+      ✨ برای دیدن همه پروژه‌ها به بخش <a href="projects.html" style="color:var(--gold);">پروژه‌ها</a> بروید.
+    </p>
   </section>
 </main>
 
 <footer>
   <div class="container footer-box">
-    <div><h3>IESTM</h3><p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p></div>
-    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
+    <div>
+      <h3>IESTM</h3>
+      <p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p>
+    </div>
+    <div>
+      <h3>بنیان‌گذار</h3>
+      <p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p>
+    </div>
+    <div>
+      <h3>ارتباط</h3>
+      <p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p>
+    </div>
   </div>
   <p class="copyright">© IESTM Official</p>
 </footer>
 
-<script>
-  const defaultNews = [
-    { id:1, date:"۱۴۰۳/۱۰/۱۵", title:"رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary:"اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge:"جدید" },
-    { id:2, date:"۱۴۰۳/۱۰/۱۰", title:"بروزرسانی بزرگ IESTM Notebook 1.5", summary:"نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge:"بروزرسانی" },
-    { id:3, date:"۱۴۰۳/۱۰/۰۵", title:"جذب برنامه‌نویس برای تیم توسعه IESTM", summary:"کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge:"استخدام" }
-  ];
-  let news = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
-  function renderNews() {
-    const container = document.getElementById('newsContainer');
-    if(container) {
-      container.innerHTML = news.map(n => `
-        <div class="news-card glass">
-          <div class="news-date">📅 ${n.date}</div>
-          <h3>${n.title}</h3>
-          <p>${n.summary}</p>
-          <span class="news-badge">${n.badge}</span>
-        </div>
-      `).join('');
-    }
-  }
-  renderNews();
-</script>
 </body>
 </html>
