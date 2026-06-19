@@ -1,194 +1,708 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | آهنگ رسمی کمپانی</title>
-  <meta name="description" content="پخش آنلاین آهنگ رسمی و سرود کمپانی ایستم" />
-  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>مدیا پلیر حرفه‌ای</title>
+  <!-- Font Awesome 6 (Free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0b0e14 0%, #1a1f2a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 1rem;
+    }
+
+    .player-card {
+      max-width: 480px;
+      width: 100%;
+      background: rgba(22, 28, 38, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px 48px 40px 40px;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+      padding: 24px 22px 32px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    /* header */
+    .player-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #c0ccdf;
+      padding: 0 4px 10px 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .player-header .title {
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .player-header .title i {
+      color: #6c8cff;
+      font-size: 1.2rem;
+    }
+
+    .badge-pro {
+      background: rgba(108, 140, 255, 0.18);
+      padding: 4px 14px 4px 12px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #a8bfff;
+      border: 1px solid rgba(108, 140, 255, 0.15);
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.5px;
+    }
+
+    /* cover art */
+    .cover-wrapper {
+      margin: 20px 0 18px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+      position: relative;
+      aspect-ratio: 1/1;
+      background: #141a22;
+    }
+
+    .cover-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    }
+
+    .cover-wrapper:hover img {
+      transform: scale(1.02);
+    }
+
+    /* track info */
+    .track-info {
+      margin-top: 8px;
+      padding: 0 6px;
+    }
+
+    .track-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      letter-spacing: -0.3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .track-title span {
+      background: linear-gradient(135deg, #f0f4ff, #b6c8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .track-artist {
+      color: #8896b0;
+      font-weight: 400;
+      font-size: 0.95rem;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .track-artist i {
+      font-size: 0.7rem;
+      color: #4d6a9f;
+    }
+
+    /* progress */
+    .progress-area {
+      margin: 22px 0 16px;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #6d7d99;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      padding: 0 4px;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      cursor: pointer;
+      position: relative;
+      transition: height 0.2s;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .progress-bar:hover {
+      height: 8px;
+    }
+
+    .progress-fill {
+      width: 37%;
+      height: 100%;
+      background: linear-gradient(90deg, #6c8cff, #a78bfa);
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 0 12px rgba(108, 140, 255, 0.5);
+      transition: width 0.05s linear;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      background: #f0f4ff;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(108, 140, 255, 0.8);
+      opacity: 0;
+      transition: opacity 0.2s;
+      border: 2px solid #1a1f2a;
+    }
+
+    .progress-bar:hover .progress-fill::after {
+      opacity: 1;
+    }
+
+    /* controls */
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      margin: 24px 0 12px;
+    }
+
+    .ctrl-btn {
+      background: transparent;
+      border: none;
+      color: #b6c6e0;
+      font-size: 1.6rem;
+      width: 56px;
+      height: 56px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .ctrl-btn i {
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(108, 140, 255, 0.12);
+      color: #d6e2ff;
+      transform: scale(1.02);
+      border-color: rgba(108, 140, 255, 0.15);
+    }
+
+    .ctrl-btn:active {
+      transform: scale(0.92);
+    }
+
+    .ctrl-btn.play-btn {
+      background: linear-gradient(145deg, #5f7cff, #7c5cfc);
+      color: white;
+      width: 70px;
+      height: 70px;
+      font-size: 2.2rem;
+      box-shadow: 0 12px 30px -4px rgba(108, 140, 255, 0.4);
+      border: none;
+    }
+
+    .ctrl-btn.play-btn:hover {
+      background: linear-gradient(145deg, #758eff, #8f72ff);
+      box-shadow: 0 16px 40px -4px #6c8cff88;
+      transform: scale(1.03);
+    }
+
+    .ctrl-btn.play-btn:active {
+      transform: scale(0.88);
+    }
+
+    /* extra features */
+    .extra-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding: 0 6px;
+      color: #6d7d99;
+    }
+
+    .extra-row .left-group, .extra-row .right-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .extra-btn {
+      background: transparent;
+      border: none;
+      color: #7b8ba8;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.15s;
+      padding: 6px;
+      border-radius: 30px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .extra-btn:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: #b6c8ff;
+    }
+
+    .volume-slider {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .volume-slider input[type="range"] {
+      width: 70px;
+      height: 4px;
+      -webkit-appearance: none;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    .volume-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      background: #a0b6ff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 12px #6c8cff55;
+      border: 2px solid #1a1f2a;
+    }
+
+    .volume-slider input[type="range"]::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      background: #a0b6ff;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #1a1f2a;
+    }
+
+    .time-badge {
+      background: rgba(0,0,0,0.3);
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #b0c2e0;
+      border: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .player-card { padding: 18px 14px 24px; }
+      .ctrl-btn { width: 46px; height: 46px; font-size: 1.3rem; }
+      .ctrl-btn.play-btn { width: 60px; height: 60px; font-size: 1.9rem; }
+      .track-title { font-size: 1.2rem; }
+      .extra-row { flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .volume-slider input[type="range"] { width: 50px; }
+    }
+  </style>
 </head>
-<body class="noise">
+<body>
 
-<nav>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
-      <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
+<div class="player-card">
+
+  <!-- header -->
+  <div class="player-header">
+    <div class="title">
+      <i class="fas fa-headphones-simple"></i> 
+      <span>پلیر حرفه‌ای</span>
     </div>
-    <div class="nav-links">
-      <a href="index.html">خانه</a>
-      <a href="about.html">درباره ما</a>
-      <a href="projects.html">پروژه‌ها</a>
-      <a href="blog.html">اخبار</a>
-      <a href="music.html" class="active">آهنگ رسمی</a>
-      <a href="contact.html">تماس</a>
-      <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
+    <div class="badge-pro">
+      <i class="fas fa-circle-check" style="margin-left: 4px;"></i> HD
     </div>
   </div>
-</nav>
 
-<main>
-  <section class="container">
-    <div class="section-title">
-      <h2>🎵 آهنگ رسمی کمپانی ایستم</h2>
-      <p>سرود رسمی و نمادین شرکت ایستم</p>
+  <!-- cover -->
+  <div class="cover-wrapper">
+    <img src="https://picsum.photos/seed/player/600/600" alt="جلد آلبوم">
+  </div>
+
+  <!-- track info -->
+  <div class="track-info">
+    <div class="track-title">
+      <span>شب‌های بی‌خوابی</span>
+      <i class="fas fa-heart" style="color: #ff6680; font-size: 1.2rem; -webkit-text-fill-color: #ff6680;"></i>
     </div>
-    <div class="music-player">
-      <div class="song-title">🎶 سرود رسمی IESTM | حماسه سازان فردا 🎶</div>
-      <!-- فقط همین خط تغییر کرده -->
-      <audio id="audio" src="1.mp3" preload="metadata"></audio>
-      <!-- --------------------------------------- -->
-      <div class="player-controls">
-        <button class="control-btn" id="playBtn">▶</button>
-        <button class="control-btn" id="prevBtn">⏮</button>
-        <button class="control-btn" id="nextBtn">⏭</button>
-        <div class="progress-container" id="progressArea">
-          <div class="progress-bar" id="progressFill"></div>
-          <div class="progress-handle" id="progressHandle"></div>
-        </div>
+    <div class="track-artist">
+      <i class="fas fa-user-circle"></i> 
+      <span>مریم سلیمانی · ریمیکس</span>
+      <span style="margin-right: auto; font-size: 0.7rem; color: #4f6490;"><i class="fas fa-waveform"></i> 48kHz</span>
+    </div>
+  </div>
+
+  <!-- progress -->
+  <div class="progress-area">
+    <div class="time-row">
+      <span id="current-time">1:24</span>
+      <span id="duration-time">3:42</span>
+    </div>
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width: 37%;"></div>
+    </div>
+  </div>
+
+  <!-- main controls -->
+  <div class="controls">
+    <button class="ctrl-btn" id="shuffle-btn" title="Shuffle"><i class="fas fa-shuffle"></i></button>
+    <button class="ctrl-btn" id="prev-btn" title="Previous"><i class="fas fa-backward-step"></i></button>
+    <button class="ctrl-btn play-btn" id="play-btn" title="Play / Pause">
+      <i class="fas fa-play" id="play-icon"></i>
+    </button>
+    <button class="ctrl-btn" id="next-btn" title="Next"><i class="fas fa-forward-step"></i></button>
+    <button class="ctrl-btn" id="repeat-btn" title="Repeat"><i class="fas fa-repeat"></i></button>
+  </div>
+
+  <!-- extra row: volume + time badge + like -->
+  <div class="extra-row">
+    <div class="left-group">
+      <div class="volume-slider">
+        <i class="fas fa-volume-low" style="font-size: 0.9rem;"></i>
+        <input type="range" id="volume-slider" min="0" max="100" value="80">
       </div>
-      <div class="time-info"><span id="currentTime">00:00</span><span id="duration">00:00</span></div>
-      <div class="volume-control"><span>🔊</span><input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01" value="0.7"></div>
+      <button class="extra-btn" id="like-btn"><i class="far fa-heart"></i></button>
     </div>
-
-    <div class="lyrics-box">
-      <div class="verse-title">【 بند یک 】</div>
-      <pre>
-ایستِم زده باز، عجب شور و نوایی
-هر گوشه‌ش یه پروژه، هر روزش یه هوایی
-از وب و از ابزار و بازی و ماجراها
-همه می‌گن این شرکت، داره می‌ره بالاها
-
-دیش دارا دادام، ایستم اومد تو کار
-دیش دارا دادام، با ایده‌های بی‌شمار
-دیش دارا دادام، از دسکتاپ تا بازی
-دیش دارا دادام، چه شرکتی چه سازی
-      </pre>
-      <div class="verse-title">【 پیش‌خوان 】</div>
-      <pre>
-مدیرعاملش کیه؟ همه می‌پرسن هر بار
-رادمهر اصغری، با یه فکرِ پر از کار
-نه اهلِ سرسری، نه اهلِ وقت‌پرونی
-پروژه رو دونه‌دونه می‌چینه، مثل بارونی
-      </pre>
-      <div class="verse-title">【 همخوان 】</div>
-      <pre>
-دیش دارا دادام، دیش دارا دادام
-رادمهره توی فاز، دیش دارا دادام
-دیش دارا دادام، دیش دارا دادام
-پروژه‌هاش سرفراز، دیش دارا دادام
-      </pre>
-      <div class="verse-title">【 بند دو 】</div>
-      <pre>
-یه روز می‌ره سراغِ وب، یه روز پیاده‌سازی
-یه روزم وسطِ کد، یه روزم بازی‌سازی
-رادمهر آقا نشسته، پایِ سیستم و نمایشگر
-یه دستش رویِ کیبورد، اون یکی دنبالِ سرور
-
-نه خوابِ الکی داره، نه حرفِ کش‌دار
-می‌چینه کارو از اول، دقیق و بی‌غرور
-ایده‌های جورواجور، یکی پسِ یکی
-هر کدوم که میاد جلو، می‌گه اینم یکی
-      </pre>
-      <div class="verse-title">【 پیوند 】</div>
-      <pre>
-یه دفترِ سبک و تمیز، برای فکر و یادداشت
-یه ذهنِ پر از تصویر، یه مسیرِ روشن و راست
-از صفحه تا برنامه، از طرح تا اجرا
-همه چی رو می‌سازه، با حال و با صفا
-      </pre>
-      <div class="verse-title">【 همخوان 】</div>
-      <pre>
-دیش دارا دادام، دیش دارا دادام
-رادمهره توی فاز، دیش دارا دادام
-دیش دارا دادام، دیش دارا دادام
-پروژه‌هاش سرفراز، دیش دارا دادام
-      </pre>
-      <div class="verse-title">【 پایانی 】</div>
-      <pre>
-دیش دارا دادام، ایستم روشنه هنوز
-دیش دارا دادام، شهر پره از این سوز
-رادمهر اصغری، اسمِ رویِ پرچمه
-هر چی بسازه اینجاست، تهش یه فتحه
-      </pre>
+    <div class="right-group">
+      <span class="time-badge"><i class="far fa-clock"></i> ۱:۲۴ / ۳:۴۲</span>
+      <button class="extra-btn" id="fullscreen-btn"><i class="fas fa-expand"></i></button>
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footer-box">
-    <div><h3>IESTM</h3><p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p></div>
-    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
   </div>
-  <p class="copyright">© IESTM Official</p>
-</footer>
+
+</div>
 
 <script>
-  const audio = document.getElementById('audio');
-  const playBtn = document.getElementById('playBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const progressArea = document.getElementById('progressArea');
-  const progressFill = document.getElementById('progressFill');
-  const progressHandle = document.getElementById('progressHandle');
-  const currentSpan = document.getElementById('currentTime');
-  const durationSpan = document.getElementById('duration');
-  const volumeSlider = document.getElementById('volume');
+  (function() {
+    'use strict';
 
-  let isPlaying = false;
-  let isDragging = false;
+    // ---------- DOM refs ----------
+    const playBtn = document.getElementById('play-btn');
+    const playIcon = document.getElementById('play-icon');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const repeatBtn = document.getElementById('repeat-btn');
+    const shuffleBtn = document.getElementById('shuffle-btn');
+    const likeBtn = document.getElementById('like-btn');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
 
-  audio.addEventListener('loadedmetadata', () => { durationSpan.textContent = formatTime(audio.duration); });
-  audio.addEventListener('timeupdate', () => {
-    if (!isDragging && audio.duration) {
-      const percent = (audio.currentTime / audio.duration) * 100;
-      progressFill.style.width = percent + '%';
-      progressHandle.style.right = percent + '%';
+    const progressFill = document.getElementById('progress-fill');
+    const progressBar = document.getElementById('progress-bar');
+    const currentTimeSpan = document.getElementById('current-time');
+    const durationTimeSpan = document.getElementById('duration-time');
+
+    const volumeSlider = document.getElementById('volume-slider');
+
+    // ---------- state ----------
+    let isPlaying = false;
+    let currentProgress = 37; // percent
+    let durationSeconds = 222; // 3:42
+    let currentSeconds = 84;   // 1:24
+    let intervalId = null;
+    let isDragging = false;
+
+    // ---------- helper format time ----------
+    function formatTime(sec) {
+      if (isNaN(sec) || sec < 0) sec = 0;
+      const mins = Math.floor(sec / 60);
+      const remainingSec = Math.floor(sec % 60);
+      return `${mins}:${remainingSec.toString().padStart(2, '0')}`;
     }
-    currentSpan.textContent = formatTime(audio.currentTime);
-  });
-  audio.addEventListener('ended', () => { isPlaying = false; playBtn.textContent = '▶'; });
 
-  playBtn.onclick = () => {
-    if (isPlaying) { audio.pause(); playBtn.textContent = '▶'; }
-    else { audio.play(); playBtn.textContent = '⏸'; }
-    isPlaying = !isPlaying;
-  };
-  prevBtn.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playBtn.textContent = '⏸'; isPlaying = true; } };
-  nextBtn.onclick = () => { audio.currentTime = 0; if (!isPlaying) { audio.play(); playBtn.textContent = '⏸'; isPlaying = true; } };
-  volumeSlider.oninput = () => { audio.volume = volumeSlider.value; };
-  audio.volume = 0.7;
+    // ---------- update UI from state ----------
+    function updateUI() {
+      // update progress fill
+      progressFill.style.width = currentProgress + '%';
+      // update times
+      currentTimeSpan.textContent = formatTime(currentSeconds);
+      durationTimeSpan.textContent = formatTime(durationSeconds);
+      // update play icon
+      if (isPlaying) {
+        playIcon.className = 'fas fa-pause';
+      } else {
+        playIcon.className = 'fas fa-play';
+      }
+      // update volume icon (optional)
+      const volVal = parseInt(volumeSlider.value, 10);
+      const volIcon = volumeSlider.previousElementSibling;
+      if (volVal === 0) volIcon.className = 'fas fa-volume-xmark';
+      else if (volVal < 50) volIcon.className = 'fas fa-volume-low';
+      else volIcon.className = 'fas fa-volume-high';
+    }
 
-  function updateProgress(e) {
-    const rect = progressArea.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let percent = (x / rect.width) * 100;
-    percent = Math.min(100, Math.max(0, percent));
-    audio.currentTime = (percent / 100) * audio.duration;
-    progressFill.style.width = percent + '%';
-    progressHandle.style.right = percent + '%';
-  }
-  progressArea.addEventListener('click', updateProgress);
-  progressHandle.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    e.stopPropagation();
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
-  });
-  function onMove(e) {
-    if (!isDragging) return;
-    const rect = progressArea.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let percent = (x / rect.width) * 100;
-    percent = Math.min(100, Math.max(0, percent));
-    audio.currentTime = (percent / 100) * audio.duration;
-    progressFill.style.width = percent + '%';
-    progressHandle.style.right = percent + '%';
-  }
-  function onUp() { isDragging = false; document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); }
-  function formatTime(sec) { if (isNaN(sec)) return '00:00'; const m = Math.floor(sec/60), s = Math.floor(sec%60); return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
+    // ---------- simulation of playback ----------
+    function startPlayback() {
+      if (intervalId) clearInterval(intervalId);
+      intervalId = setInterval(() => {
+        if (!isPlaying) return;
+        if (isDragging) return; // don't update while dragging
+
+        // increase time
+        currentSeconds += 1;
+        if (currentSeconds >= durationSeconds) {
+          // loop / stop
+          currentSeconds = 0;
+          // in a real player you'd go to next track, but we just reset for demo
+        }
+        currentProgress = (currentSeconds / durationSeconds) * 100;
+        if (currentProgress > 100) currentProgress = 100;
+        updateUI();
+      }, 1000);
+    }
+
+    function stopPlayback() {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    }
+
+    // ---------- play/pause toggle ----------
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        startPlayback();
+      } else {
+        stopPlayback();
+      }
+      updateUI();
+    }
+
+    // ---------- reset to beginning (demo) ----------
+    function resetTrack() {
+      currentSeconds = 0;
+      currentProgress = 0;
+      updateUI();
+    }
+
+    // ---------- next track (simulate) ----------
+    function nextTrack() {
+      // just reset with a little offset for demo
+      currentSeconds = 0;
+      currentProgress = 0;
+      // randomize duration between 2:30 and 4:30
+      durationSeconds = Math.floor(Math.random() * 120) + 150; 
+      updateUI();
+      if (isPlaying) {
+        // restart interval
+        stopPlayback();
+        startPlayback();
+      }
+    }
+
+    function prevTrack() {
+      // similar to reset
+      currentSeconds = 0;
+      currentProgress = 0;
+      durationSeconds = Math.floor(Math.random() * 120) + 150;
+      updateUI();
+      if (isPlaying) {
+        stopPlayback();
+        startPlayback();
+      }
+    }
+
+    // ---------- event listeners ----------
+    playBtn.addEventListener('click', togglePlay);
+
+    prevBtn.addEventListener('click', function() {
+      if (currentSeconds > 3) {
+        // if more than 3 sec, go to start
+        currentSeconds = 0;
+        currentProgress = 0;
+        updateUI();
+      } else {
+        prevTrack();
+      }
+    });
+
+    nextBtn.addEventListener('click', nextTrack);
+
+    // repeat button (toggle visual)
+    repeatBtn.addEventListener('click', function() {
+      this.style.color = this.style.color === 'rgb(108, 140, 255)' ? '#b6c6e0' : '#6c8cff';
+    });
+
+    // shuffle button (toggle)
+    shuffleBtn.addEventListener('click', function() {
+      this.style.color = this.style.color === 'rgb(108, 140, 255)' ? '#b6c6e0' : '#6c8cff';
+    });
+
+    // like button
+    likeBtn.addEventListener('click', function() {
+      const icon = this.querySelector('i');
+      if (icon.classList.contains('far')) {
+        icon.className = 'fas fa-heart';
+        icon.style.color = '#ff6680';
+      } else {
+        icon.className = 'far fa-heart';
+        icon.style.color = '#7b8ba8';
+      }
+    });
+
+    // fullscreen (simulate expand)
+    fullscreenBtn.addEventListener('click', function() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen?.() || document.documentElement.webkitRequestFullscreen?.();
+      } else {
+        document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+      }
+    });
+
+    // ---------- progress bar drag (mouse & touch) ----------
+    function handleProgressUpdate(e) {
+      const rect = progressBar.getBoundingClientRect();
+      let clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      if (!clientX) return;
+      let x = (clientX - rect.left) / rect.width;
+      if (x < 0) x = 0;
+      if (x > 1) x = 1;
+      const percent = x * 100;
+      currentProgress = percent;
+      currentSeconds = (percent / 100) * durationSeconds;
+      if (currentSeconds > durationSeconds) currentSeconds = durationSeconds;
+      updateUI();
+    }
+
+    // mouse events
+    progressBar.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      handleProgressUpdate(e);
+      if (isPlaying) {
+        // pause update while dragging
+      }
+      const onMouseMove = (ev) => {
+        handleProgressUpdate(ev);
+      };
+      const onMouseUp = () => {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+        // if playing, keep playing
+        if (isPlaying) {
+          // restart interval to keep smooth
+          stopPlayback();
+          startPlayback();
+        }
+      };
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    });
+
+    // touch events
+    progressBar.addEventListener('touchstart', function(e) {
+      isDragging = true;
+      handleProgressUpdate(e);
+      const onTouchMove = (ev) => {
+        ev.preventDefault();
+        handleProgressUpdate(ev);
+      };
+      const onTouchEnd = () => {
+        isDragging = false;
+        document.removeEventListener('touchmove', onTouchMove);
+        document.removeEventListener('touchend', onTouchEnd);
+        if (isPlaying) {
+          stopPlayback();
+          startPlayback();
+        }
+      };
+      document.addEventListener('touchmove', onTouchMove, { passive: false });
+      document.addEventListener('touchend', onTouchEnd);
+    }, { passive: true });
+
+    // ---------- volume slider ----------
+    volumeSlider.addEventListener('input', function() {
+      const val = this.value;
+      const icon = this.previousElementSibling;
+      if (val == 0) icon.className = 'fas fa-volume-xmark';
+      else if (val < 50) icon.className = 'fas fa-volume-low';
+      else icon.className = 'fas fa-volume-high';
+    });
+
+    // ---------- keyboard shortcut (space) ----------
+    document.addEventListener('keydown', function(e) {
+      if (e.target.tagName === 'INPUT') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        togglePlay();
+      }
+    });
+
+    // ---------- init ----------
+    // set initial duration 
+    durationSeconds = 222;
+    currentSeconds = 84;
+    currentProgress = (84 / 222) * 100;
+    updateUI();
+
+    // clean up interval on page unload
+    window.addEventListener('beforeunload', function() {
+      if (intervalId) clearInterval(intervalId);
+    });
+
+    // if user clicks on progress bar without drag, update once
+    progressBar.addEventListener('click', function(e) {
+      if (!isDragging) {
+        handleProgressUpdate(e);
+        if (isPlaying) {
+          stopPlayback();
+          startPlayback();
+        }
+      }
+    });
+
+  })();
 </script>
 </body>
 </html>
