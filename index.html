@@ -67,6 +67,13 @@
       background: rgba(255,255,255,.03);
       border-radius: 24px;
     }
+    .product-card a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .product-card a:hover {
+      color: var(--gold);
+    }
     @media (max-width: 640px) {
       .products-preview, .news-grid { grid-template-columns: 1fr; }
       .footer-box { grid-template-columns: 1fr; }
@@ -94,7 +101,7 @@
 </nav>
 
 <main>
-  <!-- هیرو سکشن - عین خودت -->
+  <!-- هیرو سکشن -->
   <header class="container hero">
     <div class="hero-grid">
       <div class="glass hero-card">
@@ -118,22 +125,17 @@
     </div>
   </header>
 
-  <!-- محصولات شاخص -->
+  <!-- محصولات شاخص - همه پروژه‌ها (قدیم + جدید) -->
   <section class="container">
     <div class="section-title">
       <h2>🔧 محصولات شاخص</h2>
-      <p>مهم‌ترین پروژه‌های IESTM</p>
+      <p>همه پروژه‌های IESTM</p>
     </div>
-    <div class="products-preview">
-      <div class="product-card"><h3>IESTM OS</h3><p>محیط دسکتاپ ویندوزی با Python/PyQt</p><span class="tag">Python</span><span class="tag">PyQt</span></div>
-      <div class="product-card"><h3>بازی سه‌بعدی دوز</h3><p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p><span class="tag">Three.js</span><span class="tag">3D Game</span></div>
-      <div class="product-card"><h3>IESTM Notebook</h3><p>دفترچه یادداشت سبک با ذخیره خودکار</p><span class="tag">LocalStorage</span></div>
-      <div class="product-card"><h3>صلوات‌شمار</h3><p>صلوات‌شمار دیجیتال</p><span class="tag">Utility</span></div>
-    </div>
+    <div class="products-preview" id="productsPreview"></div>
     <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
   </section>
 
-  <!-- آخرین اخبار -->
+  <!-- آخرین اخبار (قدیم + جدید) -->
   <section class="container">
     <div class="section-title">
       <h2>📰 آخرین اخبار</h2>
@@ -159,20 +161,189 @@
 </footer>
 
 <script>
-  // اخبار پیش‌فرض - عین خودت
-  const defaultNews = [
-    { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
-    { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
-    { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
+  // ===========================================================
+  // ۱. پروژه‌ها = محصولات قبلی (۴ تا) + محصولات جدید (۸ تا) = ۱۲ تا
+  // ===========================================================
+  const oldProjects = [
+    {
+      title: "IESTM OS",
+      desc: "محیط دسکتاپ ویندوزی با Python/PyQt",
+      tags: ["Python", "PyQt"],
+      link: "#"  // لینک واقعی رو می‌تونی اضافه کنی
+    },
+    {
+      title: "بازی سه‌بعدی دوز",
+      desc: "نسخه سه‌بعدی بازی کلاسیک با Three.js",
+      tags: ["Three.js", "3D Game"],
+      link: "#"
+    },
+    {
+      title: "IESTM Notebook",
+      desc: "دفترچه یادداشت سبک با ذخیره خودکار",
+      tags: ["LocalStorage"],
+      link: "#"
+    },
+    {
+      title: "صلوات‌شمار",
+      desc: "صلوات‌شمار دیجیتال",
+      tags: ["Utility"],
+      link: "#"
+    }
   ];
-  
-  // بارگذاری اخبار از localStorage یا دیتای پیش‌فرض
-  let news = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
-  
-  // نمایش در صفحه
-  const previewContainer = document.getElementById('newsPreview');
-  if(previewContainer) {
-    previewContainer.innerHTML = news.slice(0,3).map(n => `
+
+  const newProjects = [
+    {
+      title: "منظومه شمسی",
+      desc: "شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر، با حرکات آرام برای تماشای دقیق",
+      tags: ["Three.js", "نجوم"],
+      link: "https://iestmgit.github.io/manzoomeh/"
+    },
+    {
+      title: "ابر مکعب (Hypercube)",
+      desc: "نمایش برجسته‌ای از تسراکت (ابعاد چهارم) با خطوط نئونی و ذرات نور در فضایی سایبرپانکی",
+      tags: ["Three.js", "视觉"],
+      link: "https://iestmgit.github.io/abarmokaab/"
+    },
+    {
+      title: "هولوگرام کیهانی",
+      desc: "افکت سه‌بعدی روانگردان با ذرات نور و توروس نئونی، ساخته‌شده با Three.js",
+      tags: ["Three.js", "هولوگرام"],
+      link: "https://iestmgit.github.io/hologeram/"
+    },
+    {
+      title: "تهران سیتی",
+      desc: "بازی رانندگی در شهر تهران با امکان تاکسیرانی، باربری و مسابقه (بهترین تجربه در حالت دسکتاپ)",
+      tags: ["بازی", "Three.js"],
+      link: "https://iestmcompany-creator.github.io/TehranCity/"
+    },
+    {
+      title: "زیبـانویس اسم",
+      desc: "ابزار شخصی‌سازی متن با فونت‌های متنوع و ایموجی‌های جذاب",
+      tags: ["ابزار", "UI"],
+      link: "https://iestmgit.github.io/zibanvis/"
+    },
+    {
+      title: "ایستم جوک دینامیت",
+      desc: "پروژه‌ای با محتوای طنز و سرگرمی برای لحظات شاد",
+      tags: ["سرگرمی", "طنز"],
+      link: "https://iestmgit.github.io/jok-dynamite/"
+    },
+    {
+      title: "فوتبال سه‌بعدی",
+      desc: "شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت‌زنی",
+      tags: ["بازی", "Three.js"],
+      link: "https://iestmgit.github.io/football-3d/"
+    },
+    {
+      title: "سایت کمپانی IESTM",
+      desc: "وب‌سایت رسمی معرفی کمپانی، محصولات و رویدادها",
+      tags: ["وب‌سایت", "معرفی"],
+      link: "https://iestmgit.github.io/iestm-website/"
+    }
+  ];
+
+  // ترکیب قدیم و جدید (همه)
+  const defaultProjects = [...oldProjects, ...newProjects];
+
+  // بارگذاری از localStorage یا داده‌های ترکیبی
+  let projects;
+  try {
+    const stored = localStorage.getItem('iestm_projects');
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        projects = parsed;
+      } else {
+        throw new Error('داده نامعتبر');
+      }
+    } else {
+      throw new Error('داده وجود ندارد');
+    }
+  } catch {
+    projects = defaultProjects;
+  }
+
+  // نمایش همه پروژه‌ها
+  const productsContainer = document.getElementById('productsPreview');
+  if (productsContainer) {
+    productsContainer.innerHTML = projects.map(p => `
+      <div class="product-card">
+        <h3><a href="${p.link}" target="_blank">${p.title}</a></h3>
+        <p>${p.desc}</p>
+        ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      </div>
+    `).join('');
+  }
+
+  // ===========================================================
+  // ۲. اخبار = اخبار قبلی (۳ تا) + اخبار جدید (۳ تا) = ۶ تا
+  // ===========================================================
+  const oldNews = [
+    {
+      date: "۱۴۰۳/۱۰/۱۵",
+      title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا",
+      summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.",
+      badge: "جدید"
+    },
+    {
+      date: "۱۴۰۳/۱۰/۱۰",
+      title: "بروزرسانی بزرگ IESTM Notebook 1.5",
+      summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.",
+      badge: "بروزرسانی"
+    },
+    {
+      date: "۱۴۰۳/۱۰/۰۵",
+      title: "جذب برنامه‌نویس برای تیم توسعه IESTM",
+      summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.",
+      badge: "استخدام"
+    }
+  ];
+
+  const newNews = [
+    {
+      date: "۱۹ خرداد ۱۴۰۵ – ۹ ژوئن ۲۰۲۶",
+      title: "🚀 رونمایی از مجموعه کامل وب‌سایت‌های IESTM",
+      summary: "کمپانی ایستم با افتخار از ۸ وب‌سایت جدید شامل شبیه‌سازی منظومه شمسی، ابر مکعب (تسراکت)، هولوگرام کیهانی، بازی تهران سیتی، ابزار زیبـانویس اسم، جوک دینامیت، بازی فوتبال سه‌بعدی و سایت رسمی کمپانی رونمایی کرد.",
+      badge: "🔥 رویداد مهم"
+    },
+    {
+      date: "۱۵ خرداد ۱۴۰۵ – ۵ ژوئن ۲۰۲۶",
+      title: "🚗 بازی «تهران سیتی» منتشر شد",
+      summary: "بازی محبوب رانندگی در خیابان‌های تهران با سه حالت تاکسیرانی، باربری و مسابقه به‌صورت عمومی در دسترس قرار گرفت.",
+      badge: "🎮 بازی جدید"
+    },
+    {
+      date: "۱۰ خرداد ۱۴۰۵ – ۳۱ مه ۲۰۲۶",
+      title: "🆕 به‌روزرسانی سایت کمپانی و افزودن بخش پروژه‌ها",
+      summary: "وب‌سایت رسمی IESTM با طراحی جدید و بخش اختصاصی برای نمایش همه پروژه‌های وب به‌روزرسانی شد.",
+      badge: "🛠 به‌روزرسانی"
+    }
+  ];
+
+  // ترکیب قدیم و جدید
+  const defaultNews = [...oldNews, ...newNews];
+
+  let news;
+  try {
+    const stored = localStorage.getItem('iestm_news');
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        news = parsed;
+      } else {
+        throw new Error('داده نامعتبر');
+      }
+    } else {
+      throw new Error('داده وجود ندارد');
+    }
+  } catch {
+    news = defaultNews;
+  }
+
+  // نمایش همه اخبار (در صورت تمایل می‌تونی تعداد رو با slice محدود کنی)
+  const newsContainer = document.getElementById('newsPreview');
+  if (newsContainer) {
+    newsContainer.innerHTML = news.map(n => `
       <div class="news-card">
         <div class="news-date">📅 ${n.date}</div>
         <h3>${n.title}</h3>
