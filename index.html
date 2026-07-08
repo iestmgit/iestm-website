@@ -149,14 +149,6 @@
   <p class="copyright">© 2024 IESTM Official — طراحی و توسعه توسط رادمهر اصغری</p>
 </footer>
 
-<script>
-  // سیستم نمایش اخبار هوشمند
-  const defaultNews = [
-    { date: "۱۴۰۳/۱۰/۱۵", title: "انتشار نسخه آلفای IESTM OS", summary: "اولین محیط دسکتاپ توسعه یافته با پایتون اکنون آماده تست است.", badge: "جدید" },
-    { date: "۱۴۰۳/۱۰/۱۰", title: "آپدیت IESTM Notebook", summary: "بهبود سیستم ذخیره‌سازی و اضافه شدن تم تاریک حرفه‌ای.", badge: "بروزرسانی" },
-    { date: "۱۴۰۳/۱۰/۰۵", title: "دعوت به همکاری", summary: "جذب برنامه‌نویسان خلاق برای پروژه‌های آینده ایستم.", badge: "استخدام" }
-  ];
-
   function loadNews() {
     const newsData = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
     const container = document.getElementById('newsPreview');
