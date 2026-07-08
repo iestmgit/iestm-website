@@ -3,16 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | خانه - توسعه نرم‌افزار، بازی و اپلیکیشن</title>
-  <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی و اپلیکیشن‌های پایتون" />
-  <!-- فاوآیکون رسمی -->
+  <title>IESTM | خانه - توسعه نرم‌افزار وب، بازی و اپلیکیشن دسکتاپ</title>
+  <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی مرورگر، اپلیکیشن دسکتاپ پایتون" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* اطمینان از اعمال فونت و رفع چسبیدگی تگ‌ها */
-    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
-    .tag { margin: 0 4px; display: inline-block; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.1); font-size: 0.8rem; }
-    .product-card h3 { margin-bottom: 10px; color: var(--gold, #ffd700); }
+    /* تضمین فونت یکان برای همه چیز */
+    body, h1, h2, h3, h4, p, a, button, .btn, .nav-links a, .stat h3, .product-card h3, .news-card h3 {
+      font-family: 'Yekan', 'Tahoma', sans-serif !important;
+    }
+    /* استایل‌های اضافی برای صفحه اصلی */
+    .products-preview, .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+    .product-card, .news-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      transition: 0.3s;
+    }
+    .product-card:hover, .news-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+    .tag {
+      display: inline-block;
+      margin: 6px 8px 0 0;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      font-size: .88rem;
+    }
+    .news-date {
+      font-size: .8rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .news-badge {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(247,201,72,.15);
+      color: var(--gold);
+      font-size: .75rem;
+    }
+    .quote {
+      padding: 32px;
+      text-align: center;
+      font-size: 1.15rem;
+      color: #fff5cf;
+      margin: 40px 0;
+    }
+    .footer-box {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 20px;
+      padding: 26px;
+      background: rgba(255,255,255,.03);
+      border-radius: 24px;
+    }
+    @media (max-width: 640px) {
+      .products-preview, .news-grid { grid-template-columns: 1fr; }
+      .footer-box { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body class="noise">
@@ -20,10 +78,8 @@
 <nav>
   <div class="nav-inner">
     <div class="brand">
-      <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM Logo">
-      </div>
-      <div class="brand-text">کمپانی ایستم<br><span>IESTM Official</span></div>
+      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
+      <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
     </div>
     <div class="nav-links">
       <a href="index.html" class="active">خانه</a>
@@ -32,139 +88,99 @@
       <a href="blog.html">اخبار</a>
       <a href="music.html">آهنگ رسمی</a>
       <a href="contact.html">تماس</a>
-      <a href="admin.html" class="admin-btn">مدیریت</a>
+      <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
     </div>
   </div>
 </nav>
 
 <main>
-  <!-- بخش معرفی (Hero Section) -->
+  <!-- هیرو سکشن - عین خودت -->
   <header class="container hero">
     <div class="hero-grid">
       <div class="glass hero-card">
-        <div class="eyebrow">🚀 پلتفرم نوآوری دیجیتال</div>
-        <h1>من <span class="gradient">رادمهر اصغری</span> هستم، مدیر <span class="gradient">کمپانی ایستم</span></h1>
-        <p class="lead">
-          ایستم (IESTM) فراتر از یک نام تجاری، یک اکوسیستم خلاق برای تبدیل کدهای خام به تجربه‌های تعاملی است. 
-          تمرکز ما بر توسعه نرم‌افزارهای دسکتاپ با پایتون، خلق جهان‌های سه‌بعدی در وب و ابزارهای هوشمندی است که زندگی دیجیتال را ساده‌تر می‌کنند.
-        </p>
+        <div class="eyebrow">🚀 پلتفرم رسمی IESTM</div>
+        <h1>من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span></h1>
+        <p class="lead">ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛ هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.</p>
+        <p class="lead">این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛ جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="projects.html">کاوش در پروژه‌ها</a>
-          <a class="btn btn-secondary" href="about.html">داستان ایستم</a>
+          <a class="btn btn-primary" href="projects.html">مشاهده محصولات</a>
+          <a class="btn btn-secondary" href="about.html">درباره ما</a>
         </div>
       </div>
       <div class="glass hero-side">
         <div class="stat-grid">
-          <div class="stat"><h3>Web Dev</h3><p>HTML5, CSS3, JS</p></div>
-          <div class="stat"><h3>Graphics</h3><p>Three.js / 3D</p></div>
-          <div class="stat"><h3>Desktop</h3><p>Python / PyQt</p></div>
-          <div class="stat"><h3>Logic</h3><p>Algorithm Design</p></div>
+          <div class="stat"><h3>HTML</h3><p>پایه اصلی رابط‌های وب</p></div>
+          <div class="stat"><h3>CSS</h3><p>طراحی حرفه‌ای</p></div>
+          <div class="stat"><h3>JS</h3><p>منطق برنامه‌ها</p></div>
+          <div class="stat"><h3>Python</h3><p>توسعه دسکتاپ ویندوزی</p></div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- محصولات برگزیده -->
+  <!-- محصولات شاخص -->
   <section class="container">
     <div class="section-title">
       <h2>🔧 محصولات شاخص</h2>
-      <p>برترین خروجی‌های مهندسی IESTM</p>
+      <p>مهم‌ترین پروژه‌های IESTM</p>
     </div>
     <div class="products-preview">
-      <div class="product-card">
-        <h3>IESTM OS</h3>
-        <p>شبیه‌ساز دسکتاپ تحت ویندوز</p>
-        <div class="tags-container">
-          <span class="tag">Python</span>
-          <span class="tag">PyQt6</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <h3>Tic-Tac-Toe 3D</h3>
-        <p>بازی دوز سه‌بعدی تعاملی</p>
-        <div class="tags-container">
-          <span class="tag">Three.js</span>
-          <span class="tag">WebGL</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <h3>IESTM Notebook</h3>
-        <p>مدیریت یادداشت با سینک محلی</p>
-        <div class="tags-container">
-          <span class="tag">JS</span>
-          <span class="tag">Local Storage</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <h3>Digital Tasbih</h3>
-        <p>صلوات‌شمار و ذکرشمار هوشمند</p>
-        <div class="tags-container">
-          <span class="tag">Utility</span>
-          <span class="tag">Web App</span>
-        </div>
-      </div>
+      <div class="product-card"><h3>IESTM OS</h3><p>محیط دسکتاپ ویندوزی با Python/PyQt</p><span class="tag">Python</span><span class="tag">PyQt</span></div>
+      <div class="product-card"><h3>بازی سه‌بعدی دوز</h3><p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p><span class="tag">Three.js</span><span class="tag">3D Game</span></div>
+      <div class="product-card"><h3>IESTM Notebook</h3><p>دفترچه یادداشت سبک با ذخیره خودکار</p><span class="tag">LocalStorage</span></div>
+      <div class="product-card"><h3>صلوات‌شمار</h3><p>صلوات‌شمار دیجیتال</p><span class="tag">Utility</span></div>
     </div>
-    <div class="text-center" style="margin-top: 30px;">
-      <a href="projects.html" class="btn btn-primary">مشاهده ویترین کامل محصولات ←</a>
-    </div>
+    <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
   </section>
 
-  <!-- بخش اخبار -->
+  <!-- آخرین اخبار -->
   <section class="container">
     <div class="section-title">
-      <h2>📰 آخرین رویدادها</h2>
-      <p>تازه از اتاق توسعه ایستم</p>
+      <h2>📰 آخرین اخبار</h2>
+      <p>جدیدترین رویدادها و اطلاعیه‌ها</p>
     </div>
-    <div class="news-grid" id="newsPreview">
-      <!-- توسط جاوا اسکریپت پر می‌شود -->
-    </div>
-    <div class="text-center" style="margin-top: 30px;">
-      <a href="blog.html" class="btn btn-secondary">آرشیو اخبار</a>
-    </div>
+    <div class="news-grid" id="newsPreview"></div>
+    <div class="text-center"><a href="blog.html" class="btn btn-secondary">مشاهده همه اخبار →</a></div>
   </section>
 
-  <!-- نقل قول نهایی -->
+  <!-- نقل قول -->
   <section class="container">
-    <div class="glass quote">
-      «ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن و تبدیل رویاهای کدنویسی به واقعیت‌های کاربردی است.»
-    </div>
+    <div class="glass quote">«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»</div>
   </section>
 </main>
 
 <footer>
   <div class="container footer-box">
-    <div class="footer-col">
-      <h3>درباره IESTM</h3>
-      <p>توسعه‌دهنده نرم‌افزارهای نوین، بازی‌های تحت وب و ابزارهای متن‌باز.</p>
-    </div>
-    <div class="footer-col">
-      <h3>لینک‌های سریع</h3>
-      <p><a href="projects.html">پروژه‌ها</a> | <a href="blog.html">وبلاگ</a></p>
-    </div>
-    <div class="footer-col">
-      <h3>تماس و ارتباط</h3>
-      <p>ایمیل: asly3325@gmail.com<br>تلگرام: @iestmcompany</p>
-    </div>
+    <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
+    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
+    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
   </div>
-  <p class="copyright">© 2024 IESTM Official — طراحی و توسعه توسط رادمهر اصغری</p>
+  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
 </footer>
 
-  function loadNews() {
-    const newsData = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
-    const container = document.getElementById('newsPreview');
-    if(container) {
-      container.innerHTML = newsData.slice(0,3).map(item => `
-        <div class="news-card">
-          <div class="news-date">📅 ${item.date}</div>
-          <h3>${item.title}</h3>
-          <p>${item.summary}</p>
-          <span class="news-badge">${item.badge}</span>
-        </div>
-      `).join('');
-    }
-  }
+<script>
+  // اخبار پیش‌فرض - عین خودت
+  const defaultNews = [
+    { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
+    { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
+    { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
+  ];
   
-  window.onload = loadNews;
+  // بارگذاری اخبار از localStorage یا دیتای پیش‌فرض
+  let news = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
+  
+  // نمایش در صفحه
+  const previewContainer = document.getElementById('newsPreview');
+  if(previewContainer) {
+    previewContainer.innerHTML = news.slice(0,3).map(n => `
+      <div class="news-card">
+        <div class="news-date">📅 ${n.date}</div>
+        <h3>${n.title}</h3>
+        <p>${n.summary}</p>
+        <span class="news-badge">${n.badge}</span>
+      </div>
+    `).join('');
+  }
 </script>
 </body>
 </html>
