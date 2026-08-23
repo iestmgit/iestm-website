@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | Official Company Anthem</title>
+  <meta name="description" content="Online streaming of the official IESTM company anthem." />
+  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="music.html" />
+  <link rel="alternate" hreflang="en" href="music-en.html" />
+  
+  <style>
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    .lang-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1; visibility: visible;
+    }
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
+      max-width: 520px; width: 92%; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.5s ease;
+    }
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
+    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
+    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
+      color: #fff; cursor: pointer; transition: all 0.3s ease;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+      display: flex; align-items: center; gap: 12px; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
+    .lang-btn:active { transform: scale(0.94); }
+    .flag-icon { font-size: 2.1rem; line-height: 1; }
+    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+
+    .music-container { max-width: 800px; margin: 0 auto; }
+    .music-player {
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(0,0,0,0.3));
+      border-radius: 25px; padding: 25px; margin-bottom: 30px;
+    }
+    .player-controls {
+      display: flex; align-items: center; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;
+    }
+    .control-btn {
+      width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.1);
+      border: none; color: white; font-size: 1.3rem; cursor: pointer; transition: 0.3s;
+    }
+    .control-btn:hover { background: #ffd700; color: #0a0f1e; }
+    .progress-container { flex: 1; height: 5px; background: rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; position: relative; min-width: 100px; }
+    .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #ffd700, #ff6b6b); border-radius: 10px; }
+    .time-label { color: #aaa; font-size: 0.8rem; min-width: 45px; }
+    .volume-slider { width: 100px; height: 4px; cursor: pointer; accent-color: #ffd700; }
+    .song-title { color: #fff; text-align: center; font-size: 1.2rem; margin-top: 10px; }
+    .song-artist { color: #aaa; text-align: center; font-size: 0.95rem; }
+
+    .lyrics-box {
+      background: rgba(0,0,0,0.4); border-radius: 20px; padding: 25px;
+      border-right: 4px solid #ffd700; max-height: 400px; overflow-y: auto;
+    }
+    .lyrics-box pre { font-family: "Yekan", monospace; white-space: pre-wrap; font-size: 0.95rem; color: #cce5ff; }
+    .verse-title { color: #ffd700; font-weight: bold; margin: 15px 0 5px; }
+  </style>
+</head>
+<body class="noise">
+
+<div id="langOverlay" class="lang-overlay">
+  <div class="glass-box">
+    <h1 class="lang-title">🌐 Choose Language / انتخاب زبان</h1>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
+      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
+    </div>
+    <p class="lang-note">This choice is made only once / این انتخاب فقط یک بار انجام می‌شود</p>
+  </div>
+</div>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <div class="container music-container">
+    <div class="section-title">
+      <h2>🎵 IESTM Official Anthem</h2>
+      <p>The IESTM anthem — Epic Makers of Tomorrow</p>
+    </div>
+
+    <div class="music-player">
+      <div class="song-title" id="songTitle">IESTM Official Anthem</div>
+      <div class="song-artist" id="songArtist">Epic Makers of Tomorrow</div>
+      
+      <div class="player-controls">
+        <button class="control-btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
+        <button class="control-btn" id="playBtn"><i class="fas fa-play"></i></button>
+        <button class="control-btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
+        <span class="time-label" id="currentTime">00:00</span>
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <span class="time-label" id="duration">00:00</span>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+      </div>
+    </div>
+
+    <div class="lyrics-box">
+      <div class="verse-title">【 Verse 1 】</div>
+      <pre>
+IESTM has risen, what a vibe and melody
+Every corner a project, every day a new fantasy
+From web and tools to games and tales
+Everyone says this company is on the rails
+
+Dish dara dadam, IESTM is in the game
+Dish dara dadam, with ideas without name
+Dish dara dadam, from desktop to play
+Dish dara dadam, what a company, what a way
+      </pre>
+      <div class="verse-title">【 Pre‑chorus 】</div>
+      <pre>
+Who's the CEO? everyone asks each time
+Radmehr Asghari, with a mind full of climb
+Not one for shortcuts, not one for delay
+He lines up projects like rain in a sway
+      </pre>
+      <div class="verse-title">【 Chorus 】</div>
+      <pre>
+Dish dara dadam, dish dara dadam
+Radmehr is in the zone, dish dara dadam
+Dish dara dadam, dish dara dadam
+His projects stand tall, dish dara dadam
+      </pre>
+      <div class="verse-title">【 Verse 2 】</div>
+      <pre>
+One day he's on the web, next day he's coding
+Another day in the code, another day gaming
+Radmehr sits by the system and screen
+One hand on the keyboard, the other's unseen
+
+No empty sleep, no drawn‑out talk
+He lays out the work, precise and in lock
+Ideas galore, one after one
+Each one that comes, he says "this one's done"
+      </pre>
+      <div class="verse-title">【 Bridge 】</div>
+      <pre>
+A light and tidy notebook for thoughts to keep
+A mind full of images, a path bright and deep
+From page to program, from plan to deed
+He builds it all with passion and speed
+      </pre>
+      <div class="verse-title">【 Chorus 】</div>
+      <pre>
+Dish dara dadam, dish dara dadam
+Radmehr is in the zone, dish dara dadam
+Dish dara dadam, dish dara dadam
+His projects stand tall, dish dara dadam
+      </pre>
+      <div class="verse-title">【 Outro 】</div>
+      <pre>
+Dish dara dadam, IESTM still shines
+Dish dara dadam, the city aligns
+Radmehr Asghari, the name on the flag
+Whatever he builds, it's victory's gag
+      </pre>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/load-components.js"></script>
+<script>
+  const audio = new Audio('1.mp3');
+  const playBtn = document.getElementById('playBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const progressBar = document.getElementById('progressBar');
+  const progressContainer = document.getElementById('progressContainer');
+  const currentTimeSpan = document.getElementById('currentTime');
+  const durationSpan = document.getElementById('duration');
+  const volumeSlider = document.getElementById('volumeSlider');
+  let isPlaying = false;
+
+  audio.volume = 0.7;
+  volumeSlider.value = 0.7;
+
+  playBtn.addEventListener('click', function() {
+    if (isPlaying) audio.pause();
+    else audio.play();
+  });
+
+  audio.addEventListener('play', function() {
+    isPlaying = true;
+    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+  });
+
+  audio.addEventListener('pause', function() {
+    isPlaying = false;
+    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+  });
+
+  audio.addEventListener('loadedmetadata', function() {
+    durationSpan.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = progress + '%';
+    currentTimeSpan.textContent = formatTime(audio.currentTime);
+  });
+
+  progressContainer.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = percent * audio.duration;
+  });
+
+  volumeSlider.addEventListener('input', function() {
+    audio.volume = this.value;
+  });
+
+  prevBtn.addEventListener('click', function() {
+    audio.currentTime = 0;
+  });
+
+  nextBtn.addEventListener('click', function() {
+    audio.currentTime = audio.duration;
+  });
+
+  audio.addEventListener('ended', function() {
+    audio.currentTime = 0;
+    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    isPlaying = false;
+  });
+
+  function formatTime(seconds) {
+    if (isNaN(seconds)) return '00:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'music-en.html';
+      let targetPage;
+      if (lang === 'fa') {
+        if (currentPage === 'music-en.html' || currentPage === '') targetPage = 'music.html';
+        else { const base = currentPage.replace('-en.html', ''); targetPage = base + '.html'; }
+      } else {
+        if (currentPage === 'music.html') targetPage = 'music-en.html';
+        else if (!currentPage.includes('-en.')) { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
