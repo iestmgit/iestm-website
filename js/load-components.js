@@ -68,6 +68,9 @@
             </a>
           `).join('');
         }
+        
+        // بروزرسانی برچسب دکمه زبان
+        updateLangLabel();
       })
       .catch(error => {
         console.error('خطا در بارگذاری هدر:', error);
@@ -91,10 +94,92 @@
       });
   }
 
+  // ===== تابع تغییر زبان =====
+  window.switchLanguage = function() {
+    const html = document.documentElement;
+    const currentLang = html.getAttribute('lang') || 'fa';
+    const newLang = currentLang === 'fa' ? 'en' : 'fa';
+    
+    // ذخیره در localStorage
+    localStorage.setItem('preferred_lang', newLang);
+    
+    // تغییر مسیر به نسخه مناسب
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
+    
+    let targetPage;
+    if (newLang === 'en') {
+      // تبدیل به انگلیسی
+      if (currentPage === 'index.html' || currentPage === '') {
+        targetPage = 'index-en.html';
+      } else if (currentPage.includes('-en.')) {
+        targetPage = currentPage; // قبلاً انگلیسی هست
+      } else {
+        const base = currentPage.replace('.html', '');
+        targetPage = base + '-en.html';
+      }
+    } else {
+      // تبدیل به فارسی
+      if (currentPage === 'index-en.html') {
+        targetPage = 'index.html';
+      } else if (currentPage.includes('-en.')) {
+        targetPage = currentPage.replace('-en.html', '.html');
+      } else {
+        targetPage = currentPage;
+      }
+    }
+    
+    if (targetPage !== currentPage && targetPage !== '') {
+      window.location.href = targetPage;
+    } else {
+      location.reload();
+    }
+  };
+
+  // ===== بروزرسانی برچسب دکمه زبان =====
+  function updateLangLabel() {
+    const langLabel = document.getElementById('langLabel');
+    if (!langLabel) return;
+    const lang = document.documentElement.getAttribute('lang') || 'fa';
+    langLabel.textContent = lang === 'fa' ? '🇮🇷 فارسی' : '🇬🇧 English';
+  }
+
+  // ===== بررسی زبان ذخیره‌شده در اولین بار =====
+  function checkSavedLanguage() {
+    const savedLang = localStorage.getItem('preferred_lang');
+    if (savedLang) {
+      const currentLang = document.documentElement.getAttribute('lang') || 'fa';
+      if (savedLang !== currentLang) {
+        // اگر زبان ذخیره‌شده با زبان فعلی فرق داشت، هدایت کن
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
+        let targetPage;
+        if (savedLang === 'en') {
+          if (currentPage === 'index.html' || currentPage === '') targetPage = 'index-en.html';
+          else if (!currentPage.includes('-en.')) {
+            const base = currentPage.replace('.html', '');
+            targetPage = base + '-en.html';
+          }
+        } else {
+          if (currentPage === 'index-en.html') targetPage = 'index.html';
+          else if (currentPage.includes('-en.')) {
+            targetPage = currentPage.replace('-en.html', '.html');
+          }
+        }
+        if (targetPage && targetPage !== currentPage) {
+          window.location.href = targetPage;
+          return;
+        }
+      }
+    }
+  }
+
   // ===== اجرا =====
   document.addEventListener('DOMContentLoaded', function() {
+    checkSavedLanguage();
     loadHeader();
     loadFooter();
+    updateLangLabel();
   });
 
 })();
