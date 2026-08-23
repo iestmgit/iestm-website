@@ -3,117 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | خانه - توسعه نرم‌افزار وب، بازی و اپلیکیشن دسکتاپ</title>
+  <title>IESTM | درباره ما</title>
   <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی مرورگر، اپلیکیشن دسکتاپ پایتون" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="about.html" />
+  <link rel="alternate" hreflang="en" href="about-en.html" />
+  
   <style>
     body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    .lang-overlay { /* همان استایل‌های اورلی که در index.html بود */ }
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box { /* ... */ }
+    @media (max-width: 600px) { /* ... */ }
   </style>
 </head>
 <body class="noise">
 
-<nav>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
-      <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
-    </div>
-    <div class="nav-links">
-      <a href="index.html" class="active">خانه</a>
-      <a href="about.html">درباره ما</a>
-      <a href="projects.html">پروژه‌ها</a>
-      <a href="blog.html">اخبار</a>
-      <a href="music.html">آهنگ رسمی</a>
-      <a href="contact.html">تماس</a>
-      <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
-    </div>
-  </div>
-</nav>
+<!-- ===== اورلی ===== -->
+<div id="langOverlay" class="lang-overlay">...</div>
 
+<!-- ===== هدر ===== -->
+<div id="header-placeholder"></div>
+
+<!-- ===== محتوای اصلی ===== -->
 <main>
-  <!-- هیرو سکشن -->
-  <header class="container hero">
-    <div class="hero-grid">
-      <div class="glass hero-card">
-        <div class="eyebrow">🚀 پلتفرم رسمی IESTM</div>
-        <h1>من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span></h1>
-        <p class="lead">ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛ هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.</p>
-        <p class="lead">این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛ جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="projects.html">مشاهده محصولات</a>
-          <a class="btn btn-secondary" href="about.html">درباره ما</a>
-        </div>
-      </div>
-      <div class="glass hero-side">
-        <div class="stat-grid">
-          <div class="stat"><h3>HTML</h3><p>پایه اصلی رابط‌های وب</p></div>
-          <div class="stat"><h3>CSS</h3><p>طراحی حرفه‌ای</p></div>
-          <div class="stat"><h3>JS</h3><p>منطق برنامه‌ها</p></div>
-          <div class="stat"><h3>Python</h3><p>توسعه دسکتاپ ویندوزی</p></div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- محصولات شاخص -->
   <section class="container">
     <div class="section-title">
-      <h2>🔧 محصولات شاخص</h2>
-      <p>مهم‌ترین پروژه‌های IESTM</p>
+      <h2>🧠 درباره IESTM</h2>
+      <p>شناخت بیشتر از ایستم و مسیر توسعه</p>
     </div>
-    <div class="products-preview">
-      <div class="product-card"><h3>IESTM OS</h3><p>محیط دسکتاپ ویندوزی با Python/PyQt</p><span class="tag">Python</span><span class="tag">PyQt</span></div>
-      <div class="product-card"><h3>بازی سه‌بعدی دوز</h3><p>نسخه سه‌بعدی بازی کلاسیک با Three.js</p><span class="tag">Three.js</span><span class="tag">3D Game</span></div>
-      <div class="product-card"><h3>IESTM Notebook</h3><p>دفترچه یادداشت سبک با ذخیره خودکار</p><span class="tag">LocalStorage</span></div>
-      <div class="product-card"><h3>صلوات‌شمار</h3><p>صلوات‌شمار دیجیتال</p><span class="tag">Utility</span></div>
+    <div class="glass about-content">
+      <p style="font-size:1.2rem; line-height:2;"><strong>کمپانی ایستم (IESTM)</strong> یک برند نرم‌افزاری مستقل است که توسط <strong>رادمهر اصغری</strong> بنیان‌گذاری شده. این مجموعه با هدف تولید نرم‌افزارهای کاربردی، بازی‌های دیجیتال، ابزارهای تحت وب و تجربه‌های تعاملی مدرن فعالیت می‌کند.</p>
+      <p style="font-size:1.2rem; line-height:2;">تمرکز اصلی IESTM بر <strong>توسعه وب</strong> (HTML, CSS, JavaScript, Three.js)، <strong>برنامه‌نویسی دسکتاپ</strong> (Python, PyQt, Tkinter) و <strong>طراحی تجربه کاربری</strong> است. همه پروژه‌ها با رویکرد خلاقانه، عملکرد بالا و طراحی زیبا ساخته می‌شوند.</p>
+      <p style="font-size:1.2rem; line-height:2;">IESTM فقط یک شرکت نیست؛ یک <strong>مسیر شخصی برای یادگیری، ساخت و ارائه</strong> محصولات دیجیتالی است که می‌توانند در زندگی روزمره، آموزش، سرگرمی و بهره‌وری تأثیر بگذارند.</p>
     </div>
-    <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
   </section>
 
-  <!-- آخرین اخبار -->
   <section class="container">
     <div class="section-title">
-      <h2>📰 آخرین اخبار</h2>
-      <p>جدیدترین رویدادها و اطلاعیه‌ها</p>
+      <h2>👤 بنیان‌گذار</h2>
+      <p>رادمهر اصغری — توسعه‌دهنده و مدیر IESTM</p>
     </div>
-    <div class="news-grid" id="newsPreview"></div>
-    <div class="text-center"><a href="blog.html" class="btn btn-secondary">مشاهده همه اخبار →</a></div>
+    <div class="glass founder-box" style="display:flex; flex-wrap:wrap; gap:30px; align-items:center;">
+      <div style="flex:1; min-width:200px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="رادمهر اصغری" style="width:100%; max-width:250px; border-radius:20px; border:2px solid var(--gold);">
+      </div>
+      <div style="flex:2; min-width:250px;">
+        <h3 style="color:var(--gold);">رادمهر اصغری</h3>
+        <p style="font-size:1.1rem; line-height:2;">توسعه‌دهنده نرم‌افزار، علاقه‌مند به وب، بازی‌سازی، هوش مصنوعی و خلق تجربه‌های دیجیتال جدید. بنیان‌گذار IESTM با هدف تبدیل ایده‌ها به محصولات واقعی و مفید.</p>
+        <p style="font-size:1rem; color:#aaa;">📧 asly3325@gmail.com &nbsp;|&nbsp; 📞 09398212260 &nbsp;|&nbsp; 🐦 @iestmcompany</p>
+      </div>
+    </div>
   </section>
 
-  <!-- نقل قول -->
+  <section class="container">
+    <div class="section-title">
+      <h2>🎯 اهداف و چشم‌انداز</h2>
+      <p>مسیر آینده IESTM</p>
+    </div>
+    <div class="glass" style="padding:30px;">
+      <ul style="list-style:none; padding:0; font-size:1.1rem; line-height:2.5;">
+        <li>✅ تولید نرم‌افزارهای متن‌باز و کاربردی برای جامعه</li>
+        <li>✅ توسعه بازی‌های سه‌بعدی تعاملی با مرورگر</li>
+        <li>✅ ساخت ابزارهای هوشمند با استفاده از Python و Web</li>
+        <li>✅ آموزش و اشتراک‌گذاری دانش برنامه‌نویسی</li>
+        <li>✅ ایجاد یک هویت نرم‌افزاری مستقل و تأثیرگذار</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="container">
     <div class="glass quote">«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»</div>
   </section>
 </main>
 
-<footer>
-  <div class="container footer-box">
-    <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
-  </div>
-  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
-</footer>
+<!-- ===== فوتر ===== -->
+<div id="footer-placeholder"></div>
 
+<!-- ===== اسکریپت‌ها ===== -->
+<script src="js/load-components.js"></script>
 <script>
-  const defaultNews = [
-    { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
-    { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
-    { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
-  ];
-  let news = JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews));
-  const previewContainer = document.getElementById('newsPreview');
-  if(previewContainer) {
-    previewContainer.innerHTML = news.slice(0,3).map(n => `
-      <div class="news-card">
-        <div class="news-date">📅 ${n.date}</div>
-        <h3>${n.title}</h3>
-        <p>${n.summary}</p>
-        <span class="news-badge">${n.badge}</span>
-      </div>
-    `).join('');
+  // ===== مدیریت زبان =====
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'about.html';
+      let targetPage;
+      if (lang === 'en') {
+        if (currentPage === 'about.html' || currentPage === '') targetPage = 'about-en.html';
+        else { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+      } else {
+        if (currentPage === 'about-en.html') targetPage = 'about.html';
+        else if (currentPage.includes('-en.')) targetPage = currentPage.replace('-en.html', '.html');
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
   }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
 </script>
 </body>
 </html>
