@@ -7,75 +7,68 @@
   <meta name="description" content="مشاهده همه پروژه‌های وب کمپانی ایستم: منظومه شمسی، ابر مکعب، هولوگرام، تهران سیتی، زیبـانویس، جوک دینامیت، فوتبال سه‌بعدی و سایت رسمی" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="projects.html" />
+  <link rel="alternate" hreflang="en" href="projects-en.html" />
+  
   <style>
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    .lang-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1; visibility: visible;
     }
-    .product-card .site-link {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 6px 16px;
-      background: var(--gold, #f5a623);
-      color: #0a0a0a;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
+      max-width: 520px; width: 92%; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.5s ease;
     }
-    .product-card .site-link:hover {
-      background: #ffc857;
-      transform: scale(1.02);
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
+    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
+    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
+      color: #fff; cursor: pointer; transition: all 0.3s ease;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+      display: flex; align-items: center; gap: 12px; font-family: inherit;
     }
-    .timeline {
-      padding-right: 24px;
-      border-right: 2px dashed rgba(255,255,255,.16);
-    }
-    .timeline-item {
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.05);
-      position: relative;
-    }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      right: -34px;
-      top: 24px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--gold, #f5a623);
-    }
-    @media (max-width:980px) {
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
+    .lang-btn:active { transform: scale(0.94); }
+    .flag-icon { font-size: 2.1rem; line-height: 1; }
+    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .product-card .site-link { display: inline-block; margin-top: 12px; padding: 6px 16px; background: var(--gold, #f5a623); color: #0a0a0a; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: 0.2s; }
+    .product-card .site-link:hover { background: #ffc857; transform: scale(1.02); }
+    .timeline { padding-right: 24px; border-right: 2px dashed rgba(255,255,255,.16); }
+    .timeline-item { padding: 20px; margin-bottom: 20px; border-radius: 20px; background: rgba(255,255,255,.05); position: relative; }
+    .timeline-item::before { content: ""; position: absolute; right: -34px; top: 24px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold, #f5a623); }
+    @media (max-width:980px) { .products-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body class="noise">
 
-<nav>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
-      <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
+<div id="langOverlay" class="lang-overlay">
+  <div class="glass-box">
+    <h1 class="lang-title">🌐 انتخاب زبان / Choose Language</h1>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
+      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
     </div>
-    <div class="nav-links">
-      <a href="index.html">خانه</a>
-      <a href="about.html">درباره ما</a>
-      <a href="projects.html" class="active">پروژه‌ها</a>
-      <a href="blog.html">اخبار</a>
-      <a href="music.html">آهنگ رسمی</a>
-      <a href="contact.html">تماس</a>
-      <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
-    </div>
+    <p class="lang-note">این انتخاب فقط یک بار انجام می‌شود / This choice is made only once</p>
   </div>
-</nav>
+</div>
+
+<div id="header-placeholder"></div>
 
 <main>
   <section class="container">
@@ -84,68 +77,16 @@
       <p>همه پروژه‌های وب که تاکنون منتشر شده‌اند – حتماً دیدن کنید</p>
     </div>
     <div class="products-grid">
-
-      <!-- منظومه شمسی -->
-      <div class="glass product-card">
-        <h3>🌌 منظومه شمسی</h3>
-        <p>شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر، با حرکات آرام برای تماشای دقیق</p>
-        <a href="https://iestmgit.github.io/manzoomeh/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
-      <!-- ابر مکعب -->
-      <div class="glass product-card">
-        <h3>🧊 ابر مکعب (Hypercube)</h3>
-        <p>نمایش برجسته‌ای از تسراکت (ابعاد چهارم) با خطوط نئونی و ذرات نور در فضایی سایبرپانکی</p>
-        <a href="https://iestmgit.github.io/abarmokaab/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
-      <!-- هولوگرام کیهانی -->
-      <div class="glass product-card">
-        <h3>🌀 هولوگرام کیهانی</h3>
-        <p>افکت سه‌بعدی روان‌گردان با ذرات نور و توروس نئونی، ساخته‌شده با Three.js</p>
-        <a href="https://iestmgit.github.io/hologeram/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
-      <!-- تهران سیتی -->
-      <div class="glass product-card">
-        <h3>🚗 تهران سیتی</h3>
-        <p>بازی رانندگی در شهر تهران با امکان تاکسیرانی، باربری و مسابقه (بهترین تجربه در حالت دسکتاپ)</p>
-        <a href="https://iestmcompany-creator.github.io/TehranCity/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
-      <!-- زیبـانویس اسم -->
-      <div class="glass product-card">
-        <h3>✍️ زیبـانویس اسم</h3>
-        <p>ابزار شخصی‌سازی متن با فونت‌های متنوع و ایموجی‌های جذاب</p>
-        <a href="https://iestmgit.github.io/my-font-generator/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
-      <!-- ایستم جوک دینامیت -->
-      <div class="glass product-card">
-        <h3>🧨 ایستم جوک دینامیت</h3>
-        <p>پروژه‌ای با محتوای طنز و سرگرمی (مجددا در دسترس قرار گرفت)</p>
-        <a href="https://iestmgit.github.io/IESTM_JOK_DEENAMEET/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
-      <!-- فوتبال سه‌بعدی -->
-      <div class="glass product-card">
-        <h3>⚽ فوتبال سه‌بعدی</h3>
-        <p>شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت‌زنی</p>
-        <a href="https://iestmgit.github.io/football/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
-      <!-- سایت کمپانی -->
-      <div class="glass product-card">
-        <h3>🏢 سایت کمپانی IESTM</h3>
-        <p>وب‌سایت رسمی معرفی کمپانی، محصولات و رویدادهای IESTM</p>
-        <a href="https://iestmgit.github.io/iestm-website/" target="_blank" class="site-link">مشاهده سایت</a>
-      </div>
-
+      <div class="glass product-card"><h3>🌌 منظومه شمسی</h3><p>شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر، با حرکات آرام برای تماشای دقیق</p><a href="https://iestmgit.github.io/manzoomeh/" target="_blank" class="site-link">مشاهده سایت</a></div>
+      <div class="glass product-card"><h3>🧊 ابر مکعب (Hypercube)</h3><p>نمایش برجسته‌ای از تسراکت (ابعاد چهارم) با خطوط نئونی و ذرات نور در فضایی سایبرپانکی</p><a href="https://iestmgit.github.io/abarmokaab/" target="_blank" class="site-link">مشاهده سایت</a></div>
+      <div class="glass product-card"><h3>🌀 هولوگرام کیهانی</h3><p>افکت سه‌بعدی روان‌گردان با ذرات نور و توروس نئونی، ساخته‌شده با Three.js</p><a href="https://iestmgit.github.io/hologeram/" target="_blank" class="site-link">مشاهده سایت</a></div>
+      <div class="glass product-card"><h3>🚗 تهران سیتی</h3><p>بازی رانندگی در شهر تهران با امکان تاکسیرانی، باربری و مسابقه (بهترین تجربه در حالت دسکتاپ)</p><a href="https://iestmcompany-creator.github.io/TehranCity/" target="_blank" class="site-link">مشاهده سایت</a></div>
+      <div class="glass product-card"><h3>✍️ زیبـانویس اسم</h3><p>ابزار شخصی‌سازی متن با فونت‌های متنوع و ایموجی‌های جذاب</p><a href="https://iestmgit.github.io/my-font-generator/" target="_blank" class="site-link">مشاهده سایت</a></div>
+      <div class="glass product-card"><h3>🧨 ایستم جوک دینامیت</h3><p>پروژه‌ای با محتوای طنز و سرگرمی (مجددا در دسترس قرار گرفت)</p><a href="https://iestmgit.github.io/IESTM_JOK_DEENAMEET/" target="_blank" class="site-link">مشاهده سایت</a></div>
+      <div class="glass product-card"><h3>⚽ فوتبال سه‌بعدی</h3><p>شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت‌زنی</p><a href="https://iestmgit.github.io/football/" target="_blank" class="site-link">مشاهده سایت</a></div>
+      <div class="glass product-card"><h3>🏢 سایت کمپانی IESTM</h3><p>وب‌سایت رسمی معرفی کمپانی، محصولات و رویدادهای IESTM</p><a href="https://iestmgit.github.io/iestm-website/" target="_blank" class="site-link">مشاهده سایت</a></div>
     </div>
-
-    <p style="text-align:center; margin-top: 30px; font-size:1.1rem;">
-      🔥 حتماً از سایت‌امون دیدن کنید — <strong>@iestmcompany</strong>
-    </p>
+    <p style="text-align:center; margin-top: 30px; font-size:1.1rem;">🔥 حتماً از سایت‌امون دیدن کنید — <strong>@iestmcompany</strong></p>
   </section>
 
   <section class="container">
@@ -154,43 +95,44 @@
       <p>ایستم به کجا می‌رود و چه افقی را دنبال می‌کند</p>
     </div>
     <div class="timeline">
-      <div class="timeline-item">
-        <h3>مرحله اول: ساخت هویت</h3>
-        <p>ایجاد مجموعه‌ای از محصولات اولیه برای نشان‌دادن توان فنی</p>
-      </div>
-      <div class="timeline-item">
-        <h3>مرحله دوم: توسعه محصول</h3>
-        <p>گسترش پروژه‌ها به سامانه‌های پیچیده‌تر</p>
-      </div>
-      <div class="timeline-item">
-        <h3>مرحله سوم: جذب همکاری</h3>
-        <p>ساخت فضای تعامل با کاربران و جذب استعدادها</p>
-      </div>
-      <div class="timeline-item">
-        <h3>مرحله چهارم: تثبیت برند</h3>
-        <p>تبدیل IESTM به یک برند شناخته‌شده</p>
-      </div>
+      <div class="timeline-item"><h3>مرحله اول: ساخت هویت</h3><p>ایجاد مجموعه‌ای از محصولات اولیه برای نشان‌دادن توان فنی</p></div>
+      <div class="timeline-item"><h3>مرحله دوم: توسعه محصول</h3><p>گسترش پروژه‌ها به سامانه‌های پیچیده‌تر</p></div>
+      <div class="timeline-item"><h3>مرحله سوم: جذب همکاری</h3><p>ساخت فضای تعامل با کاربران و جذب استعدادها</p></div>
+      <div class="timeline-item"><h3>مرحله چهارم: تثبیت برند</h3><p>تبدیل IESTM به یک برند شناخته‌شده</p></div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="container footer-box">
-    <div>
-      <h3>IESTM</h3>
-      <p>توسعه نرم‌افزار وب، ابزارهای کاربردی، بازی‌های دیجیتال</p>
-    </div>
-    <div>
-      <h3>بنیان‌گذار</h3>
-      <p>رادمهر اصغری<br>توسعه‌دهنده و مدیر</p>
-    </div>
-    <div>
-      <h3>ارتباط</h3>
-      <p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p>
-    </div>
-  </div>
-  <p class="copyright">© IESTM Official</p>
-</footer>
+<div id="footer-placeholder"></div>
 
+<script src="js/load-components.js"></script>
+<script>
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'projects.html';
+      let targetPage;
+      if (lang === 'en') {
+        if (currentPage === 'projects.html' || currentPage === '') targetPage = 'projects-en.html';
+        else { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+      } else {
+        if (currentPage === 'projects-en.html') targetPage = 'projects.html';
+        else if (currentPage.includes('-en.')) targetPage = currentPage.replace('-en.html', '.html');
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
+</script>
 </body>
 </html>
