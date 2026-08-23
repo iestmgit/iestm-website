@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | Projects</title>
+  <meta name="description" content="All web projects by IESTM: Solar System, Hypercube, Hologram, Tehran City, Zibânevis, Jok Dynamite, 3D Football, and the official site." />
+  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="projects.html" />
+  <link rel="alternate" hreflang="en" href="projects-en.html" />
+  
+  <style>
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    .lang-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1; visibility: visible;
+    }
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
+      max-width: 520px; width: 92%; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.5s ease;
+    }
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
+    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
+    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
+      color: #fff; cursor: pointer; transition: all 0.3s ease;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+      display: flex; align-items: center; gap: 12px; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
+    .lang-btn:active { transform: scale(0.94); }
+    .flag-icon { font-size: 2.1rem; line-height: 1; }
+    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .product-card .site-link { display: inline-block; margin-top: 12px; padding: 6px 16px; background: var(--gold, #f5a623); color: #0a0a0a; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: 0.2s; }
+    .product-card .site-link:hover { background: #ffc857; transform: scale(1.02); }
+    .timeline { padding-right: 24px; border-right: 2px dashed rgba(255,255,255,.16); }
+    .timeline-item { padding: 20px; margin-bottom: 20px; border-radius: 20px; background: rgba(255,255,255,.05); position: relative; }
+    .timeline-item::before { content: ""; position: absolute; right: -34px; top: 24px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold, #f5a623); }
+    @media (max-width:980px) { .products-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="noise">
+
+<div id="langOverlay" class="lang-overlay">
+  <div class="glass-box">
+    <h1 class="lang-title">🌐 Choose Language / انتخاب زبان</h1>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
+      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
+    </div>
+    <p class="lang-note">This choice is made only once / این انتخاب فقط یک بار انجام می‌شود</p>
+  </div>
+</div>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <section class="container">
+    <div class="section-title">
+      <h2>Websites Built by IESTM</h2>
+      <p>All web projects published so far – be sure to check them out</p>
+    </div>
+    <div class="products-grid">
+      <div class="glass product-card"><h3>🌌 Solar System</h3><p>Full simulation of the solar system with 8 planets and 12 moons, with smooth motions for detailed viewing</p><a href="https://iestmgit.github.io/manzoomeh/" target="_blank" class="site-link">View Site</a></div>
+      <div class="glass product-card"><h3>🧊 Hypercube</h3><p>Stunning 4D tesseract with neon lines and light particles in a cyberpunk style</p><a href="https://iestmgit.github.io/abarmokaab/" target="_blank" class="site-link">View Site</a></div>
+      <div class="glass product-card"><h3>🌀 Cosmic Hologram</h3><p>Psychedelic 3D effect with light particles and neon torus built with Three.js</p><a href="https://iestmgit.github.io/hologeram/" target="_blank" class="site-link">View Site</a></div>
+      <div class="glass product-card"><h3>🚗 Tehran City</h3><p>Driving game in Tehran with taxi, cargo, and race modes (best on desktop)</p><a href="https://iestmcompany-creator.github.io/TehranCity/" target="_blank" class="site-link">View Site</a></div>
+      <div class="glass product-card"><h3>✍️ Zibânevis Name</h3><p>Text personalization tool with various fonts and emojis</p><a href="https://iestmgit.github.io/my-font-generator/" target="_blank" class="site-link">View Site</a></div>
+      <div class="glass product-card"><h3>🧨 IESTM Jok Dynamite</h3><p>Fun and humorous content project (re‑released)</p><a href="https://iestmgit.github.io/IESTM_JOK_DEENAMEET/" target="_blank" class="site-link">View Site</a></div>
+      <div class="glass product-card"><h3>⚽ 3D Football</h3><p>3D football simulator with movement and shooting</p><a href="https://iestmgit.github.io/football/" target="_blank" class="site-link">View Site</a></div>
+      <div class="glass product-card"><h3>🏢 IESTM Company Site</h3><p>Official website introducing the company, products, and events</p><a href="https://iestmgit.github.io/iestm-website/" target="_blank" class="site-link">View Site</a></div>
+    </div>
+    <p style="text-align:center; margin-top: 30px; font-size:1.1rem;">🔥 Be sure to visit our sites — <strong>@iestmcompany</strong></p>
+  </section>
+
+  <section class="container">
+    <div class="section-title">
+      <h2>Vision & Future Path</h2>
+      <p>Where IESTM is heading and what horizon it follows</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><h3>Stage 1: Building Identity</h3><p>Creating a set of initial products to demonstrate technical capability</p></div>
+      <div class="timeline-item"><h3>Stage 2: Product Development</h3><p>Expanding projects into more complex systems</p></div>
+      <div class="timeline-item"><h3>Stage 3: Collaboration</h3><p>Building user interaction space and attracting talent</p></div>
+      <div class="timeline-item"><h3>Stage 4: Brand Establishment</h3><p>Transforming IESTM into a recognized brand</p></div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/load-components.js"></script>
+<script>
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'projects-en.html';
+      let targetPage;
+      if (lang === 'fa') {
+        if (currentPage === 'projects-en.html' || currentPage === '') targetPage = 'projects.html';
+        else { const base = currentPage.replace('-en.html', ''); targetPage = base + '.html'; }
+      } else {
+        if (currentPage === 'projects.html') targetPage = 'projects-en.html';
+        else if (!currentPage.includes('-en.')) { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
