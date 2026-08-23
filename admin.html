@@ -7,7 +7,45 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="admin.html" />
+  <link rel="alternate" hreflang="en" href="admin-en.html" />
+  
   <style>
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    .lang-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1; visibility: visible;
+    }
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
+      max-width: 520px; width: 92%; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.5s ease;
+    }
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
+    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
+    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
+      color: #fff; cursor: pointer; transition: all 0.3s ease;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+      display: flex; align-items: center; gap: 12px; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
+    .lang-btn:active { transform: scale(0.94); }
+    .flag-icon { font-size: 2.1rem; line-height: 1; }
+    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+
     .admin-box { max-width: 500px; margin: 0 auto; padding: 30px; }
     .admin-tabs { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
     .admin-tab { padding: 10px 24px; background: rgba(255,255,255,.05); border-radius: 30px; cursor: pointer; }
@@ -17,26 +55,24 @@
     .news-item { background: rgba(255,255,255,.05); border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
     .del-btn { padding: 8px 16px; background: rgba(255,79,163,.2); border: none; border-radius: 20px; color: var(--pink); cursor: pointer; }
     .logout-btn { margin-top: 30px; padding: 12px 24px; background: rgba(255,79,163,.2); border: 1px solid var(--pink); border-radius: 12px; cursor: pointer; color: var(--pink); }
+    .admin-input { width: 100%; padding: 12px; margin: 8px 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; color: white; font-family: "Yekan", sans-serif; }
+    .admin-textarea { width: 100%; padding: 12px; margin: 8px 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; color: white; font-family: "Yekan", sans-serif; resize: vertical; min-height: 80px; }
   </style>
 </head>
 <body class="noise">
 
-<nav>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
-      <div>پنل مدیریت</div>
+<div id="langOverlay" class="lang-overlay">
+  <div class="glass-box">
+    <h1 class="lang-title">🌐 انتخاب زبان / Choose Language</h1>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
+      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
     </div>
-    <div class="nav-links">
-      <a href="index.html">خانه</a>
-      <a href="about.html">درباره ما</a>
-      <a href="projects.html">پروژه‌ها</a>
-      <a href="blog.html">اخبار</a>
-      <a href="music.html">آهنگ رسمی</a>
-      <a href="contact.html">تماس</a>
-    </div>
+    <p class="lang-note">این انتخاب فقط یک بار انجام می‌شود / This choice is made only once</p>
   </div>
-</nav>
+</div>
+
+<div id="header-placeholder"></div>
 
 <main>
   <section class="container">
@@ -48,6 +84,9 @@
   </section>
 </main>
 
+<div id="footer-placeholder"></div>
+
+<script src="js/load-components.js"></script>
 <script>
   const validUsername = 'iestmkar';
   const validPassword = 'rm123456rm';
@@ -92,6 +131,33 @@
   function login() { const u=document.getElementById('user')?.value, p=document.getElementById('pass')?.value; if(u===validUsername && p===validPassword) { isLoggedIn=true; localStorage.setItem('iestmAdmin','true'); render(); } else { const m=document.getElementById('msg'); if(m) m.innerHTML='<span style="color:var(--pink)">نام کاربری یا رمز اشتباه</span>'; } }
   function logout() { isLoggedIn=false; localStorage.removeItem('iestmAdmin'); render(); }
   render();
+
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'admin.html';
+      let targetPage;
+      if (lang === 'en') {
+        if (currentPage === 'admin.html' || currentPage === '') targetPage = 'admin-en.html';
+        else { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+      } else {
+        if (currentPage === 'admin-en.html') targetPage = 'admin.html';
+        else if (currentPage.includes('-en.')) targetPage = currentPage.replace('-en.html', '.html');
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
 </script>
 </body>
 </html>
