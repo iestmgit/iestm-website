@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM News | Latest Events & Announcements</title>
+  <meta name="description" content="Latest news and events from IESTM: new site launches, Tehran City game, and updates." />
+  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="blog.html" />
+  <link rel="alternate" hreflang="en" href="blog-en.html" />
+  
+  <style>
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    .lang-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1; visibility: visible;
+    }
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
+      max-width: 520px; width: 92%; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.5s ease;
+    }
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
+    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
+    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
+      color: #fff; cursor: pointer; transition: all 0.3s ease;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+      display: flex; align-items: center; gap: 12px; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
+    .lang-btn:active { transform: scale(0.94); }
+    .flag-icon { font-size: 2.1rem; line-height: 1; }
+    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+
+    .blog-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+    .blog-card { padding: 28px; border-radius: 24px; background: rgba(255,255,255,.06); border-right: 4px solid var(--gold, #f5a623); transition: 0.2s; }
+    .blog-card:hover { background: rgba(255,255,255,.1); transform: translateY(-4px); }
+    .blog-card .date { font-size: 0.85rem; color: #aaa; margin-bottom: 6px; display: block; }
+    .blog-card h3 { font-size: 1.5rem; margin: 0 0 10px 0; color: #fff; }
+    .blog-card p { color: #ccc; line-height: 1.8; }
+    .blog-card .badge { display: inline-block; background: var(--gold, #f5a623); color: #0a0a0a; padding: 2px 14px; border-radius: 30px; font-size: 0.75rem; font-weight: 600; margin-top: 10px; }
+    @media (min-width:800px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } .blog-card.featured { grid-column: 1 / -1; } }
+  </style>
+</head>
+<body class="noise">
+
+<div id="langOverlay" class="lang-overlay">
+  <div class="glass-box">
+    <h1 class="lang-title">🌐 Choose Language / انتخاب زبان</h1>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
+      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
+    </div>
+    <p class="lang-note">This choice is made only once / این انتخاب فقط یک بار انجام می‌شود</p>
+  </div>
+</div>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <section class="container">
+    <div class="section-title">
+      <h2>📰 Latest News & Events from IESTM</h2>
+      <p>Always stay up to date with the newest happenings at IESTM</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card featured">
+        <span class="date">June 9, 2026</span>
+        <h3>🚀 Launch of the Complete IESTM Website Collection</h3>
+        <p>IESTM proudly unveiled <strong>8 new websites</strong> including Solar System, Hypercube, Cosmic Hologram, Tehran City, Zibânevis, Jok Dynamite, 3D Football, and the official company site. All projects were developed with cutting‑edge web technologies like Three.js and pure JavaScript.</p>
+        <span class="badge">🔥 Major Event</span>
+        <span class="badge" style="background:#555;color:#fff;">8 Projects</span>
+      </div>
+      <div class="blog-card">
+        <span class="date">June 5, 2026</span>
+        <h3>🚗 'Tehran City' Game Released</h3>
+        <p>The popular driving game set in Tehran streets with taxi, cargo, and race modes is now publicly available. It features 3D graphics and smooth controls, offering the best experience on <strong>desktop</strong>.</p>
+        <span class="badge">🎮 New Game</span>
+      </div>
+      <div class="blog-card">
+        <span class="date">May 31, 2026</span>
+        <h3>🆕 Company Site Update & Projects Section Added</h3>
+        <p>The official IESTM website has been redesigned with a dedicated section for all web projects. Users can now easily access all built sites and stay informed about the latest achievements of the IESTM team.</p>
+        <span class="badge">🛠 Update</span>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top: 40px; font-size:1.2rem;">✨ To see all projects, visit the <a href="projects-en.html" style="color:var(--gold);">Projects</a> page.</p>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/load-components.js"></script>
+<script>
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'blog-en.html';
+      let targetPage;
+      if (lang === 'fa') {
+        if (currentPage === 'blog-en.html' || currentPage === '') targetPage = 'blog.html';
+        else { const base = currentPage.replace('-en.html', ''); targetPage = base + '.html'; }
+      } else {
+        if (currentPage === 'blog.html') targetPage = 'blog-en.html';
+        else if (!currentPage.includes('-en.')) { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
