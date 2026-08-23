@@ -105,4 +105,139 @@
     <div class="hero-grid">
       <div class="glass hero-card">
         <div class="eyebrow">🚀 IESTM Official Platform</div>
-        <h
+        <h1>I am <span class="gradient">Radmehr Asghari</span>, the founder and developer of <span class="gradient">IESTM Company</span></h1>
+        <p class="lead">IESTM is a personal and creative journey to build software, web‑based games, practical tools, innovative projects, and unique digital experiences. My goal is not just to create a few simple programs; it is to build an independent software identity that turns ideas into real products using web technologies and Python.</p>
+        <p class="lead">This website is the official showcase of IESTM's projects, products, ideas, and growth path — a place to demonstrate capabilities, introduce built products, and present the vision I have for the future.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects-en.html">View Products</a>
+          <a class="btn btn-secondary" href="about-en.html">About Us</a>
+        </div>
+      </div>
+      <div class="glass hero-side">
+        <div class="stat-grid">
+          <div class="stat"><h3>HTML</h3><p>Web interface foundation</p></div>
+          <div class="stat"><h3>CSS</h3><p>Professional design</p></div>
+          <div class="stat"><h3>JS</h3><p>Application logic</p></div>
+          <div class="stat"><h3>Python</h3><p>Windows desktop development</p></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="section-title">
+      <h2>🔧 Featured Products</h2>
+      <p>IESTM's most important projects</p>
+    </div>
+    <div class="products-preview" id="productsPreview"></div>
+    <div class="text-center"><a href="projects-en.html" class="btn btn-primary">View All Products →</a></div>
+  </section>
+
+  <section class="container">
+    <div class="section-title">
+      <h2>📰 Latest News</h2>
+      <p>Recent events and announcements</p>
+    </div>
+    <div class="news-grid" id="newsPreview"></div>
+    <div class="text-center"><a href="blog-en.html" class="btn btn-secondary">View All News →</a></div>
+  </section>
+
+  <section class="container">
+    <div class="glass quote">"IESTM is not just a project; it is a path to build, learn, grow, and turn raw ideas into real products."</div>
+  </section>
+</main>
+
+<!-- ===== Footer ===== -->
+<div id="footer-placeholder"></div>
+
+<!-- ===== Scripts ===== -->
+<script src="js/load-components.js"></script>
+
+<script>
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index-en.html';
+      let targetPage;
+      if (lang === 'fa') {
+        if (currentPage === 'index-en.html' || currentPage === '') targetPage = 'index.html';
+        else { const base = currentPage.replace('-en.html', ''); targetPage = base + '.html'; }
+      } else {
+        if (currentPage === 'index.html') targetPage = 'index-en.html';
+        else if (!currentPage.includes('-en.')) { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
+</script>
+
+<script>
+  const oldProjects = [
+    { title: "IESTM OS", desc: "Windows desktop environment with Python/PyQt", tags: ["Python", "PyQt"], link: "#" },
+    { title: "3D Tic‑Tac‑Toe", desc: "3D version of the classic game with Three.js", tags: ["Three.js", "3D Game"], link: "#" },
+    { title: "IESTM Notebook", desc: "Lightweight notebook with auto‑save", tags: ["LocalStorage"], link: "#" },
+    { title: "Salawat Counter", desc: "Digital Salawat counter", tags: ["Utility"], link: "#" }
+  ];
+  const newProjects = [
+    { title: "Solar System", desc: "Full simulation of the solar system with 8 planets and 12 moons", tags: ["Three.js", "Astronomy"], link: "https://iestmgit.github.io/manzoomeh/" },
+    { title: "Hypercube", desc: "Stunning 4D tesseract with neon lines and light particles", tags: ["Three.js", "Visual"], link: "https://iestmgit.github.io/abarmokaab/" },
+    { title: "Cosmic Hologram", desc: "Psychedelic 3D effect with light particles and neon torus", tags: ["Three.js", "Hologram"], link: "https://iestmgit.github.io/hologeram/" },
+    { title: "Tehran City", desc: "Driving game in Tehran with taxi, cargo, and race modes", tags: ["Game", "Three.js"], link: "https://iestmcompany-creator.github.io/TehranCity/" },
+    { title: "Zibânevis Name", desc: "Text personalization tool with various fonts and emojis", tags: ["Tool", "UI"], link: "https://iestmgit.github.io/zibanvis/" },
+    { title: "IESTM Jok Dynamite", desc: "Fun and humorous content project", tags: ["Entertainment", "Humor"], link: "https://iestmgit.github.io/jok-dynamite/" },
+    { title: "3D Football", desc: "3D football simulator with movement and shooting", tags: ["Game", "Three.js"], link: "https://iestmgit.github.io/football-3d/" },
+    { title: "IESTM Company Site", desc: "Official website introducing the company, products, and events", tags: ["Website", "Intro"], link: "https://iestmgit.github.io/iestm-website/" }
+  ];
+  const defaultProjects = [...oldProjects, ...newProjects];
+  let projects;
+  try { const stored = localStorage.getItem('iestm_projects'); if (stored) { const parsed = JSON.parse(stored); if (Array.isArray(parsed) && parsed.length > 0) projects = parsed; else throw new Error(); } else throw new Error(); } catch { projects = defaultProjects; }
+  const productsContainer = document.getElementById('productsPreview');
+  if (productsContainer) {
+    productsContainer.innerHTML = projects.map(p => `
+      <div class="product-card">
+        <h3><a href="${p.link}" target="_blank">${p.title}</a></h3>
+        <p>${p.desc}</p>
+        ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      </div>
+    `).join('');
+  }
+
+  const oldNews = [
+    { date: "2025/01/05", title: "IESTM OS Desktop Environment Alpha Release", summary: "First experimental version of the IESTM Windows desktop environment released.", badge: "New" },
+    { date: "2025/01/01", title: "IESTM Notebook 1.5 Major Update", summary: "New version with auto‑save, dark mode, and tagging.", badge: "Update" },
+    { date: "2024/12/25", title: "IESTM is Hiring Developers", summary: "IESTM Company invites enthusiasts in web development and Python to collaborate.", badge: "Hiring" }
+  ];
+  const newNews = [
+    { date: "June 9, 2026", title: "🚀 Launch of the Complete IESTM Website Collection", summary: "IESTM proudly unveiled 8 new websites including Solar System, Hypercube, Cosmic Hologram, Tehran City, Zibânevis, Jok Dynamite, 3D Football, and the official company site.", badge: "🔥 Major Event" },
+    { date: "June 5, 2026", title: "🚗 'Tehran City' Game Released", summary: "The popular driving game in Tehran streets with taxi, cargo, and race modes is now publicly available.", badge: "🎮 New Game" },
+    { date: "May 31, 2026", title: "🆕 Company Site Update & Projects Section Added", summary: "The official IESTM website has been redesigned with a dedicated section for all web projects.", badge: "🛠 Update" }
+  ];
+  const defaultNews = [...oldNews, ...newNews];
+  let news;
+  try { const stored = localStorage.getItem('iestm_news'); if (stored) { const parsed = JSON.parse(stored); if (Array.isArray(parsed) && parsed.length > 0) news = parsed; else throw new Error(); } else throw new Error(); } catch { news = defaultNews; }
+  const newsContainer = document.getElementById('newsPreview');
+  if (newsContainer) {
+    newsContainer.innerHTML = news.map(n => `
+      <div class="news-card">
+        <div class="news-date">📅 ${n.date}</div>
+        <h3>${n.title}</h3>
+        <p>${n.summary}</p>
+        <span class="news-badge">${n.badge}</span>
+      </div>
+    `).join('');
+  }
+</script>
+
+</body>
+</html>
