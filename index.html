@@ -1,82 +1,83 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <!-- Statsfa Website Analytics Start -->
-<script data-host="https://statsfa.com" data-dnt="false" src="https://statsfa.com/js/script.js" id="ZwSg9rf6GA" async defer></script>
-<!-- Statsfa Website Analytics End -->
+  <script data-host="https://statsfa.com" data-dnt="false" src="https://statsfa.com/js/script.js" id="ZwSg9rf6GA" async defer></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IESTM | خانه - توسعه نرم‌افزار وب، بازی و اپلیکیشن دسکتاپ</title>
   <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی مرورگر، اپلیکیشن دسکتاپ پایتون" />
   <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
   <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="index.html" />
+  <link rel="alternate" hreflang="en" href="index-en.html" />
+  
   <style>
-    /* تضمین فونت یکان برای همه چیز */
-    body, h1, h2, h3, h4, p, a, button, .btn, .nav-links a, .stat h3, .product-card h3, .news-card h3 {
-      font-family: 'Yekan', 'Tahoma', sans-serif !important;
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    
+    /* ===== استایل‌های اورلی ===== */
+    .lang-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1; visibility: visible;
     }
-    /* استایل‌های اضافی برای صفحه اصلی */
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
+      max-width: 520px; width: 92%; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.5s ease;
+    }
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
+    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
+    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
+      color: #fff; cursor: pointer; transition: all 0.3s ease;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+      display: flex; align-items: center; gap: 12px; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
+    .lang-btn:active { transform: scale(0.94); }
+    .flag-icon { font-size: 2.1rem; line-height: 1; }
+    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+
+    /* ===== استایل‌های اختصاصی صفحه اصلی ===== */
     .products-preview, .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-      margin-bottom: 30px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px; margin-bottom: 30px;
     }
     .product-card, .news-card {
-      padding: 24px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
+      padding: 24px; border-radius: 22px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
       transition: 0.3s;
     }
     .product-card:hover, .news-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
+      transform: translateY(-5px); border-color: var(--gold);
     }
     .tag {
-      display: inline-block;
-      margin: 6px 8px 0 0;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.07);
-      font-size: .88rem;
+      display: inline-block; margin: 6px 8px 0 0; padding: 7px 12px;
+      border-radius: 999px; background: rgba(255,255,255,.07); font-size: .88rem;
     }
-    .news-date {
-      font-size: .8rem;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
+    .news-date { font-size: .8rem; color: var(--gold); margin-bottom: 12px; }
     .news-badge {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: rgba(247,201,72,.15);
-      color: var(--gold);
-      font-size: .75rem;
+      display: inline-block; margin-top: 16px; padding: 6px 12px;
+      border-radius: 20px; background: rgba(247,201,72,.15); color: var(--gold); font-size: .75rem;
     }
-    .quote {
-      padding: 32px;
-      text-align: center;
-      font-size: 1.15rem;
-      color: #fff5cf;
-      margin: 40px 0;
-    }
+    .quote { padding: 32px; text-align: center; font-size: 1.15rem; color: #fff5cf; margin: 40px 0; }
     .footer-box {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 20px;
-      padding: 26px;
-      background: rgba(255,255,255,.03);
-      border-radius: 24px;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 20px; padding: 26px; background: rgba(255,255,255,.03); border-radius: 24px;
     }
-    .product-card a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .product-card a:hover {
-      color: var(--gold);
-    }
+    .product-card a { color: inherit; text-decoration: none; }
+    .product-card a:hover { color: var(--gold); }
     @media (max-width: 640px) {
       .products-preview, .news-grid { grid-template-columns: 1fr; }
       .footer-box { grid-template-columns: 1fr; }
@@ -85,26 +86,23 @@
 </head>
 <body class="noise">
 
-<nav>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg" alt="IESTM"></div>
-      <div>کمپانی ایستم<br><span style="font-size:.7rem;">IESTM Official</span></div>
+<!-- ===== اورلی انتخاب زبان ===== -->
+<div id="langOverlay" class="lang-overlay">
+  <div class="glass-box">
+    <h1 class="lang-title">🌐 انتخاب زبان / Choose Language</h1>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
+      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
     </div>
-    <div class="nav-links">
-      <a href="index.html" class="active">خانه</a>
-      <a href="about.html">درباره ما</a>
-      <a href="projects.html">پروژه‌ها</a>
-      <a href="blog.html">اخبار</a>
-      <a href="music.html">آهنگ رسمی</a>
-      <a href="contact.html">تماس</a>
-      <a href="admin.html" style="border:1px solid var(--gold);">مدیریت</a>
-    </div>
+    <p class="lang-note">این انتخاب فقط یک بار انجام می‌شود / This choice is made only once</p>
   </div>
-</nav>
+</div>
 
+<!-- ===== هدر ===== -->
+<div id="header-placeholder"></div>
+
+<!-- ===== محتوای اصلی ===== -->
 <main>
-  <!-- هیرو سکشن -->
   <header class="container hero">
     <div class="hero-grid">
       <div class="glass hero-card">
@@ -128,7 +126,6 @@
     </div>
   </header>
 
-  <!-- محصولات شاخص - همه پروژه‌ها (قدیم + جدید) -->
   <section class="container">
     <div class="section-title">
       <h2>🔧 محصولات شاخص</h2>
@@ -138,7 +135,6 @@
     <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
   </section>
 
-  <!-- آخرین اخبار (قدیم + جدید) -->
   <section class="container">
     <div class="section-title">
       <h2>📰 آخرین اخبار</h2>
@@ -148,125 +144,68 @@
     <div class="text-center"><a href="blog.html" class="btn btn-secondary">مشاهده همه اخبار →</a></div>
   </section>
 
-  <!-- نقل قول -->
   <section class="container">
     <div class="glass quote">«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»</div>
   </section>
 </main>
 
-<footer>
-  <div class="container footer-box">
-    <div><h3>IESTM</h3><p>کمپانی ایستم با تمرکز بر توسعه پروژه‌های وب، ابزارهای کاربردی، بازی‌های دیجیتال و ایده‌های نو</p></div>
-    <div><h3>بنیان‌گذار</h3><p>رادمهر اصغری<br>توسعه‌دهنده و مدیر IESTM</p></div>
-    <div><h3>ارتباط</h3><p>asly3325@gmail.com<br>09398212260<br>@iestmcompany</p></div>
-  </div>
-  <p class="copyright">© IESTM Official — تمامی حقوق محفوظ است</p>
-</footer>
+<!-- ===== فوتر ===== -->
+<div id="footer-placeholder"></div>
+
+<!-- ===== اسکریپت‌ها ===== -->
+<script src="js/load-components.js"></script>
 
 <script>
-  // ===========================================================
-  // ۱. پروژه‌ها = محصولات قبلی (۴ تا) + محصولات جدید (۸ تا) = ۱۲ تا
-  // ===========================================================
-  const oldProjects = [
-    {
-      title: "IESTM OS",
-      desc: "محیط دسکتاپ ویندوزی با Python/PyQt",
-      tags: ["Python", "PyQt"],
-      link: "#"  // لینک واقعی رو می‌تونی اضافه کنی
-    },
-    {
-      title: "بازی سه‌بعدی دوز",
-      desc: "نسخه سه‌بعدی بازی کلاسیک با Three.js",
-      tags: ["Three.js", "3D Game"],
-      link: "#"
-    },
-    {
-      title: "IESTM Notebook",
-      desc: "دفترچه یادداشت سبک با ذخیره خودکار",
-      tags: ["LocalStorage"],
-      link: "#"
-    },
-    {
-      title: "صلوات‌شمار",
-      desc: "صلوات‌شمار دیجیتال",
-      tags: ["Utility"],
-      link: "#"
-    }
-  ];
-
-  const newProjects = [
-    {
-      title: "منظومه شمسی",
-      desc: "شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر، با حرکات آرام برای تماشای دقیق",
-      tags: ["Three.js", "نجوم"],
-      link: "https://iestmgit.github.io/manzoomeh/"
-    },
-    {
-      title: "ابر مکعب (Hypercube)",
-      desc: "نمایش برجسته‌ای از تسراکت (ابعاد چهارم) با خطوط نئونی و ذرات نور در فضایی سایبرپانکی",
-      tags: ["Three.js", "视觉"],
-      link: "https://iestmgit.github.io/abarmokaab/"
-    },
-    {
-      title: "هولوگرام کیهانی",
-      desc: "افکت سه‌بعدی روانگردان با ذرات نور و توروس نئونی، ساخته‌شده با Three.js",
-      tags: ["Three.js", "هولوگرام"],
-      link: "https://iestmgit.github.io/hologeram/"
-    },
-    {
-      title: "تهران سیتی",
-      desc: "بازی رانندگی در شهر تهران با امکان تاکسیرانی، باربری و مسابقه (بهترین تجربه در حالت دسکتاپ)",
-      tags: ["بازی", "Three.js"],
-      link: "https://iestmcompany-creator.github.io/TehranCity/"
-    },
-    {
-      title: "زیبـانویس اسم",
-      desc: "ابزار شخصی‌سازی متن با فونت‌های متنوع و ایموجی‌های جذاب",
-      tags: ["ابزار", "UI"],
-      link: "https://iestmgit.github.io/zibanvis/"
-    },
-    {
-      title: "ایستم جوک دینامیت",
-      desc: "پروژه‌ای با محتوای طنز و سرگرمی برای لحظات شاد",
-      tags: ["سرگرمی", "طنز"],
-      link: "https://iestmgit.github.io/jok-dynamite/"
-    },
-    {
-      title: "فوتبال سه‌بعدی",
-      desc: "شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت‌زنی",
-      tags: ["بازی", "Three.js"],
-      link: "https://iestmgit.github.io/football-3d/"
-    },
-    {
-      title: "سایت کمپانی IESTM",
-      desc: "وب‌سایت رسمی معرفی کمپانی، محصولات و رویدادها",
-      tags: ["وب‌سایت", "معرفی"],
-      link: "https://iestmgit.github.io/iestm-website/"
-    }
-  ];
-
-  // ترکیب قدیم و جدید (همه)
-  const defaultProjects = [...oldProjects, ...newProjects];
-
-  // بارگذاری از localStorage یا داده‌های ترکیبی
-  let projects;
-  try {
-    const stored = localStorage.getItem('iestm_projects');
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        projects = parsed;
+  // ===== مدیریت زبان =====
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
+      let targetPage;
+      if (lang === 'en') {
+        if (currentPage === 'index.html' || currentPage === '') targetPage = 'index-en.html';
+        else { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
       } else {
-        throw new Error('داده نامعتبر');
+        if (currentPage === 'index-en.html') targetPage = 'index.html';
+        else if (currentPage.includes('-en.')) targetPage = currentPage.replace('-en.html', '.html');
+        else targetPage = currentPage;
       }
-    } else {
-      throw new Error('داده وجود ندارد');
-    }
-  } catch {
-    projects = defaultProjects;
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
   }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
+</script>
 
-  // نمایش همه پروژه‌ها
+<script>
+  // ===== داده‌های پروژه‌ها =====
+  const oldProjects = [
+    { title: "IESTM OS", desc: "محیط دسکتاپ ویندوزی با Python/PyQt", tags: ["Python", "PyQt"], link: "#" },
+    { title: "بازی سه‌بعدی دوز", desc: "نسخه سه‌بعدی بازی کلاسیک با Three.js", tags: ["Three.js", "3D Game"], link: "#" },
+    { title: "IESTM Notebook", desc: "دفترچه یادداشت سبک با ذخیره خودکار", tags: ["LocalStorage"], link: "#" },
+    { title: "صلوات‌شمار", desc: "صلوات‌شمار دیجیتال", tags: ["Utility"], link: "#" }
+  ];
+  const newProjects = [
+    { title: "منظومه شمسی", desc: "شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر", tags: ["Three.js", "نجوم"], link: "https://iestmgit.github.io/manzoomeh/" },
+    { title: "ابر مکعب (Hypercube)", desc: "نمایش برجسته‌ای از تسراکت (ابعاد چهارم)", tags: ["Three.js", "视觉"], link: "https://iestmgit.github.io/abarmokaab/" },
+    { title: "هولوگرام کیهانی", desc: "افکت سه‌بعدی روانگردان با ذرات نور و توروس نئونی", tags: ["Three.js", "هولوگرام"], link: "https://iestmgit.github.io/hologeram/" },
+    { title: "تهران سیتی", desc: "بازی رانندگی در شهر تهران با امکان تاکسیرانی، باربری و مسابقه", tags: ["بازی", "Three.js"], link: "https://iestmcompany-creator.github.io/TehranCity/" },
+    { title: "زیبـانویس اسم", desc: "ابزار شخصی‌سازی متن با فونت‌های متنوع و ایموجی‌های جذاب", tags: ["ابزار", "UI"], link: "https://iestmgit.github.io/zibanvis/" },
+    { title: "ایستم جوک دینامیت", desc: "پروژه‌ای با محتوای طنز و سرگرمی", tags: ["سرگرمی", "طنز"], link: "https://iestmgit.github.io/jok-dynamite/" },
+    { title: "فوتبال سه‌بعدی", desc: "شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت‌زنی", tags: ["بازی", "Three.js"], link: "https://iestmgit.github.io/football-3d/" },
+    { title: "سایت کمپانی IESTM", desc: "وب‌سایت رسمی معرفی کمپانی، محصولات و رویدادها", tags: ["وب‌سایت", "معرفی"], link: "https://iestmgit.github.io/iestm-website/" }
+  ];
+  const defaultProjects = [...oldProjects, ...newProjects];
+  let projects;
+  try { const stored = localStorage.getItem('iestm_projects'); if (stored) { const parsed = JSON.parse(stored); if (Array.isArray(parsed) && parsed.length > 0) projects = parsed; else throw new Error(); } else throw new Error(); } catch { projects = defaultProjects; }
   const productsContainer = document.getElementById('productsPreview');
   if (productsContainer) {
     productsContainer.innerHTML = projects.map(p => `
@@ -278,72 +217,20 @@
     `).join('');
   }
 
-  // ===========================================================
-  // ۲. اخبار = اخبار قبلی (۳ تا) + اخبار جدید (۳ تا) = ۶ تا
-  // ===========================================================
+  // ===== داده‌های اخبار =====
   const oldNews = [
-    {
-      date: "۱۴۰۳/۱۰/۱۵",
-      title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا",
-      summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.",
-      badge: "جدید"
-    },
-    {
-      date: "۱۴۰۳/۱۰/۱۰",
-      title: "بروزرسانی بزرگ IESTM Notebook 1.5",
-      summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.",
-      badge: "بروزرسانی"
-    },
-    {
-      date: "۱۴۰۳/۱۰/۰۵",
-      title: "جذب برنامه‌نویس برای تیم توسعه IESTM",
-      summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.",
-      badge: "استخدام"
-    }
+    { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
+    { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
+    { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
   ];
-
   const newNews = [
-    {
-      date: "۱۹ خرداد ۱۴۰۵ – ۹ ژوئن ۲۰۲۶",
-      title: "🚀 رونمایی از مجموعه کامل وب‌سایت‌های IESTM",
-      summary: "کمپانی ایستم با افتخار از ۸ وب‌سایت جدید شامل شبیه‌سازی منظومه شمسی، ابر مکعب (تسراکت)، هولوگرام کیهانی، بازی تهران سیتی، ابزار زیبـانویس اسم، جوک دینامیت، بازی فوتبال سه‌بعدی و سایت رسمی کمپانی رونمایی کرد.",
-      badge: "🔥 رویداد مهم"
-    },
-    {
-      date: "۱۵ خرداد ۱۴۰۵ – ۵ ژوئن ۲۰۲۶",
-      title: "🚗 بازی «تهران سیتی» منتشر شد",
-      summary: "بازی محبوب رانندگی در خیابان‌های تهران با سه حالت تاکسیرانی، باربری و مسابقه به‌صورت عمومی در دسترس قرار گرفت.",
-      badge: "🎮 بازی جدید"
-    },
-    {
-      date: "۱۰ خرداد ۱۴۰۵ – ۳۱ مه ۲۰۲۶",
-      title: "🆕 به‌روزرسانی سایت کمپانی و افزودن بخش پروژه‌ها",
-      summary: "وب‌سایت رسمی IESTM با طراحی جدید و بخش اختصاصی برای نمایش همه پروژه‌های وب به‌روزرسانی شد.",
-      badge: "🛠 به‌روزرسانی"
-    }
+    { date: "۱۹ خرداد ۱۴۰۵ – ۹ ژوئن ۲۰۲۶", title: "🚀 رونمایی از مجموعه کامل وب‌سایت‌های IESTM", summary: "کمپانی ایستم با افتخار از ۸ وب‌سایت جدید رونمایی کرد.", badge: "🔥 رویداد مهم" },
+    { date: "۱۵ خرداد ۱۴۰۵ – ۵ ژوئن ۲۰۲۶", title: "🚗 بازی «تهران سیتی» منتشر شد", summary: "بازی محبوب رانندگی در خیابان‌های تهران با سه حالت تاکسیرانی، باربری و مسابقه به‌صورت عمومی در دسترس قرار گرفت.", badge: "🎮 بازی جدید" },
+    { date: "۱۰ خرداد ۱۴۰۵ – ۳۱ مه ۲۰۲۶", title: "🆕 به‌روزرسانی سایت کمپانی و افزودن بخش پروژه‌ها", summary: "وب‌سایت رسمی IESTM با طراحی جدید و بخش اختصاصی برای نمایش همه پروژه‌های وب به‌روزرسانی شد.", badge: "🛠 به‌روزرسانی" }
   ];
-
-  // ترکیب قدیم و جدید
   const defaultNews = [...oldNews, ...newNews];
-
   let news;
-  try {
-    const stored = localStorage.getItem('iestm_news');
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        news = parsed;
-      } else {
-        throw new Error('داده نامعتبر');
-      }
-    } else {
-      throw new Error('داده وجود ندارد');
-    }
-  } catch {
-    news = defaultNews;
-  }
-
-  // نمایش همه اخبار (در صورت تمایل می‌تونی تعداد رو با slice محدود کنی)
+  try { const stored = localStorage.getItem('iestm_news'); if (stored) { const parsed = JSON.parse(stored); if (Array.isArray(parsed) && parsed.length > 0) news = parsed; else throw new Error(); } else throw new Error(); } catch { news = defaultNews; }
   const newsContainer = document.getElementById('newsPreview');
   if (newsContainer) {
     newsContainer.innerHTML = news.map(n => `
@@ -356,5 +243,6 @@
     `).join('');
   }
 </script>
+
 </body>
 </html>
