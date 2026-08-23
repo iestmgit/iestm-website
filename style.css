@@ -36,7 +36,8 @@ p, a, button, input, textarea,
 .upload-zone p, .form-box h3, .form-box input,
 .dropdown-item, .file-item-row .file-name,
 .code-editor-header .back-btn, .code-editor-header input,
-.code-editor-textarea, .project-card .project-name {
+.code-editor-textarea, .project-card .project-name,
+.lang-switch-btn, .lang-switch-btn span {
   font-family: 'Yekan', 'Tahoma', 'Segoe UI', sans-serif !important;
 }
 
@@ -67,7 +68,8 @@ html[lang="en"] .timeline-item h3, html[lang="en"] .timeline-item p,
 html[lang="en"] .upload-zone p, html[lang="en"] .form-box h3, html[lang="en"] .form-box input,
 html[lang="en"] .dropdown-item, html[lang="en"] .file-item-row .file-name,
 html[lang="en"] .code-editor-header .back-btn, html[lang="en"] .code-editor-header input,
-html[lang="en"] .code-editor-textarea, html[lang="en"] .project-card .project-name {
+html[lang="en"] .code-editor-textarea, html[lang="en"] .project-card .project-name,
+html[lang="en"] .lang-switch-btn, html[lang="en"] .lang-switch-btn span {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
 }
 
@@ -142,6 +144,43 @@ nav {
 .nav-links a.active {
   background: rgba(255, 215, 0, 0.2);
   color: #ffd700;
+}
+
+/* ============================================
+   دکمه تغییر زبان در هدر
+   ============================================ */
+.lang-switch-header {
+  display: flex;
+  align-items: center;
+}
+
+.lang-switch-btn {
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  padding: 6px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-switch-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: #ffd700;
+  transform: scale(1.04);
+}
+
+.lang-switch-btn i {
+  font-size: 1rem;
+}
+
+.lang-switch-btn #langLabel {
+  font-weight: 500;
 }
 
 /* ============================================
@@ -1516,6 +1555,15 @@ footer {
   .nav-links {
     justify-content: center;
   }
+  .lang-switch-header {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  .lang-switch-btn {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+  }
   .hero-card h1 {
     font-size: 1.8rem;
   }
@@ -1575,6 +1623,13 @@ footer {
   .btn-plus {
     padding: 12px 20px;
     font-size: 1rem;
+  }
+  .lang-switch-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+  .lang-switch-btn i {
+    font-size: 0.85rem;
   }
   .file-item-row {
     flex-direction: column;
