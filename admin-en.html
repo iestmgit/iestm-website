@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | Admin Panel</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="admin.html" />
+  <link rel="alternate" hreflang="en" href="admin-en.html" />
+  
+  <style>
+    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
+    .lang-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; justify-content: center; align-items: center;
+      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1; visibility: visible;
+    }
+    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
+      max-width: 520px; width: 92%; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.5s ease;
+    }
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
+    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
+    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
+      color: #fff; cursor: pointer; transition: all 0.3s ease;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+      display: flex; align-items: center; gap: 12px; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
+    .lang-btn:active { transform: scale(0.94); }
+    .flag-icon { font-size: 2.1rem; line-height: 1; }
+    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+
+    .admin-box { max-width: 500px; margin: 0 auto; padding: 30px; }
+    .admin-tabs { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
+    .admin-tab { padding: 10px 24px; background: rgba(255,255,255,.05); border-radius: 30px; cursor: pointer; }
+    .admin-tab.active { background: var(--gold); color: #07111f; }
+    .admin-panel { display: none; }
+    .admin-panel.active-panel { display: block; }
+    .news-item { background: rgba(255,255,255,.05); border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .del-btn { padding: 8px 16px; background: rgba(255,79,163,.2); border: none; border-radius: 20px; color: var(--pink); cursor: pointer; }
+    .logout-btn { margin-top: 30px; padding: 12px 24px; background: rgba(255,79,163,.2); border: 1px solid var(--pink); border-radius: 12px; cursor: pointer; color: var(--pink); }
+    .admin-input { width: 100%; padding: 12px; margin: 8px 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; color: white; font-family: "Yekan", sans-serif; }
+    .admin-textarea { width: 100%; padding: 12px; margin: 8px 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; color: white; font-family: "Yekan", sans-serif; resize: vertical; min-height: 80px; }
+  </style>
+</head>
+<body class="noise">
+
+<div id="langOverlay" class="lang-overlay">
+  <div class="glass-box">
+    <h1 class="lang-title">🌐 Choose Language / انتخاب زبان</h1>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
+      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
+    </div>
+    <p class="lang-note">This choice is made only once / این انتخاب فقط یک بار انجام می‌شود</p>
+  </div>
+</div>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <section class="container">
+    <div class="section-title">
+      <h2>Admin Panel</h2>
+      <p>Login to the administration section (for admins only)</p>
+    </div>
+    <div id="adminApp"></div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/load-components.js"></script>
+<script>
+  const validUsername = 'iestmkar';
+  const validPassword = 'rm123456rm';
+  let isLoggedIn = localStorage.getItem('iestmAdmin') === 'true';
+  const defaultNews = [
+    { id:1, date:"2025/01/05", title:"IESTM OS Desktop Environment Alpha Release", summary:"First experimental version of the IESTM Windows desktop environment released.", badge:"New" },
+    { id:2, date:"2025/01/01", title:"IESTM Notebook 1.5 Major Update", summary:"New version with dark mode and auto‑save.", badge:"Update" },
+    { id:3, date:"2024/12/25", title:"IESTM is Hiring Developers", summary:"IESTM Company invites enthusiasts to collaborate.", badge:"Hiring" }
+  ];
+  function getNews() { return JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews)); }
+  function saveNews(news) { localStorage.setItem('iestm_news', JSON.stringify(news)); }
+  function render() {
+    const container = document.getElementById('adminApp');
+    if(!container) return;
+    if(!isLoggedIn) {
+      container.innerHTML = `<div class="glass admin-box"><input type="text" id="user" class="admin-input" placeholder="Username"><input type="password" id="pass" class="admin-input" placeholder="Password"><button class="btn btn-primary" onclick="login()" style="width:100%">Login</button><div id="msg" class="small" style="margin-top:16px;text-align:center"></div></div>`;
+    } else {
+      const news = getNews();
+      container.innerHTML = `<div class="glass" style="padding:30px"><div class="admin-tabs"><div class="admin-tab active" onclick="switchTab('news')">Manage News</div><div class="admin-tab" onclick="switchTab('add')">Add News</div></div><div id="newsPanel" class="admin-panel active-panel"><div id="newsList"></div></div><div id="addPanel" class="admin-panel"><input type="text" id="newsDate" class="admin-input" placeholder="Date"><input type="text" id="newsTitle" class="admin-input" placeholder="Title"><textarea id="newsSummary" class="admin-textarea" placeholder="Summary"></textarea><input type="text" id="newsBadge" class="admin-input" placeholder="Badge"><button class="btn btn-primary" onclick="addNews()">Add News</button></div><button class="logout-btn" onclick="logout()">Logout</button></div>`;
+      renderNewsList();
+    }
+  }
+  function renderNewsList() {
+    const container = document.getElementById('newsList');
+    if(!container) return;
+    const news = getNews();
+    if(news.length===0) { container.innerHTML='<p>No news items</p>'; return; }
+    container.innerHTML = news.map(n => `<div class="news-item"><div><strong>${n.title}</strong><br><small>${n.date} | ${n.badge}</small></div><button class="del-btn" onclick="deleteNews(${n.id})">Delete</button></div>`).join('');
+  }
+  function addNews() {
+    const date = document.getElementById('newsDate')?.value, title = document.getElementById('newsTitle')?.value, summary = document.getElementById('newsSummary')?.value, badge = document.getElementById('newsBadge')?.value;
+    if(!date||!title||!summary||!badge) { alert('All fields are required'); return; }
+    const news = getNews();
+    news.unshift({ id:Date.now(), date, title, summary, badge });
+    saveNews(news);
+    alert('News added');
+    document.getElementById('newsDate').value=''; document.getElementById('newsTitle').value=''; document.getElementById('newsSummary').value=''; document.getElementById('newsBadge').value='';
+    renderNewsList();
+  }
+  function deleteNews(id) { let news = getNews(); news = news.filter(n=>n.id!==id); saveNews(news); renderNewsList(); }
+  function switchTab(tab) { document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active')); event.target.classList.add('active'); document.getElementById('newsPanel').classList.remove('active-panel'); document.getElementById('addPanel').classList.remove('active-panel'); if(tab==='news') document.getElementById('newsPanel').classList.add('active-panel'); else document.getElementById('addPanel').classList.add('active-panel'); }
+  function login() { const u=document.getElementById('user')?.value, p=document.getElementById('pass')?.value; if(u===validUsername && p===validPassword) { isLoggedIn=true; localStorage.setItem('iestmAdmin','true'); render(); } else { const m=document.getElementById('msg'); if(m) m.innerHTML='<span style="color:var(--pink)">Invalid username or password</span>'; } }
+  function logout() { isLoggedIn=false; localStorage.removeItem('iestmAdmin'); render(); }
+  render();
+
+  function setLanguage(lang) {
+    localStorage.setItem('preferred_lang', lang);
+    const overlay = document.getElementById('langOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'admin-en.html';
+      let targetPage;
+      if (lang === 'fa') {
+        if (currentPage === 'admin-en.html' || currentPage === '') targetPage = 'admin.html';
+        else { const base = currentPage.replace('-en.html', ''); targetPage = base + '.html'; }
+      } else {
+        if (currentPage === 'admin.html') targetPage = 'admin-en.html';
+        else if (!currentPage.includes('-en.')) { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
+        else targetPage = currentPage;
+      }
+      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
+      else location.reload();
+    }, 500);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('langOverlay');
+    const saved = localStorage.getItem('preferred_lang');
+    if (saved) overlay.classList.add('hidden');
+    else overlay.classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
