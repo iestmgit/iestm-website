@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | خانه - توسعه نرم‌افزار وب، بازی و اپلیکیشن دسکتاپ</title>
+  <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی مرورگر و اپلیکیشن دسکتاپ پایتون" />
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="index-fa.html" />
+  <link rel="alternate" hreflang="en" href="index-en.html" />
+  <link rel="alternate" hreflang="x-default" href="index.html" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
 
+  <main>
+    <header class="container hero">
+      <div class="hero-grid">
+        <div class="glass hero-card">
+          <div class="eyebrow">🚀 پلتفرم رسمی IESTM</div>
+          <h1>من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span></h1>
+          <p class="lead">ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛ هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.</p>
+          <p class="lead">این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="projects-fa.html">مشاهده محصولات</a>
+            <a class="btn btn-secondary" href="about-fa.html">درباره ما</a>
+          </div>
+        </div>
+        <div class="glass hero-side">
+          <div class="stat-grid">
+            <div class="stat"><h3>HTML</h3><p>پایه اصلی رابط‌های وب</p></div>
+            <div class="stat"><h3>CSS</h3><p>طراحی حرفه‌ای</p></div>
+            <div class="stat"><h3>JS</h3><p>منطق برنامه‌ها</p></div>
+            <div class="stat"><h3>Python</h3><p>توسعه دسکتاپ ویندوزی</p></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="container">
+      <div class="section-title">
+        <h2>🔧 محصولات شاخص</h2>
+        <p>همه پروژه‌های IESTM</p>
+      </div>
+      <div class="products-preview" id="productsPreview"></div>
+      <div class="text-center"><a href="projects-fa.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
+    </section>
+
+    <section class="container">
+      <div class="section-title">
+        <h2>📰 آخرین اخبار</h2>
+        <p>جدیدترین رویدادها و اطلاعیه‌ها</p>
+      </div>
+      <div class="news-grid" id="newsPreview"></div>
+      <div class="text-center"><a href="blog-fa.html" class="btn btn-secondary">مشاهده همه اخبار →</a></div>
+    </section>
+
+    <section class="container">
+      <div class="glass quote">«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»</div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/load-components.js"></script>
+  <script>
+    const oldProjects = [
+      { title: "IESTM OS", desc: "محیط دسکتاپ ویندوزی با Python/PyQt", tags: ["Python", "PyQt"], link: "#" },
+      { title: "بازی سه‌بعدی دوز", desc: "نسخه سه‌بعدی بازی کلاسیک با Three.js", tags: ["Three.js", "3D Game"], link: "#" },
+      { title: "IESTM Notebook", desc: "دفترچه یادداشت سبک با ذخیره خودکار", tags: ["LocalStorage"], link: "#" },
+      { title: "صلوات‌شمار", desc: "صلوات‌شمار دیجیتال", tags: ["Utility"], link: "#" }
+    ];
+    const newProjects = [
+      { title: "منظومه شمسی", desc: "شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر", tags: ["Three.js", "نجوم"], link: "https://iestmgit.github.io/manzoomeh/" },
+      { title: "ابر مکعب (Hypercube)", desc: "نمایش برجسته‌ای از تسراکت (ابعاد چهارم)", tags: ["Three.js", "Visual"], link: "https://iestmgit.github.io/abarmokaab/" },
+      { title: "هولوگرام کیهانی", desc: "افکت سه‌بعدی روان‌گردان با ذرات نور", tags: ["Three.js", "هولوگرام"], link: "https://iestmgit.github.io/hologeram/" },
+      { title: "تهران سیتی", desc: "بازی رانندگی در شهر تهران با سه حالت", tags: ["بازی", "Three.js"], link: "https://iestmcompany-creator.github.io/TehranCity/" },
+      { title: "زیبـانویس اسم", desc: "ابزار شخصی‌سازی متن با فونت‌های متنوع", tags: ["ابزار", "UI"], link: "https://iestmgit.github.io/my-font-generator/" },
+      { title: "ایستم جوک دینامیت", desc: "پروژه‌ای با محتوای طنز و سرگرمی", tags: ["سرگرمی"], link: "https://iestmgit.github.io/IESTM_JOK_DEENAMEET/" },
+      { title: "فوتبال سه‌بعدی", desc: "شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت", tags: ["بازی", "Three.js"], link: "https://iestmgit.github.io/football/" },
+      { title: "سایت کمپانی IESTM", desc: "وب‌سایت رسمی معرفی کمپانی", tags: ["وب‌سایت"], link: "https://iestmgit.github.io/iestm-website/" }
+    ];
+    const defaultProjects = [...oldProjects, ...newProjects];
+    let projects;
+    try {
+      const stored = localStorage.getItem('iestm_projects');
+      if (stored) { const p = JSON.parse(stored); if (Array.isArray(p) && p.length > 0) projects = p; else throw new Error(); }
+      else throw new Error();
+    } catch { projects = defaultProjects; }
+    const pc = document.getElementById('productsPreview');
+    if (pc) pc.innerHTML = projects.map(p => `<div class="product-card"><h3><a href="${p.link}" target="_blank">${p.title}</a></h3><p>${p.desc}</p>${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`).join('');
+
+    const oldNews = [
+      { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم منتشر شد.", badge: "جدید" },
+      { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با تم تاریک منتشر شد.", badge: "بروزرسانی" },
+      { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان دعوت می‌کند.", badge: "استخدام" }
+    ];
+    const newNews = [
+      { date: "۱۹ خرداد ۱۴۰۵ – ۹ ژوئن ۲۰۲۶", title: "🚀 رونمایی از مجموعه کامل وب‌سایت‌های IESTM", summary: "کمپانی ایستم با افتخار از ۸ وب‌سایت جدید رونمایی کرد.", badge: "🔥 رویداد مهم" },
+      { date: "۱۵ خرداد ۱۴۰۵ – ۵ ژوئن ۲۰۲۶", title: "🚗 بازی «تهران سیتی» منتشر شد", summary: "بازی رانندگی در خیابان‌های تهران با سه حالت منتشر شد.", badge: "🎮 بازی جدید" },
+      { date: "۱۰ خرداد ۱۴۰۵ – ۳۱ مه ۲۰۲۶", title: "🆕 به‌روزرسانی سایت کمپانی و افزودن بخش پروژه‌ها", summary: "وب‌سایت رسمی IESTM با طراحی جدید به‌روزرسانی شد.", badge: "🛠 به‌روزرسانی" }
+    ];
+    const defaultNews = [...oldNews, ...newNews];
+    let news;
+    try {
+      const stored = localStorage.getItem('iestm_news');
+      if (stored) { const p = JSON.parse(stored); if (Array.isArray(p) && p.length > 0) news = p; else throw new Error(); }
+      else throw new Error();
+    } catch { news = defaultNews; }
+    const nc = document.getElementById('newsPreview');
+    if (nc) nc.innerHTML = news.map(n => `<div class="news-card"><div class="news-date">📅 ${n.date}</div><h3>${n.title}</h3><p>${n.summary}</p><span class="news-badge">${n.badge}</span></div>`).join('');
+  </script>
+</body>
+</html>
