@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin-fa.html
+Disallow: /admin-en.html
+
+Sitemap: https://iestmgit.github.io/iestm-website/sitemap.xml
