@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | تماس با ما</title>
+  <meta name="description" content="راه‌های ارتباطی با کمپانی ایستم" />
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="contact-fa.html" />
+  <link rel="alternate" hreflang="en" href="contact-en.html" />
+  <link rel="alternate" hreflang="x-default" href="index.html" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="container">
+      <div class="section-title">
+        <h2>ارتباط با ما</h2>
+        <p>راه‌های ارتباطی برای همکاری، سوالات و پیشنهادات</p>
+      </div>
+      <div class="contact-grid">
+        <div class="glass" style="padding:30px;">
+          <h3 style="color:#ffd700;">اطلاعات تماس</h3>
+          <p style="margin-top:12px;"><strong>📧 ایمیل:</strong> asly3325@gmail.com</p>
+          <p><strong>📞 تلفن:</strong> 09398212260</p>
+          <p><strong>📱 کانال تلگرام:</strong> @iestmcompany</p>
+          <p><strong>👤 بنیان‌گذار:</strong> رادمهر اصغری</p>
+        </div>
+        <div class="glass" style="padding:30px;">
+          <h3 style="color:#ffd700;">ارسال پیام</h3>
+          <form id="contactForm">
+            <input type="text" id="name" placeholder="نام و نام خانوادگی">
+            <input type="email" id="email" placeholder="ایمیل">
+            <textarea id="message" rows="4" placeholder="پیام شما..."></textarea>
+            <button type="submit" class="btn btn-primary" style="width:100%;">ارسال پیام</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/load-components.js"></script>
+  <script>
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      if (name) alert('✅ پیام شما دریافت شد.\n' + name + ' عزیز، به زودی پاسخ داده می‌شود.');
+      else alert('❌ لطفاً نام خود را وارد کنید.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
