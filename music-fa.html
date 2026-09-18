@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | آهنگ رسمی کمپانی</title>
+  <meta name="description" content="پخش آنلاین آهنگ رسمی و سرود کمپانی ایستم" />
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="music-fa.html" />
+  <link rel="alternate" hreflang="en" href="music-en.html" />
+  <link rel="alternate" hreflang="x-default" href="index.html" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <div class="container music-container">
+      <div class="section-title">
+        <h2>🎵 آهنگ رسمی IESTM</h2>
+        <p>سرود کمپانی ایستم — حماسه سازان فردا</p>
+      </div>
+
+      <div class="music-player">
+        <div class="song-title">سرود رسمی IESTM</div>
+        <div class="song-artist">حماسه سازان فردا</div>
+        <div class="player-controls">
+          <button class="control-btn" id="prevBtn">⏮</button>
+          <button class="control-btn" id="playBtn">▶</button>
+          <button class="control-btn" id="nextBtn">⏭</button>
+          <span class="time-label" id="currentTime">00:00</span>
+          <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <span class="time-label" id="duration">00:00</span>
+          <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+        </div>
+      </div>
+
+      <div class="lyrics-box">
+        <div class="verse-title">【 بند یک 】</div>
+        <pre>
+ایستِم زده باز، عجب شور و نوایی
+هر گوشه‌ش یه پروژه، هر روزش یه هوایی
+از وب و از ابزار و بازی و ماجراها
+همه می‌گن این شرکت، داره می‌ره بالاها
+
+دیش دارا دادام، ایستم اومد تو کار
+دیش دارا دادام، با ایده‌های بی‌شمار
+دیش دارا دادام، از دسکتاپ تا بازی
+دیش دارا دادام، چه شرکتی چه سازی
+        </pre>
+        <div class="verse-title">【 پیش‌خوان 】</div>
+        <pre>
+مدیرعاملش کیه؟ همه می‌پرسن هر بار
+رادمهر اصغری، با یه فکرِ پر از کار
+نه اهلِ سرسری، نه اهلِ وقت‌پرونی
+پروژه رو دونه‌دونه می‌چینه، مثل بارونی
+        </pre>
+        <div class="verse-title">【 همخوان 】</div>
+        <pre>
+دیش دارا دادام، دیش دارا دادام
+رادمهره توی فاز، دیش دارا دادام
+دیش دارا دادام، دیش دارا دادام
+پروژه‌هاش سرفراز، دیش دارا دادام
+        </pre>
+        <div class="verse-title">【 بند دو 】</div>
+        <pre>
+یه روز می‌ره سراغِ وب، یه روز پیاده‌سازی
+یه روزم وسطِ کد، یه روزم بازی‌سازی
+رادمهر آقا نشسته، پایِ سیستم و نمایشگر
+یه دستش رویِ کیبورد، اون یکی دنبالِ سرور
+
+نه خوابِ الکی داره، نه حرفِ کش‌دار
+می‌چینه کارو از اول، دقیق و بی‌غرور
+ایده‌های جورواجور، یکی پسِ یکی
+هر کدوم که میاد جلو، می‌گه اینم یکی
+        </pre>
+        <div class="verse-title">【 پیوند 】</div>
+        <pre>
+یه دفترِ سبک و تمیز، برای فکر و یادداشت
+یه ذهنِ پر از تصویر، یه مسیرِ روشن و راست
+از صفحه تا برنامه، از طرح تا اجرا
+همه چی رو می‌سازه، با حال و با صفا
+        </pre>
+        <div class="verse-title">【 همخوان 】</div>
+        <pre>
+دیش دارا دادام، دیش دارا دادام
+رادمهره توی فاز، دیش دارا دادام
+دیش دارا دادام، دیش دارا دادام
+پروژه‌هاش سرفراز، دیش دارا دادام
+        </pre>
+        <div class="verse-title">【 پایانی 】</div>
+        <pre>
+دیش دارا دادام، ایستم روشنه هنوز
+دیش دارا دادام، شهر پره از این سوز
+رادمهر اصغری، اسمِ رویِ پرچمه
+هر چی بسازه اینجاست، تهش یه فتحه
+        </pre>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/load-components.js"></script>
+  <script>
+    const audio = new Audio('1.mp3');
+    const playBtn = document.getElementById('playBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progressBar');
+    const progressContainer = document.getElementById('progressContainer');
+    const currentTimeSpan = document.getElementById('currentTime');
+    const durationSpan = document.getElementById('duration');
+    const volumeSlider = document.getElementById('volumeSlider');
+    let isPlaying = false;
+
+    audio.volume = 0.7;
+    playBtn.addEventListener('click', () => { isPlaying ? audio.pause() : audio.play(); });
+    audio.addEventListener('play', () => { isPlaying = true; playBtn.textContent = '⏸'; });
+    audio.addEventListener('pause', () => { isPlaying = false; playBtn.textContent = '▶'; });
+    audio.addEventListener('loadedmetadata', () => { durationSpan.textContent = formatTime(audio.duration); });
+    audio.addEventListener('timeupdate', () => {
+      progressBar.style.width = (audio.currentTime / audio.duration) * 100 + '%';
+      currentTimeSpan.textContent = formatTime(audio.currentTime);
+    });
+    progressContainer.addEventListener('click', (e) => {
+      const rect = progressContainer.getBoundingClientRect();
+      const percent = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = percent * audio.duration;
+    });
+    volumeSlider.addEventListener('input', () => { audio.volume = volumeSlider.value; });
+    prevBtn.addEventListener('click', () => { audio.currentTime = 0; });
+    nextBtn.addEventListener('click', () => { audio.currentTime = audio.duration; });
+    audio.addEventListener('ended', () => {
+      audio.currentTime = 0; playBtn.textContent = '▶'; isPlaying = false;
+    });
+    function formatTime(s) {
+      if (isNaN(s)) return '00:00';
+      return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(Math.floor(s%60)).padStart(2,'0');
+    }
+  </script>
+</body>
+</html>
