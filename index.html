@@ -1,248 +1,145 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <script data-host="https://statsfa.com" data-dnt="false" src="https://statsfa.com/js/script.js" id="ZwSg9rf6GA" async defer></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IESTM | خانه - توسعه نرم‌افزار وب، بازی و اپلیکیشن دسکتاپ</title>
-  <meta name="description" content="کمپانی ایستم (IESTM) به مدیریت رادمهر اصغری – تخصص در توسعه نرم‌افزار تحت وب، بازی سه‌بعدی مرورگر، اپلیکیشن دسکتاپ پایتون" />
-  <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/c/c7/%D8%A7%DB%8C%D8%B3%D8%AA%D9%85.jpg">
+  <title>IESTM | انتخاب زبان / Choose Language</title>
+  <meta name="description" content="انتخاب زبان وب‌سایت رسمی کمپانی ایستم | Choose your language for IESTM official website" />
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
   <link rel="stylesheet" href="style.css">
-  <link rel="alternate" hreflang="fa" href="index.html" />
+  <link rel="alternate" hreflang="fa" href="index-fa.html" />
   <link rel="alternate" hreflang="en" href="index-en.html" />
-  
-  <style>
-    body { font-family: "Yekan", "Vazirmatn", "Tahoma", sans-serif !important; }
-    
-    /* ===== استایل‌های اورلی ===== */
-    .lang-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      display: flex; justify-content: center; align-items: center;
-      z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
-      opacity: 1; visibility: visible;
-    }
-    .lang-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-    .glass-box {
-      background: rgba(255, 255, 255, 0.10); border-radius: 40px; padding: 50px 55px;
-      max-width: 520px; width: 92%; text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.20);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.40);
-      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      animation: fadeScale 0.5s ease;
-    }
-    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.92); } 100% { opacity: 1; transform: scale(1); } }
-    .lang-title { color: #fff; font-size: 1.9rem; margin-bottom: 25px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); font-weight: 600; }
-    .lang-buttons { display: flex; flex-direction: row; gap: 18px; justify-content: center; flex-wrap: wrap; }
-    .lang-btn {
-      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 60px; padding: 16px 38px; font-size: 1.4rem; font-weight: 600;
-      color: #fff; cursor: pointer; transition: all 0.3s ease;
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
-      display: flex; align-items: center; gap: 12px; font-family: inherit;
-    }
-    .lang-btn:hover { background: rgba(255, 255, 255, 0.30); transform: scale(1.06); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40); border-color: rgba(255, 255, 255, 0.60); }
-    .lang-btn:active { transform: scale(0.94); }
-    .flag-icon { font-size: 2.1rem; line-height: 1; }
-    .lang-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
-    @media (max-width: 600px) { .glass-box { padding: 30px 18px; } .lang-title { font-size: 1.3rem; } .lang-btn { padding: 14px 20px; font-size: 1.1rem; gap: 8px; } .flag-icon { font-size: 1.7rem; } }
+  <link rel="alternate" hreflang="x-default" href="index.html" />
 
-    /* ===== استایل‌های اختصاصی صفحه اصلی ===== */
-    .products-preview, .news-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px; margin-bottom: 30px;
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
     }
-    .product-card, .news-card {
-      padding: 24px; border-radius: 22px;
-      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-      transition: 0.3s;
+    .selector-box {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 40px;
+      padding: 50px 45px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      animation: fadeScale 0.6s ease;
     }
-    .product-card:hover, .news-card:hover {
-      transform: translateY(-5px); border-color: var(--gold);
+    @keyframes fadeScale {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
     }
-    .tag {
-      display: inline-block; margin: 6px 8px 0 0; padding: 7px 12px;
-      border-radius: 999px; background: rgba(255,255,255,.07); font-size: .88rem;
+    .selector-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      border: 3px solid #ffd700;
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
     }
-    .news-date { font-size: .8rem; color: var(--gold); margin-bottom: 12px; }
-    .news-badge {
-      display: inline-block; margin-top: 16px; padding: 6px 12px;
-      border-radius: 20px; background: rgba(247,201,72,.15); color: var(--gold); font-size: .75rem;
+    .selector-title {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
-    .quote { padding: 32px; text-align: center; font-size: 1.15rem; color: #fff5cf; margin: 40px 0; }
-    .footer-box {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 20px; padding: 26px; background: rgba(255,255,255,.03); border-radius: 24px;
+    .selector-sub {
+      color: #ffd700;
+      font-size: 1.05rem;
+      margin-bottom: 32px;
     }
-    .product-card a { color: inherit; text-decoration: none; }
-    .product-card a:hover { color: var(--gold); }
-    @media (max-width: 640px) {
-      .products-preview, .news-grid { grid-template-columns: 1fr; }
-      .footer-box { grid-template-columns: 1fr; }
+    .selector-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .selector-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 60px;
+      padding: 18px 30px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      font-family: inherit;
+    }
+    .selector-btn:hover {
+      background: rgba(255, 215, 0, 0.15);
+      border-color: #ffd700;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 215, 0, 0.2);
+    }
+    .selector-btn:active {
+      transform: scale(0.97);
+    }
+    .selector-flag {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .selector-footer {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.8rem;
+      margin-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 16px;
+    }
+    @media (max-width: 500px) {
+      .selector-box { padding: 35px 22px; }
+      .selector-title { font-size: 1.6rem; }
+      .selector-btn { padding: 15px 22px; font-size: 1.1rem; }
+      .selector-flag { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body class="noise">
 
-<!-- ===== اورلی انتخاب زبان ===== -->
-<div id="langOverlay" class="lang-overlay">
-  <div class="glass-box">
-    <h1 class="lang-title">🌐 انتخاب زبان / Choose Language</h1>
-    <div class="lang-buttons">
-      <button class="lang-btn" onclick="setLanguage('fa')"><span class="flag-icon">🇮🇷</span> فارسی</button>
-      <button class="lang-btn" onclick="setLanguage('en')"><span class="flag-icon">🇬🇧</span> English</button>
+  <div class="selector-box">
+    <img src="logo.jpg" alt="IESTM Logo" class="selector-logo" onerror="this.style.display='none'">
+    <h1 class="selector-title">IESTM</h1>
+    <p class="selector-sub">🌐 انتخاب زبان / Choose Language</p>
+
+    <div class="selector-buttons">
+      <button class="selector-btn" onclick="chooseLanguage('fa')">
+        <span class="selector-flag">🇮🇷</span> فارسی
+      </button>
+      <button class="selector-btn" onclick="chooseLanguage('en')">
+        <span class="selector-flag">🇬🇧</span> English
+      </button>
     </div>
-    <p class="lang-note">این انتخاب فقط یک بار انجام می‌شود / This choice is made only once</p>
+
+    <p class="selector-footer">کمپانی ایستم — IESTM Company</p>
   </div>
-</div>
 
-<!-- ===== هدر ===== -->
-<div id="header-placeholder"></div>
+  <script>
+    function chooseLanguage(lang) {
+      localStorage.setItem('preferred_lang', lang);
+      window.location.href = 'index-' + lang + '.html';
+    }
 
-<!-- ===== محتوای اصلی ===== -->
-<main>
-  <header class="container hero">
-    <div class="hero-grid">
-      <div class="glass hero-card">
-        <div class="eyebrow">🚀 پلتفرم رسمی IESTM</div>
-        <h1>من <span class="gradient">رادمهر اصغری</span> هستم، سازنده و توسعه‌دهنده <span class="gradient">کمپانی ایستم</span></h1>
-        <p class="lead">ایستم یک مسیر شخصی و خلاقانه برای ساخت نرم‌افزار، بازی‌های تحت وب، ابزارهای کاربردی، پروژه‌های نوآورانه و تجربه‌های دیجیتالی متفاوت است. هدف من فقط ساخت چند برنامه ساده نیست؛ هدفم ساخت یک هویت نرم‌افزاری مستقل است که با زبان وب و Python، ایده‌ها را به محصول واقعی تبدیل کند.</p>
-        <p class="lead">این وب‌سایت، ویترین رسمی پروژه‌ها، محصولات، ایده‌ها و مسیر رشد IESTM است؛ جایی برای نمایش توانایی‌ها، معرفی محصولات ساخته‌شده و نشان دادن چشم‌اندازی که برای آینده در ذهن دارم.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="projects.html">مشاهده محصولات</a>
-          <a class="btn btn-secondary" href="about.html">درباره ما</a>
-        </div>
-      </div>
-      <div class="glass hero-side">
-        <div class="stat-grid">
-          <div class="stat"><h3>HTML</h3><p>پایه اصلی رابط‌های وب</p></div>
-          <div class="stat"><h3>CSS</h3><p>طراحی حرفه‌ای</p></div>
-          <div class="stat"><h3>JS</h3><p>منطق برنامه‌ها</p></div>
-          <div class="stat"><h3>Python</h3><p>توسعه دسکتاپ ویندوزی</p></div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section class="container">
-    <div class="section-title">
-      <h2>🔧 محصولات شاخص</h2>
-      <p>همه پروژه‌های IESTM</p>
-    </div>
-    <div class="products-preview" id="productsPreview"></div>
-    <div class="text-center"><a href="projects.html" class="btn btn-primary">مشاهده همه محصولات →</a></div>
-  </section>
-
-  <section class="container">
-    <div class="section-title">
-      <h2>📰 آخرین اخبار</h2>
-      <p>جدیدترین رویدادها و اطلاعیه‌ها</p>
-    </div>
-    <div class="news-grid" id="newsPreview"></div>
-    <div class="text-center"><a href="blog.html" class="btn btn-secondary">مشاهده همه اخبار →</a></div>
-  </section>
-
-  <section class="container">
-    <div class="glass quote">«ایستم فقط یک پروژه نیست؛ یک مسیر برای ساختن، یادگرفتن، رشد کردن و تبدیل ایده‌های خام به محصولات واقعی است.»</div>
-  </section>
-</main>
-
-<!-- ===== فوتر ===== -->
-<div id="footer-placeholder"></div>
-
-<!-- ===== اسکریپت‌ها ===== -->
-<script src="js/load-components.js"></script>
-
-<script>
-  // ===== مدیریت زبان =====
-  function setLanguage(lang) {
-    localStorage.setItem('preferred_lang', lang);
-    const overlay = document.getElementById('langOverlay');
-    overlay.classList.add('hidden');
-    setTimeout(() => {
-      const currentPath = window.location.pathname;
-      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
-      let targetPage;
-      if (lang === 'en') {
-        if (currentPage === 'index.html' || currentPage === '') targetPage = 'index-en.html';
-        else { const base = currentPage.replace('.html', ''); targetPage = base + '-en.html'; }
-      } else {
-        if (currentPage === 'index-en.html') targetPage = 'index.html';
-        else if (currentPage.includes('-en.')) targetPage = currentPage.replace('-en.html', '.html');
-        else targetPage = currentPage;
+    // اگر کاربر قبلاً زبان را انتخاب کرده، مستقیم به صفحه اصلی برود
+    document.addEventListener('DOMContentLoaded', function () {
+      const saved = localStorage.getItem('preferred_lang');
+      if (saved === 'fa' || saved === 'en') {
+        window.location.href = 'index-' + saved + '.html';
       }
-      if (targetPage !== currentPage && targetPage !== '') window.location.href = targetPage;
-      else location.reload();
-    }, 500);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    const overlay = document.getElementById('langOverlay');
-    const saved = localStorage.getItem('preferred_lang');
-    if (saved) overlay.classList.add('hidden');
-    else overlay.classList.remove('hidden');
-  });
-</script>
-
-<script>
-  // ===== داده‌های پروژه‌ها =====
-  const oldProjects = [
-    { title: "IESTM OS", desc: "محیط دسکتاپ ویندوزی با Python/PyQt", tags: ["Python", "PyQt"], link: "#" },
-    { title: "بازی سه‌بعدی دوز", desc: "نسخه سه‌بعدی بازی کلاسیک با Three.js", tags: ["Three.js", "3D Game"], link: "#" },
-    { title: "IESTM Notebook", desc: "دفترچه یادداشت سبک با ذخیره خودکار", tags: ["LocalStorage"], link: "#" },
-    { title: "صلوات‌شمار", desc: "صلوات‌شمار دیجیتال", tags: ["Utility"], link: "#" }
-  ];
-  const newProjects = [
-    { title: "منظومه شمسی", desc: "شبیه‌سازی کامل منظومه شمسی با ۸ سیاره و ۱۲ قمر", tags: ["Three.js", "نجوم"], link: "https://iestmgit.github.io/manzoomeh/" },
-    { title: "ابر مکعب (Hypercube)", desc: "نمایش برجسته‌ای از تسراکت (ابعاد چهارم)", tags: ["Three.js", "视觉"], link: "https://iestmgit.github.io/abarmokaab/" },
-    { title: "هولوگرام کیهانی", desc: "افکت سه‌بعدی روانگردان با ذرات نور و توروس نئونی", tags: ["Three.js", "هولوگرام"], link: "https://iestmgit.github.io/hologeram/" },
-    { title: "تهران سیتی", desc: "بازی رانندگی در شهر تهران با امکان تاکسیرانی، باربری و مسابقه", tags: ["بازی", "Three.js"], link: "https://iestmcompany-creator.github.io/TehranCity/" },
-    { title: "زیبـانویس اسم", desc: "ابزار شخصی‌سازی متن با فونت‌های متنوع و ایموجی‌های جذاب", tags: ["ابزار", "UI"], link: "https://iestmgit.github.io/zibanvis/" },
-    { title: "ایستم جوک دینامیت", desc: "پروژه‌ای با محتوای طنز و سرگرمی", tags: ["سرگرمی", "طنز"], link: "https://iestmgit.github.io/jok-dynamite/" },
-    { title: "فوتبال سه‌بعدی", desc: "شبیه‌ساز فوتبال سه‌بعدی با قابلیت حرکت و شوت‌زنی", tags: ["بازی", "Three.js"], link: "https://iestmgit.github.io/football-3d/" },
-    { title: "سایت کمپانی IESTM", desc: "وب‌سایت رسمی معرفی کمپانی، محصولات و رویدادها", tags: ["وب‌سایت", "معرفی"], link: "https://iestmgit.github.io/iestm-website/" }
-  ];
-  const defaultProjects = [...oldProjects, ...newProjects];
-  let projects;
-  try { const stored = localStorage.getItem('iestm_projects'); if (stored) { const parsed = JSON.parse(stored); if (Array.isArray(parsed) && parsed.length > 0) projects = parsed; else throw new Error(); } else throw new Error(); } catch { projects = defaultProjects; }
-  const productsContainer = document.getElementById('productsPreview');
-  if (productsContainer) {
-    productsContainer.innerHTML = projects.map(p => `
-      <div class="product-card">
-        <h3><a href="${p.link}" target="_blank">${p.title}</a></h3>
-        <p>${p.desc}</p>
-        ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-      </div>
-    `).join('');
-  }
-
-  // ===== داده‌های اخبار =====
-  const oldNews = [
-    { date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی محیط دسکتاپ ویندوزی ایستم با قابلیت‌های سفارشی‌سازی پیشرفته منتشر شد.", badge: "جدید" },
-    { date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت با قابلیت ذخیره خودکار، تم تاریک و برچسب‌گذاری منتشر شد.", badge: "بروزرسانی" },
-    { date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم از علاقه‌مندان به توسعه وب و پایتون برای همکاری دعوت می‌کند.", badge: "استخدام" }
-  ];
-  const newNews = [
-    { date: "۱۹ خرداد ۱۴۰۵ – ۹ ژوئن ۲۰۲۶", title: "🚀 رونمایی از مجموعه کامل وب‌سایت‌های IESTM", summary: "کمپانی ایستم با افتخار از ۸ وب‌سایت جدید رونمایی کرد.", badge: "🔥 رویداد مهم" },
-    { date: "۱۵ خرداد ۱۴۰۵ – ۵ ژوئن ۲۰۲۶", title: "🚗 بازی «تهران سیتی» منتشر شد", summary: "بازی محبوب رانندگی در خیابان‌های تهران با سه حالت تاکسیرانی، باربری و مسابقه به‌صورت عمومی در دسترس قرار گرفت.", badge: "🎮 بازی جدید" },
-    { date: "۱۰ خرداد ۱۴۰۵ – ۳۱ مه ۲۰۲۶", title: "🆕 به‌روزرسانی سایت کمپانی و افزودن بخش پروژه‌ها", summary: "وب‌سایت رسمی IESTM با طراحی جدید و بخش اختصاصی برای نمایش همه پروژه‌های وب به‌روزرسانی شد.", badge: "🛠 به‌روزرسانی" }
-  ];
-  const defaultNews = [...oldNews, ...newNews];
-  let news;
-  try { const stored = localStorage.getItem('iestm_news'); if (stored) { const parsed = JSON.parse(stored); if (Array.isArray(parsed) && parsed.length > 0) news = parsed; else throw new Error(); } else throw new Error(); } catch { news = defaultNews; }
-  const newsContainer = document.getElementById('newsPreview');
-  if (newsContainer) {
-    newsContainer.innerHTML = news.map(n => `
-      <div class="news-card">
-        <div class="news-date">📅 ${n.date}</div>
-        <h3>${n.title}</h3>
-        <p>${n.summary}</p>
-        <span class="news-badge">${n.badge}</span>
-      </div>
-    `).join('');
-  }
-</script>
-
+    });
+  </script>
 </body>
 </html>
