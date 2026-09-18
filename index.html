@@ -10,14 +10,12 @@
   <link rel="alternate" hreflang="fa" href="index-fa.html" />
   <link rel="alternate" hreflang="en" href="index-en.html" />
   <link rel="alternate" hreflang="x-default" href="index.html" />
-
   <style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      margin: 0;
       padding: 20px;
     }
     .selector-box {
@@ -54,16 +52,8 @@
       font-weight: 700;
       letter-spacing: 2px;
     }
-    .selector-sub {
-      color: #ffd700;
-      font-size: 1.05rem;
-      margin-bottom: 32px;
-    }
-    .selector-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .selector-sub { color: #ffd700; font-size: 1.05rem; margin-bottom: 32px; }
+    .selector-buttons { display: flex; flex-direction: column; gap: 16px; }
     .selector-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -86,13 +76,8 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 30px rgba(255, 215, 0, 0.2);
     }
-    .selector-btn:active {
-      transform: scale(0.97);
-    }
-    .selector-flag {
-      font-size: 2rem;
-      line-height: 1;
-    }
+    .selector-btn:active { transform: scale(0.97); }
+    .selector-flag { font-size: 2rem; line-height: 1; }
     .selector-footer {
       color: rgba(255, 255, 255, 0.4);
       font-size: 0.8rem;
@@ -108,7 +93,7 @@
     }
   </style>
 </head>
-<body class="noise">
+<body>
 
   <div class="selector-box">
     <img src="logo.jpg" alt="IESTM Logo" class="selector-logo" onerror="this.style.display='none'">
@@ -132,8 +117,6 @@
       localStorage.setItem('preferred_lang', lang);
       window.location.href = 'index-' + lang + '.html';
     }
-
-    // اگر کاربر قبلاً زبان را انتخاب کرده، مستقیم به صفحه اصلی برود
     document.addEventListener('DOMContentLoaded', function () {
       const saved = localStorage.getItem('preferred_lang');
       if (saved === 'fa' || saved === 'en') {
