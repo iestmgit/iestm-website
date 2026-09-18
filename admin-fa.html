@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IESTM | پنل مدیریت</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" hreflang="fa" href="admin-fa.html" />
+  <link rel="alternate" hreflang="en" href="admin-en.html" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="container">
+      <div class="section-title">
+        <h2>پنل مدیریت</h2>
+        <p>ورود به بخش مدیریت (فقط برای مدیران)</p>
+      </div>
+      <div id="adminApp"></div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/load-components.js"></script>
+  <script>
+    const validUsername = 'iestmkar';
+    const validPassword = 'rm123456rm';
+    let isLoggedIn = localStorage.getItem('iestmAdmin') === 'true';
+    const defaultNews = [
+      { id: 1, date: "۱۴۰۳/۱۰/۱۵", title: "رونمایی از محیط دسکتاپ IESTM OS نسخه آلفا", summary: "اولین نسخه آزمایشی منتشر شد.", badge: "جدید" },
+      { id: 2, date: "۱۴۰۳/۱۰/۱۰", title: "بروزرسانی بزرگ IESTM Notebook 1.5", summary: "نسخه جدید دفترچه یادداشت منتشر شد.", badge: "بروزرسانی" },
+      { id: 3, date: "۱۴۰۳/۱۰/۰۵", title: "جذب برنامه‌نویس برای تیم توسعه IESTM", summary: "کمپانی ایستم دعوت می‌کند.", badge: "استخدام" }
+    ];
+    function getNews() { return JSON.parse(localStorage.getItem('iestm_news') || JSON.stringify(defaultNews)); }
+    function saveNews(n) { localStorage.setItem('iestm_news', JSON.stringify(n)); }
+
+    function render() {
+      const c = document.getElementById('adminApp');
+      if (!c) return;
+      if (!isLoggedIn) {
+        c.innerHTML = '<div class="glass admin-box"><input type="text" id="user" class="admin-input" placeholder="نام کاربری"><input type="password" id="pass" class="admin-input" placeholder="رمز عبور"><button class="btn btn-primary" onclick="login()" style="width:100%">ورود</button><div id="msg" style="margin-top:16px;text-align:center;font-size:0.85rem"></div></div>';
+      } else {
+        c.innerHTML = '<div class="glass" style="padding:30px"><div class="admin-tabs"><div class="admin-tab active" onclick="switchTab(\'news\', this)">مدیریت اخبار</div><div class="admin-tab" onclick="switchTab(\'add\', this)">افزودن خبر</div></div><div id="newsPanel" class="admin-panel active-panel"><div id="newsList"></div></div><div id="addPanel" class="admin-panel"><input type="text" id="newsDate" class="admin-input" placeholder="تاریخ"><input type="text" id="newsTitle" class="admin-input" placeholder="عنوان"><textarea id="newsSummary" class="admin-textarea" placeholder="متن خبر"></textarea><input type="text" id="newsBadge" class="admin-input" placeholder="برچسب"><button class="btn btn-primary" onclick="addNews()">افزودن خبر</button></div><button class="logout-btn" onclick="logout()">خروج از پنل</button></div>';
+        renderNewsList();
+      }
+    }
+    function renderNewsList() {
+      const c = document.getElementById('newsList');
+      if (!c) return;
+      const news = getNews();
+      if (news.length === 0) { c.innerHTML = '<p>هیچ خبری نیست</p>'; return; }
+      c.innerHTML = news.map(n => '<div class="news-item"><div><strong>' + n.title + '</strong><br><small>' + n.date + ' | ' + n.badge + '</small></div><button class="del-btn" onclick="deleteNews(' + n.id + ')">حذف</button></div>').join('');
+    }
+    function addNews() {
+      const date = document.getElementById('newsDate').value;
+      const title = document.getElementById('newsTitle').value;
+      const summary = document.getElementById('newsSummary').value;
+      const badge = document.getElementById('newsBadge').value;
+      if (!date || !title || !summary || !badge) { alert('همه فیلدها پر شود'); return; }
+      const news = getNews();
+      news.unshift({ id: Date.now(), date, title, summary, badge });
+      saveNews(news);
+      alert('خبر اضافه شد');
+      renderNewsList();
+    }
+    function deleteNews(id) { let n = getNews(); n = n.filter(x => x.id !== id); saveNews(n); renderNewsList(); }
+    function switchTab(tab, el) {
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('newsPanel').classList.remove('active-panel');
+      document.getElementById('addPanel').classList.remove('active-panel');
+      document.getElementById(tab === 'news' ? 'newsPanel' : 'addPanel').classList.add('active-panel');
+    }
+    function login() {
+      const u = document.getElementById('user').value;
+      const p = document.getElementById('pass').value;
+      if (u === validUsername && p === validPassword) {
+        isLoggedIn = true; localStorage.setItem('iestmAdmin', 'true'); render();
+      } else {
+        document.getElementById('msg').innerHTML = '<span style="color:#ff6b6b">نام کاربری یا رمز اشتباه</span>';
+      }
+    }
+    function logout() { isLoggedIn = false; localStorage.removeItem('iestmAdmin'); render(); }
+    render();
+  </script>
+</body>
+</html>
