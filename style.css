@@ -1,6 +1,3 @@
-/* ============================================
-   Iranian Yekan Font
-   ============================================ */
 @font-face {
   font-family: 'Yekan';
   src: url('Yekan.ttf') format('truetype');
@@ -8,22 +5,11 @@
   font-display: swap;
 }
 
-/* ============================================
-   Reset & Base
-   ============================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
 
 body {
-  font-family: 'Yekan', 'Tahoma', 'Segoe UI', sans-serif !important;
+  font-family: 'Yekan', 'Tahoma', 'Segoe UI', sans-serif;
   background: #0a0f1e;
   color: #eef5ff;
   line-height: 1.7;
@@ -31,29 +17,17 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================================
-   English Font
-   ============================================ */
 html[lang="en"] body,
 html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4,
 html[lang="en"] p, html[lang="en"] a, html[lang="en"] button,
 html[lang="en"] input, html[lang="en"] textarea,
 html[lang="en"] .btn, html[lang="en"] .nav-links a {
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* ============================================
-   Container
-   ============================================ */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
-/* ============================================
-   Navigation (Mobile First)
-   ============================================ */
+/* ==== Navigation ==== */
 nav {
   background: rgba(10, 15, 30, 0.95);
   backdrop-filter: blur(10px);
@@ -64,7 +38,6 @@ nav {
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-
 .nav-inner {
   display: flex;
   flex-direction: column;
@@ -74,40 +47,28 @@ nav {
   margin: 0 auto;
   padding: 0 16px;
 }
-
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 100%;
   justify-content: center;
+  text-decoration: none;
+  color: inherit;
 }
-
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
 }
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.brand div {
+.logo img { width: 100%; height: 100%; object-fit: cover; }
+.brand-text {
   font-size: 0.9rem;
   font-weight: 700;
   color: #fff;
   text-align: center;
 }
-.brand div span {
-  font-size: 0.6rem;
-  color: #666;
-}
-
+.brand-text span { font-size: 0.6rem; color: #666; }
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -115,7 +76,6 @@ nav {
   gap: 4px;
   width: 100%;
 }
-
 .nav-links a {
   color: #eef5ff;
   text-decoration: none;
@@ -125,48 +85,33 @@ nav {
   transition: 0.3s;
   white-space: nowrap;
 }
-
 .nav-links a:hover,
 .nav-links a.active {
   background: rgba(255, 215, 0, 0.15);
   color: #ffd700;
 }
-
-/* ===== دکمه تغییر زبان در هدر ===== */
 .lang-switch-header {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 2px;
 }
-
 .lang-switch-btn {
   background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.2);
   color: #ffd700;
-  padding: 4px 14px;
+  padding: 5px 16px;
   border-radius: 30px;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   transition: 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
-
 .lang-switch-btn:hover {
   background: rgba(255, 215, 0, 0.2);
   border-color: #ffd700;
 }
 
-.lang-switch-btn i {
-  font-size: 0.8rem;
-}
-
-/* ============================================
-   Buttons
-   ============================================ */
+/* ==== Buttons ==== */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -177,30 +122,16 @@ nav {
   font-size: 0.9rem;
   text-align: center;
 }
-
-.btn-primary {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.btn-primary:hover {
-  background: #ffed4a;
-  transform: translateY(-2px);
-}
-
+.btn-primary { background: #ffd700; color: #0a0f1e; }
+.btn-primary:hover { background: #ffed4a; transform: translateY(-2px); }
 .btn-secondary {
   background: rgba(255, 255, 255, 0.08);
   color: #eef5ff;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.15); }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* ============================================
-   Glass Effect
-   ============================================ */
+/* ==== Glass ==== */
 .glass {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(10px);
@@ -210,40 +141,17 @@ nav {
   padding: 20px;
 }
 
-/* ============================================
-   Hero (Mobile First)
-   ============================================ */
-.hero {
-  padding: 30px 0;
-}
-
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.hero-card h1 {
-  font-size: 1.6rem;
-  margin-bottom: 14px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
+/* ==== Hero ==== */
+.hero { padding: 30px 0; }
+.hero-grid { display: flex; flex-direction: column; gap: 20px; }
+.hero-card h1 { font-size: 1.6rem; margin-bottom: 14px; font-weight: 700; line-height: 1.3; }
 .gradient {
   background: linear-gradient(90deg, #ffd700, #ff6b6b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-.lead {
-  font-size: 0.95rem;
-  color: #dde5f0;
-  margin-bottom: 12px;
-  line-height: 1.8;
-}
-
+.lead { font-size: 0.95rem; color: #dde5f0; margin-bottom: 12px; line-height: 1.8; }
 .eyebrow {
   color: #ffd700;
   font-size: 0.75rem;
@@ -251,41 +159,18 @@ nav {
   letter-spacing: 1px;
   margin-bottom: 8px;
 }
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.stat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 10px;
-}
-
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .stat {
   background: rgba(255, 255, 255, 0.04);
   padding: 12px;
   border-radius: 12px;
   text-align: center;
 }
+.stat h3 { color: #ffd700; font-size: 1.4rem; }
+.stat p { color: #aaa; font-size: 0.75rem; }
 
-.stat h3 {
-  color: #ffd700;
-  font-size: 1.4rem;
-}
-
-.stat p {
-  color: #aaa;
-  font-size: 0.75rem;
-}
-
-/* ============================================
-   Product & News Cards (Mobile First)
-   ============================================ */
+/* ==== Product & News cards ==== */
 .products-preview,
 .news-grid {
   display: grid;
@@ -293,32 +178,20 @@ nav {
   gap: 16px;
   margin: 20px 0;
 }
-
-.product-card,
-.news-card {
+.product-card, .news-card {
   background: rgba(255, 255, 255, 0.04);
   border-radius: 16px;
   padding: 16px;
   transition: 0.3s;
 }
-
-.product-card:hover,
-.news-card:hover {
+.product-card:hover, .news-card:hover {
   transform: translateY(-3px);
   background: rgba(255, 255, 255, 0.08);
 }
-
-.product-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-}
-
-.product-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-  margin-bottom: 8px;
-}
-
+.product-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.product-card p { font-size: 0.85rem; color: #ccc; margin-bottom: 8px; }
+.product-card a { color: inherit; text-decoration: none; }
+.product-card a:hover { color: #ffd700; }
 .tag {
   display: inline-block;
   background: rgba(255, 215, 0, 0.15);
@@ -328,23 +201,9 @@ nav {
   font-size: 0.7rem;
   margin: 3px 3px 0 0;
 }
-
-.news-date {
-  color: #ffd700;
-  font-size: 0.75rem;
-  margin-bottom: 6px;
-}
-
-.news-card h3 {
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-
-.news-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
+.news-date { color: #ffd700; font-size: 0.75rem; margin-bottom: 6px; }
+.news-card h3 { font-size: 1rem; margin-bottom: 4px; }
+.news-card p { font-size: 0.85rem; color: #ccc; }
 .news-badge {
   display: inline-block;
   background: rgba(255, 215, 0, 0.15);
@@ -355,13 +214,8 @@ nav {
   margin-top: 8px;
 }
 
-/* ============================================
-   Footer (Mobile First)
-   ============================================ */
-footer {
-  margin-top: 40px;
-}
-
+/* ==== Footer ==== */
+footer { margin-top: 40px; }
 .footer-box {
   display: grid;
   grid-template-columns: 1fr;
@@ -371,19 +225,10 @@ footer {
   border-radius: 16px;
   text-align: center;
 }
-
-.footer-box h3 {
-  color: #ffd700;
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-
-.footer-box p {
-  color: #aaa;
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-
+.footer-box h3 { color: #ffd700; font-size: 0.9rem; margin-bottom: 4px; }
+.footer-box p { color: #aaa; font-size: 0.8rem; line-height: 1.6; }
+.footer-box a { color: #aaa; text-decoration: none; transition: 0.2s; }
+.footer-box a:hover { color: #ffd700; }
 .copyright {
   text-align: center;
   padding: 16px 0;
@@ -391,144 +236,15 @@ footer {
   font-size: 0.7rem;
 }
 
-/* ============================================
-   Utilities
-   ============================================ */
-.text-center {
-  text-align: center;
-}
+/* ==== Utilities ==== */
+.text-center { text-align: center; }
+.section-title { margin-bottom: 20px; }
+.section-title h2 { color: #ffd700; margin-bottom: 4px; font-size: 1.4rem; }
+.section-title p { color: #aaa; font-size: 0.85rem; }
 
-.section-title {
-  margin-bottom: 20px;
-}
-
-.section-title h2 {
-  color: #ffd700;
-  margin-bottom: 4px;
-  font-size: 1.4rem;
-}
-
-.section-title p {
-  color: #aaa;
-  font-size: 0.85rem;
-}
-
-/* ============================================
-   Language Overlay
-   ============================================ */
-.lang-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  opacity: 1;
-  visibility: visible;
-  padding: 20px;
-}
-
-.lang-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.glass-box {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 32px 24px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  border: 1px solid rgba(255, 215, 0, 0.12);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  animation: fadeScale 0.4s ease;
-}
-
-@keyframes fadeScale {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.lang-title {
-  color: #fff;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-  font-weight: 600;
-}
-
-.lang-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
-}
-
-.lang-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 60px;
-  padding: 14px 20px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: inherit;
-}
-
-.lang-btn:hover {
-  background: rgba(255, 215, 0, 0.15);
-  border-color: #ffd700;
-}
-
-.lang-btn:active {
-  transform: scale(0.96);
-}
-
-.flag-icon {
-  font-size: 1.6rem;
-}
-
-.lang-note {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.7rem;
-  margin-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 12px;
-}
-
-/* ============================================
-   Admin Panel
-   ============================================ */
-.admin-box {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.admin-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
+/* ==== Admin ==== */
+.admin-box { max-width: 500px; margin: 0 auto; padding: 20px; }
+.admin-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
 .admin-tab {
   padding: 8px 18px;
   background: rgba(255, 255, 255, 0.05);
@@ -536,20 +252,9 @@ footer {
   cursor: pointer;
   font-size: 0.85rem;
 }
-
-.admin-tab.active {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.admin-panel {
-  display: none;
-}
-
-.admin-panel.active-panel {
-  display: block;
-}
-
+.admin-tab.active { background: #ffd700; color: #0a0f1e; }
+.admin-panel { display: none; }
+.admin-panel.active-panel { display: block; }
 .news-item {
   background: rgba(255, 255, 255, 0.04);
   border-radius: 12px;
@@ -561,7 +266,6 @@ footer {
   flex-wrap: wrap;
   gap: 8px;
 }
-
 .del-btn {
   padding: 6px 14px;
   background: rgba(255, 79, 163, 0.15);
@@ -571,7 +275,6 @@ footer {
   cursor: pointer;
   font-size: 0.8rem;
 }
-
 .logout-btn {
   margin-top: 20px;
   padding: 10px 20px;
@@ -582,9 +285,7 @@ footer {
   color: #ff6b6b;
   font-size: 0.9rem;
 }
-
-.admin-input,
-.admin-textarea {
+.admin-input, .admin-textarea {
   width: 100%;
   padding: 10px 14px;
   margin: 6px 0;
@@ -595,52 +296,26 @@ footer {
   font-family: inherit;
   font-size: 0.9rem;
 }
+.admin-textarea { resize: vertical; min-height: 70px; }
 
-.admin-textarea {
-  resize: vertical;
-  min-height: 70px;
-}
-
-/* ============================================
-   Blog (Mobile First)
-   ============================================ */
-.blog-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
+/* ==== Blog ==== */
+.blog-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .blog-card {
   padding: 18px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.04);
-  border-right: 3px solid #ffd700;
+  border-inline-end: 3px solid #ffd700;
   transition: 0.2s;
 }
-
-.blog-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
+.blog-card:hover { background: rgba(255, 255, 255, 0.08); }
 .blog-card .date {
   font-size: 0.7rem;
   color: #aaa;
   margin-bottom: 4px;
   display: block;
 }
-
-.blog-card h3 {
-  font-size: 1.1rem;
-  margin: 0 0 6px 0;
-  color: #fff;
-}
-
-.blog-card p {
-  color: #ccc;
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
-
+.blog-card h3 { font-size: 1.1rem; margin: 0 0 6px 0; color: #fff; }
+.blog-card p { color: #ccc; font-size: 0.85rem; line-height: 1.7; }
 .blog-card .badge {
   display: inline-block;
   background: #ffd700;
@@ -652,14 +327,11 @@ footer {
   margin-top: 8px;
 }
 
-/* ============================================
-   Timeline
-   ============================================ */
+/* ==== Timeline ==== */
 .timeline {
-  padding-right: 16px;
-  border-right: 2px dashed rgba(255, 255, 255, 0.1);
+  padding-inline-end: 16px;
+  border-inline-end: 2px dashed rgba(255, 255, 255, 0.1);
 }
-
 .timeline-item {
   padding: 16px;
   margin-bottom: 14px;
@@ -667,37 +339,21 @@ footer {
   background: rgba(255, 255, 255, 0.03);
   position: relative;
 }
-
 .timeline-item::before {
   content: "";
   position: absolute;
-  right: -22px;
+  inset-inline-end: -22px;
   top: 18px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #ffd700;
 }
+.timeline-item h3 { font-size: 1rem; color: #ffd700; }
+.timeline-item p { font-size: 0.85rem; color: #ccc; }
 
-.timeline-item h3 {
-  font-size: 1rem;
-  color: #ffd700;
-}
-
-.timeline-item p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-/* ============================================
-   Products Grid (Projects Page)
-   ============================================ */
-.products-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
+/* ==== Products grid (projects) ==== */
+.products-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .products-grid .product-card .site-link {
   display: inline-block;
   margin-top: 10px;
@@ -710,22 +366,11 @@ footer {
   text-decoration: none;
   transition: 0.2s;
 }
+.products-grid .product-card .site-link:hover { background: #ffc857; }
 
-.products-grid .product-card .site-link:hover {
-  background: #ffc857;
-}
-
-/* ============================================
-   Contact
-   ============================================ */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.contact-grid input,
-.contact-grid textarea {
+/* ==== Contact ==== */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.contact-grid input, .contact-grid textarea {
   width: 100%;
   padding: 10px 14px;
   margin: 4px 0;
@@ -737,2729 +382,112 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ============================================
-   Scrollbar
-   ============================================ */
-::-webkit-scrollbar {
-  width: 4px;
+/* ==== Music player ==== */
+.music-container { max-width: 800px; margin: 0 auto; }
+.music-player {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 0, 0, 0.3));
+  border-radius: 25px;
+  padding: 25px;
+  margin-bottom: 30px;
 }
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ffd700;
-  border-radius: 8px;
-}
-
-/* ============================================
-   Media Queries - Tablet
-   ============================================ */
-@media (min-width: 600px) {
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-box {
-    grid-template-columns: repeat(3, 1fr);
-    text-align: right;
-  }
-  
-  .lang-buttons {
-    flex-direction: row;
-  }
-  
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  
-  .hero-card h1 {
-    font-size: 2rem;
-  }
-  
-  .nav-inner {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .brand {
-    width: auto;
-    justify-content: flex-start;
-  }
-  
-  .nav-links {
-    width: auto;
-  }
-  
-  .lang-switch-header {
-    width: auto;
-  }
-}
-
-/* ============================================
-   Media Queries - Desktop
-   ============================================ */
-@media (min-width: 1024px) {
-  .hero-card h1 {
-    font-size: 2.8rem;
-  }
-  
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .container {
-    padding: 0 24px;
-  }
-  
-  .glass {
-    padding: 30px;
-  }
-}
-
-/* ============================================
-   Media Queries - Small Mobile
-   ============================================ */
-@media (max-width: 400px) {
-  .nav-links a {
-    font-size: 0.65rem;
-    padding: 4px 8px;
-  }
-  
-  .hero-card h1 {
-    font-size: 1.3rem;
-  }
-  
-  .lead {
-    font-size: 0.85rem;
-  }
-  
-  .section-title h2 {
-    font-size: 1.2rem;
-  }
-  
-  .btn {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-  }
-  
-  .glass {
-    padding: 14px;
-  }
-}/* ============================================
-   Iranian Yekan Font
-   ============================================ */
-@font-face {
-  font-family: 'Yekan';
-  src: url('Yekan.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap;
-}
-
-/* ============================================
-   Reset & Base
-   ============================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: 'Yekan', 'Tahoma', 'Segoe UI', sans-serif !important;
-  background: #0a0f1e;
-  color: #eef5ff;
-  line-height: 1.7;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ============================================
-   English Font
-   ============================================ */
-html[lang="en"] body,
-html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4,
-html[lang="en"] p, html[lang="en"] a, html[lang="en"] button,
-html[lang="en"] input, html[lang="en"] textarea,
-html[lang="en"] .btn, html[lang="en"] .nav-links a {
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
-}
-
-/* ============================================
-   Container
-   ============================================ */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* ============================================
-   Navigation (Mobile First)
-   ============================================ */
-nav {
-  background: rgba(10, 15, 30, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.nav-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.brand {
+.player-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 100%;
   justify-content: center;
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.brand div {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-}
-.brand div span {
-  font-size: 0.6rem;
-  color: #666;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px;
-  width: 100%;
-}
-
-.nav-links a {
-  color: #eef5ff;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-}
-
-/* ===== دکمه تغییر زبان در هدر ===== */
-.lang-switch-header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 2px;
-}
-
-.lang-switch-btn {
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 4px 14px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.7rem;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.lang-switch-btn:hover {
-  background: rgba(255, 215, 0, 0.2);
-  border-color: #ffd700;
-}
-
-.lang-switch-btn i {
-  font-size: 0.8rem;
-}
-
-/* ============================================
-   Buttons
-   ============================================ */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.btn-primary {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.btn-primary:hover {
-  background: #ffed4a;
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: #eef5ff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* ============================================
-   Glass Effect
-   ============================================ */
-.glass {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 20px;
-}
-
-/* ============================================
-   Hero (Mobile First)
-   ============================================ */
-.hero {
-  padding: 30px 0;
-}
-
-.hero-grid {
-  display: flex;
-  flex-direction: column;
   gap: 20px;
-}
-
-.hero-card h1 {
-  font-size: 1.6rem;
-  margin-bottom: 14px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.gradient {
-  background: linear-gradient(90deg, #ffd700, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.lead {
-  font-size: 0.95rem;
-  color: #dde5f0;
-  margin-bottom: 12px;
-  line-height: 1.8;
-}
-
-.eyebrow {
-  color: #ffd700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.stat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.stat {
-  background: rgba(255, 255, 255, 0.04);
-  padding: 12px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.stat h3 {
-  color: #ffd700;
-  font-size: 1.4rem;
-}
-
-.stat p {
-  color: #aaa;
-  font-size: 0.75rem;
-}
-
-/* ============================================
-   Product & News Cards (Mobile First)
-   ============================================ */
-.products-preview,
-.news-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
   margin: 20px 0;
-}
-
-.product-card,
-.news-card {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 16px;
-  padding: 16px;
-  transition: 0.3s;
-}
-
-.product-card:hover,
-.news-card:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.product-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-}
-
-.product-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-  margin-bottom: 8px;
-}
-
-.tag {
-  display: inline-block;
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 2px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  margin: 3px 3px 0 0;
-}
-
-.news-date {
-  color: #ffd700;
-  font-size: 0.75rem;
-  margin-bottom: 6px;
-}
-
-.news-card h3 {
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-
-.news-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-.news-badge {
-  display: inline-block;
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 2px 10px;
-  border-radius: 20px;
-  font-size: 0.65rem;
-  margin-top: 8px;
-}
-
-/* ============================================
-   Footer (Mobile First)
-   ============================================ */
-footer {
-  margin-top: 40px;
-}
-
-.footer-box {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding: 20px 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  text-align: center;
-}
-
-.footer-box h3 {
-  color: #ffd700;
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-
-.footer-box p {
-  color: #aaa;
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-
-.copyright {
-  text-align: center;
-  padding: 16px 0;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 0.7rem;
-}
-
-/* ============================================
-   Utilities
-   ============================================ */
-.text-center {
-  text-align: center;
-}
-
-.section-title {
-  margin-bottom: 20px;
-}
-
-.section-title h2 {
-  color: #ffd700;
-  margin-bottom: 4px;
-  font-size: 1.4rem;
-}
-
-.section-title p {
-  color: #aaa;
-  font-size: 0.85rem;
-}
-
-/* ============================================
-   Language Overlay
-   ============================================ */
-.lang-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  opacity: 1;
-  visibility: visible;
-  padding: 20px;
-}
-
-.lang-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.glass-box {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 32px 24px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  border: 1px solid rgba(255, 215, 0, 0.12);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  animation: fadeScale 0.4s ease;
-}
-
-@keyframes fadeScale {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.lang-title {
-  color: #fff;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-  font-weight: 600;
-}
-
-.lang-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
-}
-
-.lang-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 60px;
-  padding: 14px 20px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: inherit;
-}
-
-.lang-btn:hover {
-  background: rgba(255, 215, 0, 0.15);
-  border-color: #ffd700;
-}
-
-.lang-btn:active {
-  transform: scale(0.96);
-}
-
-.flag-icon {
-  font-size: 1.6rem;
-}
-
-.lang-note {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.7rem;
-  margin-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 12px;
-}
-
-/* ============================================
-   Admin Panel
-   ============================================ */
-.admin-box {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.admin-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
 }
-
-.admin-tab {
-  padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.admin-tab.active {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.admin-panel {
-  display: none;
-}
-
-.admin-panel.active-panel {
-  display: block;
-}
-
-.news-item {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.del-btn {
-  padding: 6px 14px;
-  background: rgba(255, 79, 163, 0.15);
+.control-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  border-radius: 20px;
-  color: #ff6b6b;
-  cursor: pointer;
-  font-size: 0.8rem;
-}
-
-.logout-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: rgba(255, 79, 163, 0.15);
-  border: 1px solid rgba(255, 79, 163, 0.2);
-  border-radius: 12px;
-  cursor: pointer;
-  color: #ff6b6b;
-  font-size: 0.9rem;
-}
-
-.admin-input,
-.admin-textarea {
-  width: 100%;
-  padding: 10px 14px;
-  margin: 6px 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
   color: white;
-  font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
-
-.admin-textarea {
-  resize: vertical;
-  min-height: 70px;
-}
-
-/* ============================================
-   Blog (Mobile First)
-   ============================================ */
-.blog-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.blog-card {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border-right: 3px solid #ffd700;
-  transition: 0.2s;
-}
-
-.blog-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.blog-card .date {
-  font-size: 0.7rem;
-  color: #aaa;
-  margin-bottom: 4px;
-  display: block;
-}
-
-.blog-card h3 {
-  font-size: 1.1rem;
-  margin: 0 0 6px 0;
-  color: #fff;
-}
-
-.blog-card p {
-  color: #ccc;
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
-
-.blog-card .badge {
-  display: inline-block;
-  background: #ffd700;
-  color: #0a0f1e;
-  padding: 2px 12px;
-  border-radius: 30px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-/* ============================================
-   Timeline
-   ============================================ */
-.timeline {
-  padding-right: 16px;
-  border-right: 2px dashed rgba(255, 255, 255, 0.1);
-}
-
-.timeline-item {
-  padding: 16px;
-  margin-bottom: 14px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
+.control-btn:hover { background: #ffd700; color: #0a0f1e; }
+.progress-container {
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
   position: relative;
+  min-width: 100px;
 }
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  right: -22px;
-  top: 18px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffd700;
-}
-
-.timeline-item h3 {
-  font-size: 1rem;
-  color: #ffd700;
-}
-
-.timeline-item p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-/* ============================================
-   Products Grid (Projects Page)
-   ============================================ */
-.products-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.products-grid .product-card .site-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 14px;
-  background: #ffd700;
-  color: #0a0f1e;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.products-grid .product-card .site-link:hover {
-  background: #ffc857;
-}
-
-/* ============================================
-   Contact
-   ============================================ */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.contact-grid input,
-.contact-grid textarea {
-  width: 100%;
-  padding: 10px 14px;
-  margin: 4px 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: white;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-/* ============================================
-   Scrollbar
-   ============================================ */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ffd700;
-  border-radius: 8px;
-}
-
-/* ============================================
-   Media Queries - Tablet
-   ============================================ */
-@media (min-width: 600px) {
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-box {
-    grid-template-columns: repeat(3, 1fr);
-    text-align: right;
-  }
-  
-  .lang-buttons {
-    flex-direction: row;
-  }
-  
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  
-  .hero-card h1 {
-    font-size: 2rem;
-  }
-  
-  .nav-inner {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .brand {
-    width: auto;
-    justify-content: flex-start;
-  }
-  
-  .nav-links {
-    width: auto;
-  }
-  
-  .lang-switch-header {
-    width: auto;
-  }
-}
-
-/* ============================================
-   Media Queries - Desktop
-   ============================================ */
-@media (min-width: 1024px) {
-  .hero-card h1 {
-    font-size: 2.8rem;
-  }
-  
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .container {
-    padding: 0 24px;
-  }
-  
-  .glass {
-    padding: 30px;
-  }
-}
-
-/* ============================================
-   Media Queries - Small Mobile
-   ============================================ */
-@media (max-width: 400px) {
-  .nav-links a {
-    font-size: 0.65rem;
-    padding: 4px 8px;
-  }
-  
-  .hero-card h1 {
-    font-size: 1.3rem;
-  }
-  
-  .lead {
-    font-size: 0.85rem;
-  }
-  
-  .section-title h2 {
-    font-size: 1.2rem;
-  }
-  
-  .btn {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-  }
-  
-  .glass {
-    padding: 14px;
-  }
-}/* ============================================
-   Iranian Yekan Font
-   ============================================ */
-@font-face {
-  font-family: 'Yekan';
-  src: url('Yekan.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap;
-}
-
-/* ============================================
-   Reset & Base
-   ============================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: 'Yekan', 'Tahoma', 'Segoe UI', sans-serif !important;
-  background: #0a0f1e;
-  color: #eef5ff;
-  line-height: 1.7;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ============================================
-   English Font
-   ============================================ */
-html[lang="en"] body,
-html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4,
-html[lang="en"] p, html[lang="en"] a, html[lang="en"] button,
-html[lang="en"] input, html[lang="en"] textarea,
-html[lang="en"] .btn, html[lang="en"] .nav-links a {
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
-}
-
-/* ============================================
-   Container
-   ============================================ */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* ============================================
-   Navigation (Mobile First)
-   ============================================ */
-nav {
-  background: rgba(10, 15, 30, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.nav-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  justify-content: center;
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.logo img {
-  width: 100%;
+.progress-bar {
+  width: 0%;
   height: 100%;
-  object-fit: cover;
-}
-
-.brand div {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-}
-.brand div span {
-  font-size: 0.6rem;
-  color: #666;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px;
-  width: 100%;
-}
-
-.nav-links a {
-  color: #eef5ff;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-}
-
-/* ===== دکمه تغییر زبان در هدر ===== */
-.lang-switch-header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 2px;
-}
-
-.lang-switch-btn {
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 4px 14px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.7rem;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.lang-switch-btn:hover {
-  background: rgba(255, 215, 0, 0.2);
-  border-color: #ffd700;
-}
-
-.lang-switch-btn i {
-  font-size: 0.8rem;
-}
-
-/* ============================================
-   Buttons
-   ============================================ */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.btn-primary {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.btn-primary:hover {
-  background: #ffed4a;
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: #eef5ff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* ============================================
-   Glass Effect
-   ============================================ */
-.glass {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 20px;
-}
-
-/* ============================================
-   Hero (Mobile First)
-   ============================================ */
-.hero {
-  padding: 30px 0;
-}
-
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.hero-card h1 {
-  font-size: 1.6rem;
-  margin-bottom: 14px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.gradient {
   background: linear-gradient(90deg, #ffd700, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  border-radius: 10px;
 }
-
-.lead {
+.time-label { color: #aaa; font-size: 0.8rem; min-width: 45px; }
+.volume-slider {
+  width: 100px;
+  height: 4px;
+  cursor: pointer;
+  accent-color: #ffd700;
+}
+.song-title { color: #fff; text-align: center; font-size: 1.2rem; margin-top: 10px; }
+.song-artist { color: #aaa; text-align: center; font-size: 0.95rem; }
+.lyrics-box {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 25px;
+  border-inline-end: 4px solid #ffd700;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.lyrics-box pre {
+  font-family: 'Yekan', monospace;
+  white-space: pre-wrap;
   font-size: 0.95rem;
-  color: #dde5f0;
-  margin-bottom: 12px;
-  line-height: 1.8;
+  color: #cce5ff;
 }
+.verse-title { color: #ffd700; font-weight: bold; margin: 15px 0 5px; }
 
-.eyebrow {
-  color: #ffd700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.stat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.stat {
-  background: rgba(255, 255, 255, 0.04);
-  padding: 12px;
-  border-radius: 12px;
+/* ==== Quote ==== */
+.quote {
+  padding: 32px;
   text-align: center;
+  font-size: 1.15rem;
+  color: #fff5cf;
+  margin: 40px 0;
 }
 
-.stat h3 {
-  color: #ffd700;
-  font-size: 1.4rem;
-}
-
-.stat p {
-  color: #aaa;
-  font-size: 0.75rem;
-}
-
-/* ============================================
-   Product & News Cards (Mobile First)
-   ============================================ */
-.products-preview,
-.news-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin: 20px 0;
-}
-
-.product-card,
-.news-card {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 16px;
-  padding: 16px;
-  transition: 0.3s;
-}
-
-.product-card:hover,
-.news-card:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.product-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-}
-
-.product-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-  margin-bottom: 8px;
-}
-
-.tag {
-  display: inline-block;
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 2px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  margin: 3px 3px 0 0;
-}
-
-.news-date {
-  color: #ffd700;
-  font-size: 0.75rem;
-  margin-bottom: 6px;
-}
-
-.news-card h3 {
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-
-.news-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-.news-badge {
-  display: inline-block;
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 2px 10px;
-  border-radius: 20px;
-  font-size: 0.65rem;
-  margin-top: 8px;
-}
-
-/* ============================================
-   Footer (Mobile First)
-   ============================================ */
-footer {
-  margin-top: 40px;
-}
-
-.footer-box {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding: 20px 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  text-align: center;
-}
-
-.footer-box h3 {
-  color: #ffd700;
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-
-.footer-box p {
-  color: #aaa;
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-
-.copyright {
-  text-align: center;
-  padding: 16px 0;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 0.7rem;
-}
-
-/* ============================================
-   Utilities
-   ============================================ */
-.text-center {
-  text-align: center;
-}
-
-.section-title {
-  margin-bottom: 20px;
-}
-
-.section-title h2 {
-  color: #ffd700;
-  margin-bottom: 4px;
-  font-size: 1.4rem;
-}
-
-.section-title p {
-  color: #aaa;
-  font-size: 0.85rem;
-}
-
-/* ============================================
-   Language Overlay
-   ============================================ */
-.lang-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  opacity: 1;
-  visibility: visible;
-  padding: 20px;
-}
-
-.lang-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.glass-box {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 32px 24px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  border: 1px solid rgba(255, 215, 0, 0.12);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  animation: fadeScale 0.4s ease;
-}
-
-@keyframes fadeScale {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.lang-title {
-  color: #fff;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-  font-weight: 600;
-}
-
-.lang-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
-}
-
-.lang-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 60px;
-  padding: 14px 20px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: inherit;
-}
-
-.lang-btn:hover {
-  background: rgba(255, 215, 0, 0.15);
-  border-color: #ffd700;
-}
-
-.lang-btn:active {
-  transform: scale(0.96);
-}
-
-.flag-icon {
-  font-size: 1.6rem;
-}
-
-.lang-note {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.7rem;
-  margin-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 12px;
-}
-
-/* ============================================
-   Admin Panel
-   ============================================ */
-.admin-box {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.admin-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.admin-tab {
-  padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.admin-tab.active {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.admin-panel {
-  display: none;
-}
-
-.admin-panel.active-panel {
-  display: block;
-}
-
-.news-item {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.del-btn {
-  padding: 6px 14px;
-  background: rgba(255, 79, 163, 0.15);
-  border: none;
-  border-radius: 20px;
-  color: #ff6b6b;
-  cursor: pointer;
-  font-size: 0.8rem;
-}
-
-.logout-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: rgba(255, 79, 163, 0.15);
-  border: 1px solid rgba(255, 79, 163, 0.2);
-  border-radius: 12px;
-  cursor: pointer;
-  color: #ff6b6b;
-  font-size: 0.9rem;
-}
-
-.admin-input,
-.admin-textarea {
-  width: 100%;
-  padding: 10px 14px;
-  margin: 6px 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: white;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-.admin-textarea {
-  resize: vertical;
-  min-height: 70px;
-}
-
-/* ============================================
-   Blog (Mobile First)
-   ============================================ */
-.blog-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.blog-card {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border-right: 3px solid #ffd700;
-  transition: 0.2s;
-}
-
-.blog-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.blog-card .date {
-  font-size: 0.7rem;
-  color: #aaa;
-  margin-bottom: 4px;
-  display: block;
-}
-
-.blog-card h3 {
-  font-size: 1.1rem;
-  margin: 0 0 6px 0;
-  color: #fff;
-}
-
-.blog-card p {
-  color: #ccc;
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
-
-.blog-card .badge {
-  display: inline-block;
-  background: #ffd700;
-  color: #0a0f1e;
-  padding: 2px 12px;
-  border-radius: 30px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-/* ============================================
-   Timeline
-   ============================================ */
-.timeline {
-  padding-right: 16px;
-  border-right: 2px dashed rgba(255, 255, 255, 0.1);
-}
-
-.timeline-item {
-  padding: 16px;
-  margin-bottom: 14px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  position: relative;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  right: -22px;
-  top: 18px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffd700;
-}
-
-.timeline-item h3 {
-  font-size: 1rem;
-  color: #ffd700;
-}
-
-.timeline-item p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-/* ============================================
-   Products Grid (Projects Page)
-   ============================================ */
-.products-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.products-grid .product-card .site-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 14px;
-  background: #ffd700;
-  color: #0a0f1e;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.products-grid .product-card .site-link:hover {
-  background: #ffc857;
-}
-
-/* ============================================
-   Contact
-   ============================================ */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.contact-grid input,
-.contact-grid textarea {
-  width: 100%;
-  padding: 10px 14px;
-  margin: 4px 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: white;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-/* ============================================
-   Scrollbar
-   ============================================ */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ffd700;
-  border-radius: 8px;
-}
+/* ==== Scrollbar ==== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 8px; }
+::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 8px; }
 
-/* ============================================
-   Media Queries - Tablet
-   ============================================ */
+/* ==== Media Queries ==== */
 @media (min-width: 600px) {
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-box {
-    grid-template-columns: repeat(3, 1fr);
-    text-align: right;
-  }
-  
-  .lang-buttons {
-    flex-direction: row;
-  }
-  
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  
-  .hero-card h1 {
-    font-size: 2rem;
-  }
-  
-  .nav-inner {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .brand {
-    width: auto;
-    justify-content: flex-start;
-  }
-  
-  .nav-links {
-    width: auto;
-  }
-  
-  .lang-switch-header {
-    width: auto;
-  }
+  .products-preview, .news-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-box { grid-template-columns: repeat(3, 1fr); }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .hero-card h1 { font-size: 2rem; }
+  .nav-inner { flex-direction: row; justify-content: space-between; }
+  .nav-links { width: auto; }
+  .lang-switch-header { width: auto; }
 }
-
-/* ============================================
-   Media Queries - Desktop
-   ============================================ */
 @media (min-width: 1024px) {
-  .hero-card h1 {
-    font-size: 2.8rem;
-  }
-  
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .container {
-    padding: 0 24px;
-  }
-  
-  .glass {
-    padding: 30px;
-  }
+  .hero-card h1 { font-size: 2.8rem; }
+  .products-preview, .news-grid { grid-template-columns: repeat(3, 1fr); }
+  .container { padding: 0 24px; }
+  .glass { padding: 30px; }
 }
-
-/* ============================================
-   Media Queries - Small Mobile
-   ============================================ */
 @media (max-width: 400px) {
-  .nav-links a {
-    font-size: 0.65rem;
-    padding: 4px 8px;
-  }
-  
-  .hero-card h1 {
-    font-size: 1.3rem;
-  }
-  
-  .lead {
-    font-size: 0.85rem;
-  }
-  
-  .section-title h2 {
-    font-size: 1.2rem;
-  }
-  
-  .btn {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-  }
-  
-  .glass {
-    padding: 14px;
-  }
-}/* ============================================
-   Iranian Yekan Font
-   ============================================ */
-@font-face {
-  font-family: 'Yekan';
-  src: url('Yekan.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap;
-}
-
-/* ============================================
-   Reset & Base
-   ============================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: 'Yekan', 'Tahoma', 'Segoe UI', sans-serif !important;
-  background: #0a0f1e;
-  color: #eef5ff;
-  line-height: 1.7;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ============================================
-   English Font
-   ============================================ */
-html[lang="en"] body,
-html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4,
-html[lang="en"] p, html[lang="en"] a, html[lang="en"] button,
-html[lang="en"] input, html[lang="en"] textarea,
-html[lang="en"] .btn, html[lang="en"] .nav-links a {
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
-}
-
-/* ============================================
-   Container
-   ============================================ */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* ============================================
-   Navigation (Mobile First)
-   ============================================ */
-nav {
-  background: rgba(10, 15, 30, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.nav-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  justify-content: center;
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.brand div {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-}
-.brand div span {
-  font-size: 0.6rem;
-  color: #666;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px;
-  width: 100%;
-}
-
-.nav-links a {
-  color: #eef5ff;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-}
-
-/* ===== دکمه تغییر زبان در هدر ===== */
-.lang-switch-header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 2px;
-}
-
-.lang-switch-btn {
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 4px 14px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.7rem;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.lang-switch-btn:hover {
-  background: rgba(255, 215, 0, 0.2);
-  border-color: #ffd700;
-}
-
-.lang-switch-btn i {
-  font-size: 0.8rem;
-}
-
-/* ============================================
-   Buttons
-   ============================================ */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.btn-primary {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.btn-primary:hover {
-  background: #ffed4a;
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: #eef5ff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* ============================================
-   Glass Effect
-   ============================================ */
-.glass {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 20px;
-}
-
-/* ============================================
-   Hero (Mobile First)
-   ============================================ */
-.hero {
-  padding: 30px 0;
-}
-
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.hero-card h1 {
-  font-size: 1.6rem;
-  margin-bottom: 14px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.gradient {
-  background: linear-gradient(90deg, #ffd700, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.lead {
-  font-size: 0.95rem;
-  color: #dde5f0;
-  margin-bottom: 12px;
-  line-height: 1.8;
-}
-
-.eyebrow {
-  color: #ffd700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.stat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.stat {
-  background: rgba(255, 255, 255, 0.04);
-  padding: 12px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.stat h3 {
-  color: #ffd700;
-  font-size: 1.4rem;
-}
-
-.stat p {
-  color: #aaa;
-  font-size: 0.75rem;
-}
-
-/* ============================================
-   Product & News Cards (Mobile First)
-   ============================================ */
-.products-preview,
-.news-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin: 20px 0;
-}
-
-.product-card,
-.news-card {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 16px;
-  padding: 16px;
-  transition: 0.3s;
-}
-
-.product-card:hover,
-.news-card:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.product-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-}
-
-.product-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-  margin-bottom: 8px;
-}
-
-.tag {
-  display: inline-block;
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 2px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  margin: 3px 3px 0 0;
-}
-
-.news-date {
-  color: #ffd700;
-  font-size: 0.75rem;
-  margin-bottom: 6px;
-}
-
-.news-card h3 {
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-
-.news-card p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-.news-badge {
-  display: inline-block;
-  background: rgba(255, 215, 0, 0.15);
-  color: #ffd700;
-  padding: 2px 10px;
-  border-radius: 20px;
-  font-size: 0.65rem;
-  margin-top: 8px;
-}
-
-/* ============================================
-   Footer (Mobile First)
-   ============================================ */
-footer {
-  margin-top: 40px;
-}
-
-.footer-box {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding: 20px 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  text-align: center;
-}
-
-.footer-box h3 {
-  color: #ffd700;
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-
-.footer-box p {
-  color: #aaa;
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-
-.copyright {
-  text-align: center;
-  padding: 16px 0;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 0.7rem;
-}
-
-/* ============================================
-   Utilities
-   ============================================ */
-.text-center {
-  text-align: center;
-}
-
-.section-title {
-  margin-bottom: 20px;
-}
-
-.section-title h2 {
-  color: #ffd700;
-  margin-bottom: 4px;
-  font-size: 1.4rem;
-}
-
-.section-title p {
-  color: #aaa;
-  font-size: 0.85rem;
-}
-
-/* ============================================
-   Language Overlay
-   ============================================ */
-.lang-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  opacity: 1;
-  visibility: visible;
-  padding: 20px;
-}
-
-.lang-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.glass-box {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 32px 24px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  border: 1px solid rgba(255, 215, 0, 0.12);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  animation: fadeScale 0.4s ease;
-}
-
-@keyframes fadeScale {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.lang-title {
-  color: #fff;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-  font-weight: 600;
-}
-
-.lang-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
-}
-
-.lang-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 60px;
-  padding: 14px 20px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: inherit;
-}
-
-.lang-btn:hover {
-  background: rgba(255, 215, 0, 0.15);
-  border-color: #ffd700;
-}
-
-.lang-btn:active {
-  transform: scale(0.96);
-}
-
-.flag-icon {
-  font-size: 1.6rem;
-}
-
-.lang-note {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.7rem;
-  margin-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 12px;
-}
-
-/* ============================================
-   Admin Panel
-   ============================================ */
-.admin-box {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.admin-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.admin-tab {
-  padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.admin-tab.active {
-  background: #ffd700;
-  color: #0a0f1e;
-}
-
-.admin-panel {
-  display: none;
-}
-
-.admin-panel.active-panel {
-  display: block;
-}
-
-.news-item {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.del-btn {
-  padding: 6px 14px;
-  background: rgba(255, 79, 163, 0.15);
-  border: none;
-  border-radius: 20px;
-  color: #ff6b6b;
-  cursor: pointer;
-  font-size: 0.8rem;
-}
-
-.logout-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: rgba(255, 79, 163, 0.15);
-  border: 1px solid rgba(255, 79, 163, 0.2);
-  border-radius: 12px;
-  cursor: pointer;
-  color: #ff6b6b;
-  font-size: 0.9rem;
-}
-
-.admin-input,
-.admin-textarea {
-  width: 100%;
-  padding: 10px 14px;
-  margin: 6px 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: white;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-.admin-textarea {
-  resize: vertical;
-  min-height: 70px;
-}
-
-/* ============================================
-   Blog (Mobile First)
-   ============================================ */
-.blog-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.blog-card {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border-right: 3px solid #ffd700;
-  transition: 0.2s;
-}
-
-.blog-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.blog-card .date {
-  font-size: 0.7rem;
-  color: #aaa;
-  margin-bottom: 4px;
-  display: block;
-}
-
-.blog-card h3 {
-  font-size: 1.1rem;
-  margin: 0 0 6px 0;
-  color: #fff;
-}
-
-.blog-card p {
-  color: #ccc;
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
-
-.blog-card .badge {
-  display: inline-block;
-  background: #ffd700;
-  color: #0a0f1e;
-  padding: 2px 12px;
-  border-radius: 30px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-/* ============================================
-   Timeline
-   ============================================ */
-.timeline {
-  padding-right: 16px;
-  border-right: 2px dashed rgba(255, 255, 255, 0.1);
-}
-
-.timeline-item {
-  padding: 16px;
-  margin-bottom: 14px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  position: relative;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  right: -22px;
-  top: 18px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffd700;
-}
-
-.timeline-item h3 {
-  font-size: 1rem;
-  color: #ffd700;
-}
-
-.timeline-item p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-/* ============================================
-   Products Grid (Projects Page)
-   ============================================ */
-.products-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.products-grid .product-card .site-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 14px;
-  background: #ffd700;
-  color: #0a0f1e;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.products-grid .product-card .site-link:hover {
-  background: #ffc857;
-}
-
-/* ============================================
-   Contact
-   ============================================ */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.contact-grid input,
-.contact-grid textarea {
-  width: 100%;
-  padding: 10px 14px;
-  margin: 4px 0;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: white;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-/* ============================================
-   Scrollbar
-   ============================================ */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ffd700;
-  border-radius: 8px;
-}
-
-/* ============================================
-   Media Queries - Tablet
-   ============================================ */
-@media (min-width: 600px) {
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-box {
-    grid-template-columns: repeat(3, 1fr);
-    text-align: right;
-  }
-  
-  .lang-buttons {
-    flex-direction: row;
-  }
-  
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  
-  .hero-card h1 {
-    font-size: 2rem;
-  }
-  
-  .nav-inner {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .brand {
-    width: auto;
-    justify-content: flex-start;
-  }
-  
-  .nav-links {
-    width: auto;
-  }
-  
-  .lang-switch-header {
-    width: auto;
-  }
-}
-
-/* ============================================
-   Media Queries - Desktop
-   ============================================ */
-@media (min-width: 1024px) {
-  .hero-card h1 {
-    font-size: 2.8rem;
-  }
-  
-  .products-preview,
-  .news-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .container {
-    padding: 0 24px;
-  }
-  
-  .glass {
-    padding: 30px;
-  }
-}
-
-/* ============================================
-   Media Queries - Small Mobile
-   ============================================ */
-@media (max-width: 400px) {
-  .nav-links a {
-    font-size: 0.65rem;
-    padding: 4px 8px;
-  }
-  
-  .hero-card h1 {
-    font-size: 1.3rem;
-  }
-  
-  .lead {
-    font-size: 0.85rem;
-  }
-  
-  .section-title h2 {
-    font-size: 1.2rem;
-  }
-  
-  .btn {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-  }
-  
-  .glass {
-    padding: 14px;
-  }
+  .nav-links a { font-size: 0.65rem; padding: 4px 8px; }
+  .hero-card h1 { font-size: 1.3rem; }
+  .lead { font-size: 0.85rem; }
+  .section-title h2 { font-size: 1.2rem; }
+  .btn { font-size: 0.8rem; padding: 8px 16px; }
+  .glass { padding: 14px; }
 }
